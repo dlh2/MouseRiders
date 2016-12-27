@@ -1,16 +1,10 @@
 ﻿@model MouseRidersGenNHibernate.EN.MouseRiders.BloqueoEN
+
 @{
-    Layout = null;
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
-</head>
-<body>
     <script src="~/Scripts/jquery-1.8.2.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
@@ -20,25 +14,25 @@
         @Html.ValidationSummary(true)
     
         <fieldset>
-            <legend>BloqueoEN</legend><div class="editor-label">
+            <legend>BloqueoEN</legend>
+    
+            @Html.HiddenFor(model => model.Id)
+    
+            <div class="editor-label">
                 @Html.LabelFor(model => model.FechaInicio)
             </div>
             <div class="editor-field">
                 @Html.EditorFor(model => model.FechaInicio)
                 @Html.ValidationMessageFor(model => model.FechaInicio)
-            </div><div class="editor-label">
+            </div>
+    
+            <div class="editor-label">
                 @Html.LabelFor(model => model.FechaFin)
             </div>
             <div class="editor-field">
                 @Html.EditorFor(model => model.FechaFin)
                 @Html.ValidationMessageFor(model => model.FechaFin)
-            </div>@Html.HiddenFor(model => model.Id)
-            @Html.HiddenFor(model => model.FechaRegistro)
-            @Html.HiddenFor(model => model.Puntuacion)
-@Html.HiddenFor(model => model.Id)
-            @Html.HiddenFor(model => model.FechaRegistro)
-            @Html.HiddenFor(model => model.Puntuacion)
-
+            </div>
     
             <p>
                 <input type="submit" value="Save" />
@@ -49,5 +43,3 @@
     <div>
         @Html.ActionLink("Back to List", "Index")
     </div>
-</body>
-</html>
