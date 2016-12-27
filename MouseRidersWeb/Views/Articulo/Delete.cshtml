@@ -1,0 +1,90 @@
+﻿@model MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>ArticuloEN</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Titulo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Titulo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Autor)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Autor)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Contenido)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Contenido)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ContenidoDescargable)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ContenidoDescargable)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Puntuacion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Puntuacion)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Fecha)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Fecha)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Contador)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Contador)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Subtitulo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Subtitulo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Portada)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Portada)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Descripcion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Descripcion)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

@@ -1,0 +1,30 @@
+﻿@model MouseRidersGenNHibernate.EN.MouseRiders.EncuestaEN
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <fieldset>
+        <legend>EncuestaEN</legend>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Titulo)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Titulo)
+        </div>
+    </fieldset>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

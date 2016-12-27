@@ -1,0 +1,162 @@
+
+using System;
+// Definición clase ComentarioEN
+namespace MouseRidersGenNHibernate.EN.MouseRiders
+{
+public partial class ComentarioEN
+{
+/**
+ *	Atributo id
+ */
+private int id;
+
+
+
+/**
+ *	Atributo creador
+ */
+private string creador;
+
+
+
+/**
+ *	Atributo fecha
+ */
+private Nullable<DateTime> fecha;
+
+
+
+/**
+ *	Atributo contenido
+ */
+private string contenido;
+
+
+
+/**
+ *	Atributo valoracion
+ */
+private int valoracion;
+
+
+
+/**
+ *	Atributo pertenece
+ */
+private MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN pertenece;
+
+
+
+/**
+ *	Atributo pertenece_a
+ */
+private MouseRidersGenNHibernate.EN.MouseRiders.HiloEN pertenece_a;
+
+
+
+
+
+
+public virtual int Id {
+        get { return id; } set { id = value;  }
+}
+
+
+
+public virtual string Creador {
+        get { return creador; } set { creador = value;  }
+}
+
+
+
+public virtual Nullable<DateTime> Fecha {
+        get { return fecha; } set { fecha = value;  }
+}
+
+
+
+public virtual string Contenido {
+        get { return contenido; } set { contenido = value;  }
+}
+
+
+
+public virtual int Valoracion {
+        get { return valoracion; } set { valoracion = value;  }
+}
+
+
+
+public virtual MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN Pertenece {
+        get { return pertenece; } set { pertenece = value;  }
+}
+
+
+
+public virtual MouseRidersGenNHibernate.EN.MouseRiders.HiloEN Pertenece_a {
+        get { return pertenece_a; } set { pertenece_a = value;  }
+}
+
+
+
+
+
+public ComentarioEN()
+{
+}
+
+
+
+public ComentarioEN(int id, string creador, Nullable<DateTime> fecha, string contenido, int valoracion, MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN pertenece, MouseRidersGenNHibernate.EN.MouseRiders.HiloEN pertenece_a
+                    )
+{
+        this.init (Id, creador, fecha, contenido, valoracion, pertenece, pertenece_a);
+}
+
+
+public ComentarioEN(ComentarioEN comentario)
+{
+        this.init (Id, comentario.Creador, comentario.Fecha, comentario.Contenido, comentario.Valoracion, comentario.Pertenece, comentario.Pertenece_a);
+}
+
+private void init (int id
+                   , string creador, Nullable<DateTime> fecha, string contenido, int valoracion, MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN pertenece, MouseRidersGenNHibernate.EN.MouseRiders.HiloEN pertenece_a)
+{
+        this.Id = id;
+
+
+        this.Creador = creador;
+
+        this.Fecha = fecha;
+
+        this.Contenido = contenido;
+
+        this.Valoracion = valoracion;
+
+        this.Pertenece = pertenece;
+
+        this.Pertenece_a = pertenece_a;
+}
+
+public override bool Equals (object obj)
+{
+        if (obj == null)
+                return false;
+        ComentarioEN t = obj as ComentarioEN;
+        if (t == null)
+                return false;
+        if (Id.Equals (t.Id))
+                return true;
+        else
+                return false;
+}
+
+public override int GetHashCode ()
+{
+        int hash = 13;
+
+        hash += this.Id.GetHashCode ();
+        return hash;
+}
+}
+}

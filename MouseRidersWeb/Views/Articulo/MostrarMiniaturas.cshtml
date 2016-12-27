@@ -1,0 +1,23 @@
+﻿@model IEnumerable<MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN>
+
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+    <hr class="featurette-divider">
+
+        <!-- First Featurette -->
+    <div class="featurette">
+        <img class="featurette-image img-circle img-responsive pull-right" src="@Html.DisplayFor(modelItem => item.Portada)">
+        <h2 class="featurette-heading">
+            @Html.DisplayFor(modelItem => item.Titulo)
+            <span class="text-muted">@Html.DisplayFor(modelItem => item.Subtitulo)</span>
+        </h2>
+        <p class="lead">@Html.DisplayFor(modelItem => item.Descripcion)</p>
+    </div>
+
+    <hr class="featurette-divider">
+}
+

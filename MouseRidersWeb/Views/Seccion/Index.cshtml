@@ -1,0 +1,27 @@
+﻿@model IEnumerable<MouseRidersGenNHibernate.EN.MouseRiders.SeccionEN>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.Seccion}) |
+            @Html.ActionLink("Details", "Details", new { id = item.Seccion }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Seccion })
+        </td>
+    </tr>
+}
+
+</table>

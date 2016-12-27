@@ -1,0 +1,44 @@
+﻿@model MouseRidersGenNHibernate.EN.MouseRiders.RespuestaEN
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <fieldset>
+        <legend>RespuestaEN</legend>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Respuesta)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Respuesta)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Contador)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Contador)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Frecuencia)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Frecuencia)
+        </div>
+    </fieldset>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

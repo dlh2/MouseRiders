@@ -1,0 +1,44 @@
+﻿@model MouseRidersGenNHibernate.EN.MouseRiders.RecompensaEN
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <fieldset>
+        <legend>RecompensaEN</legend>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Nombre)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Nombre)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Descripcion)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Descripcion)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Puntuacion)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Puntuacion)
+        </div>
+    </fieldset>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

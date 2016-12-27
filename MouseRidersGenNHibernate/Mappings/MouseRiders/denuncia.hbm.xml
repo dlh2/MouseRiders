@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="MouseRidersGenNHibernate"
+		                   namespace="MouseRidersGenNHibernate.EN.MouseRiders">
+		    
+		    
+			
+				<class name="DenunciaEN" table="Denuncia"> 
+				  	
+						<id name="Id" column="idDenuncia" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Motivo" type="string"> 
+						<column name="motivo"  not-null="true"/>
+					</property>
+					<property name="Fecha" type="date"> 
+						<column name="fecha"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+		  			
+						<many-to-one name="Pertenece" class="MouseRidersGenNHibernate.EN.MouseRiders.BloqueoEN" >	
+								<column name="FK_idBloqueo_idBloqueo"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Es_creada" class="MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN" >	
+								<column name="FK_id_idUsuario_0"/> 
+						</many-to-one>
+											 					
+			
+			
+		  			
+						<many-to-one name="Es_recibida" class="MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN" >	
+								<column name="FK_id_idUsuario"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="DenunciaENReadAllHQL">from DenunciaEN</query>
+		</hibernate-mapping>
+	

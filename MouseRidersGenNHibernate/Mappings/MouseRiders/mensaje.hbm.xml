@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="MouseRidersGenNHibernate"
+		                   namespace="MouseRidersGenNHibernate.EN.MouseRiders">
+		    
+		    
+			
+				<class name="MensajeEN" table="Mensaje"> 
+				  	
+						<id name="Id" column="idMensaje" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Asunto" type="string"> 
+						<column name="asunto"  not-null="true"/>
+					</property>
+					<property name="Texto" type="string"> 
+						<column name="texto"  not-null="true"/>
+					</property>
+					<property name="Adjunto" type="string"> 
+						<column name="adjunto"  not-null="true"/>
+					</property>
+					<property name="Tipo" > 
+						<column name="tipo"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<many-to-one name="Es_enviado" class="MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN" >	
+								<column name="FK_id_idUsuario"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<bag name="Es_recibido" table="[usuario_mensaje_2]" inverse="true" >
+							<key>
+								
+									<column name="FK_idMensaje_idMensaje"/> 
+							</key>
+      						<many-to-many class="MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN">
+									<column name="FK_id_idEs_recibido"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<many-to-one name="Es_enviadoN" class="MouseRidersGenNHibernate.EN.MouseRiders.ControladorNotificacionesEN" >	
+								<column name="FK_idControladorNotificaciones_idControladorNotificaciones"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="MensajeENReadAllHQL">from MensajeEN</query>
+		</hibernate-mapping>
+	

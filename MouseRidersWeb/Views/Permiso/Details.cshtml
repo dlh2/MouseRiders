@@ -1,0 +1,30 @@
+﻿@model MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <fieldset>
+        <legend>PermisoEN</legend>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Permisos)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Permisos)
+        </div>
+    </fieldset>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

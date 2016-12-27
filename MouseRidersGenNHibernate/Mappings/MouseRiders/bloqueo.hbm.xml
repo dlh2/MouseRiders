@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="MouseRidersGenNHibernate"
+		                   namespace="MouseRidersGenNHibernate.EN.MouseRiders">
+		    
+		    
+			
+				<class name="BloqueoEN" table="Bloqueo"> 
+				  	
+						<id name="Id" column="idBloqueo" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="FechaInicio" type="date"> 
+						<column name="fechaInicio"  not-null="true"/>
+					</property>
+					<property name="FechaFin" type="date"> 
+						<column name="fechaFin"  not-null="true"/>
+					</property>
+			
+			
+			
+		  			
+						<bag name="Contiene" >
+							<key>
+							
+								
+								<column name="FK_idBloqueo_idBloqueo"/>
+					      	</key>
+							<one-to-many class="MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN"/>
+					    </bag>
+					
+			
+		  			
+					
+							<many-to-one name="Pertenece" class="MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN" >
+								<column name="FK_id_idUsuario"/> 
+        					</many-to-one>
+					 
+						
+			
+			
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="BloqueoENReadAllHQL">from BloqueoEN</query>
+		</hibernate-mapping>
+	

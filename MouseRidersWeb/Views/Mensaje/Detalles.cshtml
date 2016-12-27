@@ -1,0 +1,48 @@
+﻿@model MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MensajeDetalles</title>
+</head>
+<body>
+    <div>
+        <h4>MensajeEN</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Asunto)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Asunto)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Texto)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Texto)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Adjunto)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Adjunto)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

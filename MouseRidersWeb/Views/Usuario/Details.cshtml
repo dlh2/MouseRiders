@@ -1,0 +1,80 @@
+﻿@model MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <fieldset>
+        <legend>UsuarioEN</legend>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Email)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Email)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Nombre)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Nombre)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Apellidos)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Apellidos)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Pais)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Pais)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Telefono)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Telefono)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Puntuacion)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Puntuacion)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.FechaRegistro)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.FechaRegistro)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Contrasenya)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Contrasenya)
+        </div>
+    </fieldset>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+        @Html.ActionLink("Back to List", "Index") |
+        @Html.ActionLink("Ver Denuncias Recibidas", "VerDenunciasRecibidas", new { id = Model.Id })
+    </p>
+</body>
+</html>

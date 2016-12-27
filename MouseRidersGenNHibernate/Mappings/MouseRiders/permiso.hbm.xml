@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="MouseRidersGenNHibernate"
+		                   namespace="MouseRidersGenNHibernate.EN.MouseRiders">
+		    
+		    
+			
+				<class name="PermisoEN" table="Permiso"> 
+				<composite-id name="PermisoOID" 
+				class="MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN_OID">
+					<key-property name="Rol"/> 
+					<key-property name="Permiso"/> 
+				</composite-id>	
+		
+			
+					
+					<property name="Permisos" type="string"> 
+						<column name="permisos"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+		  			
+						<bag name="Pertenece" table="[usuario_permiso]" inverse="true" >
+							<key>
+								
+									<column name="FK_rol_idPermiso"/> 
+									<column name="FK_permiso_idPermiso"/> 
+							</key>
+      						<many-to-many class="MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN">
+									<column name="FK_id_idUsuario"/> 
+      						</many-to-many>
+    					</bag>
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="PermisoENReadAllHQL">from PermisoEN</query>
+		</hibernate-mapping>
+	

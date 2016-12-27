@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Inicio";
+}
+@section featured {
+<!-- Full Width Image Header -->
+<header class="header-image">
+    <div class="headline">
+        <div class="container">
+            <h1>Mouse Riders</h1>
+            <h2>Algo más que una revista</h2>
+        </div>
+    </div>
+</header>
+
+}
+
+
+@{ Html.RenderAction("MostrarMiniaturas", "Articulo", new { num = 0 });}
+
+
+<button type="button" class="btn btn-default btn-lg btn-block">Mostrar más</button>

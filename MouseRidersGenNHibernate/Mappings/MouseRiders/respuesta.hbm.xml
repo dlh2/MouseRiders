@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="MouseRidersGenNHibernate"
+		                   namespace="MouseRidersGenNHibernate.EN.MouseRiders">
+		    
+		    
+			
+				<class name="RespuestaEN" table="Respuesta"> 
+				  	
+						<id name="Id" column="idRespuesta" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Respuesta" type="string"> 
+						<column name="respuesta"  not-null="true"/>
+					</property>
+					<property name="Tipo" > 
+						<column name="tipo"  not-null="true"/>
+					</property>
+					<property name="Contador" type="integer"> 
+						<column name="contador"  not-null="true"/>
+					</property>
+					<property name="Frecuencia" type="float"> 
+						<column name="frecuencia"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+		  			
+						<many-to-one name="Pertenece" class="MouseRidersGenNHibernate.EN.MouseRiders.PreguntaEN" >	
+								<column name="FK_idPregunta_idPregunta"/> 
+						</many-to-one>
+											 					
+			
+			
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="RespuestaENReadAllHQL">from RespuestaEN</query>
+		</hibernate-mapping>
+	

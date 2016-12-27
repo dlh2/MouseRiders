@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="MouseRidersGenNHibernate"
+		                   namespace="MouseRidersGenNHibernate.EN.MouseRiders">
+		    
+		    
+			
+				<class name="UsuarioEN" table="Usuario"> 
+						<id name="Id" column="id"/> 
+			
+					
+					<property name="Email" type="string"> 
+						<column name="emailUsuario"  unique="true" not-null="true"/>
+					</property>
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
+					<property name="Apellidos" type="string"> 
+						<column name="apellidos"  not-null="true"/>
+					</property>
+					<property name="Pais" type="string"> 
+						<column name="pais"  not-null="true"/>
+					</property>
+					<property name="Telefono" type="integer"> 
+						<column name="telefono"  not-null="true"/>
+					</property>
+					<property name="Puntuacion" type="integer"> 
+						<column name="puntuacion"  not-null="true"/>
+					</property>
+					<property name="FechaRegistro" type="date"> 
+						<column name="fechaRegistro"  not-null="true"/>
+					</property>
+					<property name="Contrasenya" type="string"> 
+						<column name="contrasenya"  not-null="true"/>
+					</property>
+					<property name="Nombreusuario" type="string"> 
+						<column name="nombreusuario"  unique="true" not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="CreaD" >
+							<key>
+							
+								
+								<column name="FK_id_idUsuario_0"/>
+					      	</key>
+							<one-to-many class="MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Obtiene" table="[usuario_recompensa]"  >
+							<key>
+								
+									<column name="FK_id_idUsuario"/> 
+							</key>
+      						<many-to-many class="MouseRidersGenNHibernate.EN.MouseRiders.RecompensaEN">
+									<column name="FK_idRecompensa_idRecompensa"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Tiene" table="[usuario_permiso]"  >
+							<key>
+								
+									<column name="FK_id_idUsuario"/> 
+							</key>
+      						<many-to-many class="MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN">
+									<column name="FK_rol_idPermiso"/> 
+									<column name="FK_permiso_idPermiso"/> 
+      						</many-to-many>
+    					</bag>
+			
+			
+		  			
+						<bag name="Envia" >
+							<key>
+							
+								
+								<column name="FK_id_idUsuario"/>
+					      	</key>
+							<one-to-many class="MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Recibe" table="[usuario_mensaje_2]"  >
+							<key>
+								
+									<column name="FK_id_idEs_recibido"/> 
+							</key>
+      						<many-to-many class="MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN">
+									<column name="FK_idMensaje_idMensaje"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+					
+							   <one-to-one name="Es_de" class="MouseRidersGenNHibernate.EN.MouseRiders.BloqueoEN" property-ref="Pertenece" />							
+					 
+						
+			
+			
+		  			
+						<bag name="RecibeD" >
+							<key>
+							
+								
+								<column name="FK_id_idUsuario"/>
+					      	</key>
+							<one-to-many class="MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN"/>
+					    </bag>
+					
+			
+			
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="UsuarioENReadAllHQL">from UsuarioEN</query>
+		</hibernate-mapping>
+	

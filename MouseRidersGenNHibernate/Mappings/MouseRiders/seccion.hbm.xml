@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="MouseRidersGenNHibernate"
+		                   namespace="MouseRidersGenNHibernate.EN.MouseRiders">
+		    
+		    
+			
+				<class name="SeccionEN" table="Seccion"> 
+						<id name="Seccion" column="seccion"/> 
+			
+					
+			
+			
+		  			
+						<bag name="Tiene" cascade="delete">
+							<key>
+							
+								
+								<column name="FK_seccion_idSeccion"/>
+					      	</key>
+							<one-to-many class="MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN"/>
+					    </bag>
+					
+			
+					
+					
+		
+		 </class>	
+		  
+		  <query name="SeccionENReadAllHQL">from SeccionEN</query>
+		</hibernate-mapping>
+	
