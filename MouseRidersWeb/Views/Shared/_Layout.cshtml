@@ -1,111 +1,190 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
-    <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <meta charset="utf-8" />
-        <title>@ViewBag.Title - Mouse Riders</title>
-        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
-        <link href="~/Content/css/one-page-wonder.css" rel="stylesheet">
-    </head>
-    <body>
-        <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/Home/Index">Mouse Riders</a></div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
-                    <ul class="nav navbar-nav">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Mouse Riders</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/css/one-page-wonder.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/Home/Index">Mouse Riders</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="">Secciones</a>
+                    </li>
+                    <li>
+                        <a href="">Noticias</a>
+                    </li>
+                    <li>
+                        <a href="">Categorías</a>
+                    </li>
+                    <li>
+                        <a href="">Foro</a>
+                    </li>
+                    <li>
+                        <a href="">Encuestas</a>
+                    </li>
+                    <li>
+                        @Html.ActionLink("Sobre nosotros", "About", "Home")
+                    </li>
+                    <li>
+                        @Html.ActionLink("Ayuda", "Contact", "Home")
+                    </li>
+                    @{
+                        int rolSession;
+                        bool noSession = Int32.TryParse(@HttpContext.Current.Session["user_rol"].ToString(), out rolSession);
+                    }
+                    ﻿		@if (!noSession)
+                    {
                         <li>
-                            <a href="">Secciones</a>
+                            <a href="">Mi Perfil</a>
                         </li>
-                        <li>
-                            <a href="">Noticias</a>
-                        </li>
-                        <li>
-                            <a href="">Categorías</a>
-                        </li>
-                        <li>
-                            <a href="">Foro</a>
-                        </li>
-                        <li>
-                            <a href="">Encuestas</a>
-                        </li>
-                        <li>
-                            @Html.ActionLink("Sobre nosotros", "About", "Home")
-                        </li>
-                        <li>
-                            @Html.ActionLink("Ayuda", "Contact", "Home")
-                        </li>
+                    }
+                    else
+                    {
                         <li>
                             <a href="">Iniciar Sesión/Registrarse</a>
                         </li>
-                        <li>
-                            <a href="">Buscador</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
+                    }
+
+                    <li>
+                        <a href="">Buscador</a>
+                    </li>
+                </ul>
             </div>
-            <!-- /.container -->
-        </nav>
-        <nav class="navbar navbar-inverse" role="navigation" id="second-navbar">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li>
-                            <a href="">Subir Artículo</a>
-                        </li>
-                        <li>
-                            <a href="">Modificar Artículos</a>
-                        </li>
-                        <li>
-                            <a href="">Eliminar Artículos</a>
-                        </li>
-                        <li>
-                            <a href="">Gestión de Sugerencias</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
-            </div>
-            <!-- /.container -->
-        </nav>
-
-        @RenderSection("featured", required: false)
-
-        <div id="body" class="container">
-            
-            <section class="content-wrapper main-content clear-fix">
-                @RenderBody()
-            </section>
-
-
-            <!-- Footer -->
-            <footer>
-                <div class="row" id="body">
-                    <div class="col-lg-12">
-                        <p>&copy; @DateTime.Now.Year - Mouse Riders Revista Digital</p>
-                    </div>
-                </div>
-            </footer>
+            <!-- /.navbar-collapse -->
         </div>
+        <!-- /.container -->
+    </nav>
+    @if (!noSession)
+    {
+            if (rolSession == 1)
+            { @*Usuario*@
 
-        @Scripts.Render("~/bundles/jquery")
-        <script src="~/Scripts/jquery-1.8.2.js"></script>
-        <script src="~/Scripts/bootstrap.min.js"></script>
-        @RenderSection("scripts", required: false)
-    </body>
+            }
+            else if (rolSession == 2)
+            { @*Admin*@
+            <nav class="navbar navbar-inverse" role="navigation" id="second-navbar">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="">AdminSubir Artículo</a>
+                            </li>
+                            <li>
+                                <a href="">Modificar Artículos</a>
+                            </li>
+                            <li>
+                                <a href="">Eliminar Artículos</a>
+                            </li>
+                            <li>
+                                <a href="">Gestión de Sugerencias</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container -->
+            </nav>
+
+            }
+            else if (rolSession == 3)
+            { @*Redactor*@
+            <nav class="navbar navbar-inverse" role="navigation" id="second-navbar">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="">Redactor</a>
+                            </li>
+                            <li>
+                                <a href="">Modificar Artículos</a>
+                            </li>
+                            <li>
+                                <a href="">Eliminar Artículos</a>
+                            </li>
+                            <li>
+                                <a href="">Gestión de Sugerencias</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container -->
+            </nav>
+            }
+            else if (rolSession == 4)
+            { @*//Admin_Foro*@
+            <nav class="navbar navbar-inverse" role="navigation" id="second-navbar">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="">Admin_Foro</a>
+                            </li>
+                            <li>
+                                <a href="">Modificar Artículos</a>
+                            </li>
+                            <li>
+                                <a href="">Eliminar Artículos</a>
+                            </li>
+                            <li>
+                                <a href="">Gestión de Sugerencias</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container -->
+            </nav>
+            }
+    }
+    @RenderSection("featured", required: false)
+
+    <div id="body" class="container">
+
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+
+
+        <!-- Footer -->
+        <footer>
+            <div class="row" id="body">
+                <div class="col-lg-12">
+                    <p>&copy; @DateTime.Now.Year - Mouse Riders Resvista Digital</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    <script src="~/Scripts/jquery-1.8.2.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
 </html>
