@@ -49,8 +49,13 @@
                         @Html.ActionLink("Ayuda", "Contact", "Home")
                     </li>
                     @{
-                        int rolSession;
-                        bool noSession = Int32.TryParse(@HttpContext.Current.Session["user_rol"].ToString(), out rolSession);
+                        int rolSession = 0;
+                        bool noSession;
+                        if(@HttpContext.Current.Session["user_rol"]!=null){
+                            noSession = Int32.TryParse(@HttpContext.Current.Session["user_rol"].ToString(), out rolSession);
+                        } else {
+                            noSession = true;
+                        }
                     }
                     ﻿		@if (!noSession)
                     {
