@@ -1,17 +1,10 @@
 ﻿@model MouseRidersGenNHibernate.EN.MouseRiders.SeccionEN
 
 @{
-    Layout = null;
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
     <fieldset>
         <legend>SeccionEN</legend>
     </fieldset>
@@ -19,5 +12,3 @@
         @Html.ActionLink("Edit", "Edit", new {  /*id=Model.id */}) |
         @Html.ActionLink("Back to List", "Index")
     </p>
-</body>
-</html>

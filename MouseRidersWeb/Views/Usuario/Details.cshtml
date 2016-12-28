@@ -1,17 +1,10 @@
 ﻿@model MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN
 
 @{
-    Layout = null;
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
     <fieldset>
         <legend>UsuarioEN</legend>
     
@@ -83,5 +76,3 @@
         @Html.ActionLink("Back to List", "Index") |
         @Html.ActionLink("Ver Denuncias Recibidas", "VerDenunciasRecibidas", new { id = Model.Id })
     </p>
-</body>
-</html>
