@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using NHibernate;
 using MouseRidersGenNHibernate.CAD.MouseRiders;
+using MouseRidersGenNHibernate.DTO.MouseRiders;
 
 
 namespace MouseRidersWeb.Controllers
@@ -18,6 +19,7 @@ protected BasicController()
 {
 }
 
+    
 protected void SessionInitialize ()
 {
         if (session == null) {

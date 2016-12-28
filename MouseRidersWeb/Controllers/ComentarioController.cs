@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MouseRidersGenNHibernate.Assembler.MouseRiders;
+using System.Diagnostics;
 
 namespace MouseRidersWeb.Controllers
 {
@@ -27,6 +28,10 @@ namespace MouseRidersWeb.Controllers
                 result.Add(new ComentarioAssembler().Convert(resultEN[i]));
 			}
             SessionClose();
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_Comentario", result);
+            }
             return View(result);
         }
 

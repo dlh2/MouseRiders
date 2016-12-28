@@ -480,6 +480,7 @@
     <Content Include="Views\Seccion\Mostrar.cshtml" />
     <Content Include="Views\Seccion\Mostrar2.cshtml" />
     <Content Include="Views\Usuario\Login.cshtml" />
+    <Content Include="Views\Comentario\_Comentario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
