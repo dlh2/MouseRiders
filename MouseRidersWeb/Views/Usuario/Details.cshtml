@@ -1,10 +1,17 @@
 ﻿@model MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
 
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
     <fieldset>
         <legend>UsuarioEN</legend>
     
@@ -29,6 +36,13 @@
             @Html.DisplayFor(model => model.Apellidos)
         </div>
     
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Nombreusuario)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Nombreusuario)
+        </div>
+
         <div class="display-label">
              @Html.DisplayNameFor(model => model.Pais)
         </div>
@@ -69,3 +83,5 @@
         @Html.ActionLink("Back to List", "Index") |
         @Html.ActionLink("Ver Denuncias Recibidas", "VerDenunciasRecibidas", new { id = Model.Id })
     </p>
+</body>
+</html>

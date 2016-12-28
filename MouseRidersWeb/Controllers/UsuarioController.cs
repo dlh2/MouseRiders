@@ -2,11 +2,13 @@
 using MouseRidersGenNHibernate.CAD.MouseRiders;
 using MouseRidersGenNHibernate.CEN.MouseRiders;
 using MouseRidersGenNHibernate.EN.MouseRiders;
+using MouseRidersWeb.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebMatrix.WebData;
 
 namespace MouseRidersWeb.Controllers
 {
@@ -46,6 +48,25 @@ namespace MouseRidersWeb.Controllers
             UsuarioEN cCEN = cCAD.ReadOIDDefault(id);
             IList<DenunciaEN> result = cCEN.RecibeD;
             return View(result);
+        }
+
+        public ActionResult Login(string returnUrl)
+        {
+            ViewBag.ReturnUrl = returnUrl;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(LoginModel model, string returnUrl)
+        {
+            if (ModelState.IsValid && WebSecurity.Login(model.NombreUsuario, model.Password, persistCookie: model.RememberMe))
+            {
+                //return RedirectToLocal(returnUrl);
+            }
+
+            // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
+            ModelState.AddModelError("", "El nombre de usuario o la contraseña especificados son incorrectos.");
+            return View(model);
         }
 
         //

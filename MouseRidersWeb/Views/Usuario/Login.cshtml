@@ -1,0 +1,46 @@
+﻿@model MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN
+
+@{
+    ViewBag.Title = "Iniciar sesión";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>Iniciar Sesion</h2>
+</hgroup>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+        <fieldset>
+            <legend>Formulario de inicio de sesión</legend>
+            <ol>
+                <li>
+                    @Html.LabelFor(m => m.Nombreusuario)
+                    @Html.TextBoxFor(m => m.Nombreusuario)
+                    @Html.ValidationMessageFor(m => m.Nombreusuario)
+                </li>
+                <li>
+                    @Html.LabelFor(m => m.Contrasenya)
+                    @Html.PasswordFor(m => m.Contrasenya)
+                    @Html.ValidationMessageFor(m => m.Contrasenya)
+                </li>
+                
+            </ol>
+            <input type="submit" value="Iniciar sesión" />
+        </fieldset>
+        <p>
+            @Html.ActionLink("Regístrese", "Create") si no tiene ninguna cuenta.
+        </p>
+    }
+</section>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

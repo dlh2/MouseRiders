@@ -1,0 +1,24 @@
+﻿@model IEnumerable<MouseRidersGenNHibernate.EN.MouseRiders.SeccionEN>
+
+@{
+    ViewBag.Title = "Secciones";
+}
+
+<h2>Secciones</h2>
+
+<table>
+    <tr>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td><a href="~/Seccion/Index">
+                @Html.DisplayFor(modelItem => item.Seccion)
+            </a></td>
+        </tr>
+    }
+
+</table>
