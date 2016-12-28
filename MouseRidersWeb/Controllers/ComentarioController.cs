@@ -14,19 +14,30 @@ namespace MouseRidersWeb.Controllers
 {
     public class ComentarioController : BasicController
     {
-        //
-        // GET: /Comentario/
 
-        public ActionResult Index()
+        //
+        // Ajax GET: /Comentario/
+
+        public ActionResult Index(String minimo,String maximo)
         {
             SessionInitialize();
             ComentarioCAD cCAD = new ComentarioCAD(session);
-            IList<ComentarioEN> resultEN = cCAD.ReadAllDefault(0, 10);
+            IList<ComentarioEN> resultEN;
+            if (Request.IsAjaxRequest())
+            {
+                int a = Int32.Parse(minimo);
+                int b = Int32.Parse(maximo);
+                resultEN = cCAD.ReadAllDefault(a, b);
+            }
+            else
+            {
+                resultEN = cCAD.ReadAllDefault(0, 10);
+            }
             IList<ComentarioDTO> result = new List<ComentarioDTO>();
             for (int i = 0; i < resultEN.Count; i++)
-			{
+            {
                 result.Add(new ComentarioAssembler().Convert(resultEN[i]));
-			}
+            }
             SessionClose();
             if (Request.IsAjaxRequest())
             {

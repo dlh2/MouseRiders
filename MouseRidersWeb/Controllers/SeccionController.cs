@@ -33,16 +33,16 @@ namespace MouseRidersWeb.Controllers
             return View(result);
         }
 
-        /*public ActionResult Mostrar2()
+        /*public ActionResult Mostrar2(string nombre)
         {
             SessionInitialize();
             SeccionCAD cCAD = new SeccionCAD(session);
-            SeccionEN result = cCAD.ReadOID(T_SeccionEnum asñldkf);
+            SeccionEN result = cCAD.ReadFilter(nombre);
             IList<ArticuloEN> resultfinal=result.Tiene;
             SessionClose();
             return View(resultfinal);
-        }
-        */
+        }*/
+    
         //
         // GET: /Seccion/Details/5
 

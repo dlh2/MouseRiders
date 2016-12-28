@@ -7,7 +7,7 @@
 
 <h2>Index</h2>
 
-@using(Ajax.BeginForm(
+@using(Ajax.BeginForm("Index","Comentario", new { minimo = 2 , maximo = 5},
     new AjaxOptions{
     HttpMethod="get",
     InsertionMode=InsertionMode.Replace,
@@ -15,7 +15,7 @@
     { 
     <input type="submit" value="Ajax" />
     }
-    
+  
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>

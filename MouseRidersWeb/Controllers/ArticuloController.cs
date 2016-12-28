@@ -37,7 +37,7 @@ namespace MouseRidersWeb.Controllers
 
 
         //
-        // GET: /Articulo/Details/5
+        // GET: /Articulo/Details/294912
 
         public ActionResult Details(int id)
         {
@@ -48,7 +48,14 @@ namespace MouseRidersWeb.Controllers
             return View(result);
         }
 
-
+        public ActionResult Contenido(int id)
+        {
+            SessionInitialize();
+            ArticuloCAD cCAD = new ArticuloCAD(session);
+            ArticuloEN result = cCAD.ReadOIDDefault(id);
+            SessionClose();
+            return View(result);
+        }
         //
         // GET: /Articulo/Create
 
