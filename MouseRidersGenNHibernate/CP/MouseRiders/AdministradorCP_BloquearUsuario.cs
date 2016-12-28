@@ -13,9 +13,6 @@ using MouseRidersGenNHibernate.CEN.MouseRiders;
 
 
 /*PROTECTED REGION ID(usingMouseRidersGenNHibernate.CP.MouseRiders_Administrador_bloquearUsuario) ENABLED START*/
-using MouseRidersGenNHibernate.EN.MouseRiders;
-using MouseRidersGenNHibernate.CAD.MouseRiders;
-using MouseRidersGenNHibernate.CEN.MouseRiders;
 using System.Collections.Generic;
 /*PROTECTED REGION END*/
 
