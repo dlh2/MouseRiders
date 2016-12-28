@@ -50,3 +50,29 @@
 }
 
 </table>
+<div>
+    @{
+        int rolSession = 0;
+        bool noSession;
+        if (@HttpContext.Current.Session["user_rol"] != null)
+        {
+            noSession = Int32.TryParse(@HttpContext.Current.Session["user_rol"].ToString(), out rolSession);
+        }
+        else
+        {
+            noSession = true;
+        }
+    }
+@if (!noSession)
+{
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        
+        @Html.DisplayNameFor(model => model.Contenido)
+        //TextArea
+        @Html.TextArea("Comentario", new {rows=10, columns=40})
+        <input type="submit" value="Create" />
+    }
+}
+</div>

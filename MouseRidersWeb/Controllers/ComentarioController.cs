@@ -30,6 +30,23 @@ namespace MouseRidersWeb.Controllers
             return View(result);
         }
 
+        [HttpPost]
+        public ActionResult Index(ComentarioEN com)
+        {
+            try
+            {
+                ComentarioCAD cCAD = new ComentarioCAD();
+                ComentarioCEN cen = new ComentarioCEN(cCAD);
+                DateTime p_fecha = DateTime.Now;
+                int id = cen.CrearComentario(com.Creador, p_fecha, com.Contenido, com.Valoracion);
+                return RedirectToAction("Details", new { id = id });
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
         //
         // GET: /Comentario/Details/5
 
