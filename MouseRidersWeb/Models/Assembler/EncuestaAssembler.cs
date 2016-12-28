@@ -12,15 +12,10 @@ namespace MouseRidersGenNHibernate.Assembler.MouseRiders
     public class EncuestaAssembler
     {
       public EncuestaDTO ConvertENToModelUI (EncuestaEN enc){
-        //EncuestaDTO encDTO = null;
         EncuestaDTO encDTO = new EncuestaDTO();
-        //EncuestaCAD encCAD = null;
-        //EncuestaCEN encCEN = null;
         
         if( enc !=null ){
             encDTO = new EncuestaDTO();
-            //encCAD = new EncuestaCAD(session);
-            //encCEN = new EncuestaCEN(encCAD);
                     
             encDTO.id=enc.Id;
             encDTO.titulo=enc.Titulo;
@@ -40,13 +35,9 @@ namespace MouseRidersGenNHibernate.Assembler.MouseRiders
         {
         public PreguntaDTO Convert (PreguntaEN preg){
             PreguntaDTO pregDTO = new PreguntaDTO();
-           //PreguntaCAD pregCAD = null;
-            //PreguntaCEN pregCEN = null;
             if (preg != null)
             {
                 pregDTO = new PreguntaDTO();
-                //pregCAD = new EncuestaCAD(session);
-                //pregCEN = new EncuestaCEN(pregCAD);
 
                 pregDTO.id = preg.Id;
                 pregDTO.Pregunta=preg.Pregunta;

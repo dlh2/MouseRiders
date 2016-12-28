@@ -25,10 +25,7 @@ namespace MouseRidersGenNHibernate.EN.MouseRiders
         [Required(ErrorMessage = "Debe de indicar el título de la encuesta")]
         [StringLength(maximumLength: 200, ErrorMessage = "El título no puede tener más de 200 caracteres")]
         public string titulo { get; set; }
-        
-        private string titulo;
-
-
+       
 
         /**
          *	Atributo tiene
