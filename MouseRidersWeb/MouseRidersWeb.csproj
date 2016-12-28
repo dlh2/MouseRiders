@@ -477,6 +477,9 @@
     <Content Include="Views\Comentario\Edit.cshtml" />
     <Content Include="Views\Comentario\Delete.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\string.cshtml" />
+    <Content Include="Views\Seccion\Mostrar.cshtml" />
+    <Content Include="Views\Seccion\Mostrar2.cshtml" />
+    <Content Include="Views\Usuario\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
