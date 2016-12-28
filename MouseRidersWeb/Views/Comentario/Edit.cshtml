@@ -1,0 +1,61 @@
+﻿@model MouseRidersGenNHibernate.DTO.MouseRiders.ComentarioDTO
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>ComentarioDTO</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Creador)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Creador)
+            @Html.ValidationMessageFor(model => model.Creador)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Fecha)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Fecha)
+            @Html.ValidationMessageFor(model => model.Fecha)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Contenido)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Contenido)
+            @Html.ValidationMessageFor(model => model.Contenido)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Valoracion)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Valoracion)
+            @Html.ValidationMessageFor(model => model.Valoracion)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

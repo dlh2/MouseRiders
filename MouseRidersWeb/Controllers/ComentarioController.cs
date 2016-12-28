@@ -1,11 +1,13 @@
 ﻿using MouseRidersGenNHibernate.CAD.MouseRiders;
 using MouseRidersGenNHibernate.CEN.MouseRiders;
 using MouseRidersGenNHibernate.EN.MouseRiders;
+using MouseRidersGenNHibernate.DTO.MouseRiders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MouseRidersGenNHibernate.Assembler.MouseRiders;
 
 namespace MouseRidersWeb.Controllers
 {
@@ -18,7 +20,12 @@ namespace MouseRidersWeb.Controllers
         {
             SessionInitialize();
             ComentarioCAD cCAD = new ComentarioCAD(session);
-            IList<ComentarioEN> result = cCAD.ReadAllDefault(0, 10);
+            IList<ComentarioEN> resultEN = cCAD.ReadAllDefault(0, 10);
+            IList<ComentarioDTO> result = new List<ComentarioDTO>();
+            for (int i = 0; i < resultEN.Count; i++)
+			{
+                result.Add(new ComentarioAssembler().Convert(resultEN[i]));
+			}
             SessionClose();
             return View(result);
         }
@@ -30,7 +37,8 @@ namespace MouseRidersWeb.Controllers
         {
             SessionInitialize();
             ComentarioCAD cCAD = new ComentarioCAD(session);
-            ComentarioEN result = cCAD.ReadOIDDefault(id);
+            ComentarioEN resultEN = cCAD.ReadOIDDefault(id);
+            ComentarioDTO result = new ComentarioAssembler().Convert(resultEN);
             SessionClose();
             return View(result);
         }
@@ -42,7 +50,8 @@ namespace MouseRidersWeb.Controllers
         public ActionResult Create()
         {
             ComentarioEN com = new ComentarioEN();
-            return View(com);
+            ComentarioDTO result = new ComentarioAssembler().Convert(com);
+            return View(result);
         }
 
         //
@@ -56,8 +65,8 @@ namespace MouseRidersWeb.Controllers
                 ComentarioCAD cCAD = new ComentarioCAD();
                 ComentarioCEN cen = new ComentarioCEN(cCAD);
                 DateTime p_fecha = DateTime.Now;
-                cen.CrearComentario(com.Creador,p_fecha,com.Contenido,com.Valoracion);
-                return RedirectToAction("Details", new { id = com.Id });
+                int id = cen.CrearComentario(com.Creador,p_fecha,com.Contenido,com.Valoracion);
+                return RedirectToAction("Details", new { id = id });
             }
             catch
             {
@@ -71,7 +80,8 @@ namespace MouseRidersWeb.Controllers
         public ActionResult Edit(int id)
         {
             ComentarioCAD cCAD = new ComentarioCAD();
-            ComentarioEN result = cCAD.ReadOIDDefault(id);
+            ComentarioEN resultEN = cCAD.ReadOIDDefault(id);
+            ComentarioDTO result = new ComentarioAssembler().Convert(resultEN);
             return View(result);
         }
 
@@ -101,9 +111,10 @@ namespace MouseRidersWeb.Controllers
         {
             SessionInitialize();
             ComentarioCAD cCAD = new ComentarioCAD(session);
-            ComentarioEN result = cCAD.ReadOIDDefault(id);
+            ComentarioEN resultEN = cCAD.ReadOIDDefault(id);
+            ComentarioDTO result = new ComentarioAssembler().Convert(resultEN);
             SessionClose();
-            new ComentarioCEN().BorrarComentario(id);
+            
 
             return View(result);
         }
@@ -116,10 +127,7 @@ namespace MouseRidersWeb.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
-
-
-
+                new ComentarioCEN().BorrarComentario(com.Id);
                 return RedirectToAction("Index");
             }
             catch
