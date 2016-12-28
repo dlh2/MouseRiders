@@ -267,5 +267,38 @@ public System.Collections.Generic.IList<HiloEN> ReadAll (int first, int size)
 
         return result;
 }
+
+public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.HiloEN> ReadFilter (string p_nombre, Nullable<DateTime> p_fecha, bool ? p_mayor)
+{
+        System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.HiloEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM HiloEN self where FROM HiloEN where (:p_nombre is null or :p_nombre like titulo) and (:p_fecha is null or (:p_mayor is true and :p_fecha>=fecha) or (:p_mayor is false and :p_fecha<=fecha))";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("HiloENreadFilterHQL");
+                query.SetParameter ("p_nombre", p_nombre);
+                query.SetParameter ("p_fecha", p_fecha);
+                query.SetParameter ("p_mayor", p_mayor);
+
+                result = query.List<MouseRidersGenNHibernate.EN.MouseRiders.HiloEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in HiloCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

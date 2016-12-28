@@ -38,7 +38,7 @@ public IPermisoCAD get_IPermisoCAD ()
         return this._IPermisoCAD;
 }
 
-public MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN_OID CrearPermiso (MouseRidersGenNHibernate.Enumerated.MouseRiders.T_RolEnum p_rol, MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PermisoEnum p_permiso, string p_permisos)
+public MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN_OID CrearPermiso (MouseRidersGenNHibernate.Enumerated.MouseRiders.T_RolEnum p_rol, string p_permiso, string p_permisos)
 {
         PermisoEN permisoEN = null;
 
@@ -92,6 +92,10 @@ public System.Collections.Generic.IList<PermisoEN> ReadAll (int first, int size)
 
         list = _IPermisoCAD.ReadAll (first, size);
         return list;
+}
+public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN> ReadFilter (MouseRidersGenNHibernate.Enumerated.MouseRiders.T_RolEnum? p_rol, string p_permiso)
+{
+        return _IPermisoCAD.ReadFilter (p_rol, p_permiso);
 }
 }
 }

@@ -27,5 +27,9 @@ ArticuloEN ReadOID (int id
 
 
 System.Collections.Generic.IList<ArticuloEN> ReadAll (int first, int size);
+
+
+
+System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN> ReadFilter (string p_nombre, Nullable<DateTime> p_fecha, bool? p_mayor, float? p_puntuacion, bool ? p_mayor1);
 }
 }

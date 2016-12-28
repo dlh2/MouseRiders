@@ -452,5 +452,36 @@ public void RelacionaBloqueo (int p_Usuario_OID, int p_es_de_OID)
                 SessionClose ();
         }
 }
+
+public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN> ReadFilter (string p_nombre)
+{
+        System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM UsuarioEN self where FROM UsuarioEN where :p_nombre like nombreusuario or :p_nombre like nombre";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("UsuarioENreadFilterHQL");
+                query.SetParameter ("p_nombre", p_nombre);
+
+                result = query.List<MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

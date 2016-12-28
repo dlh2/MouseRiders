@@ -15,7 +15,14 @@ private System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders
 /**
  *	Atributo seccion
  */
-private MouseRidersGenNHibernate.Enumerated.MouseRiders.T_SeccionEnum seccion;
+private int seccion;
+
+
+
+/**
+ *	Atributo nombre
+ */
+private string nombre;
 
 
 
@@ -28,8 +35,14 @@ public virtual System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.Mous
 
 
 
-public virtual MouseRidersGenNHibernate.Enumerated.MouseRiders.T_SeccionEnum Seccion {
+public virtual int Seccion {
         get { return seccion; } set { seccion = value;  }
+}
+
+
+
+public virtual string Nombre {
+        get { return nombre; } set { nombre = value;  }
 }
 
 
@@ -43,25 +56,27 @@ public SeccionEN()
 
 
 
-public SeccionEN(MouseRidersGenNHibernate.Enumerated.MouseRiders.T_SeccionEnum seccion, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN> tiene
+public SeccionEN(int seccion, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN> tiene, string nombre
                  )
 {
-        this.init (Seccion, tiene);
+        this.init (Seccion, tiene, nombre);
 }
 
 
 public SeccionEN(SeccionEN seccion)
 {
-        this.init (Seccion, seccion.Tiene);
+        this.init (Seccion, seccion.Tiene, seccion.Nombre);
 }
 
-private void init (MouseRidersGenNHibernate.Enumerated.MouseRiders.T_SeccionEnum seccion
-                   , System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN> tiene)
+private void init (int seccion
+                   , System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN> tiene, string nombre)
 {
         this.Seccion = seccion;
 
 
         this.Tiene = tiene;
+
+        this.Nombre = nombre;
 }
 
 public override bool Equals (object obj)

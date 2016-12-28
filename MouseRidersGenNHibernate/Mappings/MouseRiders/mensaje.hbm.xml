@@ -65,5 +65,6 @@
 		 </class>	
 		  
 		  <query name="MensajeENReadAllHQL">from MensajeEN</query>
+		  <query name="MensajeENreadFilterHQL"><![CDATA[FROM MensajeEN where (:p_asunto is null or :p_asunto like asunto) and (:p_tipo is null or :p_tipo=tipo)]]></query>
 		</hibernate-mapping>
 	

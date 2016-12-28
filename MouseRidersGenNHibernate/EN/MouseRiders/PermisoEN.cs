@@ -23,7 +23,7 @@ private MouseRidersGenNHibernate.Enumerated.MouseRiders.T_RolEnum rol;
 /**
  *	Atributo permiso
  */
-private MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PermisoEnum permiso;
+private string permiso;
 
 
 

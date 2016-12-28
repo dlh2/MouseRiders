@@ -38,14 +38,14 @@ public ISeccionCAD get_ISeccionCAD ()
         return this._ISeccionCAD;
 }
 
-public MouseRidersGenNHibernate.Enumerated.MouseRiders.T_SeccionEnum CrearSeccion (MouseRidersGenNHibernate.Enumerated.MouseRiders.T_SeccionEnum p_seccion)
+public int CrearSeccion (string p_nombre)
 {
         SeccionEN seccionEN = null;
+        int oid;
 
-        MouseRidersGenNHibernate.Enumerated.MouseRiders.T_SeccionEnum oid;
         //Initialized SeccionEN
         seccionEN = new SeccionEN ();
-        seccionEN.Seccion = p_seccion;
+        seccionEN.Nombre = p_nombre;
 
         //Call to SeccionCAD
 
@@ -53,25 +53,26 @@ public MouseRidersGenNHibernate.Enumerated.MouseRiders.T_SeccionEnum CrearSeccio
         return oid;
 }
 
-public void ModificarSeccion (MouseRidersGenNHibernate.Enumerated.MouseRiders.T_SeccionEnum p_Seccion_OID)
+public void ModificarSeccion (int p_Seccion_OID, string p_nombre)
 {
         SeccionEN seccionEN = null;
 
         //Initialized SeccionEN
         seccionEN = new SeccionEN ();
         seccionEN.Seccion = p_Seccion_OID;
+        seccionEN.Nombre = p_nombre;
         //Call to SeccionCAD
 
         _ISeccionCAD.ModificarSeccion (seccionEN);
 }
 
-public void BorrarSeccion (MouseRidersGenNHibernate.Enumerated.MouseRiders.T_SeccionEnum seccion
+public void BorrarSeccion (int seccion
                            )
 {
         _ISeccionCAD.BorrarSeccion (seccion);
 }
 
-public SeccionEN ReadOID (MouseRidersGenNHibernate.Enumerated.MouseRiders.T_SeccionEnum seccion
+public SeccionEN ReadOID (int seccion
                           )
 {
         SeccionEN seccionEN = null;
@@ -86,6 +87,10 @@ public System.Collections.Generic.IList<SeccionEN> ReadAll (int first, int size)
 
         list = _ISeccionCAD.ReadAll (first, size);
         return list;
+}
+public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.SeccionEN> ReadFilter (string p_nombre)
+{
+        return _ISeccionCAD.ReadFilter (p_nombre);
 }
 }
 }

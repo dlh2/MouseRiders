@@ -15,6 +15,9 @@
 					<property name="Titulo" type="string"> 
 						<column name="titulo"  not-null="true"/>
 					</property>
+					<property name="Descripcion" type="string"> 
+						<column name="descripcion"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -29,6 +32,8 @@
 							<one-to-many class="MouseRidersGenNHibernate.EN.MouseRiders.PreguntaEN"/>
 					    </bag>
 					
+			
+					
 					
 					
 					
@@ -36,5 +41,6 @@
 		 </class>	
 		  
 		  <query name="EncuestaENReadAllHQL">from EncuestaEN</query>
+		  <query name="EncuestaENreadFilterHQL"><![CDATA[FROM EncuestaEN where :p_titulo like titulo or :p_titulo like descripcion]]></query>
 		</hibernate-mapping>
 	

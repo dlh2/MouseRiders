@@ -97,5 +97,9 @@ public System.Collections.Generic.IList<HiloEN> ReadAll (int first, int size)
         list = _IHiloCAD.ReadAll (first, size);
         return list;
 }
+public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.HiloEN> ReadFilter (string p_nombre, Nullable<DateTime> p_fecha, bool ? p_mayor)
+{
+        return _IHiloCAD.ReadFilter (p_nombre, p_fecha, p_mayor);
+}
 }
 }

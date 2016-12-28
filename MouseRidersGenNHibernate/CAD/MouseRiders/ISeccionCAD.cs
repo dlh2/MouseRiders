@@ -6,26 +6,29 @@ namespace MouseRidersGenNHibernate.CAD.MouseRiders
 {
 public partial interface ISeccionCAD
 {
-SeccionEN ReadOIDDefault (MouseRidersGenNHibernate.Enumerated.MouseRiders.T_SeccionEnum seccion
+SeccionEN ReadOIDDefault (int seccion
                           );
 
 void ModifyDefault (SeccionEN seccion);
 
 
 
-MouseRidersGenNHibernate.Enumerated.MouseRiders.T_SeccionEnum CrearSeccion (SeccionEN seccion);
+int CrearSeccion (SeccionEN seccion);
 
 void ModificarSeccion (SeccionEN seccion);
 
 
-void BorrarSeccion (MouseRidersGenNHibernate.Enumerated.MouseRiders.T_SeccionEnum seccion
+void BorrarSeccion (int seccion
                     );
 
 
-SeccionEN ReadOID (MouseRidersGenNHibernate.Enumerated.MouseRiders.T_SeccionEnum seccion
+SeccionEN ReadOID (int seccion
                    );
 
 
 System.Collections.Generic.IList<SeccionEN> ReadAll (int first, int size);
+
+
+System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.SeccionEN> ReadFilter (string p_nombre);
 }
 }

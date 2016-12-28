@@ -27,5 +27,8 @@ HiloEN ReadOID (int id
 
 
 System.Collections.Generic.IList<HiloEN> ReadAll (int first, int size);
+
+
+System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.HiloEN> ReadFilter (string p_nombre, Nullable<DateTime> p_fecha, bool ? p_mayor);
 }
 }

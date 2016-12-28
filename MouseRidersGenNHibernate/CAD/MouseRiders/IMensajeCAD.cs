@@ -30,5 +30,7 @@ System.Collections.Generic.IList<MensajeEN> ReadAll (int first, int size);
 
 
 void RelacionaMensaje (int p_Mensaje_OID, int p_es_enviadoN_OID);
+
+System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> ReadFilter (MouseRidersGenNHibernate.Enumerated.MouseRiders.T_MensajeEnum? p_tipo, string p_asunto);
 }
 }

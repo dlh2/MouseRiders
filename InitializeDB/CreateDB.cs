@@ -267,7 +267,7 @@ public static void InitializeData ()
                 //Permiso1
                 PermisoEN permiso1EN = new PermisoEN ();
                 permiso1EN.PermisoOID.Rol = T_RolEnum.usuario;
-                permiso1EN.PermisoOID.Permiso = T_PermisoEnum.general;
+                permiso1EN.PermisoOID.Permiso = "foro";
                 permiso1EN.Permisos = "{permiso1: acceder a contactos}";
 
                 permisoCEN.CrearPermiso (permiso1EN.PermisoOID.Rol, permiso1EN.PermisoOID.Permiso, permiso1EN.Permisos);
@@ -275,7 +275,7 @@ public static void InitializeData ()
                 //Permiso2
                 PermisoEN permiso2EN = new PermisoEN ();
                 permiso2EN.PermisoOID.Rol = T_RolEnum.usuario;
-                permiso2EN.PermisoOID.Permiso = T_PermisoEnum.foro;
+                permiso2EN.PermisoOID.Permiso = "general";
                 permiso2EN.Permisos = "{permiso2: acceder a fotos}";
 
                 PermisoEN_OID permi = permisoCEN.CrearPermiso (permiso2EN.PermisoOID.Rol, permiso2EN.PermisoOID.Permiso, permiso2EN.Permisos);
@@ -283,7 +283,7 @@ public static void InitializeData ()
                 //Permiso3
                 PermisoEN permiso3EN = new PermisoEN ();
                 permiso3EN.PermisoOID.Rol = T_RolEnum.admin;
-                permiso3EN.PermisoOID.Permiso = T_PermisoEnum.general;
+                permiso3EN.PermisoOID.Permiso = "administracion";
                 permiso3EN.Permisos = "{permiso3: acceder a fotos de gatitos}";
 
                 PermisoEN_OID permi1 = permisoCEN.CrearPermiso (permiso3EN.PermisoOID.Rol, permiso3EN.PermisoOID.Permiso, permiso3EN.Permisos);
@@ -464,7 +464,8 @@ public static void InitializeData ()
 
                 EncuestaEN encuestaEN = new EncuestaEN ();
                 encuestaEN.Titulo = "satisfaccion de los usuarios";
-                int oid_e = encuestaCEN.CrearEncuesta (encuestaEN.Titulo);
+                encuestaEN.Descripcion = "como de satisfechos estan los usuarios";
+                int oid_e = encuestaCEN.CrearEncuesta (encuestaEN.Titulo, encuestaEN.Descripcion);
 
                 #endregion
 
@@ -546,8 +547,8 @@ public static void InitializeData ()
                 SeccionCEN seccionCEN = new SeccionCEN (_ISeccionCAD);
 
                 SeccionEN seccionEN = new SeccionEN ();
-                seccionEN.Seccion = T_SeccionEnum.ArticulosPC;
-                T_SeccionEnum oid_s = seccionCEN.CrearSeccion (seccionEN.Seccion);
+                seccionEN.Nombre = "ArticulosPC";
+                int oid_s = seccionCEN.CrearSeccion (seccionEN.Nombre);
 
                 #endregion
 

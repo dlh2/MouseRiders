@@ -6,9 +6,15 @@
 		    
 			
 				<class name="SeccionEN" table="Seccion"> 
-						<id name="Seccion" column="seccion"/> 
+				  	
+						<id name="Seccion" column="seccion" type="integer"> 
+							<generator class="hilo"/>
+						</id>
 			
 					
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
 			
 			
 		  			
@@ -22,11 +28,14 @@
 					    </bag>
 					
 			
+			
+					
 					
 					
 		
 		 </class>	
 		  
 		  <query name="SeccionENReadAllHQL">from SeccionEN</query>
+		  <query name="SeccionENreadFilterHQL"><![CDATA[FROM SeccionEN where :p_nombre like nombre]]></query>
 		</hibernate-mapping>
 	

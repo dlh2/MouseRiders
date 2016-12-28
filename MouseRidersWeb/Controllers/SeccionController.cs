@@ -27,7 +27,7 @@ namespace MouseRidersWeb.Controllers
         //
         // GET: /Seccion/Details/5
 
-        public ActionResult Details(T_SeccionEnum id)
+        public ActionResult Details(int id)
         {
             SessionInitialize();
             SeccionCAD cCAD = new SeccionCAD(session);
@@ -58,7 +58,7 @@ namespace MouseRidersWeb.Controllers
                 SeccionCAD cCAD = new SeccionCAD();
                 SeccionCEN cen = new SeccionCEN(cCAD);
                 DateTime p_fecha = DateTime.Now;
-                cen.CrearSeccion(sec.Seccion);
+                cen.CrearSeccion(sec.Nombre);
 
                 return RedirectToAction("Details", new { id = sec.Seccion });
             }
@@ -71,7 +71,7 @@ namespace MouseRidersWeb.Controllers
         //
         // GET: /Seccion/Edit/5
 
-        public ActionResult Edit(T_SeccionEnum id)
+        public ActionResult Edit(int id)
         {
             SeccionCAD cCAD = new SeccionCAD();
             SeccionEN result = cCAD.ReadOIDDefault(id);
@@ -87,7 +87,7 @@ namespace MouseRidersWeb.Controllers
             try
             {
                 SeccionCEN cen = new SeccionCEN();
-                cen.ModificarSeccion(sec.Seccion);
+                cen.ModificarSeccion(sec.Seccion, sec.Nombre);
 
                 return RedirectToAction("Details", new { id = sec.Seccion });
             }
@@ -100,7 +100,7 @@ namespace MouseRidersWeb.Controllers
         //
         // GET: /Seccion/Delete/5
 
-        public ActionResult Delete(T_SeccionEnum id)
+        public ActionResult Delete(int id)
         {
             SessionInitialize();
             SeccionCAD cCAD = new SeccionCAD(session);

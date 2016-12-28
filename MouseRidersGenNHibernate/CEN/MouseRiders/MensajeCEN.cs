@@ -125,5 +125,9 @@ public void RelacionaMensaje (int p_Mensaje_OID, int p_es_enviadoN_OID)
 
         _IMensajeCAD.RelacionaMensaje (p_Mensaje_OID, p_es_enviadoN_OID);
 }
+public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> ReadFilter (MouseRidersGenNHibernate.Enumerated.MouseRiders.T_MensajeEnum? p_tipo, string p_asunto)
+{
+        return _IMensajeCAD.ReadFilter (p_tipo, p_asunto);
+}
 }
 }

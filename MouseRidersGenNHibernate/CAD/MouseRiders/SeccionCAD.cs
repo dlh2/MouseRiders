@@ -29,7 +29,7 @@ public SeccionCAD(ISession sessionAux) : base (sessionAux)
 
 
 
-public SeccionEN ReadOIDDefault (MouseRidersGenNHibernate.Enumerated.MouseRiders.T_SeccionEnum seccion
+public SeccionEN ReadOIDDefault (int seccion
                                  )
 {
         SeccionEN seccionEN = null;
@@ -91,6 +91,9 @@ public void ModifyDefault (SeccionEN seccion)
                 SessionInitializeTransaction ();
                 SeccionEN seccionEN = (SeccionEN)session.Load (typeof(SeccionEN), seccion.Seccion);
 
+
+                seccionEN.Nombre = seccion.Nombre;
+
                 session.Update (seccionEN);
                 SessionCommit ();
         }
@@ -110,7 +113,7 @@ public void ModifyDefault (SeccionEN seccion)
 }
 
 
-public MouseRidersGenNHibernate.Enumerated.MouseRiders.T_SeccionEnum CrearSeccion (SeccionEN seccion)
+public int CrearSeccion (SeccionEN seccion)
 {
         try
         {
@@ -142,6 +145,9 @@ public void ModificarSeccion (SeccionEN seccion)
         {
                 SessionInitializeTransaction ();
                 SeccionEN seccionEN = (SeccionEN)session.Load (typeof(SeccionEN), seccion.Seccion);
+
+                seccionEN.Nombre = seccion.Nombre;
+
                 session.Update (seccionEN);
                 SessionCommit ();
         }
@@ -159,7 +165,7 @@ public void ModificarSeccion (SeccionEN seccion)
                 SessionClose ();
         }
 }
-public void BorrarSeccion (MouseRidersGenNHibernate.Enumerated.MouseRiders.T_SeccionEnum seccion
+public void BorrarSeccion (int seccion
                            )
 {
         try
@@ -186,7 +192,7 @@ public void BorrarSeccion (MouseRidersGenNHibernate.Enumerated.MouseRiders.T_Sec
 
 //Sin e: ReadOID
 //Con e: SeccionEN
-public SeccionEN ReadOID (MouseRidersGenNHibernate.Enumerated.MouseRiders.T_SeccionEnum seccion
+public SeccionEN ReadOID (int seccion
                           )
 {
         SeccionEN seccionEN = null;
@@ -225,6 +231,37 @@ public System.Collections.Generic.IList<SeccionEN> ReadAll (int first, int size)
                                  SetFirstResult (first).SetMaxResults (size).List<SeccionEN>();
                 else
                         result = session.CreateCriteria (typeof(SeccionEN)).List<SeccionEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in SeccionCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+
+public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.SeccionEN> ReadFilter (string p_nombre)
+{
+        System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.SeccionEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM SeccionEN self where FROM SeccionEN where :p_nombre like nombre";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("SeccionENreadFilterHQL");
+                query.SetParameter ("p_nombre", p_nombre);
+
+                result = query.List<MouseRidersGenNHibernate.EN.MouseRiders.SeccionEN>();
                 SessionCommit ();
         }
 

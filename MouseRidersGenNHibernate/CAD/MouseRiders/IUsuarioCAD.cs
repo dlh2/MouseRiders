@@ -40,5 +40,7 @@ void RelacionaRecompensa (int p_Usuario_OID, System.Collections.Generic.IList<in
 void RelacionaDenuncia (int p_Usuario_OID, System.Collections.Generic.IList<int> p_creaD_OIDs);
 
 void RelacionaBloqueo (int p_Usuario_OID, int p_es_de_OID);
+
+System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN> ReadFilter (string p_nombre);
 }
 }

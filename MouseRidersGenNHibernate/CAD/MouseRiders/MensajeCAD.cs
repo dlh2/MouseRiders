@@ -313,5 +313,37 @@ public void RelacionaMensaje (int p_Mensaje_OID, int p_es_enviadoN_OID)
                 SessionClose ();
         }
 }
+
+public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> ReadFilter (MouseRidersGenNHibernate.Enumerated.MouseRiders.T_MensajeEnum? p_tipo, string p_asunto)
+{
+        System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM MensajeEN self where FROM MensajeEN where (:p_asunto is null or :p_asunto like asunto) and (:p_tipo is null or :p_tipo=tipo)";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("MensajeENreadFilterHQL");
+                query.SetParameter ("p_tipo", p_tipo);
+                query.SetParameter ("p_asunto", p_asunto);
+
+                result = query.List<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in MensajeCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

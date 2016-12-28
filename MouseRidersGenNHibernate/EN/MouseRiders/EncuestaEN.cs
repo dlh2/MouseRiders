@@ -26,6 +26,13 @@ private System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders
 
 
 
+/**
+ *	Atributo descripcion
+ */
+private string descripcion;
+
+
+
 
 
 
@@ -47,6 +54,12 @@ public virtual System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.Mous
 
 
 
+public virtual string Descripcion {
+        get { return descripcion; } set { descripcion = value;  }
+}
+
+
+
 
 
 public EncuestaEN()
@@ -56,20 +69,20 @@ public EncuestaEN()
 
 
 
-public EncuestaEN(int id, string titulo, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PreguntaEN> tiene
+public EncuestaEN(int id, string titulo, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PreguntaEN> tiene, string descripcion
                   )
 {
-        this.init (Id, titulo, tiene);
+        this.init (Id, titulo, tiene, descripcion);
 }
 
 
 public EncuestaEN(EncuestaEN encuesta)
 {
-        this.init (Id, encuesta.Titulo, encuesta.Tiene);
+        this.init (Id, encuesta.Titulo, encuesta.Tiene, encuesta.Descripcion);
 }
 
 private void init (int id
-                   , string titulo, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PreguntaEN> tiene)
+                   , string titulo, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PreguntaEN> tiene, string descripcion)
 {
         this.Id = id;
 
@@ -77,6 +90,8 @@ private void init (int id
         this.Titulo = titulo;
 
         this.Tiene = tiene;
+
+        this.Descripcion = descripcion;
 }
 
 public override bool Equals (object obj)

@@ -27,5 +27,8 @@ PermisoEN ReadOID (MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN_OID permiso
 
 
 System.Collections.Generic.IList<PermisoEN> ReadAll (int first, int size);
+
+
+System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN> ReadFilter (MouseRidersGenNHibernate.Enumerated.MouseRiders.T_RolEnum? p_rol, string p_permiso);
 }
 }

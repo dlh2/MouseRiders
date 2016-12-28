@@ -94,5 +94,9 @@ public System.Collections.Generic.IList<RecompensaEN> ReadAll (int first, int si
         list = _IRecompensaCAD.ReadAll (first, size);
         return list;
 }
+public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.RecompensaEN> ReadFilter (string p_nombre)
+{
+        return _IRecompensaCAD.ReadFilter (p_nombre);
+}
 }
 }

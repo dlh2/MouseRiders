@@ -51,5 +51,6 @@
 		 </class>	
 		  
 		  <query name="HiloENReadAllHQL">from HiloEN</query>
+		  <query name="HiloENreadFilterHQL"><![CDATA[FROM HiloEN where (:p_nombre is null or :p_nombre like titulo) and (:p_fecha is null or (:p_mayor is true and :p_fecha>=fecha) or (:p_mayor is false and :p_fecha<=fecha))]]></query>
 		</hibernate-mapping>
 	

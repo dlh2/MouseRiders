@@ -261,5 +261,36 @@ public System.Collections.Generic.IList<RecompensaEN> ReadAll (int first, int si
 
         return result;
 }
+
+public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.RecompensaEN> ReadFilter (string p_nombre)
+{
+        System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.RecompensaEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM RecompensaEN self where FROM RecompensaEN where :p_nombre like nombre or :p_nombre like descripcion";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("RecompensaENreadFilterHQL");
+                query.SetParameter ("p_nombre", p_nombre);
+
+                result = query.List<MouseRidersGenNHibernate.EN.MouseRiders.RecompensaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in RecompensaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

@@ -12,8 +12,8 @@ public virtual MouseRidersGenNHibernate.Enumerated.MouseRiders.T_RolEnum Rol {
 
 
 
-private MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PermisoEnum permiso;
-public virtual MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PermisoEnum Permiso {
+private string permiso;
+public virtual string Permiso {
         get { return permiso; } set { permiso = value;  }
 }
 
@@ -25,7 +25,7 @@ public virtual MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PermisoEnum Per
 public PermisoEN_OID()
 {
 }
-public PermisoEN_OID(MouseRidersGenNHibernate.Enumerated.MouseRiders.T_RolEnum rol, MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PermisoEnum permiso)
+public PermisoEN_OID(MouseRidersGenNHibernate.Enumerated.MouseRiders.T_RolEnum rol, string permiso)
 {
         this.rol = rol;
         this.permiso = permiso;
@@ -54,7 +54,7 @@ public override int GetHashCode ()
         // Su tipo es Enum
         hash = hash +
                (null == rol                                                      ? 0 : this.rol.GetHashCode ());
-        // Su tipo es Enum
+        // Su tipo es String
         hash = hash +
                (null == permiso                                                  ? 0 : this.permiso.GetHashCode ());
         return hash;

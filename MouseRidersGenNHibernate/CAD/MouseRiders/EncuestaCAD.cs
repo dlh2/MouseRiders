@@ -94,6 +94,9 @@ public void ModifyDefault (EncuestaEN encuesta)
                 encuestaEN.Titulo = encuesta.Titulo;
 
 
+
+                encuestaEN.Descripcion = encuesta.Descripcion;
+
                 session.Update (encuestaEN);
                 SessionCommit ();
         }
@@ -147,6 +150,9 @@ public void ModificarEncuesta (EncuestaEN encuesta)
                 EncuestaEN encuestaEN = (EncuestaEN)session.Load (typeof(EncuestaEN), encuesta.Id);
 
                 encuestaEN.Titulo = encuesta.Titulo;
+
+
+                encuestaEN.Descripcion = encuesta.Descripcion;
 
                 session.Update (encuestaEN);
                 SessionCommit ();
@@ -231,6 +237,37 @@ public System.Collections.Generic.IList<EncuestaEN> ReadAll (int first, int size
                                  SetFirstResult (first).SetMaxResults (size).List<EncuestaEN>();
                 else
                         result = session.CreateCriteria (typeof(EncuestaEN)).List<EncuestaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in EncuestaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+
+public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.EncuestaEN> ReadFilter (string p_titulo)
+{
+        System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.EncuestaEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM EncuestaEN self where FROM EncuestaEN where :p_titulo like titulo or :p_titulo like descripcion";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("EncuestaENreadFilterHQL");
+                query.SetParameter ("p_titulo", p_titulo);
+
+                result = query.List<MouseRidersGenNHibernate.EN.MouseRiders.EncuestaEN>();
                 SessionCommit ();
         }
 

@@ -39,7 +39,7 @@ namespace MouseRidersWeb.Controllers
         //
         // GET: /Permiso/Create
 
-        public ActionResult Create(T_PermisoEnum id)
+        public ActionResult Create(int id)
         {
             PermisoEN permiso = new PermisoEN();
            // permiso.Permisos = id;

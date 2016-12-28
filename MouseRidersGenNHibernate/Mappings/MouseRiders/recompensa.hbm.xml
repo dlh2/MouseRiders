@@ -46,5 +46,6 @@
 		 </class>	
 		  
 		  <query name="RecompensaENReadAllHQL">from RecompensaEN</query>
+		  <query name="RecompensaENreadFilterHQL"><![CDATA[FROM RecompensaEN where :p_nombre like nombre or :p_nombre like descripcion]]></query>
 		</hibernate-mapping>
 	

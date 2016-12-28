@@ -249,5 +249,37 @@ public System.Collections.Generic.IList<PermisoEN> ReadAll (int first, int size)
 
         return result;
 }
+
+public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN> ReadFilter (MouseRidersGenNHibernate.Enumerated.MouseRiders.T_RolEnum? p_rol, string p_permiso)
+{
+        System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM PermisoEN self where FROM PermisoEN where (:p_rol is null or :p_rol=rol) and (:p_permiso is null or :p_permiso like permiso)";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("PermisoENreadFilterHQL");
+                query.SetParameter ("p_rol", p_rol);
+                query.SetParameter ("p_permiso", p_permiso);
+
+                result = query.List<MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in PermisoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

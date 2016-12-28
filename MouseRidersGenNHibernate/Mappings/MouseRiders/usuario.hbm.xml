@@ -141,5 +141,6 @@
 		 </class>	
 		  
 		  <query name="UsuarioENReadAllHQL">from UsuarioEN</query>
+		  <query name="UsuarioENreadFilterHQL"><![CDATA[FROM UsuarioEN where :p_nombre like nombreusuario or :p_nombre like nombre]]></query>
 		</hibernate-mapping>
 	

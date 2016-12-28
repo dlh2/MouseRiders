@@ -38,7 +38,7 @@ public IEncuestaCAD get_IEncuestaCAD ()
         return this._IEncuestaCAD;
 }
 
-public int CrearEncuesta (string p_titulo)
+public int CrearEncuesta (string p_titulo, string p_descripcion)
 {
         EncuestaEN encuestaEN = null;
         int oid;
@@ -47,13 +47,15 @@ public int CrearEncuesta (string p_titulo)
         encuestaEN = new EncuestaEN ();
         encuestaEN.Titulo = p_titulo;
 
+        encuestaEN.Descripcion = p_descripcion;
+
         //Call to EncuestaCAD
 
         oid = _IEncuestaCAD.CrearEncuesta (encuestaEN);
         return oid;
 }
 
-public void ModificarEncuesta (int p_Encuesta_OID, string p_titulo)
+public void ModificarEncuesta (int p_Encuesta_OID, string p_titulo, string p_descripcion)
 {
         EncuestaEN encuestaEN = null;
 
@@ -61,6 +63,7 @@ public void ModificarEncuesta (int p_Encuesta_OID, string p_titulo)
         encuestaEN = new EncuestaEN ();
         encuestaEN.Id = p_Encuesta_OID;
         encuestaEN.Titulo = p_titulo;
+        encuestaEN.Descripcion = p_descripcion;
         //Call to EncuestaCAD
 
         _IEncuestaCAD.ModificarEncuesta (encuestaEN);
@@ -87,6 +90,10 @@ public System.Collections.Generic.IList<EncuestaEN> ReadAll (int first, int size
 
         list = _IEncuestaCAD.ReadAll (first, size);
         return list;
+}
+public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.EncuestaEN> ReadFilter (string p_titulo)
+{
+        return _IEncuestaCAD.ReadFilter (p_titulo);
 }
 }
 }

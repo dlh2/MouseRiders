@@ -41,5 +41,6 @@
 		 </class>	
 		  
 		  <query name="PermisoENReadAllHQL">from PermisoEN</query>
+		  <query name="PermisoENreadFilterHQL"><![CDATA[FROM PermisoEN where (:p_rol is null or :p_rol=rol) and (:p_permiso is null or :p_permiso like permiso)]]></query>
 		</hibernate-mapping>
 	

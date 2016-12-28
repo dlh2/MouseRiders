@@ -29,5 +29,8 @@ EncuestaEN ReadOID (int id
 
 
 System.Collections.Generic.IList<EncuestaEN> ReadAll (int first, int size);
+
+
+System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.EncuestaEN> ReadFilter (string p_titulo);
 }
 }

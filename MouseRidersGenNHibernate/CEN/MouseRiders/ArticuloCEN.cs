@@ -38,7 +38,7 @@ public IArticuloCAD get_IArticuloCAD ()
         return this._IArticuloCAD;
 }
 
-public int CrearArticulo (MouseRidersGenNHibernate.Enumerated.MouseRiders.T_SeccionEnum p_pertenece, string p_titulo, string p_autor, string p_contenido, string p_contenidoDescargable, float p_puntuacion, Nullable<DateTime> p_fecha, int p_contador, string p_subtitulo, string p_portada, string p_descripcion)
+public int CrearArticulo (int p_pertenece, string p_titulo, string p_autor, string p_contenido, string p_contenidoDescargable, float p_puntuacion, Nullable<DateTime> p_fecha, int p_contador, string p_subtitulo, string p_portada, string p_descripcion)
 {
         ArticuloEN articuloEN = null;
         int oid;
@@ -46,7 +46,7 @@ public int CrearArticulo (MouseRidersGenNHibernate.Enumerated.MouseRiders.T_Secc
         //Initialized ArticuloEN
         articuloEN = new ArticuloEN ();
 
-        if (p_pertenece != null) {
+        if (p_pertenece != -1) {
                 // El argumento p_pertenece -> Property pertenece es oid = false
                 // Lista de oids id
                 articuloEN.Pertenece = new MouseRidersGenNHibernate.EN.MouseRiders.SeccionEN ();
@@ -122,6 +122,10 @@ public System.Collections.Generic.IList<ArticuloEN> ReadAll (int first, int size
 
         list = _IArticuloCAD.ReadAll (first, size);
         return list;
+}
+public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN> ReadFilter (string p_nombre, Nullable<DateTime> p_fecha, bool? p_mayor, float? p_puntuacion, bool ? p_mayor1)
+{
+        return _IArticuloCAD.ReadFilter (p_nombre, p_fecha, p_mayor, p_puntuacion, p_mayor1);
 }
 }
 }

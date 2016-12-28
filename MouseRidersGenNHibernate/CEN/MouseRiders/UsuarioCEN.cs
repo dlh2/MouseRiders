@@ -138,5 +138,9 @@ public void RelacionaBloqueo (int p_Usuario_OID, int p_es_de_OID)
 
         _IUsuarioCAD.RelacionaBloqueo (p_Usuario_OID, p_es_de_OID);
 }
+public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN> ReadFilter (string p_nombre)
+{
+        return _IUsuarioCAD.ReadFilter (p_nombre);
+}
 }
 }

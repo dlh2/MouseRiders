@@ -27,5 +27,8 @@ RecompensaEN ReadOID (int id
 
 
 System.Collections.Generic.IList<RecompensaEN> ReadAll (int first, int size);
+
+
+System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.RecompensaEN> ReadFilter (string p_nombre);
 }
 }

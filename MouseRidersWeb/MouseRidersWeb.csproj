@@ -322,13 +322,6 @@
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\npm.js" />
-    <Content Include="Views\Bloqueo\Index.cshtml" />
-    <Content Include="Views\ControladorNotificaciones\Index.cshtml">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="Views\Mensaje\Index.cshtml">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -377,11 +370,26 @@
     <Content Include="Views\Denuncia\Details.cshtml" />
     <Content Include="Views\Denuncia\Edit.cshtml" />
     <Content Include="Views\Denuncia\Index.cshtml" />
+    <Content Include="Views\Bloqueo\Borrar.cshtml" />
+    <Content Include="Views\Bloqueo\Crear.cshtml" />
+    <Content Include="Views\Bloqueo\Detalles.cshtml" />
+    <Content Include="Views\Bloqueo\Editar.cshtml" />
+    <Content Include="Views\Bloqueo\Index.cshtml" />
+    <Content Include="Views\ControladorNotificaciones\Borrar.cshtml" />
+    <Content Include="Views\ControladorNotificaciones\Crear.cshtml" />
+    <Content Include="Views\ControladorNotificaciones\Detalles.cshtml" />
+    <Content Include="Views\ControladorNotificaciones\Editar.cshtml" />
+    <Content Include="Views\ControladorNotificaciones\Index.cshtml" />
     <Content Include="Views\Encuesta\Create.cshtml" />
     <Content Include="Views\Encuesta\Delete.cshtml" />
     <Content Include="Views\Encuesta\Details.cshtml" />
     <Content Include="Views\Encuesta\Edit.cshtml" />
     <Content Include="Views\Encuesta\Index.cshtml" />
+    <Content Include="Views\Mensaje\Borrar.cshtml" />
+    <Content Include="Views\Mensaje\Crear.cshtml" />
+    <Content Include="Views\Mensaje\Detalles.cshtml" />
+    <Content Include="Views\Mensaje\Editar.cshtml" />
+    <Content Include="Views\Mensaje\Index.cshtml" />
     <Content Include="Views\Permiso\Details.cshtml" />
     <Content Include="Views\Permiso\Edit.cshtml" />
     <Content Include="Views\Permiso\Index.cshtml" />
@@ -421,44 +429,6 @@
     <Content Include="Views\Seccion\Details.cshtml" />
     <Content Include="Views\Seccion\Edit.cshtml" />
     <Content Include="Views\Seccion\Index.cshtml" />
-    <Content Include="Views\Redactor\Create.cshtml" />
-    <Content Include="Views\Redactor\Delete.cshtml" />
-    <Content Include="Views\Redactor\Details.cshtml" />
-    <Content Include="Views\Redactor\Edit.cshtml" />
-    <Content Include="Views\Redactor\Index.cshtml" />
-    <Content Include="Views\Redactor\VerDenunciasEnviadas.cshtml" />
-    <Content Include="Views\Redactor\VerDenunciasRecibidas.cshtml" />
-    <Content Include="Views\Mensaje\Create.cshtml">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="Views\Mensaje\Delete.cshtml" />
-    <Content Include="Views\Mensaje\Details.cshtml" />
-    <Content Include="Views\Mensaje\Edit.cshtml" />
-    <Content Include="Views\Mensaje\PorTipo.cshtml" />
-    <Content Include="Views\ControladorNotificaciones\Create.cshtml" />
-    <Content Include="Views\ControladorNotificaciones\Delete.cshtml" />
-    <Content Include="Views\ControladorNotificaciones\Details.cshtml" />
-    <Content Include="Views\ControladorNotificaciones\Edit.cshtml">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="Views\Bloqueo\Create.cshtml" />
-    <Content Include="Views\Bloqueo\Delete.cshtml" />
-    <Content Include="Views\Bloqueo\Details.cshtml" />
-    <Content Include="Views\Bloqueo\Edit.cshtml" />
-    <Content Include="Views\Admin_foro\Create.cshtml" />
-    <Content Include="Views\Admin_foro\Delete.cshtml" />
-    <Content Include="Views\Admin_foro\Details.cshtml" />
-    <Content Include="Views\Admin_foro\Edit.cshtml" />
-    <Content Include="Views\Admin_foro\Index.cshtml" />
-    <Content Include="Views\Admin_foro\VerDenunciasEnviadas.cshtml" />
-    <Content Include="Views\Admin_foro\VerDenunciasRecibidas.cshtml" />
-    <Content Include="Views\Administrador\Create.cshtml" />
-    <Content Include="Views\Administrador\Delete.cshtml" />
-    <Content Include="Views\Administrador\Details.cshtml" />
-    <Content Include="Views\Administrador\Edit.cshtml" />
-    <Content Include="Views\Administrador\Index.cshtml" />
-    <Content Include="Views\Administrador\VerDenunciasEnviadas.cshtml" />
-    <Content Include="Views\Administrador\VerDenunciasRecibidas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

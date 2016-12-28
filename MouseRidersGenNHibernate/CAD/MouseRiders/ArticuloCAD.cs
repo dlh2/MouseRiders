@@ -311,5 +311,40 @@ public System.Collections.Generic.IList<ArticuloEN> ReadAll (int first, int size
 
         return result;
 }
+
+public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN> ReadFilter (string p_nombre, Nullable<DateTime> p_fecha, bool? p_mayor, float? p_puntuacion, bool ? p_mayor1)
+{
+        System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM ArticuloEN self where FROM ArticuloEN where (:p_nombre is null or :p_nombre like titulo or :p_nombre like descripcion) and (:p_fecha is null or (:p_mayor is true and :p_fecha>=fecha) or (:p_mayor is false and :p_fecha<=fecha)) and (:p_puntuacion is null or (:p_mayor1 is true and :p_puntuacion>=puntuacion) or (:p_mayor1 is false and :p_puntuacion<=puntuacion))";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ArticuloENreadFilterHQL");
+                query.SetParameter ("p_nombre", p_nombre);
+                query.SetParameter ("p_fecha", p_fecha);
+                query.SetParameter ("p_mayor", p_mayor);
+                query.SetParameter ("p_puntuacion", p_puntuacion);
+                query.SetParameter ("p_mayor1", p_mayor1);
+
+                result = query.List<MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in ArticuloCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }
