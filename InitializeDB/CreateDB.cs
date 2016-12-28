@@ -550,6 +550,14 @@ public static void InitializeData ()
                 seccionEN.Nombre = "ArticulosPC";
                 int oid_s = seccionCEN.CrearSeccion (seccionEN.Nombre);
 
+                SeccionEN seccion1EN = new SeccionEN();
+                seccionEN.Nombre = "NoticiasPC";
+                int oid_s1 = seccionCEN.CrearSeccion(seccionEN.Nombre);
+
+                SeccionEN seccion2EN = new SeccionEN();
+                seccionEN.Nombre = "Semanal";
+                int oid_s2 = seccionCEN.CrearSeccion(seccionEN.Nombre);
+
                 #endregion
 
                 #region Articulo
@@ -580,7 +588,7 @@ public static void InitializeData ()
                 articulo2EN.Subtitulo = "Tu loco parque de atracciones";
                 articulo2EN.Portada = "https://forums.planetcoaster.com/attachment.php?attachmentid=352&d=1466078141";
                 articulo2EN.Descripcion = "Construir tu propio parque de atracciones, sin límites, con gigantescas montañas rusas y grandes espectáculos. ¿Quién podría resistirse a algo así? Planet Coaster te permite crear tu particular Disney World con una sorprendente libertad de acción.";
-                int oid_a2 = articuloCEN.CrearArticulo (oid_s, articulo2EN.Titulo, articulo2EN.Autor, articulo2EN.Contenido, articulo2EN.ContenidoDescargable, articulo2EN.Puntuacion, articulo2EN.Fecha, articulo2EN.Contador, articulo2EN.Subtitulo, articulo2EN.Portada, articulo2EN.Descripcion);
+                int oid_a2 = articuloCEN.CrearArticulo (oid_s1, articulo2EN.Titulo, articulo2EN.Autor, articulo2EN.Contenido, articulo2EN.ContenidoDescargable, articulo2EN.Puntuacion, articulo2EN.Fecha, articulo2EN.Contador, articulo2EN.Subtitulo, articulo2EN.Portada, articulo2EN.Descripcion);
 
                 ArticuloEN articulo3EN = new ArticuloEN ();
                 articulo3EN.Autor = usuario1EN.Email;
@@ -593,7 +601,7 @@ public static void InitializeData ()
                 articulo3EN.Subtitulo = "Modern Warfare Remastered";
                 articulo3EN.Portada = "http://static.mensup.fr/photos/132266/carre-call-of-duty-modern-warfare-remastered-les-images.jpg";
                 articulo3EN.Descripcion = "El juego que revolucionó el shooter moderno hace casi diez años vuelve con una de las mejores remasterizaciones que hemos podido probar hasta la fecha.";
-                int oid_a3 = articuloCEN.CrearArticulo (oid_s, articulo3EN.Titulo, articulo3EN.Autor, articulo3EN.Contenido, articulo3EN.ContenidoDescargable, articulo3EN.Puntuacion, articulo3EN.Fecha, articulo3EN.Contador, articulo3EN.Subtitulo, articulo3EN.Portada, articulo3EN.Descripcion);
+                int oid_a3 = articuloCEN.CrearArticulo (oid_s2, articulo3EN.Titulo, articulo3EN.Autor, articulo3EN.Contenido, articulo3EN.ContenidoDescargable, articulo3EN.Puntuacion, articulo3EN.Fecha, articulo3EN.Contador, articulo3EN.Subtitulo, articulo3EN.Portada, articulo3EN.Descripcion);
                 #endregion
 
                 #region Foro
