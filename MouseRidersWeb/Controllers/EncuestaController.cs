@@ -1,4 +1,5 @@
-﻿using MouseRidersGenNHibernate.CAD.MouseRiders;
+﻿using MouseRidersGenNHibernate.Assembler.MouseRiders;
+using MouseRidersGenNHibernate.CAD.MouseRiders;
 using MouseRidersGenNHibernate.CEN.MouseRiders;
 using MouseRidersGenNHibernate.EN.MouseRiders;
 using System;
@@ -22,6 +23,25 @@ namespace MouseRidersWeb.Controllers
             SessionClose();
             return View(encuestaEN);
         }
+        
+        //
+        // GET: /Encuesta/Modelo/
+
+        public ActionResult Modelo()
+        {
+            SessionInitialize();
+            EncuestaCAD eCAD = new EncuestaCAD(session);
+            IList<EncuestaEN> encuestaEN = eCAD.ReadAllDefault(0, 999);
+            EncuestaAssembler enc = new EncuestaAssembler();
+            IList<EncuestaDTO> lista = new List<EncuestaDTO>();
+            for (int i = 0; i < encuestaEN.Count; i++)
+            {
+                lista.Add(enc.ConvertENToModelUI(encuestaEN[i]));
+            }
+            SessionClose();
+            return View(lista);
+        }
+
 
         //
         // GET: /Encuesta/Details/5

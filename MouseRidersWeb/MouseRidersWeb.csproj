@@ -212,6 +212,7 @@
     <Compile Include="Controllers\ArticuloController.cs" />
     <Compile Include="Controllers\BasicController.cs" />
     <Compile Include="Controllers\BloqueoController.cs" />
+    <Compile Include="Controllers\BusquedaController.cs" />
     <Compile Include="Controllers\ComentarioController.cs" />
     <Compile Include="Controllers\ControladorNotificacionesController.cs" />
     <Compile Include="Controllers\DenunciaController.cs" />
