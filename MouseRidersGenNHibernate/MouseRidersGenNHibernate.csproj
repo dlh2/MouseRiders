@@ -54,16 +54,11 @@
     <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\MouseRidersGenNHibernate\AppLib\Antlr3.Runtime.dll" />
     <Content Include="..\MouseRidersGenNHibernate\AppLib\Castle.DynamicProxy2.dll" />
-    <Content Include="..\MouseRidersGenNHibernate\AppLib\Iesi.Collections.dll" />
     <Content Include="..\MouseRidersGenNHibernate\AppLib\LinFu.DynamicProxy.dll" />
-    <Content Include="..\MouseRidersGenNHibernate\AppLib\log4net.dll" />
     <Content Include="..\MouseRidersGenNHibernate\AppLib\NHibernate.ByteCode.Castle.dll" />
     <Content Include="..\MouseRidersGenNHibernate\AppLib\NHibernate.ByteCode.LinFu.dll" />
     <Content Include="..\MouseRidersGenNHibernate\AppLib\NHibernate.dll" />
-    <Content Include="..\MouseRidersGenNHibernate\AppLib\nunit.core.dll" />
-    <Content Include="..\MouseRidersGenNHibernate\AppLib\nunit.framework.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NHibernateHelper.cs" />
@@ -203,7 +198,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
