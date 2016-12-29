@@ -28,7 +28,7 @@ public bool DenunciarUsuario (int p_oid, int u_denunciado, string motivo)
         //denunciarUsuario: crea una denuncia, pasandole los datos necesarios, y la guarda en la base de datos. Si lo hace devuelve true
 
         //declaraciones basicas
-        if (p_oid == null || u_denunciado == null || motivo == null) {
+        if ( motivo == null) {
                 return false;
         }
 
