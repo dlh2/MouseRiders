@@ -1,0 +1,52 @@
+﻿/*CSS para Contenido de Articulo*/
+.darwin-inline-image {
+    width: 100%;
+    height:auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#contenido {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    background: radial-gradient(lightgrey 40%, white 60%);
+}
+
+h1 {
+    font-size: 6em;
+}
+
+header h2 {
+    font-size: 3em;
+    color: #777;
+}
+
+@media (max-width: 760px) {
+    #contenido {
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 4em;
+    }
+
+    header h2 {
+        font-size: 2em;
+    }
+}
