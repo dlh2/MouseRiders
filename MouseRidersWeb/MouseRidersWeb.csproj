@@ -478,6 +478,9 @@
     <Content Include="Views\Usuario\Login.cshtml" />
     <Content Include="Views\Comentario\_Comentario.cshtml" />
     <Content Include="Views\Articulo\Contenido.cshtml" />
+    <Content Include="Views\Usuario\Login_boceto.cshtml" />
+    <Content Include="Views\Usuario\Register_boceto.cshtml" />
+    <Content Include="Views\Usuario\register_login_boceto.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
