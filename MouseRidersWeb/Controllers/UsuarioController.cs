@@ -89,7 +89,7 @@ namespace MouseRidersWeb.Controllers
                 UsuarioCAD cCAD = new UsuarioCAD();
                 UsuarioCEN cen = new UsuarioCEN(cCAD);
                 DateTime p_fecha = DateTime.Now;
-                cen.CrearUsuario(usu.Email, usu.Nombre, usu.Apellidos, usu.Pais, usu.Telefono, 0, p_fecha, usu.Contrasenya, usu.Id, usu.Nombreusuario) ;
+                cen.CrearUsuario(usu.Email, usu.Nombre, usu.Apellidos, usu.Pais, usu.Telefono, 0, p_fecha, usu.Contrasenya, usu.Nombreusuario) ;
 
                 return RedirectToAction("Details", new { id = usu.Id });
             }
