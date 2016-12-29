@@ -40,6 +40,11 @@
                         $(data).insertBefore("#loadMore");
                     }
                     else {
+                        $("<p id='nomore'><strong>No hay más artículos disponibles para mostrar<strong></p>").insertBefore("#loadMore");
+                        $("#nomore").css("text-align", "center");
+                        $("#nomore").css("font-size", "2em");
+                        $("#nomore").css("color", "#999");
+
                         $("#loadMore").hide();
                     }
 
