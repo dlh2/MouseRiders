@@ -193,6 +193,11 @@
     <EmbeddedResource Include="Mappings\MouseRiders\controladornotificaciones.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AppLib\Antlr3.Runtime.dll" />
+    <Content Include="AppLib\Iesi.Collections.dll" />
+    <Content Include="AppLib\log4net.dll" />
+    <Content Include="AppLib\nunit.core.dll" />
+    <Content Include="AppLib\nunit.framework.dll" />
     <Content Include="hibernate.cfg.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
