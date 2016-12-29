@@ -16,7 +16,10 @@ namespace MouseRidersWeb
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.unobtrusive*",
-                        "~/Scripts/jquery.validate*"));
+                        "~/Scripts/jquery.validate.js",
+                        "~/Scripts/jquery.validate.unobstrusive.js",
+                        "~/Scripts/jquery.validate.globalize.js"
+                        ));
 
             // Utilice la versión de desarrollo de Modernizr para desarrollar y obtener información sobre los formularios. De este modo, estará
             // preparado para la producción y podrá utilizar la herramienta de creación disponible en http://modernizr.com para seleccionar solo las pruebas que necesite.

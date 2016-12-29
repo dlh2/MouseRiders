@@ -10,9 +10,11 @@
     <link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/Content/css/one-page-wonder.css" rel="stylesheet">
     @Scripts.Render("~/bundles/jquery")
+    <script src="~/Scripts/globalize.js"></script>
     @Scripts.Render("~/bundles/jqueryval")
-    <script src="~/Scripts/bootstrap.min.js"></script>
+    @Scripts.Render("~/bundles/modernizr")
     @RenderSection("scripts", required: false)
+    <script src="~/Scripts/bootstrap.min.js"></script>
     <style>
        .glyphicon-star {
 	color: #e67e22;
