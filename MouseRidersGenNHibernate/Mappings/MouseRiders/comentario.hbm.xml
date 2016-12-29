@@ -53,5 +53,6 @@
 		 </class>	
 		  
 		  <query name="ComentarioENReadAllHQL">from ComentarioEN</query>
+		  <query name="ComentarioENnumComentsArticuloHQL"><![CDATA[SELECT count(*) FROM ComentarioEN where :p_id=pertenece]]></query>
 		</hibernate-mapping>
 	
