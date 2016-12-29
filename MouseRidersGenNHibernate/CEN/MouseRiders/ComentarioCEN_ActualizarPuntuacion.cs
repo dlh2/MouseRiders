@@ -28,22 +28,16 @@ public bool ActualizarPuntuacion (int id_comentario, int puntuacion)
         //actualizarPuntuacion: suma o resta un punto a la valoracion del comentario
 
         //inicializacion basica
-        ComentarioCEN comentarioCEN = null;
-        ComentarioCAD comentarioCAD = null;
-
         ComentarioEN comentarioEN = null;
-
-        comentarioCAD = new ComentarioCAD ();
-        comentarioCEN = new ComentarioCEN (comentarioCAD);
 
         comentarioEN = _IComentarioCAD.ReadOIDDefault (id_comentario);
 
-        if (comentarioEN == null || (puntuacion != -1 && puntuacion != 1))
+        if (comentarioEN == null || (puntuacion < -5 && puntuacion > 5))
                 return false;
 
-        comentarioEN.Valoracion = comentarioEN.Valoracion + puntuacion;
-
-        comentarioCEN._IComentarioCAD.ModificarComentario (comentarioEN);
+        //comentarioEN.Valoracion = comentarioEN.Valoracion + puntuacion;
+        comentarioEN.Valoracion =  puntuacion;
+        _IComentarioCAD.ModificarComentario (comentarioEN);
 
         return true;
 

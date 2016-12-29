@@ -18,16 +18,15 @@ namespace MouseRidersWeb.Controllers
         //
         // Ajax GET: /Comentario/
 
-        public ActionResult Index(String minimo,String maximo)
+        public ActionResult Index(String minimo)
         {
             SessionInitialize();
             ComentarioCAD cCAD = new ComentarioCAD(session);
             IList<ComentarioEN> resultEN;
             if (Request.IsAjaxRequest())
             {
-                int a = Int32.Parse(minimo);
-                int b = Int32.Parse(maximo);
-                resultEN = cCAD.ReadAllDefault(a, b);
+                int a = Int32.Parse(minimo) * 10;
+                resultEN = cCAD.ReadAllDefault(a, 10);
             }
             else
             {
@@ -98,12 +97,34 @@ namespace MouseRidersWeb.Controllers
                 ComentarioCAD cCAD = new ComentarioCAD();
                 ComentarioCEN cen = new ComentarioCEN(cCAD);
                 DateTime p_fecha = DateTime.Now;
-                int id = cen.CrearComentario(com.Creador,p_fecha,com.Contenido,com.Valoracion);
+                int p_valoracion = 0;
+                int id = cen.CrearComentario(com.Creador,p_fecha,com.Contenido,p_valoracion);
                 return RedirectToAction("Details", new { id = id });
             }
             catch
             {
                 return View();
+            }
+        }
+
+        //
+        // POST: /Comentario/FastCreate
+
+        [HttpPost]
+        public ActionResult FastCreate(String usuario, String comentario)
+        {
+            try
+            {
+                ComentarioCAD cCAD = new ComentarioCAD();
+                ComentarioCEN cen = new ComentarioCEN(cCAD);
+                DateTime p_fecha = DateTime.Now;
+                int p_valoracion = 0;
+                int id = cen.CrearComentario(usuario, p_fecha, comentario, p_valoracion);
+                return RedirectToAction("Details", new { id = id });
+            }
+            catch
+            {
+                return RedirectToAction("Index");
             }
         }
 
@@ -168,5 +189,13 @@ namespace MouseRidersWeb.Controllers
                 return View();
             }
         }
+
+        [HttpPost]
+        public void AnyadirEstrellas(int id, int valoracion)
+        {
+                ComentarioCEN cen = new ComentarioCEN();
+                cen.ActualizarPuntuacion(id, valoracion);
+        }
+
     }
 }

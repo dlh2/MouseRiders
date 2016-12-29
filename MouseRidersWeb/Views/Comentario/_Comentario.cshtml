@@ -29,8 +29,19 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Contenido)
             </td>
+          
             <td>
-                @Html.DisplayFor(modelItem => item.Valoracion)
+                @using (Ajax.BeginForm("AnyadirEstrellas", "Comentario", new { id = item.Id},
+                 new AjaxOptions
+                 {
+                     HttpMethod = "post"
+                 }))
+                {
+                    <input type="hidden" name="valoracion" value="0">
+                    <div id="stars-existing" class="starrr" data-rating='@Html.DisplayFor(modelItem => item.Valoracion)'>
+
+                    </div>
+                }
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
