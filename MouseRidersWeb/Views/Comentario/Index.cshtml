@@ -166,7 +166,8 @@ else
 </script>
 
 <script>
-    $('.pagination li a').click(function () {
+    $('.pagination li a').click(function (e) {
+        e.preventDefault();
         $(".active").removeClass("active");
         $(this).parent().addClass("active");
         var clickedPage = $(this).html().valueOf() - 1;
