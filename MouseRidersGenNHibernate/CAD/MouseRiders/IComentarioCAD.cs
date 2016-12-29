@@ -28,5 +28,8 @@ void RelacionaArticulo (int p_Comentario_OID, int p_pertenece_OID);
 void RelacionaHilo (int p_Comentario_OID, int p_pertenece_a_OID);
 
 int NumComentsArticulo (int ? p_id);
+
+
+int NumComentsHilo (int ? p_id);
 }
 }
