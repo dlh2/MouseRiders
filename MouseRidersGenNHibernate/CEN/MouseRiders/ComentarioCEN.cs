@@ -97,5 +97,9 @@ public int NumComentsArticulo (int ? p_id)
 {
         return _IComentarioCAD.NumComentsArticulo (p_id);
 }
+public int NumComentsHilo (int ? p_id)
+{
+        return _IComentarioCAD.NumComentsHilo (p_id);
+}
 }
 }

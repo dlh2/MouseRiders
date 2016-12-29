@@ -303,5 +303,37 @@ public int NumComentsArticulo (int ? p_id)
 
         return result;
 }
+public int NumComentsHilo (int ? p_id)
+{
+        int result;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM ComentarioEN self where SELECT count(*) FROM ComentarioEN where :p_id=pertenece_a";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ComentarioENnumComentsHiloHQL");
+                query.SetParameter ("p_id", p_id);
+
+
+                result = query.UniqueResult<int>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in ComentarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }
