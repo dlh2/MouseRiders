@@ -6,24 +6,51 @@
 }
 <header>
     <script src="http://www.w3schools.com/lib/w3data.js"></script>
-    <h1 class="display-field">
+    <h1>
         @Html.DisplayFor(model => model.Titulo)
     </h1>
 
-    <h2 class="display-field">
+    <h2>
         @Html.DisplayFor(model => model.Subtitulo)
     </h2>
-    <div class="display-field">
-        <img class="featurette-image img-circle img-responsive pull-right" src="@Html.DisplayFor(model => model.Portada)">
-    </div>
-
-
-    <div>
-        <div w3-include-html="~/Contenido/Articulos/@Html.DisplayFor(model => model.Contenido)"></div>
-        <script>
-            w3IncludeHTML();
-        </script>
-    </div>
-
 
 </header>
+<main>
+    <div w3-include-html="~/Contenido/Articulos/@Html.DisplayFor(model => model.Contenido)"></div>
+    <script>
+        w3IncludeHTML();
+    </script>
+
+    <style>
+        .darwin-inline-image {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #contenido {
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        header{
+            margin-left:auto;
+            margin-right:auto;
+            text-align:center;
+            margin-bottom: 5%;
+            margin-top: 5%;
+            background: radial-gradient(lightgrey 40%, white 60%);
+        }
+        h1{
+            font-size:6em;
+        }
+        header h2{
+            font-size: 3em;
+            color: #777;
+        }
+    </style>
+</main>
+
+
+
