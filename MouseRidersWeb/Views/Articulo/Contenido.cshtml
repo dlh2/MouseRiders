@@ -5,11 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <header>
-    
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
     <div class="display-field">
         @Html.DisplayFor(model => model.Titulo)
     </div>
-   
+
     <div class="display-field">
         @Html.DisplayFor(model => model.Subtitulo)
     </div>
@@ -19,12 +19,11 @@
 
 
     <div>
-        <iframe width="1500" height="800" src="~/Contenido/Articulos/Articulo1.html" scrolling="yes"></iframe>
+        <div w3-include-html="~/Contenido/Articulos/@Html.DisplayFor(model => model.Contenido)"></div>
+        <script>
+            w3IncludeHTML();
+        </script>
     </div>
 
 
 </header>
-
-
-
-
