@@ -561,7 +561,7 @@ public static void InitializeData ()
                 ArticuloEN articulo1EN = new ArticuloEN ();
                 articulo1EN.Autor = usuario1EN.Email;
                 articulo1EN.Contador = 0;
-                articulo1EN.Contenido = "documento.html";
+                articulo1EN.Contenido = "Articulo1.html";
                 articulo1EN.ContenidoDescargable = "documento.pdf";
                 articulo1EN.Fecha = DateTime.Now;
                 articulo1EN.Puntuacion = 0;
@@ -574,7 +574,7 @@ public static void InitializeData ()
                 ArticuloEN articulo2EN = new ArticuloEN ();
                 articulo2EN.Autor = usuario1EN.Email;
                 articulo2EN.Contador = 0;
-                articulo2EN.Contenido = "documento.html";
+                articulo2EN.Contenido = "Articulo2.html";
                 articulo2EN.ContenidoDescargable = "documento.pdf";
                 articulo2EN.Fecha = DateTime.Now;
                 articulo2EN.Puntuacion = 0;
@@ -587,7 +587,7 @@ public static void InitializeData ()
                 ArticuloEN articulo3EN = new ArticuloEN ();
                 articulo3EN.Autor = usuario1EN.Email;
                 articulo3EN.Contador = 0;
-                articulo3EN.Contenido = "documento.html";
+                articulo3EN.Contenido = "Articulo3.html";
                 articulo3EN.ContenidoDescargable = "documento.pdf";
                 articulo3EN.Fecha = DateTime.Now;
                 articulo3EN.Puntuacion = 0;
