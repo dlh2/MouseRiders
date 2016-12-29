@@ -38,7 +38,7 @@ public IRedactorCAD get_IRedactorCAD ()
         return this._IRedactorCAD;
 }
 
-public int CrearRedactor (string p_email, string p_nombre, string p_apellidos, string p_pais, int p_telefono, int p_puntuacion, Nullable<DateTime> p_fechaRegistro, string p_contrasenya, int p_id, string p_nombreusuario)
+public int CrearRedactor (string p_email, string p_nombre, string p_apellidos, string p_pais, int p_telefono, int p_puntuacion, Nullable<DateTime> p_fechaRegistro, string p_contrasenya, string p_nombreusuario)
 {
         RedactorEN redactorEN = null;
         int oid;
@@ -60,8 +60,6 @@ public int CrearRedactor (string p_email, string p_nombre, string p_apellidos, s
         redactorEN.FechaRegistro = p_fechaRegistro;
 
         redactorEN.Contrasenya = p_contrasenya;
-
-        redactorEN.Id = p_id;
 
         redactorEN.Nombreusuario = p_nombreusuario;
 

@@ -36,7 +36,7 @@ public bool ActualizarPuntuacion (int id_comentario, int puntuacion)
                 return false;
 
         //comentarioEN.Valoracion = comentarioEN.Valoracion + puntuacion;
-        comentarioEN.Valoracion =  puntuacion;
+        comentarioEN.Valoracion = puntuacion;
         _IComentarioCAD.ModificarComentario (comentarioEN);
 
         return true;

@@ -29,6 +29,6 @@ SeccionEN ReadOID (int seccion
 System.Collections.Generic.IList<SeccionEN> ReadAll (int first, int size);
 
 
-System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.SeccionEN> ReadFilter (string p_nombre);
+MouseRidersGenNHibernate.EN.MouseRiders.SeccionEN ReadFilter (string p_nombre);
 }
 }

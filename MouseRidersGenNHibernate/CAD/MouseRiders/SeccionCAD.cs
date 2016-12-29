@@ -250,18 +250,19 @@ public System.Collections.Generic.IList<SeccionEN> ReadAll (int first, int size)
         return result;
 }
 
-public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.SeccionEN> ReadFilter (string p_nombre)
+public MouseRidersGenNHibernate.EN.MouseRiders.SeccionEN ReadFilter (string p_nombre)
 {
-        System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.SeccionEN> result;
+        MouseRidersGenNHibernate.EN.MouseRiders.SeccionEN result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM SeccionEN self where FROM SeccionEN where :p_nombre like nombre";
+                //String sql = @"FROM SeccionEN self where FROM SeccionEN where :p_nombre=nombre";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("SeccionENreadFilterHQL");
                 query.SetParameter ("p_nombre", p_nombre);
 
-                result = query.List<MouseRidersGenNHibernate.EN.MouseRiders.SeccionEN>();
+
+                result = query.UniqueResult<MouseRidersGenNHibernate.EN.MouseRiders.SeccionEN>();
                 SessionCommit ();
         }
 

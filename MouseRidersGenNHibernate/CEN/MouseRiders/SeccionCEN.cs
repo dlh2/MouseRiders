@@ -88,7 +88,7 @@ public System.Collections.Generic.IList<SeccionEN> ReadAll (int first, int size)
         list = _ISeccionCAD.ReadAll (first, size);
         return list;
 }
-public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.SeccionEN> ReadFilter (string p_nombre)
+public MouseRidersGenNHibernate.EN.MouseRiders.SeccionEN ReadFilter (string p_nombre)
 {
         return _ISeccionCAD.ReadFilter (p_nombre);
 }

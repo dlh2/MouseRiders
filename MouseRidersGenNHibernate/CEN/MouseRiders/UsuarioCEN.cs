@@ -38,7 +38,7 @@ public IUsuarioCAD get_IUsuarioCAD ()
         return this._IUsuarioCAD;
 }
 
-public int CrearUsuario (string p_email, string p_nombre, string p_apellidos, string p_pais, int p_telefono, int p_puntuacion, Nullable<DateTime> p_fechaRegistro, string p_contrasenya, int p_id, string p_nombreusuario)
+public int CrearUsuario (string p_email, string p_nombre, string p_apellidos, string p_pais, int p_telefono, int p_puntuacion, Nullable<DateTime> p_fechaRegistro, string p_contrasenya, string p_nombreusuario)
 {
         UsuarioEN usuarioEN = null;
         int oid;
@@ -60,8 +60,6 @@ public int CrearUsuario (string p_email, string p_nombre, string p_apellidos, st
         usuarioEN.FechaRegistro = p_fechaRegistro;
 
         usuarioEN.Contrasenya = p_contrasenya;
-
-        usuarioEN.Id = p_id;
 
         usuarioEN.Nombreusuario = p_nombreusuario;
 

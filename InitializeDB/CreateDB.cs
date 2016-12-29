@@ -101,9 +101,8 @@ public static void InitializeData ()
                 usuario1EN.Pais = "espanya";
                 usuario1EN.Puntuacion = 1000;
                 usuario1EN.FechaRegistro = DateTime.Now;
-                usuario1EN.Id = 1;
-                int oid_usu = usuarioCEN.CrearUsuario (usuario1EN.Email, usuario1EN.Nombre, usuario1EN.Apellidos, usuario1EN.Pais, usuario1EN.Telefono, usuario1EN.Puntuacion, usuario1EN.FechaRegistro, usuario1EN.Contrasenya, 1, "user1");
-
+                int oid_usu = usuarioCEN.CrearUsuario (usuario1EN.Email, usuario1EN.Nombre, usuario1EN.Apellidos, usuario1EN.Pais, usuario1EN.Telefono, usuario1EN.Puntuacion, usuario1EN.FechaRegistro, usuario1EN.Contrasenya, "user1");
+                usuario1EN.Id = oid_usu;
                 //Usuario2
                 UsuarioEN usuario2EN = new UsuarioEN ();
                 usuario2EN.Email = "jorge@gmail.com";
@@ -114,9 +113,8 @@ public static void InitializeData ()
                 usuario2EN.Pais = "espanya";
                 usuario2EN.Puntuacion = 2000;
                 usuario2EN.FechaRegistro = DateTime.Now;
-                usuario2EN.Id = 2;
-                int oid_usu2 = usuarioCEN.CrearUsuario (usuario2EN.Email, usuario2EN.Nombre, usuario2EN.Apellidos, usuario2EN.Pais, usuario2EN.Telefono, usuario2EN.Puntuacion, usuario2EN.FechaRegistro, usuario2EN.Contrasenya, 2, "user2");
-
+                int oid_usu2 = usuarioCEN.CrearUsuario (usuario2EN.Email, usuario2EN.Nombre, usuario2EN.Apellidos, usuario2EN.Pais, usuario2EN.Telefono, usuario2EN.Puntuacion, usuario2EN.FechaRegistro, usuario2EN.Contrasenya, "user2");
+                usuario2EN.Id = oid_usu2;
                 //Usuario3
                 UsuarioEN usuario3EN = new UsuarioEN ();
                 usuario3EN.Email = "javi@gmail.com";
@@ -127,9 +125,8 @@ public static void InitializeData ()
                 usuario3EN.Pais = "mexico";
                 usuario3EN.Puntuacion = 3000;
                 usuario3EN.FechaRegistro = DateTime.Now;
-                usuario3EN.Id = 3;
-                int oid_usu3 = usuarioCEN.CrearUsuario (usuario3EN.Email, usuario3EN.Nombre, usuario3EN.Apellidos, usuario3EN.Pais, usuario3EN.Telefono, usuario3EN.Puntuacion, usuario3EN.FechaRegistro, usuario3EN.Contrasenya, 3, "user3");
-
+                int oid_usu3 = usuarioCEN.CrearUsuario (usuario3EN.Email, usuario3EN.Nombre, usuario3EN.Apellidos, usuario3EN.Pais, usuario3EN.Telefono, usuario3EN.Puntuacion, usuario3EN.FechaRegistro, usuario3EN.Contrasenya, "user3");
+                usuario3EN.Id = oid_usu3;
                 //Usuario4
                 UsuarioEN usuario4EN = new UsuarioEN ();
                 usuario4EN.Email = "pedro@gmail.com";
@@ -140,10 +137,9 @@ public static void InitializeData ()
                 usuario4EN.Pais = "mexico";
                 usuario4EN.Puntuacion = 3000;
                 usuario4EN.FechaRegistro = DateTime.Now;
-                usuario4EN.Id = 4;
-                usuarioCEN.CrearUsuario (usuario4EN.Email, usuario4EN.Nombre, usuario4EN.Apellidos, usuario4EN.Pais, usuario4EN.Telefono, usuario4EN.Puntuacion, usuario4EN.FechaRegistro, usuario4EN.Contrasenya, 4, "user4");
+                usuario4EN.Id = usuarioCEN.CrearUsuario(usuario4EN.Email, usuario4EN.Nombre, usuario4EN.Apellidos, usuario4EN.Pais, usuario4EN.Telefono, usuario4EN.Puntuacion, usuario4EN.FechaRegistro, usuario4EN.Contrasenya, "user4");
 
-
+                
                 #endregion
 
                 #region Mensaje
@@ -343,6 +339,7 @@ public static void InitializeData ()
                  */
                 #endregion
 
+                
                 #region Denuncia
                 IDenunciaCAD _IDenunciaCAD = new DenunciaCAD ();
                 DenunciaCEN denunciaCEN = new DenunciaCEN (_IDenunciaCAD);
@@ -353,14 +350,14 @@ public static void InitializeData ()
                 denuncia1EN.Motivo = "huele mal";
 
                 int oid_d = denunciaCEN.CrearDenuncia (denuncia1EN.Motivo, usuario2EN.Id, denuncia1EN.Fecha, usuario1EN.Id);
-
+                
                 //Denuncia2
                 DenunciaEN denuncia2EN = new DenunciaEN ();
                 denuncia2EN.Fecha = DateTime.Now;
                 denuncia2EN.Motivo = "huele bastante mal";
 
                 int oid_d2 = denunciaCEN.CrearDenuncia (denuncia2EN.Motivo, usuario3EN.Id, denuncia2EN.Fecha, usuario1EN.Id);
-
+                
                 //Denuncia3
                 DenunciaEN denuncia3EN = new DenunciaEN ();
                 denuncia3EN.Fecha = DateTime.Now;
@@ -368,7 +365,7 @@ public static void InitializeData ()
 
                 int oid_d3 = denunciaCEN.CrearDenuncia (denuncia3EN.Motivo, usuario4EN.Id, denuncia3EN.Fecha, usuario1EN.Id);
 
-
+                
                 IList<int> ss3 = new List<int>();
                 ss3.Add (oid_d);
                 usuarioCEN.RelacionaDenuncia (oid_usu, ss3);
@@ -414,9 +411,8 @@ public static void InitializeData ()
                 administradorEN.Pais = "pais valencia";
                 administradorEN.Puntuacion = 5000;
                 administradorEN.Telefono = 666777888;
-                administradorEN.Id = 5;
 
-                administradorCEN.CrearAdministrador (administradorEN.Email, administradorEN.Nombre, administradorEN.Apellidos, administradorEN.Pais, administradorEN.Telefono, administradorEN.Puntuacion, administradorEN.FechaRegistro, administradorEN.Contrasenya, 5, "user5");
+                administradorCEN.CrearAdministrador (administradorEN.Email, administradorEN.Nombre, administradorEN.Apellidos, administradorEN.Pais, administradorEN.Telefono, administradorEN.Puntuacion, administradorEN.FechaRegistro, administradorEN.Contrasenya, "user5");
 
                 #endregion
 
@@ -433,9 +429,8 @@ public static void InitializeData ()
                 admin_foroEN.Pais = "catalunya";
                 admin_foroEN.Puntuacion = 100;
                 admin_foroEN.Telefono = 666999111;
-                admin_foroEN.Id = 6;
 
-                int oid_adminf = admin_foroCEN.CrearAdmin_foro (admin_foroEN.Email, admin_foroEN.Nombre, admin_foroEN.Apellidos, admin_foroEN.Pais, admin_foroEN.Telefono, admin_foroEN.Puntuacion, admin_foroEN.FechaRegistro, admin_foroEN.Contrasenya, 6, "user6");
+                int oid_adminf = admin_foroCEN.CrearAdmin_foro (admin_foroEN.Email, admin_foroEN.Nombre, admin_foroEN.Apellidos, admin_foroEN.Pais, admin_foroEN.Telefono, admin_foroEN.Puntuacion, admin_foroEN.FechaRegistro, admin_foroEN.Contrasenya, "user6");
 
                 #endregion
 
@@ -452,9 +447,8 @@ public static void InitializeData ()
                 redactorEN.Pais = "pais vasco";
                 redactorEN.Puntuacion = 10000;
                 redactorEN.Telefono = 666345111;
-                redactorEN.Id = 7;
 
-                redactorCEN.CrearRedactor (redactorEN.Email, redactorEN.Nombre, redactorEN.Apellidos, redactorEN.Pais, redactorEN.Telefono, redactorEN.Puntuacion, redactorEN.FechaRegistro, redactorEN.Contrasenya, 7, "user7");
+                redactorCEN.CrearRedactor (redactorEN.Email, redactorEN.Nombre, redactorEN.Apellidos, redactorEN.Pais, redactorEN.Telefono, redactorEN.Puntuacion, redactorEN.FechaRegistro, redactorEN.Contrasenya, "user7");
 
                 #endregion
 
@@ -550,13 +544,13 @@ public static void InitializeData ()
                 seccionEN.Nombre = "ArticulosPC";
                 int oid_s = seccionCEN.CrearSeccion (seccionEN.Nombre);
 
-                SeccionEN seccion1EN = new SeccionEN();
+                SeccionEN seccion1EN = new SeccionEN ();
                 seccionEN.Nombre = "NoticiasPC";
-                int oid_s1 = seccionCEN.CrearSeccion(seccionEN.Nombre);
+                int oid_s1 = seccionCEN.CrearSeccion (seccionEN.Nombre);
 
-                SeccionEN seccion2EN = new SeccionEN();
+                SeccionEN seccion2EN = new SeccionEN ();
                 seccionEN.Nombre = "Semanal";
-                int oid_s2 = seccionCEN.CrearSeccion(seccionEN.Nombre);
+                int oid_s2 = seccionCEN.CrearSeccion (seccionEN.Nombre);
 
                 #endregion
 
@@ -705,65 +699,65 @@ public static void InitializeData ()
                 comentarioCEN.RelacionaHilo (oid_c7, oid_h2);
                 comentarioCEN.RelacionaHilo (oid_c8, oid_h2);
 
-                ComentarioEN comentario9EN = new ComentarioEN();
+                ComentarioEN comentario9EN = new ComentarioEN ();
                 comentario9EN.Contenido = "Rising discretito? Sera a nivel tecnico, porque jugablemente es top del genero.";
                 comentario9EN.Creador = usuario3EN.Email;
                 comentario9EN.Fecha = DateTime.Now;
                 comentario9EN.Valoracion = 0;
-                int oid_c9 = comentarioCEN.CrearComentario(
-               comentario9EN.Creador,
-               comentario9EN.Fecha,
-               comentario9EN.Contenido,
-               comentario9EN.Valoracion);
+                int oid_c9 = comentarioCEN.CrearComentario (
+                        comentario9EN.Creador,
+                        comentario9EN.Fecha,
+                        comentario9EN.Contenido,
+                        comentario9EN.Valoracion);
 
-                ComentarioEN comentario10EN = new ComentarioEN();
+                ComentarioEN comentario10EN = new ComentarioEN ();
                 comentario10EN.Contenido = "Estos juegos con tantos menús el idioma es un handicap para mí, espero que lo acaben traduciendo";
                 comentario10EN.Creador = usuario3EN.Email;
                 comentario10EN.Fecha = DateTime.Now;
                 comentario10EN.Valoracion = 0;
-                int oid_c10 = comentarioCEN.CrearComentario(
-               comentario10EN.Creador,
-               comentario10EN.Fecha,
-               comentario10EN.Contenido,
-               comentario10EN.Valoracion);
+                int oid_c10 = comentarioCEN.CrearComentario (
+                        comentario10EN.Creador,
+                        comentario10EN.Fecha,
+                        comentario10EN.Contenido,
+                        comentario10EN.Valoracion);
 
-                ComentarioEN comentario11EN = new ComentarioEN();
+                ComentarioEN comentario11EN = new ComentarioEN ();
                 comentario11EN.Contenido = "Demo probada, y bueno, no está mal, bastante variado para ser una demo tan corta, pero no se si es mi estilo de juego. Los personajes (sobretodo el chaval) me ha parecido pesadísimo. Aunque la historia que se intuye no tiene mala pinta.";
                 comentario11EN.Creador = usuario3EN.Email;
                 comentario11EN.Fecha = DateTime.Now;
                 comentario11EN.Valoracion = 0;
-                int oid_c11 = comentarioCEN.CrearComentario(
-               comentario11EN.Creador,
-               comentario11EN.Fecha,
-               comentario11EN.Contenido,
-               comentario11EN.Valoracion);
+                int oid_c11 = comentarioCEN.CrearComentario (
+                        comentario11EN.Creador,
+                        comentario11EN.Fecha,
+                        comentario11EN.Contenido,
+                        comentario11EN.Valoracion);
 
-                ComentarioEN comentario12EN = new ComentarioEN();
+                ComentarioEN comentario12EN = new ComentarioEN ();
                 comentario12EN.Contenido = "Ya lo e jugado  y es lo que me esperaba , el antiguo Nier con las mecanicas de Platinum para el combate , una gozada  Lo que me sorprende al leer estas impresiones es lo de los angulos de camara , ya que esos angulos los hacia el primer Nier ";
                 comentario12EN.Creador = usuario3EN.Email;
                 comentario12EN.Fecha = DateTime.Now;
                 comentario12EN.Valoracion = 0;
-                int oid_c12 = comentarioCEN.CrearComentario(
-               comentario12EN.Creador,
-               comentario12EN.Fecha,
-               comentario12EN.Contenido,
-               comentario12EN.Valoracion);
+                int oid_c12 = comentarioCEN.CrearComentario (
+                        comentario12EN.Creador,
+                        comentario12EN.Fecha,
+                        comentario12EN.Contenido,
+                        comentario12EN.Valoracion);
 
-                ComentarioEN comentario13EN = new ComentarioEN();
+                ComentarioEN comentario13EN = new ComentarioEN ();
                 comentario13EN.Contenido = "no se porque vas de listo solo por ser una demo cuando los responsables son platinium games, despues de bayoneta y metal gear rising no hay porque dudar solo por ser una demo";
                 comentario13EN.Creador = usuario3EN.Email;
                 comentario13EN.Fecha = DateTime.Now;
                 comentario13EN.Valoracion = 0;
-                int oid_c13 = comentarioCEN.CrearComentario(
-               comentario13EN.Creador,
-               comentario13EN.Fecha,
-               comentario13EN.Contenido,
-               comentario13EN.Valoracion);
-                comentarioCEN.RelacionaHilo(oid_c9, oid_h2);
-                comentarioCEN.RelacionaHilo(oid_c10, oid_h2);
-                comentarioCEN.RelacionaHilo(oid_c11, oid_h2);
-                comentarioCEN.RelacionaHilo(oid_c12, oid_h2);
-                comentarioCEN.RelacionaHilo(oid_c13, oid_h2);
+                int oid_c13 = comentarioCEN.CrearComentario (
+                        comentario13EN.Creador,
+                        comentario13EN.Fecha,
+                        comentario13EN.Contenido,
+                        comentario13EN.Valoracion);
+                comentarioCEN.RelacionaHilo (oid_c9, oid_h2);
+                comentarioCEN.RelacionaHilo (oid_c10, oid_h2);
+                comentarioCEN.RelacionaHilo (oid_c11, oid_h2);
+                comentarioCEN.RelacionaHilo (oid_c12, oid_h2);
+                comentarioCEN.RelacionaHilo (oid_c13, oid_h2);
                 #endregion
 
                 #region Metodos

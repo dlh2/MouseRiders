@@ -13,7 +13,7 @@
 			
 					
 					<property name="Nombre" type="string"> 
-						<column name="nombre"  not-null="true"/>
+						<column name="nombre"  unique="true" not-null="true"/>
 					</property>
 			
 			
@@ -36,6 +36,6 @@
 		 </class>	
 		  
 		  <query name="SeccionENReadAllHQL">from SeccionEN</query>
-		  <query name="SeccionENreadFilterHQL"><![CDATA[FROM SeccionEN where :p_nombre like nombre]]></query>
+		  <query name="SeccionENreadFilterHQL"><![CDATA[FROM SeccionEN where :p_nombre=nombre]]></query>
 		</hibernate-mapping>
 	
