@@ -1,6 +1,8 @@
 ﻿
+using MouseRidersGenNHibernate.Assembler.MouseRiders;
 using MouseRidersGenNHibernate.CAD.MouseRiders;
 using MouseRidersGenNHibernate.CEN.MouseRiders;
+using MouseRidersGenNHibernate.DTO.MouseRiders;
 using MouseRidersGenNHibernate.EN.MouseRiders;
 using MouseRidersWeb.Models;
 using System;
@@ -21,7 +23,12 @@ namespace MouseRidersWeb.Controllers
         {
             SessionInitialize();
             UsuarioCAD cCAD = new UsuarioCAD(session);
-            IList<UsuarioEN> result = cCAD.ReadAllDefault(0,10);
+            IList<UsuarioEN> resultEN = cCAD.ReadAllDefault(0,10);
+            IList<UsuarioDTO> result = new List<UsuarioDTO>();
+            for (int i = 0; i < resultEN.Count; i++)
+            {
+                result.Add(new UsuarioAssembler().Convert(resultEN[i]));
+            }
             SessionClose();
             return View(result);
         }

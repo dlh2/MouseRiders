@@ -232,8 +232,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Assembler\MensajeAssembler.cs" />
+    <Compile Include="Models\DTO\MensajeDTO.cs" />
+    <Compile Include="Models\Assembler\UsuarioAssembler.cs" />
     <Compile Include="Models\Assembler\ComentarioAssembler.cs" />
     <Compile Include="Models\DTO\BusquedaDTO.cs" />
+    <Compile Include="Models\DTO\UsuarioDTO.cs" />
     <Compile Include="Models\DTO\ComentarioDTO.cs" />
     <Compile Include="Models\Assembler\EncuestaAssembler.cs" />
     <Compile Include="Models\DTO\EncuestaDTO.cs" />
@@ -389,7 +393,6 @@
     <Content Include="Views\Usuario\Delete.cshtml" />
     <Content Include="Views\Usuario\Details.cshtml" />
     <Content Include="Views\Usuario\Edit.cshtml" />
-    <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Usuario\VerDenunciasRecibidas.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -451,6 +454,7 @@
     <Content Include="Views\Usuario\Login_boceto.cshtml" />
     <Content Include="Views\Usuario\Register_boceto.cshtml" />
     <Content Include="Views\Usuario\register_login_boceto.cshtml" />
+    <Content Include="Views\Usuario\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
