@@ -268,7 +268,6 @@
 			
 			
 			
-			
 	<Compile Include="EN\MouseRiders\HiloEN.cs" />
 	<Compile Include="CEN\MouseRiders\HiloCEN.cs" />
 	<Compile Include="CAD\MouseRiders\IHiloCAD.cs" />

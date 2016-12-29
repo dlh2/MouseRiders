@@ -28,7 +28,6 @@ public int CalcularPuntuacion (int p_oid, int puntuacion)
         /*se actualiza cada vez que el usuario comenta, valora o realiza una encuesta y le suma
          * puntos en  funcion de la accion realizada, valorar da 5 puntos, comentar 20 y encuestas 100*/
         UsuarioEN usuarioEN = null;
-
         if (puntuacion != 5 && puntuacion != 20 && puntuacion != 100) {
                 return -1;
         }

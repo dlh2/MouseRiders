@@ -26,7 +26,5 @@ void BorrarComentario (int id
 void RelacionaArticulo (int p_Comentario_OID, int p_pertenece_OID);
 
 void RelacionaHilo (int p_Comentario_OID, int p_pertenece_a_OID);
-
-int NumComentsArticulo (int ? p_id);
 }
 }
