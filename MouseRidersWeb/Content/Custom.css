@@ -37,6 +37,16 @@ header h2 {
     color: #777;
 }
 
+#hcoments{
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+#dcoments{
+    border: 5px solid;
+    border-radius: 10px;
+}
+
 @media (max-width: 760px) {
     #contenido {
         width: 95%;
