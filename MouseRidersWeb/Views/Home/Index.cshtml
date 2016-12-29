@@ -18,4 +18,41 @@
 @{ Html.RenderAction("MostrarMiniaturas", "Articulo", new { num = 0 });}
 
 
-<button type="button" class="btn btn-default btn-lg btn-block">Mostrar más</button>
+<button type="button" class="btn btn-default btn-lg btn-block" id="loadMore">Mostrar más</button>
+
+<script>
+    $(function () {
+
+        var loadCount = 1;
+
+        $("#loadMore").on("click", function (e) {
+
+            e.preventDefault();
+
+            var url = "/Articulo/MostrarMiniaturas/";
+            $.ajax({
+                url: url,
+                data: {num: loadCount },
+                cache: false,
+                type: "GET",
+                success: function (data) {
+                    if (data.length > 6) {
+                        $(data).insertBefore("#loadMore");
+                    }
+                    else {
+                        $("#loadMore").hide();
+                    }
+
+                },
+                error: function (xhr, status, error) {
+                    console.log(xhr.responseText);
+                    alert("message : \n" +
+                        "An error occurred, for more info check the js console" +
+                        "\n status : \n" + status + " \n error : \n" + error);
+                }
+            });
+
+            loadCount = loadCount + 1;
+        });
+    });
+</script>

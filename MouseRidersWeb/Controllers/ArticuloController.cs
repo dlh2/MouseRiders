@@ -29,7 +29,7 @@ namespace MouseRidersWeb.Controllers
         {
             SessionInitialize();
             ArticuloCAD cCAD = new ArticuloCAD(session);
-            IList<ArticuloEN> result = cCAD.ReadAllDefault(num, 3);
+            IList<ArticuloEN> result = cCAD.ReadAllDefault(num, 1);
             SessionClose();
             return PartialView(result);
         }
