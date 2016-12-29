@@ -93,5 +93,9 @@ public void RelacionaHilo (int p_Comentario_OID, int p_pertenece_a_OID)
 
         _IComentarioCAD.RelacionaHilo (p_Comentario_OID, p_pertenece_a_OID);
 }
+public int NumComentsArticulo (int ? p_id)
+{
+        return _IComentarioCAD.NumComentsArticulo (p_id);
+}
 }
 }

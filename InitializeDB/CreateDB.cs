@@ -137,9 +137,9 @@ public static void InitializeData ()
                 usuario4EN.Pais = "mexico";
                 usuario4EN.Puntuacion = 3000;
                 usuario4EN.FechaRegistro = DateTime.Now;
-                usuario4EN.Id = usuarioCEN.CrearUsuario(usuario4EN.Email, usuario4EN.Nombre, usuario4EN.Apellidos, usuario4EN.Pais, usuario4EN.Telefono, usuario4EN.Puntuacion, usuario4EN.FechaRegistro, usuario4EN.Contrasenya, "user4");
+                usuario4EN.Id = usuarioCEN.CrearUsuario (usuario4EN.Email, usuario4EN.Nombre, usuario4EN.Apellidos, usuario4EN.Pais, usuario4EN.Telefono, usuario4EN.Puntuacion, usuario4EN.FechaRegistro, usuario4EN.Contrasenya, "user4");
 
-                
+
                 #endregion
 
                 #region Mensaje
@@ -339,7 +339,7 @@ public static void InitializeData ()
                  */
                 #endregion
 
-                
+
                 #region Denuncia
                 IDenunciaCAD _IDenunciaCAD = new DenunciaCAD ();
                 DenunciaCEN denunciaCEN = new DenunciaCEN (_IDenunciaCAD);
@@ -350,14 +350,14 @@ public static void InitializeData ()
                 denuncia1EN.Motivo = "huele mal";
 
                 int oid_d = denunciaCEN.CrearDenuncia (denuncia1EN.Motivo, usuario2EN.Id, denuncia1EN.Fecha, usuario1EN.Id);
-                
+
                 //Denuncia2
                 DenunciaEN denuncia2EN = new DenunciaEN ();
                 denuncia2EN.Fecha = DateTime.Now;
                 denuncia2EN.Motivo = "huele bastante mal";
 
                 int oid_d2 = denunciaCEN.CrearDenuncia (denuncia2EN.Motivo, usuario3EN.Id, denuncia2EN.Fecha, usuario1EN.Id);
-                
+
                 //Denuncia3
                 DenunciaEN denuncia3EN = new DenunciaEN ();
                 denuncia3EN.Fecha = DateTime.Now;
@@ -365,7 +365,7 @@ public static void InitializeData ()
 
                 int oid_d3 = denunciaCEN.CrearDenuncia (denuncia3EN.Motivo, usuario4EN.Id, denuncia3EN.Fecha, usuario1EN.Id);
 
-                
+
                 IList<int> ss3 = new List<int>();
                 ss3.Add (oid_d);
                 usuarioCEN.RelacionaDenuncia (oid_usu, ss3);
