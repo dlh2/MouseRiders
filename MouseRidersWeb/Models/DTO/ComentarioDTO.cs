@@ -16,9 +16,6 @@ namespace MouseRidersGenNHibernate.DTO.MouseRiders
         [ScaffoldColumn(false)]
         public int Id { get; set; }
 
-
-
-
         /**
          *	Atributo creador
          */
@@ -31,6 +28,8 @@ namespace MouseRidersGenNHibernate.DTO.MouseRiders
         /**
         *	Atributo fecha
         */
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [Display(Prompt = "Fecha", Description = "Fecha del comentario", Name = "Fecha:")]
         [Required(ErrorMessage = "Debe de indicar una fecha para el comentario")]
         public Nullable<DateTime> Fecha { get; set; }
