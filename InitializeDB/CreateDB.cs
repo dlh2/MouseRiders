@@ -705,6 +705,65 @@ public static void InitializeData ()
                 comentarioCEN.RelacionaHilo (oid_c7, oid_h2);
                 comentarioCEN.RelacionaHilo (oid_c8, oid_h2);
 
+                ComentarioEN comentario9EN = new ComentarioEN();
+                comentario9EN.Contenido = "Rising discretito? Sera a nivel tecnico, porque jugablemente es top del genero.";
+                comentario9EN.Creador = usuario3EN.Email;
+                comentario9EN.Fecha = DateTime.Now;
+                comentario9EN.Valoracion = 0;
+                int oid_c9 = comentarioCEN.CrearComentario(
+               comentario9EN.Creador,
+               comentario9EN.Fecha,
+               comentario9EN.Contenido,
+               comentario9EN.Valoracion);
+
+                ComentarioEN comentario10EN = new ComentarioEN();
+                comentario10EN.Contenido = "Estos juegos con tantos menús el idioma es un handicap para mí, espero que lo acaben traduciendo";
+                comentario10EN.Creador = usuario3EN.Email;
+                comentario10EN.Fecha = DateTime.Now;
+                comentario10EN.Valoracion = 0;
+                int oid_c10 = comentarioCEN.CrearComentario(
+               comentario10EN.Creador,
+               comentario10EN.Fecha,
+               comentario10EN.Contenido,
+               comentario10EN.Valoracion);
+
+                ComentarioEN comentario11EN = new ComentarioEN();
+                comentario11EN.Contenido = "Demo probada, y bueno, no está mal, bastante variado para ser una demo tan corta, pero no se si es mi estilo de juego. Los personajes (sobretodo el chaval) me ha parecido pesadísimo. Aunque la historia que se intuye no tiene mala pinta.";
+                comentario11EN.Creador = usuario3EN.Email;
+                comentario11EN.Fecha = DateTime.Now;
+                comentario11EN.Valoracion = 0;
+                int oid_c11 = comentarioCEN.CrearComentario(
+               comentario11EN.Creador,
+               comentario11EN.Fecha,
+               comentario11EN.Contenido,
+               comentario11EN.Valoracion);
+
+                ComentarioEN comentario12EN = new ComentarioEN();
+                comentario12EN.Contenido = "Ya lo e jugado  y es lo que me esperaba , el antiguo Nier con las mecanicas de Platinum para el combate , una gozada  Lo que me sorprende al leer estas impresiones es lo de los angulos de camara , ya que esos angulos los hacia el primer Nier ";
+                comentario12EN.Creador = usuario3EN.Email;
+                comentario12EN.Fecha = DateTime.Now;
+                comentario12EN.Valoracion = 0;
+                int oid_c12 = comentarioCEN.CrearComentario(
+               comentario12EN.Creador,
+               comentario12EN.Fecha,
+               comentario12EN.Contenido,
+               comentario12EN.Valoracion);
+
+                ComentarioEN comentario13EN = new ComentarioEN();
+                comentario13EN.Contenido = "no se porque vas de listo solo por ser una demo cuando los responsables son platinium games, despues de bayoneta y metal gear rising no hay porque dudar solo por ser una demo";
+                comentario13EN.Creador = usuario3EN.Email;
+                comentario13EN.Fecha = DateTime.Now;
+                comentario13EN.Valoracion = 0;
+                int oid_c13 = comentarioCEN.CrearComentario(
+               comentario13EN.Creador,
+               comentario13EN.Fecha,
+               comentario13EN.Contenido,
+               comentario13EN.Valoracion);
+                comentarioCEN.RelacionaHilo(oid_c9, oid_h2);
+                comentarioCEN.RelacionaHilo(oid_c10, oid_h2);
+                comentarioCEN.RelacionaHilo(oid_c11, oid_h2);
+                comentarioCEN.RelacionaHilo(oid_c12, oid_h2);
+                comentarioCEN.RelacionaHilo(oid_c13, oid_h2);
                 #endregion
 
                 #region Metodos
