@@ -12,7 +12,7 @@ namespace MRWeb.Assembler
 {
     public class MensajeAssembler
     {
-        public MensajeDTO Converto(MensajeEN men)
+        public MensajeDTO Convert(MensajeEN men)
         {
             MensajeDTO menDTO = null;
             if (men != null)
