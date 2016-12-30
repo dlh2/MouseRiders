@@ -22,5 +22,9 @@ namespace MRWeb.Models
         public const Int32 PUNTUACION_MAX_LENGTH = 1; // Unmodifiable
         public const Int32 CONTRASENYA_MAX_LENGTH = 15; // Unmodifiable
         public const Int32 NOMBREUSUARIO_MAX_LENGTH = USUARIO_MAX_LENGTH; // Unmodifiable
+        public const Int32 TITULO_MAX_LENGTH = 200; // modifiable
+        public const Int32 CONTENIDO_MAX_LENGTH = 40; // modifiable
+        public const Int32 DESCRIPCION_MAX_LENGTH = 300; // modifiable
+
     }
 }

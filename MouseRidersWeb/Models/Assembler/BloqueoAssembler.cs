@@ -12,17 +12,19 @@ namespace MRWeb.Assembler
 {
     public class BloqueoAssembler
     {
-        //public BloqueoDTO Convert(BloqueoEN blo)
-        //{
-        //    BloqueoDTO bloDTO = null;
-        //    if (blo != null)
-        //    {
-        //        bloDTO = new BloqueoDTO();
-        //        bloDTO.Id = blo.Id;
-        //    }
-        //    return bloDTO;
-        //}
-        
-    }
+        public BloqueoDTO Convert(BloqueoEN blo)
+        {
+            BloqueoDTO bloDTO = null;
+            if (blo != null)
+            {
+                bloDTO = new BloqueoDTO();
+                bloDTO.Id = blo.Id;
+		        bloDTO.FechaInicio=blo.FechaInicio;
+                bloDTO.FechaFin = blo.FechaFin;
+            }
+            return bloDTO;
+        }
+
+     }
 }
 

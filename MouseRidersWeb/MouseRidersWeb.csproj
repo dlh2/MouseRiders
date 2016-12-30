@@ -242,6 +242,8 @@
     <Compile Include="Models\Assembler\BloqueoAssembler.cs" />
     <Compile Include="Models\Assembler\MensajeAssembler.cs" />
     <Compile Include="Models\Assembler\ArticuloAssembler.cs" />
+    <Compile Include="Models\DTO\BloqueoDTO.cs" />
+    <Compile Include="Models\DTO\ArticuloDTO.cs" />
     <Compile Include="Models\DTO\MensajeDTO.cs" />
     <Compile Include="Models\Assembler\UsuarioAssembler.cs" />
     <Compile Include="Models\Assembler\ComentarioAssembler.cs" />
