@@ -74,8 +74,8 @@ namespace MouseRidersGenNHibernate.DTO.MouseRiders
         public Nullable<DateTime> Fecha { get; set; }
 
         //Atributo Recibe
-        //[ScaffoldColumn(false)]
-        //[Display(Prompt = "Mensajes recibidos", Description = "Mensajes recibidos", Name = "Mensajes recibidos")]
-        //public IList<MensajeDTO> Recibe { get; set; }
+        [ScaffoldColumn(false)]
+        [Display(Prompt = "Mensajes recibidos", Description = "Mensajes recibidos", Name = "Mensajes recibidos")]
+        public IList<MensajeDTO> Recibe { get; set; }
     }
 }

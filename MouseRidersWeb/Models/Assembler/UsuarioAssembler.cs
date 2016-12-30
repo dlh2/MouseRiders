@@ -36,14 +36,14 @@ namespace MouseRidersGenNHibernate.Assembler.MouseRiders
             UsuarioDTO usDTO = Convert(us);
             if (us != null)
             {
-                //usDTO.Recibe = null;
-                //IList<MensajeEN> Recibe = us.Recibe;
-                //if (Recibe != null)
-                //{
-                //    usDTO.Recibe = new List<MensajeDTO>();
-                //    foreach (MensajeEN entry in Recibe)
-                //        usDTO.Recibe.Add(new MensajeAssembler().Converto(entry));
-                //}
+                usDTO.Recibe = null;
+                IList<MensajeEN> Recibe = us.Recibe;
+                if (Recibe != null)
+                {
+                    usDTO.Recibe = new List<MensajeDTO>();
+                    foreach (MensajeEN entry in Recibe)
+                        usDTO.Recibe.Add(new MensajeAssembler().Converto(entry));
+                }
             }
             return usDTO;
         }

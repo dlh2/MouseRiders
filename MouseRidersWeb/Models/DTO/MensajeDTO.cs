@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace MouseRidersGenNHibernate.DTO.MouseRiders
 {
-    class MensajeDTO
+    public class MensajeDTO
     {
         //Atributo id
         [ScaffoldColumn(false)]
