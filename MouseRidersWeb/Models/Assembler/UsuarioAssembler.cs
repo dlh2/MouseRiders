@@ -33,7 +33,7 @@ namespace MRWeb.Assembler
         }
         public UsuarioDTO ConvertConCorreoRecibido(UsuarioEN us)
         {
-            UsuarioDTO usDTO = Convert(us);
+            UsuarioDTO usDTO = this.Convert(us);
             if (us != null)
             {
                 usDTO.Recibe = null;

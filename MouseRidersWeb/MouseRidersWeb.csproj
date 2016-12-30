@@ -232,7 +232,16 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Assembler\RecompensaAssembler.cs" />
+    <Compile Include="Models\Assembler\SeccionAssembler.cs" />
+    <Compile Include="Models\Assembler\RespuestaAssembler.cs" />
+    <Compile Include="Models\Assembler\PermisoAssembler.cs" />
+    <Compile Include="Models\Assembler\HiloAssembler.cs" />
+    <Compile Include="Models\Assembler\DenunciaAssembler.cs" />
+    <Compile Include="Models\Assembler\ControladorNotificacionesAssembler.cs" />
+    <Compile Include="Models\Assembler\BloqueoAssembler.cs" />
     <Compile Include="Models\Assembler\MensajeAssembler.cs" />
+    <Compile Include="Models\Assembler\ArticuloAssembler.cs" />
     <Compile Include="Models\DTO\MensajeDTO.cs" />
     <Compile Include="Models\Assembler\UsuarioAssembler.cs" />
     <Compile Include="Models\Assembler\ComentarioAssembler.cs" />
