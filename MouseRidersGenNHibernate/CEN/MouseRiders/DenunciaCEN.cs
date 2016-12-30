@@ -7,13 +7,13 @@ using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MouseRidersGenNHibernate.Exceptions;
+using MRModel.Exceptions;
 
-using MouseRidersGenNHibernate.EN.MouseRiders;
-using MouseRidersGenNHibernate.CAD.MouseRiders;
+using MRModel.EN;
+using MRModel.CAD;
 
 
-namespace MouseRidersGenNHibernate.CEN.MouseRiders
+namespace MRModel.CEN
 {
 /*
  *      Definition of the class DenunciaCEN
@@ -51,7 +51,7 @@ public int CrearDenuncia (string p_motivo, int p_es_creada, Nullable<DateTime> p
         if (p_es_creada != -1) {
                 // El argumento p_es_creada -> Property es_creada es oid = false
                 // Lista de oids id
-                denunciaEN.Es_creada = new MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN ();
+                denunciaEN.Es_creada = new MRModel.EN.UsuarioEN ();
                 denunciaEN.Es_creada.Id = p_es_creada;
         }
 
@@ -61,7 +61,7 @@ public int CrearDenuncia (string p_motivo, int p_es_creada, Nullable<DateTime> p
         if (p_es_recibida != -1) {
                 // El argumento p_es_recibida -> Property es_recibida es oid = false
                 // Lista de oids id
-                denunciaEN.Es_recibida = new MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN ();
+                denunciaEN.Es_recibida = new MRModel.EN.UsuarioEN ();
                 denunciaEN.Es_recibida.Id = p_es_recibida;
         }
 

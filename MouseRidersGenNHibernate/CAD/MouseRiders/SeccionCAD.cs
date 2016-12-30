@@ -1,13 +1,13 @@
 
 using System;
 using System.Text;
-using MouseRidersGenNHibernate.CEN.MouseRiders;
+using MRModel.CEN;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MouseRidersGenNHibernate.EN.MouseRiders;
-using MouseRidersGenNHibernate.Exceptions;
+using MRModel.EN;
+using MRModel.Exceptions;
 
 
 /*
@@ -15,7 +15,7 @@ using MouseRidersGenNHibernate.Exceptions;
  *
  */
 
-namespace MouseRidersGenNHibernate.CAD.MouseRiders
+namespace MRModel.CAD
 {
 public partial class SeccionCAD : BasicCAD, ISeccionCAD
 {
@@ -43,9 +43,9 @@ public SeccionEN ReadOIDDefault (int seccion
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in SeccionCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in SeccionCAD.", ex);
         }
 
 
@@ -74,9 +74,9 @@ public System.Collections.Generic.IList<SeccionEN> ReadAllDefault (int first, in
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in SeccionCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in SeccionCAD.", ex);
         }
 
         return result;
@@ -100,9 +100,9 @@ public void ModifyDefault (SeccionEN seccion)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in SeccionCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in SeccionCAD.", ex);
         }
 
 
@@ -125,9 +125,9 @@ public int CrearSeccion (SeccionEN seccion)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in SeccionCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in SeccionCAD.", ex);
         }
 
 
@@ -154,9 +154,9 @@ public void ModificarSeccion (SeccionEN seccion)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in SeccionCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in SeccionCAD.", ex);
         }
 
 
@@ -178,9 +178,9 @@ public void BorrarSeccion (int seccion
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in SeccionCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in SeccionCAD.", ex);
         }
 
 
@@ -206,9 +206,9 @@ public SeccionEN ReadOID (int seccion
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in SeccionCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in SeccionCAD.", ex);
         }
 
 
@@ -236,9 +236,9 @@ public System.Collections.Generic.IList<SeccionEN> ReadAll (int first, int size)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in SeccionCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in SeccionCAD.", ex);
         }
 
 
@@ -250,9 +250,9 @@ public System.Collections.Generic.IList<SeccionEN> ReadAll (int first, int size)
         return result;
 }
 
-public MouseRidersGenNHibernate.EN.MouseRiders.SeccionEN ReadFilter (string p_nombre)
+public MRModel.EN.SeccionEN ReadFilter (string p_nombre)
 {
-        MouseRidersGenNHibernate.EN.MouseRiders.SeccionEN result;
+        MRModel.EN.SeccionEN result;
         try
         {
                 SessionInitializeTransaction ();
@@ -262,15 +262,15 @@ public MouseRidersGenNHibernate.EN.MouseRiders.SeccionEN ReadFilter (string p_no
                 query.SetParameter ("p_nombre", p_nombre);
 
 
-                result = query.UniqueResult<MouseRidersGenNHibernate.EN.MouseRiders.SeccionEN>();
+                result = query.UniqueResult<MRModel.EN.SeccionEN>();
                 SessionCommit ();
         }
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in SeccionCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in SeccionCAD.", ex);
         }
 
 

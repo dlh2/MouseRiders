@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
 		                   assembly="MouseRidersGenNHibernate"
-		                   namespace="MouseRidersGenNHibernate.EN.MouseRiders">
+		                   namespace="MRModel.EN">
 		    
 		    
 			
@@ -24,7 +24,7 @@
 			
 			
 		  			
-						<many-to-one name="Pertenece" class="MouseRidersGenNHibernate.EN.MouseRiders.EncuestaEN" >	
+						<many-to-one name="Pertenece" class="MRModel.EN.EncuestaEN" >	
 								<column name="FK_idEncuesta_idEncuesta"/> 
 						</many-to-one>
 											 					
@@ -36,7 +36,7 @@
 								
 								<column name="FK_idPregunta_idPregunta"/>
 					      	</key>
-							<one-to-many class="MouseRidersGenNHibernate.EN.MouseRiders.RespuestaEN"/>
+							<one-to-many class="MRModel.EN.RespuestaEN"/>
 					    </bag>
 					
 					

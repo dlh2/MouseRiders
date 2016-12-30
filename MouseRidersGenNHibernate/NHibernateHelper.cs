@@ -6,10 +6,10 @@ using System.Text;
 using NHibernate;
 using NHibernate.Cfg;
 
-using MouseRidersGenNHibernate.EN.MouseRiders;
+using MRModel.EN;
 
 
-namespace MouseRidersGenNHibernate.CAD.MouseRiders
+namespace MRModel.CAD
 {
 public static class NHibernateHelper
 {

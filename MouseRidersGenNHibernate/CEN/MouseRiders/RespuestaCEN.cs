@@ -7,13 +7,13 @@ using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MouseRidersGenNHibernate.Exceptions;
+using MRModel.Exceptions;
 
-using MouseRidersGenNHibernate.EN.MouseRiders;
-using MouseRidersGenNHibernate.CAD.MouseRiders;
+using MRModel.EN;
+using MRModel.CAD;
 
 
-namespace MouseRidersGenNHibernate.CEN.MouseRiders
+namespace MRModel.CEN
 {
 /*
  *      Definition of the class RespuestaCEN
@@ -38,7 +38,7 @@ public IRespuestaCAD get_IRespuestaCAD ()
         return this._IRespuestaCAD;
 }
 
-public int CrearRespuesta (string p_respuesta, MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum p_tipo, int p_pertenece, int p_contador, float p_frecuencia)
+public int CrearRespuesta (string p_respuesta, MRModel.Enumerated.T_PreguntaEnum p_tipo, int p_pertenece, int p_contador, float p_frecuencia)
 {
         RespuestaEN respuestaEN = null;
         int oid;
@@ -53,7 +53,7 @@ public int CrearRespuesta (string p_respuesta, MouseRidersGenNHibernate.Enumerat
         if (p_pertenece != -1) {
                 // El argumento p_pertenece -> Property pertenece es oid = false
                 // Lista de oids id
-                respuestaEN.Pertenece = new MouseRidersGenNHibernate.EN.MouseRiders.PreguntaEN ();
+                respuestaEN.Pertenece = new MRModel.EN.PreguntaEN ();
                 respuestaEN.Pertenece.Id = p_pertenece;
         }
 
@@ -67,7 +67,7 @@ public int CrearRespuesta (string p_respuesta, MouseRidersGenNHibernate.Enumerat
         return oid;
 }
 
-public void ModificarRespuesta (int p_Respuesta_OID, string p_respuesta, MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum p_tipo, int p_contador, float p_frecuencia)
+public void ModificarRespuesta (int p_Respuesta_OID, string p_respuesta, MRModel.Enumerated.T_PreguntaEnum p_tipo, int p_contador, float p_frecuencia)
 {
         RespuestaEN respuestaEN = null;
 

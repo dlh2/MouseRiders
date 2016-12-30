@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace MouseRidersWeb
+namespace MRWeb
 {
     public class FilterConfig
     {

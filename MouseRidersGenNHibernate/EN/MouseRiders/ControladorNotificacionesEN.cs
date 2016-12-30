@@ -1,7 +1,7 @@
 
 using System;
 // Definición clase ControladorNotificacionesEN
-namespace MouseRidersGenNHibernate.EN.MouseRiders
+namespace MRModel.EN
 {
 public partial class ControladorNotificacionesEN
 {
@@ -15,7 +15,7 @@ private int id;
 /**
  *	Atributo enviaN
  */
-private System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> enviaN;
+private System.Collections.Generic.IList<MRModel.EN.MensajeEN> enviaN;
 
 
 
@@ -28,7 +28,7 @@ public virtual int Id {
 
 
 
-public virtual System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> EnviaN {
+public virtual System.Collections.Generic.IList<MRModel.EN.MensajeEN> EnviaN {
         get { return enviaN; } set { enviaN = value;  }
 }
 
@@ -38,12 +38,12 @@ public virtual System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.Mous
 
 public ControladorNotificacionesEN()
 {
-        enviaN = new System.Collections.Generic.List<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN>();
+        enviaN = new System.Collections.Generic.List<MRModel.EN.MensajeEN>();
 }
 
 
 
-public ControladorNotificacionesEN(int id, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> enviaN
+public ControladorNotificacionesEN(int id, System.Collections.Generic.IList<MRModel.EN.MensajeEN> enviaN
                                    )
 {
         this.init (Id, enviaN);
@@ -56,7 +56,7 @@ public ControladorNotificacionesEN(ControladorNotificacionesEN controladorNotifi
 }
 
 private void init (int id
-                   , System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> enviaN)
+                   , System.Collections.Generic.IList<MRModel.EN.MensajeEN> enviaN)
 {
         this.Id = id;
 

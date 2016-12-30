@@ -1,14 +1,14 @@
-﻿using MouseRidersGenNHibernate.CAD.MouseRiders;
-using MouseRidersGenNHibernate.CEN.MouseRiders;
-using MouseRidersGenNHibernate.DTO.MouseRiders;
-using MouseRidersGenNHibernate.EN.MouseRiders;
+﻿using MRModel.CAD;
+using MRModel.CEN;
+using MRWeb.DTO;
+using MRModel.EN;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MouseRidersGenNHibernate.Assembler.MouseRiders
+namespace MRWeb.Assembler
 {
     public class MensajeAssembler
     {

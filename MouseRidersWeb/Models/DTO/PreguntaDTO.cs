@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 
 // Definición clase PreguntaDTO
-namespace MouseRidersGenNHibernate.EN.MouseRiders
+namespace MRModel.EN
 {
     public class PreguntaDTO
     {
@@ -33,9 +33,9 @@ namespace MouseRidersGenNHibernate.EN.MouseRiders
         [Display(Prompt = "Tipo", Description = "Tipo de pregunta", Name = "TipoN ")]
         [Required(ErrorMessage = "Debe indicar de que tipo es la pregunta")]
         [DataType(DataType.Currency, ErrorMessage = "La pregunta ha de ser de un tipo concreto")]
-        public MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum tipo { get; set; }
+        public MRModel.Enumerated.T_PreguntaEnum tipo { get; set; }
         */
-        private MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum Tipo { get; set; }
+        private MRModel.Enumerated.T_PreguntaEnum Tipo { get; set; }
 
         /**
          *	Atributo pertenece
@@ -43,7 +43,7 @@ namespace MouseRidersGenNHibernate.EN.MouseRiders
         [Display(Prompt = "Encuesta", Description = "Encuesta a la que pertenece la pregunta", Name = "EncuestaN ")]
         [Required(ErrorMessage = "Debe indicar la encuesta en la que aparece esta pregunta")]
         [DataType(DataType.Currency, ErrorMessage = "El dato introducido debe de ser una encuesta")]
-        public MouseRidersGenNHibernate.EN.MouseRiders.EncuestaDTO Pertenece { get; set; }
+        public MRModel.EN.EncuestaDTO Pertenece { get; set; }
 
 
         /**
@@ -52,8 +52,8 @@ namespace MouseRidersGenNHibernate.EN.MouseRiders
         [Display(Prompt = "Respuestas", Description = "Respuestas de la pregunta", Name = "RespuestasN ")]
         [Required(ErrorMessage = "Debe indicar las respuestas posibles de la pregunta")]
         [DataType(DataType.Currency, ErrorMessage = "El dato introducido debe de ser una lista de respuestas")]
-        public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.RespuestaEN> Tiene { get; set; }
+        public System.Collections.Generic.IList<MRModel.EN.RespuestaEN> Tiene { get; set; }
 
     }
 }
-        //private System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.RespuestaEN> tiene;
+        //private System.Collections.Generic.IList<MRModel.EN.RespuestaEN> tiene;

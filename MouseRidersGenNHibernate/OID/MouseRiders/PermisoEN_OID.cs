@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-namespace MouseRidersGenNHibernate.EN.MouseRiders
+namespace MRModel.EN
 {
 public class PermisoEN_OID
 {
-private MouseRidersGenNHibernate.Enumerated.MouseRiders.T_RolEnum rol;
-public virtual MouseRidersGenNHibernate.Enumerated.MouseRiders.T_RolEnum Rol {
+private MRModel.Enumerated.T_RolEnum rol;
+public virtual MRModel.Enumerated.T_RolEnum Rol {
         get { return rol; } set { rol = value;  }
 }
 
@@ -25,7 +25,7 @@ public virtual string Permiso {
 public PermisoEN_OID()
 {
 }
-public PermisoEN_OID(MouseRidersGenNHibernate.Enumerated.MouseRiders.T_RolEnum rol, string permiso)
+public PermisoEN_OID(MRModel.Enumerated.T_RolEnum rol, string permiso)
 {
         this.rol = rol;
         this.permiso = permiso;

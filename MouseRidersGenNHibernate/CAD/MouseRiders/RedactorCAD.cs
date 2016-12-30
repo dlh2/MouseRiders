@@ -1,13 +1,13 @@
 
 using System;
 using System.Text;
-using MouseRidersGenNHibernate.CEN.MouseRiders;
+using MRModel.CEN;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MouseRidersGenNHibernate.EN.MouseRiders;
-using MouseRidersGenNHibernate.Exceptions;
+using MRModel.EN;
+using MRModel.Exceptions;
 
 
 /*
@@ -15,7 +15,7 @@ using MouseRidersGenNHibernate.Exceptions;
  *
  */
 
-namespace MouseRidersGenNHibernate.CAD.MouseRiders
+namespace MRModel.CAD
 {
 public partial class RedactorCAD : BasicCAD, IRedactorCAD
 {
@@ -43,9 +43,9 @@ public RedactorEN ReadOIDDefault (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in RedactorCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in RedactorCAD.", ex);
         }
 
 
@@ -74,9 +74,9 @@ public System.Collections.Generic.IList<RedactorEN> ReadAllDefault (int first, i
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in RedactorCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in RedactorCAD.", ex);
         }
 
         return result;
@@ -96,9 +96,9 @@ public void ModifyDefault (RedactorEN redactor)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in RedactorCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in RedactorCAD.", ex);
         }
 
 
@@ -121,9 +121,9 @@ public int CrearRedactor (RedactorEN redactor)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in RedactorCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in RedactorCAD.", ex);
         }
 
 
@@ -174,9 +174,9 @@ public void ModificarRedactor (RedactorEN redactor)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in RedactorCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in RedactorCAD.", ex);
         }
 
 
@@ -198,9 +198,9 @@ public void BorrarRedactor (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in RedactorCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in RedactorCAD.", ex);
         }
 
 
@@ -226,9 +226,9 @@ public RedactorEN ReadOID (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in RedactorCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in RedactorCAD.", ex);
         }
 
 
@@ -256,9 +256,9 @@ public System.Collections.Generic.IList<RedactorEN> ReadAll (int first, int size
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in RedactorCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in RedactorCAD.", ex);
         }
 
 

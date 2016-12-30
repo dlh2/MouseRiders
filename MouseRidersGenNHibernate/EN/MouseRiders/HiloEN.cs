@@ -1,7 +1,7 @@
 
 using System;
 // Definición clase HiloEN
-namespace MouseRidersGenNHibernate.EN.MouseRiders
+namespace MRModel.EN
 {
 public partial class HiloEN
 {
@@ -36,7 +36,7 @@ private int numComentarios;
 /**
  *	Atributo contiene
  */
-private System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.ComentarioEN> contiene;
+private System.Collections.Generic.IList<MRModel.EN.ComentarioEN> contiene;
 
 
 
@@ -74,7 +74,7 @@ public virtual int NumComentarios {
 
 
 
-public virtual System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.ComentarioEN> Contiene {
+public virtual System.Collections.Generic.IList<MRModel.EN.ComentarioEN> Contiene {
         get { return contiene; } set { contiene = value;  }
 }
 
@@ -90,12 +90,12 @@ public virtual string Titulo {
 
 public HiloEN()
 {
-        contiene = new System.Collections.Generic.List<MouseRidersGenNHibernate.EN.MouseRiders.ComentarioEN>();
+        contiene = new System.Collections.Generic.List<MRModel.EN.ComentarioEN>();
 }
 
 
 
-public HiloEN(int id, string creador, Nullable<DateTime> fecha, int numComentarios, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.ComentarioEN> contiene, string titulo
+public HiloEN(int id, string creador, Nullable<DateTime> fecha, int numComentarios, System.Collections.Generic.IList<MRModel.EN.ComentarioEN> contiene, string titulo
               )
 {
         this.init (Id, creador, fecha, numComentarios, contiene, titulo);
@@ -108,7 +108,7 @@ public HiloEN(HiloEN hilo)
 }
 
 private void init (int id
-                   , string creador, Nullable<DateTime> fecha, int numComentarios, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.ComentarioEN> contiene, string titulo)
+                   , string creador, Nullable<DateTime> fecha, int numComentarios, System.Collections.Generic.IList<MRModel.EN.ComentarioEN> contiene, string titulo)
 {
         this.Id = id;
 

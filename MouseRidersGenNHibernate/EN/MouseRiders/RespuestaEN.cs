@@ -1,7 +1,7 @@
 
 using System;
 // Definición clase RespuestaEN
-namespace MouseRidersGenNHibernate.EN.MouseRiders
+namespace MRModel.EN
 {
 public partial class RespuestaEN
 {
@@ -22,14 +22,14 @@ private string respuesta;
 /**
  *	Atributo tipo
  */
-private MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum tipo;
+private MRModel.Enumerated.T_PreguntaEnum tipo;
 
 
 
 /**
  *	Atributo pertenece
  */
-private MouseRidersGenNHibernate.EN.MouseRiders.PreguntaEN pertenece;
+private MRModel.EN.PreguntaEN pertenece;
 
 
 
@@ -62,13 +62,13 @@ public virtual string Respuesta {
 
 
 
-public virtual MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum Tipo {
+public virtual MRModel.Enumerated.T_PreguntaEnum Tipo {
         get { return tipo; } set { tipo = value;  }
 }
 
 
 
-public virtual MouseRidersGenNHibernate.EN.MouseRiders.PreguntaEN Pertenece {
+public virtual MRModel.EN.PreguntaEN Pertenece {
         get { return pertenece; } set { pertenece = value;  }
 }
 
@@ -94,7 +94,7 @@ public RespuestaEN()
 
 
 
-public RespuestaEN(int id, string respuesta, MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum tipo, MouseRidersGenNHibernate.EN.MouseRiders.PreguntaEN pertenece, int contador, float frecuencia
+public RespuestaEN(int id, string respuesta, MRModel.Enumerated.T_PreguntaEnum tipo, MRModel.EN.PreguntaEN pertenece, int contador, float frecuencia
                    )
 {
         this.init (Id, respuesta, tipo, pertenece, contador, frecuencia);
@@ -107,7 +107,7 @@ public RespuestaEN(RespuestaEN respuesta)
 }
 
 private void init (int id
-                   , string respuesta, MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum tipo, MouseRidersGenNHibernate.EN.MouseRiders.PreguntaEN pertenece, int contador, float frecuencia)
+                   , string respuesta, MRModel.Enumerated.T_PreguntaEnum tipo, MRModel.EN.PreguntaEN pertenece, int contador, float frecuencia)
 {
         this.Id = id;
 

@@ -1,13 +1,13 @@
 
 using System;
 using System.Text;
-using MouseRidersGenNHibernate.CEN.MouseRiders;
+using MRModel.CEN;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MouseRidersGenNHibernate.EN.MouseRiders;
-using MouseRidersGenNHibernate.Exceptions;
+using MRModel.EN;
+using MRModel.Exceptions;
 
 
 /*
@@ -15,7 +15,7 @@ using MouseRidersGenNHibernate.Exceptions;
  *
  */
 
-namespace MouseRidersGenNHibernate.CAD.MouseRiders
+namespace MRModel.CAD
 {
 public partial class HiloCAD : BasicCAD, IHiloCAD
 {
@@ -43,9 +43,9 @@ public HiloEN ReadOIDDefault (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in HiloCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in HiloCAD.", ex);
         }
 
 
@@ -74,9 +74,9 @@ public System.Collections.Generic.IList<HiloEN> ReadAllDefault (int first, int s
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in HiloCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in HiloCAD.", ex);
         }
 
         return result;
@@ -109,9 +109,9 @@ public void ModifyDefault (HiloEN hilo)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in HiloCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in HiloCAD.", ex);
         }
 
 
@@ -134,9 +134,9 @@ public int CrearHilo (HiloEN hilo)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in HiloCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in HiloCAD.", ex);
         }
 
 
@@ -172,9 +172,9 @@ public void ModificarHilo (HiloEN hilo)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in HiloCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in HiloCAD.", ex);
         }
 
 
@@ -196,9 +196,9 @@ public void BorrarHilo (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in HiloCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in HiloCAD.", ex);
         }
 
 
@@ -224,9 +224,9 @@ public HiloEN ReadOID (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in HiloCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in HiloCAD.", ex);
         }
 
 
@@ -254,9 +254,9 @@ public System.Collections.Generic.IList<HiloEN> ReadAll (int first, int size)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in HiloCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in HiloCAD.", ex);
         }
 
 
@@ -268,9 +268,9 @@ public System.Collections.Generic.IList<HiloEN> ReadAll (int first, int size)
         return result;
 }
 
-public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.HiloEN> ReadFilter (string p_nombre, Nullable<DateTime> p_fecha, bool ? p_mayor)
+public System.Collections.Generic.IList<MRModel.EN.HiloEN> ReadFilter (string p_nombre, Nullable<DateTime> p_fecha, bool ? p_mayor)
 {
-        System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.HiloEN> result;
+        System.Collections.Generic.IList<MRModel.EN.HiloEN> result;
         try
         {
                 SessionInitializeTransaction ();
@@ -281,15 +281,15 @@ public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.
                 query.SetParameter ("p_fecha", p_fecha);
                 query.SetParameter ("p_mayor", p_mayor);
 
-                result = query.List<MouseRidersGenNHibernate.EN.MouseRiders.HiloEN>();
+                result = query.List<MRModel.EN.HiloEN>();
                 SessionCommit ();
         }
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in HiloCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in HiloCAD.", ex);
         }
 
 

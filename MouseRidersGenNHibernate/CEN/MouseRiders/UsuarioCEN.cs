@@ -7,13 +7,13 @@ using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MouseRidersGenNHibernate.Exceptions;
+using MRModel.Exceptions;
 
-using MouseRidersGenNHibernate.EN.MouseRiders;
-using MouseRidersGenNHibernate.CAD.MouseRiders;
+using MRModel.EN;
+using MRModel.CAD;
 
 
-namespace MouseRidersGenNHibernate.CEN.MouseRiders
+namespace MRModel.CEN
 {
 /*
  *      Definition of the class UsuarioCEN
@@ -112,7 +112,7 @@ public System.Collections.Generic.IList<UsuarioEN> ReadAll (int first, int size)
         list = _IUsuarioCAD.ReadAll (first, size);
         return list;
 }
-public void RelacionaPermiso (int p_Usuario_OID, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN_OID> p_tiene_OIDs)
+public void RelacionaPermiso (int p_Usuario_OID, System.Collections.Generic.IList<MRModel.EN.PermisoEN_OID> p_tiene_OIDs)
 {
         //Call to UsuarioCAD
 
@@ -136,7 +136,7 @@ public void RelacionaBloqueo (int p_Usuario_OID, int p_es_de_OID)
 
         _IUsuarioCAD.RelacionaBloqueo (p_Usuario_OID, p_es_de_OID);
 }
-public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN> ReadFilter (string p_nombre)
+public System.Collections.Generic.IList<MRModel.EN.UsuarioEN> ReadFilter (string p_nombre)
 {
         return _IUsuarioCAD.ReadFilter (p_nombre);
 }

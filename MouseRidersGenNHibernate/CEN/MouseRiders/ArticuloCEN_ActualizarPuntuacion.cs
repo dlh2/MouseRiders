@@ -6,22 +6,22 @@ using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MouseRidersGenNHibernate.Exceptions;
-using MouseRidersGenNHibernate.EN.MouseRiders;
-using MouseRidersGenNHibernate.CAD.MouseRiders;
+using MRModel.Exceptions;
+using MRModel.EN;
+using MRModel.CAD;
 
 
-/*PROTECTED REGION ID(usingMouseRidersGenNHibernate.CEN.MouseRiders_Articulo_actualizarPuntuacion) ENABLED START*/
+/*PROTECTED REGION ID(usingMRModel.CEN_Articulo_actualizarPuntuacion) ENABLED START*/
 //  references to other libraries
 /*PROTECTED REGION END*/
 
-namespace MouseRidersGenNHibernate.CEN.MouseRiders
+namespace MRModel.CEN
 {
 public partial class ArticuloCEN
 {
 public float ActualizarPuntuacion (int p_Articulo_OID, float puntuacion)
 {
-        /*PROTECTED REGION ID(MouseRidersGenNHibernate.CEN.MouseRiders_Articulo_actualizarPuntuacion) ENABLED START*/
+        /*PROTECTED REGION ID(MRModel.CEN_Articulo_actualizarPuntuacion) ENABLED START*/
 
         // Write here your custom code...
         /*actualizarPuntuacion: recibe una nueva puntuacion, la guarda en un array (tal vez hay que tener un array de puntuaciones)

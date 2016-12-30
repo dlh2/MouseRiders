@@ -1,7 +1,7 @@
 
 using System;
 // Definición clase MensajeEN
-namespace MouseRidersGenNHibernate.EN.MouseRiders
+namespace MRModel.EN
 {
 public partial class MensajeEN
 {
@@ -36,28 +36,28 @@ private string adjunto;
 /**
  *	Atributo tipo
  */
-private MouseRidersGenNHibernate.Enumerated.MouseRiders.T_MensajeEnum tipo;
+private MRModel.Enumerated.T_MensajeEnum tipo;
 
 
 
 /**
  *	Atributo es_enviado
  */
-private MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN es_enviado;
+private MRModel.EN.UsuarioEN es_enviado;
 
 
 
 /**
  *	Atributo es_recibido
  */
-private System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN> es_recibido;
+private System.Collections.Generic.IList<MRModel.EN.UsuarioEN> es_recibido;
 
 
 
 /**
  *	Atributo es_enviadoN
  */
-private MouseRidersGenNHibernate.EN.MouseRiders.ControladorNotificacionesEN es_enviadoN;
+private MRModel.EN.ControladorNotificacionesEN es_enviadoN;
 
 
 
@@ -88,25 +88,25 @@ public virtual string Adjunto {
 
 
 
-public virtual MouseRidersGenNHibernate.Enumerated.MouseRiders.T_MensajeEnum Tipo {
+public virtual MRModel.Enumerated.T_MensajeEnum Tipo {
         get { return tipo; } set { tipo = value;  }
 }
 
 
 
-public virtual MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN Es_enviado {
+public virtual MRModel.EN.UsuarioEN Es_enviado {
         get { return es_enviado; } set { es_enviado = value;  }
 }
 
 
 
-public virtual System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN> Es_recibido {
+public virtual System.Collections.Generic.IList<MRModel.EN.UsuarioEN> Es_recibido {
         get { return es_recibido; } set { es_recibido = value;  }
 }
 
 
 
-public virtual MouseRidersGenNHibernate.EN.MouseRiders.ControladorNotificacionesEN Es_enviadoN {
+public virtual MRModel.EN.ControladorNotificacionesEN Es_enviadoN {
         get { return es_enviadoN; } set { es_enviadoN = value;  }
 }
 
@@ -116,12 +116,12 @@ public virtual MouseRidersGenNHibernate.EN.MouseRiders.ControladorNotificaciones
 
 public MensajeEN()
 {
-        es_recibido = new System.Collections.Generic.List<MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN>();
+        es_recibido = new System.Collections.Generic.List<MRModel.EN.UsuarioEN>();
 }
 
 
 
-public MensajeEN(int id, string asunto, string texto, string adjunto, MouseRidersGenNHibernate.Enumerated.MouseRiders.T_MensajeEnum tipo, MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN es_enviado, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN> es_recibido, MouseRidersGenNHibernate.EN.MouseRiders.ControladorNotificacionesEN es_enviadoN
+public MensajeEN(int id, string asunto, string texto, string adjunto, MRModel.Enumerated.T_MensajeEnum tipo, MRModel.EN.UsuarioEN es_enviado, System.Collections.Generic.IList<MRModel.EN.UsuarioEN> es_recibido, MRModel.EN.ControladorNotificacionesEN es_enviadoN
                  )
 {
         this.init (Id, asunto, texto, adjunto, tipo, es_enviado, es_recibido, es_enviadoN);
@@ -134,7 +134,7 @@ public MensajeEN(MensajeEN mensaje)
 }
 
 private void init (int id
-                   , string asunto, string texto, string adjunto, MouseRidersGenNHibernate.Enumerated.MouseRiders.T_MensajeEnum tipo, MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN es_enviado, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN> es_recibido, MouseRidersGenNHibernate.EN.MouseRiders.ControladorNotificacionesEN es_enviadoN)
+                   , string asunto, string texto, string adjunto, MRModel.Enumerated.T_MensajeEnum tipo, MRModel.EN.UsuarioEN es_enviado, System.Collections.Generic.IList<MRModel.EN.UsuarioEN> es_recibido, MRModel.EN.ControladorNotificacionesEN es_enviadoN)
 {
         this.Id = id;
 

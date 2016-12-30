@@ -6,22 +6,22 @@ using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MouseRidersGenNHibernate.Exceptions;
-using MouseRidersGenNHibernate.EN.MouseRiders;
-using MouseRidersGenNHibernate.CAD.MouseRiders;
+using MRModel.Exceptions;
+using MRModel.EN;
+using MRModel.CAD;
 
 
-/*PROTECTED REGION ID(usingMouseRidersGenNHibernate.CEN.MouseRiders_Usuario_autenticar) ENABLED START*/
+/*PROTECTED REGION ID(usingMRModel.CEN_Usuario_autenticar) ENABLED START*/
 //  references to other libraries
 /*PROTECTED REGION END*/
 
-namespace MouseRidersGenNHibernate.CEN.MouseRiders
+namespace MRModel.CEN
 {
 public partial class UsuarioCEN
 {
 public bool Autenticar (int p_id, string p_email, string p_pass)
 {
-        /*PROTECTED REGION ID(MouseRidersGenNHibernate.CEN.MouseRiders_Usuario_autenticar) ENABLED START*/
+        /*PROTECTED REGION ID(MRModel.CEN_Usuario_autenticar) ENABLED START*/
 
         // Write here your custom code...
 

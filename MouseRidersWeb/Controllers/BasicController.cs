@@ -5,11 +5,11 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using NHibernate;
-using MouseRidersGenNHibernate.CAD.MouseRiders;
-using MouseRidersGenNHibernate.DTO.MouseRiders;
+using MRModel.CAD;
+using MRWeb.DTO;
 
 
-namespace MouseRidersWeb.Controllers
+namespace MRWeb.Controllers
 {
 public class BasicController: Controller
 {

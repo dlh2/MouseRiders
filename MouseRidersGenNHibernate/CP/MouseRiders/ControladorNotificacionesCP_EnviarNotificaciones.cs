@@ -6,23 +6,24 @@ using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MouseRidersGenNHibernate.EN.MouseRiders;
-using MouseRidersGenNHibernate.CAD.MouseRiders;
-using MouseRidersGenNHibernate.CEN.MouseRiders;
+using MRModel.EN;
+using MRModel.CAD;
+using MRModel.CEN;
 
 
 
-/*PROTECTED REGION ID(usingMouseRidersGenNHibernate.CP.MouseRiders_ControladorNotificaciones_enviarNotificaciones) ENABLED START*/
+/*PROTECTED REGION ID(usingMRModel.CP_ControladorNotificaciones_enviarNotificaciones) ENABLED START*/
 using System.Collections.Generic;
+using MRModel.Enumerated;
 /*PROTECTED REGION END*/
 
-namespace MouseRidersGenNHibernate.CP.MouseRiders
+namespace MRModel.CP
 {
 public partial class ControladorNotificacionesCP : BasicCP
 {
-public bool EnviarNotificaciones (MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN permiso, MouseRidersGenNHibernate.EN.MouseRiders.RecompensaEN oidRecompensa, string asunto, string texto, string adjunto)
+public bool EnviarNotificaciones (MRModel.EN.PermisoEN permiso, MRModel.EN.RecompensaEN oidRecompensa, string asunto, string texto, string adjunto)
 {
-        /*PROTECTED REGION ID(MouseRidersGenNHibernate.CP.MouseRiders_ControladorNotificaciones_enviarNotificaciones) ENABLED START*/
+        /*PROTECTED REGION ID(MRModel.CP_ControladorNotificaciones_enviarNotificaciones) ENABLED START*/
 
         IControladorNotificacionesCAD controladorNotificacionesCAD = null;
         ControladorNotificacionesCEN controladorNotificacionesCEN = null;
@@ -97,7 +98,7 @@ public bool EnviarNotificaciones (MouseRidersGenNHibernate.EN.MouseRiders.Permis
 
                 IMensajeCAD mensajeCAD = new MensajeCAD ();
                 MensajeCEN mensajeCEN = new MensajeCEN (mensajeCAD);
-                int oid = mensajeCEN.CrearMensaje (asunto, texto, adjunto, Enumerated.MouseRiders.T_MensajeEnum.notificacion, -1, listAux1);
+                int oid = mensajeCEN.CrearMensaje (asunto, texto, adjunto, T_MensajeEnum.notificacion, -1, listAux1);
 
                 if (oid < 0)
                         return false;

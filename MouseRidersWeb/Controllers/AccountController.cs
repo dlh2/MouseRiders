@@ -8,11 +8,11 @@ using System.Web.Security;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
-using MouseRidersWeb.Filters;
-using MouseRidersWeb.Models;
-using MouseRidersGenNHibernate.CEN.MouseRiders;
+using MRWeb.Filters;
+using MRWeb.Models;
+using MRModel.CEN;
 
-namespace MouseRidersWeb.Controllers
+namespace MRWeb.Controllers
 {
     [Authorize]
     [InitializeSimpleMembership]

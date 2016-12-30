@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MouseRidersGenNHibernate.DTO.MouseRiders.ComentarioDTO>
+﻿@model IEnumerable<MRWeb.DTO.ComentarioDTO>
 
 @{
     ViewBag.Title = "Index";
@@ -25,7 +25,7 @@
 </p>
 
 @if(Model==null){
-    @Html.Partial("_Comentario", new List<MouseRidersGenNHibernate.DTO.MouseRiders.ComentarioDTO>());
+    @Html.Partial("_Comentario", new List<MRWeb.DTO.ComentarioDTO>());
 }
 else
 {

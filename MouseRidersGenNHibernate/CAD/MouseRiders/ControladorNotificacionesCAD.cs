@@ -1,13 +1,13 @@
 
 using System;
 using System.Text;
-using MouseRidersGenNHibernate.CEN.MouseRiders;
+using MRModel.CEN;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MouseRidersGenNHibernate.EN.MouseRiders;
-using MouseRidersGenNHibernate.Exceptions;
+using MRModel.EN;
+using MRModel.Exceptions;
 
 
 /*
@@ -15,7 +15,7 @@ using MouseRidersGenNHibernate.Exceptions;
  *
  */
 
-namespace MouseRidersGenNHibernate.CAD.MouseRiders
+namespace MRModel.CAD
 {
 public partial class ControladorNotificacionesCAD : BasicCAD, IControladorNotificacionesCAD
 {
@@ -43,9 +43,9 @@ public ControladorNotificacionesEN ReadOIDDefault (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in ControladorNotificacionesCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in ControladorNotificacionesCAD.", ex);
         }
 
 
@@ -74,9 +74,9 @@ public System.Collections.Generic.IList<ControladorNotificacionesEN> ReadAllDefa
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in ControladorNotificacionesCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in ControladorNotificacionesCAD.", ex);
         }
 
         return result;
@@ -97,9 +97,9 @@ public void ModifyDefault (ControladorNotificacionesEN controladorNotificaciones
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in ControladorNotificacionesCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in ControladorNotificacionesCAD.", ex);
         }
 
 
@@ -122,9 +122,9 @@ public int CrearCNotificaciones (ControladorNotificacionesEN controladorNotifica
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in ControladorNotificacionesCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in ControladorNotificacionesCAD.", ex);
         }
 
 
@@ -148,9 +148,9 @@ public void ModificarCNotificaciones (ControladorNotificacionesEN controladorNot
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in ControladorNotificacionesCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in ControladorNotificacionesCAD.", ex);
         }
 
 
@@ -172,9 +172,9 @@ public void BorrarCNotificaciones (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in ControladorNotificacionesCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in ControladorNotificacionesCAD.", ex);
         }
 
 
@@ -200,9 +200,9 @@ public ControladorNotificacionesEN ReadOID (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in ControladorNotificacionesCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in ControladorNotificacionesCAD.", ex);
         }
 
 
@@ -230,9 +230,9 @@ public System.Collections.Generic.IList<ControladorNotificacionesEN> ReadAll (in
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in ControladorNotificacionesCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in ControladorNotificacionesCAD.", ex);
         }
 
 

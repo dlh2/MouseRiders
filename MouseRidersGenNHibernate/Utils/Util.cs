@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MouseRidersGenNHibernate.Utils
+namespace MRModel.Utils
 {
 public class Util
 {

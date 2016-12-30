@@ -1,7 +1,7 @@
 
 using System;
 // Definición clase EncuestaEN
-namespace MouseRidersGenNHibernate.EN.MouseRiders
+namespace MRModel.EN
 {
 public partial class EncuestaEN
 {
@@ -22,7 +22,7 @@ private string titulo;
 /**
  *	Atributo tiene
  */
-private System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PreguntaEN> tiene;
+private System.Collections.Generic.IList<MRModel.EN.PreguntaEN> tiene;
 
 
 
@@ -48,7 +48,7 @@ public virtual string Titulo {
 
 
 
-public virtual System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PreguntaEN> Tiene {
+public virtual System.Collections.Generic.IList<MRModel.EN.PreguntaEN> Tiene {
         get { return tiene; } set { tiene = value;  }
 }
 
@@ -64,12 +64,12 @@ public virtual string Descripcion {
 
 public EncuestaEN()
 {
-        tiene = new System.Collections.Generic.List<MouseRidersGenNHibernate.EN.MouseRiders.PreguntaEN>();
+        tiene = new System.Collections.Generic.List<MRModel.EN.PreguntaEN>();
 }
 
 
 
-public EncuestaEN(int id, string titulo, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PreguntaEN> tiene, string descripcion
+public EncuestaEN(int id, string titulo, System.Collections.Generic.IList<MRModel.EN.PreguntaEN> tiene, string descripcion
                   )
 {
         this.init (Id, titulo, tiene, descripcion);
@@ -82,7 +82,7 @@ public EncuestaEN(EncuestaEN encuesta)
 }
 
 private void init (int id
-                   , string titulo, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PreguntaEN> tiene, string descripcion)
+                   , string titulo, System.Collections.Generic.IList<MRModel.EN.PreguntaEN> tiene, string descripcion)
 {
         this.Id = id;
 

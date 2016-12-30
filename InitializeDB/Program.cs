@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
-using MouseRidersGenNHibernate.EN.MouseRiders;
+using MRModel.EN;
 
 
 namespace InitializeDB

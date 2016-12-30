@@ -7,13 +7,13 @@ using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MouseRidersGenNHibernate.Exceptions;
+using MRModel.Exceptions;
 
-using MouseRidersGenNHibernate.EN.MouseRiders;
-using MouseRidersGenNHibernate.CAD.MouseRiders;
+using MRModel.EN;
+using MRModel.CAD;
 
 
-namespace MouseRidersGenNHibernate.CEN.MouseRiders
+namespace MRModel.CEN
 {
 /*
  *      Definition of the class PermisoCEN
@@ -38,14 +38,14 @@ public IPermisoCAD get_IPermisoCAD ()
         return this._IPermisoCAD;
 }
 
-public MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN_OID CrearPermiso (MouseRidersGenNHibernate.Enumerated.MouseRiders.T_RolEnum p_rol, string p_permiso, string p_permisos)
+public MRModel.EN.PermisoEN_OID CrearPermiso (MRModel.Enumerated.T_RolEnum p_rol, string p_permiso, string p_permisos)
 {
         PermisoEN permisoEN = null;
 
-        MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN_OID oid;
+        MRModel.EN.PermisoEN_OID oid;
         //Initialized PermisoEN
         permisoEN = new PermisoEN ();
-        permisoEN.PermisoOID = new MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN_OID ();
+        permisoEN.PermisoOID = new MRModel.EN.PermisoEN_OID ();
         permisoEN.PermisoOID.Rol = p_rol;
 
         permisoEN.PermisoOID.Permiso = p_permiso;
@@ -58,7 +58,7 @@ public MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN_OID CrearPermiso (Mouse
         return oid;
 }
 
-public void ModificarPermiso (MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN_OID p_Permiso_OID, string p_permisos)
+public void ModificarPermiso (MRModel.EN.PermisoEN_OID p_Permiso_OID, string p_permisos)
 {
         PermisoEN permisoEN = null;
 
@@ -71,13 +71,13 @@ public void ModificarPermiso (MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN_
         _IPermisoCAD.ModificarPermiso (permisoEN);
 }
 
-public void BorrarPermiso (MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN_OID permisoEN_OID
+public void BorrarPermiso (MRModel.EN.PermisoEN_OID permisoEN_OID
                            )
 {
         _IPermisoCAD.BorrarPermiso (permisoEN_OID);
 }
 
-public PermisoEN ReadOID (MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN_OID permisoEN_OID
+public PermisoEN ReadOID (MRModel.EN.PermisoEN_OID permisoEN_OID
                           )
 {
         PermisoEN permisoEN = null;
@@ -93,7 +93,7 @@ public System.Collections.Generic.IList<PermisoEN> ReadAll (int first, int size)
         list = _IPermisoCAD.ReadAll (first, size);
         return list;
 }
-public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN> ReadFilter (MouseRidersGenNHibernate.Enumerated.MouseRiders.T_RolEnum? p_rol, string p_permiso)
+public System.Collections.Generic.IList<MRModel.EN.PermisoEN> ReadFilter (MRModel.Enumerated.T_RolEnum? p_rol, string p_permiso)
 {
         return _IPermisoCAD.ReadFilter (p_rol, p_permiso);
 }

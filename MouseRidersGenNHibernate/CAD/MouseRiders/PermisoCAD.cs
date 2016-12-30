@@ -1,13 +1,13 @@
 
 using System;
 using System.Text;
-using MouseRidersGenNHibernate.CEN.MouseRiders;
+using MRModel.CEN;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MouseRidersGenNHibernate.EN.MouseRiders;
-using MouseRidersGenNHibernate.Exceptions;
+using MRModel.EN;
+using MRModel.Exceptions;
 
 
 /*
@@ -15,7 +15,7 @@ using MouseRidersGenNHibernate.Exceptions;
  *
  */
 
-namespace MouseRidersGenNHibernate.CAD.MouseRiders
+namespace MRModel.CAD
 {
 public partial class PermisoCAD : BasicCAD, IPermisoCAD
 {
@@ -29,7 +29,7 @@ public PermisoCAD(ISession sessionAux) : base (sessionAux)
 
 
 
-public PermisoEN ReadOIDDefault (MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN_OID permisoEN_OID
+public PermisoEN ReadOIDDefault (MRModel.EN.PermisoEN_OID permisoEN_OID
                                  )
 {
         PermisoEN permisoEN = null;
@@ -43,9 +43,9 @@ public PermisoEN ReadOIDDefault (MouseRidersGenNHibernate.EN.MouseRiders.Permiso
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in PermisoCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in PermisoCAD.", ex);
         }
 
 
@@ -74,9 +74,9 @@ public System.Collections.Generic.IList<PermisoEN> ReadAllDefault (int first, in
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in PermisoCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in PermisoCAD.", ex);
         }
 
         return result;
@@ -100,9 +100,9 @@ public void ModifyDefault (PermisoEN permiso)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in PermisoCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in PermisoCAD.", ex);
         }
 
 
@@ -113,7 +113,7 @@ public void ModifyDefault (PermisoEN permiso)
 }
 
 
-public MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN_OID CrearPermiso (PermisoEN permiso)
+public MRModel.EN.PermisoEN_OID CrearPermiso (PermisoEN permiso)
 {
         try
         {
@@ -125,9 +125,9 @@ public MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN_OID CrearPermiso (Permi
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in PermisoCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in PermisoCAD.", ex);
         }
 
 
@@ -154,9 +154,9 @@ public void ModificarPermiso (PermisoEN permiso)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in PermisoCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in PermisoCAD.", ex);
         }
 
 
@@ -165,7 +165,7 @@ public void ModificarPermiso (PermisoEN permiso)
                 SessionClose ();
         }
 }
-public void BorrarPermiso (MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN_OID permisoEN_OID
+public void BorrarPermiso (MRModel.EN.PermisoEN_OID permisoEN_OID
                            )
 {
         try
@@ -178,9 +178,9 @@ public void BorrarPermiso (MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN_OID
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in PermisoCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in PermisoCAD.", ex);
         }
 
 
@@ -192,7 +192,7 @@ public void BorrarPermiso (MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN_OID
 
 //Sin e: ReadOID
 //Con e: PermisoEN
-public PermisoEN ReadOID (MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN_OID permisoEN_OID
+public PermisoEN ReadOID (MRModel.EN.PermisoEN_OID permisoEN_OID
                           )
 {
         PermisoEN permisoEN = null;
@@ -206,9 +206,9 @@ public PermisoEN ReadOID (MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN_OID 
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in PermisoCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in PermisoCAD.", ex);
         }
 
 
@@ -236,9 +236,9 @@ public System.Collections.Generic.IList<PermisoEN> ReadAll (int first, int size)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in PermisoCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in PermisoCAD.", ex);
         }
 
 
@@ -250,9 +250,9 @@ public System.Collections.Generic.IList<PermisoEN> ReadAll (int first, int size)
         return result;
 }
 
-public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN> ReadFilter (MouseRidersGenNHibernate.Enumerated.MouseRiders.T_RolEnum? p_rol, string p_permiso)
+public System.Collections.Generic.IList<MRModel.EN.PermisoEN> ReadFilter (MRModel.Enumerated.T_RolEnum? p_rol, string p_permiso)
 {
-        System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN> result;
+        System.Collections.Generic.IList<MRModel.EN.PermisoEN> result;
         try
         {
                 SessionInitializeTransaction ();
@@ -262,15 +262,15 @@ public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.
                 query.SetParameter ("p_rol", p_rol);
                 query.SetParameter ("p_permiso", p_permiso);
 
-                result = query.List<MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN>();
+                result = query.List<MRModel.EN.PermisoEN>();
                 SessionCommit ();
         }
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in PermisoCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in PermisoCAD.", ex);
         }
 
 

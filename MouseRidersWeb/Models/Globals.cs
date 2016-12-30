@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace MouseRidersWeb.Models
+namespace MRWeb.Models
 {
     public static class Globals
     {

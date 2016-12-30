@@ -1,13 +1,13 @@
 
 using System;
 using System.Text;
-using MouseRidersGenNHibernate.CEN.MouseRiders;
+using MRModel.CEN;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MouseRidersGenNHibernate.EN.MouseRiders;
-using MouseRidersGenNHibernate.Exceptions;
+using MRModel.EN;
+using MRModel.Exceptions;
 
 
 /*
@@ -15,7 +15,7 @@ using MouseRidersGenNHibernate.Exceptions;
  *
  */
 
-namespace MouseRidersGenNHibernate.CAD.MouseRiders
+namespace MRModel.CAD
 {
 public partial class UsuarioCAD : BasicCAD, IUsuarioCAD
 {
@@ -43,9 +43,9 @@ public UsuarioEN ReadOIDDefault (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
         }
 
 
@@ -74,9 +74,9 @@ public System.Collections.Generic.IList<UsuarioEN> ReadAllDefault (int first, in
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
         }
 
         return result;
@@ -130,9 +130,9 @@ public void ModifyDefault (UsuarioEN usuario)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
         }
 
 
@@ -155,9 +155,9 @@ public int CrearUsuario (UsuarioEN usuario)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
         }
 
 
@@ -208,9 +208,9 @@ public void ModificarUsuario (UsuarioEN usuario)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
         }
 
 
@@ -232,9 +232,9 @@ public void BorrarUsuario (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
         }
 
 
@@ -260,9 +260,9 @@ public UsuarioEN ReadOID (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
         }
 
 
@@ -290,9 +290,9 @@ public System.Collections.Generic.IList<UsuarioEN> ReadAll (int first, int size)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
         }
 
 
@@ -304,21 +304,21 @@ public System.Collections.Generic.IList<UsuarioEN> ReadAll (int first, int size)
         return result;
 }
 
-public void RelacionaPermiso (int p_Usuario_OID, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN_OID> p_tiene_OIDs)
+public void RelacionaPermiso (int p_Usuario_OID, System.Collections.Generic.IList<MRModel.EN.PermisoEN_OID> p_tiene_OIDs)
 {
-        MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN usuarioEN = null;
+        MRModel.EN.UsuarioEN usuarioEN = null;
         try
         {
                 SessionInitializeTransaction ();
                 usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), p_Usuario_OID);
-                MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN tieneENAux = null;
+                MRModel.EN.PermisoEN tieneENAux = null;
                 if (usuarioEN.Tiene == null) {
-                        usuarioEN.Tiene = new System.Collections.Generic.List<MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN>();
+                        usuarioEN.Tiene = new System.Collections.Generic.List<MRModel.EN.PermisoEN>();
                 }
 
-                foreach (MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN_OID item in p_tiene_OIDs) {
-                        tieneENAux = new MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN ();
-                        tieneENAux = (MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN)session.Load (typeof(MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN), item);
+                foreach (MRModel.EN.PermisoEN_OID item in p_tiene_OIDs) {
+                        tieneENAux = new MRModel.EN.PermisoEN ();
+                        tieneENAux = (MRModel.EN.PermisoEN)session.Load (typeof(MRModel.EN.PermisoEN), item);
                         tieneENAux.Pertenece.Add (usuarioEN);
 
                         usuarioEN.Tiene.Add (tieneENAux);
@@ -331,9 +331,9 @@ public void RelacionaPermiso (int p_Usuario_OID, System.Collections.Generic.ILis
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
         }
 
 
@@ -345,19 +345,19 @@ public void RelacionaPermiso (int p_Usuario_OID, System.Collections.Generic.ILis
 
 public void RelacionaRecompensa (int p_Usuario_OID, System.Collections.Generic.IList<int> p_obtiene_OIDs)
 {
-        MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN usuarioEN = null;
+        MRModel.EN.UsuarioEN usuarioEN = null;
         try
         {
                 SessionInitializeTransaction ();
                 usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), p_Usuario_OID);
-                MouseRidersGenNHibernate.EN.MouseRiders.RecompensaEN obtieneENAux = null;
+                MRModel.EN.RecompensaEN obtieneENAux = null;
                 if (usuarioEN.Obtiene == null) {
-                        usuarioEN.Obtiene = new System.Collections.Generic.List<MouseRidersGenNHibernate.EN.MouseRiders.RecompensaEN>();
+                        usuarioEN.Obtiene = new System.Collections.Generic.List<MRModel.EN.RecompensaEN>();
                 }
 
                 foreach (int item in p_obtiene_OIDs) {
-                        obtieneENAux = new MouseRidersGenNHibernate.EN.MouseRiders.RecompensaEN ();
-                        obtieneENAux = (MouseRidersGenNHibernate.EN.MouseRiders.RecompensaEN)session.Load (typeof(MouseRidersGenNHibernate.EN.MouseRiders.RecompensaEN), item);
+                        obtieneENAux = new MRModel.EN.RecompensaEN ();
+                        obtieneENAux = (MRModel.EN.RecompensaEN)session.Load (typeof(MRModel.EN.RecompensaEN), item);
                         obtieneENAux.Otorgada.Add (usuarioEN);
 
                         usuarioEN.Obtiene.Add (obtieneENAux);
@@ -370,9 +370,9 @@ public void RelacionaRecompensa (int p_Usuario_OID, System.Collections.Generic.I
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
         }
 
 
@@ -384,19 +384,19 @@ public void RelacionaRecompensa (int p_Usuario_OID, System.Collections.Generic.I
 
 public void RelacionaDenuncia (int p_Usuario_OID, System.Collections.Generic.IList<int> p_creaD_OIDs)
 {
-        MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN usuarioEN = null;
+        MRModel.EN.UsuarioEN usuarioEN = null;
         try
         {
                 SessionInitializeTransaction ();
                 usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), p_Usuario_OID);
-                MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN creaDENAux = null;
+                MRModel.EN.DenunciaEN creaDENAux = null;
                 if (usuarioEN.CreaD == null) {
-                        usuarioEN.CreaD = new System.Collections.Generic.List<MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN>();
+                        usuarioEN.CreaD = new System.Collections.Generic.List<MRModel.EN.DenunciaEN>();
                 }
 
                 foreach (int item in p_creaD_OIDs) {
-                        creaDENAux = new MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN ();
-                        creaDENAux = (MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN)session.Load (typeof(MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN), item);
+                        creaDENAux = new MRModel.EN.DenunciaEN ();
+                        creaDENAux = (MRModel.EN.DenunciaEN)session.Load (typeof(MRModel.EN.DenunciaEN), item);
                         creaDENAux.Es_creada = usuarioEN;
 
                         usuarioEN.CreaD.Add (creaDENAux);
@@ -409,9 +409,9 @@ public void RelacionaDenuncia (int p_Usuario_OID, System.Collections.Generic.ILi
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
         }
 
 
@@ -423,12 +423,12 @@ public void RelacionaDenuncia (int p_Usuario_OID, System.Collections.Generic.ILi
 
 public void RelacionaBloqueo (int p_Usuario_OID, int p_es_de_OID)
 {
-        MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN usuarioEN = null;
+        MRModel.EN.UsuarioEN usuarioEN = null;
         try
         {
                 SessionInitializeTransaction ();
                 usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), p_Usuario_OID);
-                usuarioEN.Es_de = (MouseRidersGenNHibernate.EN.MouseRiders.BloqueoEN)session.Load (typeof(MouseRidersGenNHibernate.EN.MouseRiders.BloqueoEN), p_es_de_OID);
+                usuarioEN.Es_de = (MRModel.EN.BloqueoEN)session.Load (typeof(MRModel.EN.BloqueoEN), p_es_de_OID);
 
                 usuarioEN.Es_de.Pertenece = usuarioEN;
 
@@ -441,9 +441,9 @@ public void RelacionaBloqueo (int p_Usuario_OID, int p_es_de_OID)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
         }
 
 
@@ -453,9 +453,9 @@ public void RelacionaBloqueo (int p_Usuario_OID, int p_es_de_OID)
         }
 }
 
-public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN> ReadFilter (string p_nombre)
+public System.Collections.Generic.IList<MRModel.EN.UsuarioEN> ReadFilter (string p_nombre)
 {
-        System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN> result;
+        System.Collections.Generic.IList<MRModel.EN.UsuarioEN> result;
         try
         {
                 SessionInitializeTransaction ();
@@ -464,15 +464,15 @@ public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.
                 IQuery query = (IQuery)session.GetNamedQuery ("UsuarioENreadFilterHQL");
                 query.SetParameter ("p_nombre", p_nombre);
 
-                result = query.List<MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN>();
+                result = query.List<MRModel.EN.UsuarioEN>();
                 SessionCommit ();
         }
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
         }
 
 

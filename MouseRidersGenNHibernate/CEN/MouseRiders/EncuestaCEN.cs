@@ -7,13 +7,13 @@ using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MouseRidersGenNHibernate.Exceptions;
+using MRModel.Exceptions;
 
-using MouseRidersGenNHibernate.EN.MouseRiders;
-using MouseRidersGenNHibernate.CAD.MouseRiders;
+using MRModel.EN;
+using MRModel.CAD;
 
 
-namespace MouseRidersGenNHibernate.CEN.MouseRiders
+namespace MRModel.CEN
 {
 /*
  *      Definition of the class EncuestaCEN
@@ -91,7 +91,7 @@ public System.Collections.Generic.IList<EncuestaEN> ReadAll (int first, int size
         list = _IEncuestaCAD.ReadAll (first, size);
         return list;
 }
-public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.EncuestaEN> ReadFilter (string p_titulo)
+public System.Collections.Generic.IList<MRModel.EN.EncuestaEN> ReadFilter (string p_titulo)
 {
         return _IEncuestaCAD.ReadFilter (p_titulo);
 }

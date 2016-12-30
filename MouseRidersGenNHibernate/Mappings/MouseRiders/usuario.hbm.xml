@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
 		                   assembly="MouseRidersGenNHibernate"
-		                   namespace="MouseRidersGenNHibernate.EN.MouseRiders">
+		                   namespace="MRModel.EN">
 		    
 		    
 			
@@ -54,7 +54,7 @@
 								
 								<column name="FK_id_idUsuario_0"/>
 					      	</key>
-							<one-to-many class="MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN"/>
+							<one-to-many class="MRModel.EN.DenunciaEN"/>
 					    </bag>
 					
 			
@@ -64,7 +64,7 @@
 								
 									<column name="FK_id_idUsuario"/> 
 							</key>
-      						<many-to-many class="MouseRidersGenNHibernate.EN.MouseRiders.RecompensaEN">
+      						<many-to-many class="MRModel.EN.RecompensaEN">
 									<column name="FK_idRecompensa_idRecompensa"/> 
       						</many-to-many>
     					</bag>
@@ -75,7 +75,7 @@
 								
 									<column name="FK_id_idUsuario"/> 
 							</key>
-      						<many-to-many class="MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN">
+      						<many-to-many class="MRModel.EN.PermisoEN">
 									<column name="FK_rol_idPermiso"/> 
 									<column name="FK_permiso_idPermiso"/> 
       						</many-to-many>
@@ -89,7 +89,7 @@
 								
 								<column name="FK_id_idUsuario"/>
 					      	</key>
-							<one-to-many class="MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN"/>
+							<one-to-many class="MRModel.EN.MensajeEN"/>
 					    </bag>
 					
 			
@@ -99,14 +99,14 @@
 								
 									<column name="FK_id_idEs_recibido"/> 
 							</key>
-      						<many-to-many class="MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN">
+      						<many-to-many class="MRModel.EN.MensajeEN">
 									<column name="FK_idMensaje_idMensaje"/> 
       						</many-to-many>
     					</bag>
 			
 		  			
 					
-							   <one-to-one name="Es_de" class="MouseRidersGenNHibernate.EN.MouseRiders.BloqueoEN" property-ref="Pertenece" />							
+							   <one-to-one name="Es_de" class="MRModel.EN.BloqueoEN" property-ref="Pertenece" />							
 					 
 						
 			
@@ -118,7 +118,7 @@
 								
 								<column name="FK_id_idUsuario"/>
 					      	</key>
-							<one-to-many class="MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN"/>
+							<one-to-many class="MRModel.EN.DenunciaEN"/>
 					    </bag>
 					
 			

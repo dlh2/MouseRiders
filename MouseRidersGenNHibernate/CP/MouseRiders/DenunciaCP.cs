@@ -5,13 +5,13 @@ using System.Collections.Generic;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
-using MouseRidersGenNHibernate.Exceptions;
-using MouseRidersGenNHibernate.EN.MouseRiders;
-using MouseRidersGenNHibernate.CAD.MouseRiders;
-using MouseRidersGenNHibernate.CEN.MouseRiders;
+using MRModel.Exceptions;
+using MRModel.EN;
+using MRModel.CAD;
+using MRModel.CEN;
 
 
-namespace MouseRidersGenNHibernate.CP.MouseRiders
+namespace MRModel.CP
 {
 public partial class DenunciaCP : BasicCP
 {

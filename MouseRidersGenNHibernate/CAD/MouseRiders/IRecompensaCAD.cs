@@ -1,8 +1,8 @@
 
 using System;
-using MouseRidersGenNHibernate.EN.MouseRiders;
+using MRModel.EN;
 
-namespace MouseRidersGenNHibernate.CAD.MouseRiders
+namespace MRModel.CAD
 {
 public partial interface IRecompensaCAD
 {
@@ -29,6 +29,6 @@ RecompensaEN ReadOID (int id
 System.Collections.Generic.IList<RecompensaEN> ReadAll (int first, int size);
 
 
-System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.RecompensaEN> ReadFilter (string p_nombre);
+System.Collections.Generic.IList<MRModel.EN.RecompensaEN> ReadFilter (string p_nombre);
 }
 }

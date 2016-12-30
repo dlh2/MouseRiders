@@ -1,13 +1,13 @@
 
 using System;
 using System.Text;
-using MouseRidersGenNHibernate.CEN.MouseRiders;
+using MRModel.CEN;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MouseRidersGenNHibernate.EN.MouseRiders;
-using MouseRidersGenNHibernate.Exceptions;
+using MRModel.EN;
+using MRModel.Exceptions;
 
 
 /*
@@ -15,7 +15,7 @@ using MouseRidersGenNHibernate.Exceptions;
  *
  */
 
-namespace MouseRidersGenNHibernate.CAD.MouseRiders
+namespace MRModel.CAD
 {
 public partial class EncuestaCAD : BasicCAD, IEncuestaCAD
 {
@@ -43,9 +43,9 @@ public EncuestaEN ReadOIDDefault (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in EncuestaCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in EncuestaCAD.", ex);
         }
 
 
@@ -74,9 +74,9 @@ public System.Collections.Generic.IList<EncuestaEN> ReadAllDefault (int first, i
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in EncuestaCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in EncuestaCAD.", ex);
         }
 
         return result;
@@ -103,9 +103,9 @@ public void ModifyDefault (EncuestaEN encuesta)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in EncuestaCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in EncuestaCAD.", ex);
         }
 
 
@@ -128,9 +128,9 @@ public int CrearEncuesta (EncuestaEN encuesta)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in EncuestaCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in EncuestaCAD.", ex);
         }
 
 
@@ -160,9 +160,9 @@ public void ModificarEncuesta (EncuestaEN encuesta)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in EncuestaCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in EncuestaCAD.", ex);
         }
 
 
@@ -184,9 +184,9 @@ public void BorrarEncuesta (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in EncuestaCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in EncuestaCAD.", ex);
         }
 
 
@@ -212,9 +212,9 @@ public EncuestaEN ReadOID (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in EncuestaCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in EncuestaCAD.", ex);
         }
 
 
@@ -242,9 +242,9 @@ public System.Collections.Generic.IList<EncuestaEN> ReadAll (int first, int size
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in EncuestaCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in EncuestaCAD.", ex);
         }
 
 
@@ -256,9 +256,9 @@ public System.Collections.Generic.IList<EncuestaEN> ReadAll (int first, int size
         return result;
 }
 
-public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.EncuestaEN> ReadFilter (string p_titulo)
+public System.Collections.Generic.IList<MRModel.EN.EncuestaEN> ReadFilter (string p_titulo)
 {
-        System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.EncuestaEN> result;
+        System.Collections.Generic.IList<MRModel.EN.EncuestaEN> result;
         try
         {
                 SessionInitializeTransaction ();
@@ -267,15 +267,15 @@ public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.
                 IQuery query = (IQuery)session.GetNamedQuery ("EncuestaENreadFilterHQL");
                 query.SetParameter ("p_titulo", p_titulo);
 
-                result = query.List<MouseRidersGenNHibernate.EN.MouseRiders.EncuestaEN>();
+                result = query.List<MRModel.EN.EncuestaEN>();
                 SessionCommit ();
         }
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                if (ex is MRModel.Exceptions.ModelException)
                         throw ex;
-                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in EncuestaCAD.", ex);
+                throw new MRModel.Exceptions.DataLayerException ("Error in EncuestaCAD.", ex);
         }
 
 

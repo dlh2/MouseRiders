@@ -7,13 +7,13 @@ using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MouseRidersGenNHibernate.Exceptions;
+using MRModel.Exceptions;
 
-using MouseRidersGenNHibernate.EN.MouseRiders;
-using MouseRidersGenNHibernate.CAD.MouseRiders;
+using MRModel.EN;
+using MRModel.CAD;
 
 
-namespace MouseRidersGenNHibernate.CEN.MouseRiders
+namespace MRModel.CEN
 {
 /*
  *      Definition of the class SeccionCEN
@@ -88,7 +88,7 @@ public System.Collections.Generic.IList<SeccionEN> ReadAll (int first, int size)
         list = _ISeccionCAD.ReadAll (first, size);
         return list;
 }
-public MouseRidersGenNHibernate.EN.MouseRiders.SeccionEN ReadFilter (string p_nombre)
+public MRModel.EN.SeccionEN ReadFilter (string p_nombre)
 {
         return _ISeccionCAD.ReadFilter (p_nombre);
 }

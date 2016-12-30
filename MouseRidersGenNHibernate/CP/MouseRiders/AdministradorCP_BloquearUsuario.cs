@@ -6,23 +6,23 @@ using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MouseRidersGenNHibernate.EN.MouseRiders;
-using MouseRidersGenNHibernate.CAD.MouseRiders;
-using MouseRidersGenNHibernate.CEN.MouseRiders;
+using MRModel.EN;
+using MRModel.CAD;
+using MRModel.CEN;
 
 
 
-/*PROTECTED REGION ID(usingMouseRidersGenNHibernate.CP.MouseRiders_Administrador_bloquearUsuario) ENABLED START*/
+/*PROTECTED REGION ID(usingMRModel.CP_Administrador_bloquearUsuario) ENABLED START*/
 using System.Collections.Generic;
 /*PROTECTED REGION END*/
 
-namespace MouseRidersGenNHibernate.CP.MouseRiders
+namespace MRModel.CP
 {
 public partial class AdministradorCP : BasicCP
 {
 public bool BloquearUsuario (int p_oid, int p_dias)
 {
-        /*PROTECTED REGION ID(MouseRidersGenNHibernate.CP.MouseRiders_Administrador_bloquearUsuario) ENABLED START*/
+        /*PROTECTED REGION ID(MRModel.CP_Administrador_bloquearUsuario) ENABLED START*/
 
 
         /*

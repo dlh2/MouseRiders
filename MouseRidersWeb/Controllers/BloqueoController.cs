@@ -1,14 +1,14 @@
-﻿using MouseRidersGenNHibernate.CAD.MouseRiders;
-using MouseRidersGenNHibernate.CEN.MouseRiders;
-using MouseRidersGenNHibernate.EN.MouseRiders;
-using MouseRidersWeb.Controllers;
+﻿using MRModel.CAD;
+using MRModel.CEN;
+using MRModel.EN;
+using MRWeb.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MouseRidersWebpage.Controllers
+namespace MRWeb.Controllers
 {
     public class BloqueoController : BasicController
     {

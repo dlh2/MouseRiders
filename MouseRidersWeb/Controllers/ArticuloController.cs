@@ -1,14 +1,14 @@
 ﻿
-using MouseRidersGenNHibernate.CAD.MouseRiders;
-using MouseRidersGenNHibernate.CEN.MouseRiders;
-using MouseRidersGenNHibernate.EN.MouseRiders;
+using MRModel.CAD;
+using MRModel.CEN;
+using MRModel.EN;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MouseRidersWeb.Controllers
+namespace MRWeb.Controllers
 {
     public class ArticuloController : BasicController
     {

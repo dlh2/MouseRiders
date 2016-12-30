@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
 		                   assembly="MouseRidersGenNHibernate"
-		                   namespace="MouseRidersGenNHibernate.EN.MouseRiders">
+		                   namespace="MRModel.EN">
 		    
 		    
 			
 				
-<joined-subclass name="RedactorEN" extends="MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN" table="Redactor"> 
+<joined-subclass name="RedactorEN" extends="MRModel.EN.UsuarioEN" table="Redactor"> 
 	<key>
     	
 				<column name="id"/>

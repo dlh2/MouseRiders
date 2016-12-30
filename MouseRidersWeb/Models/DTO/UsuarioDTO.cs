@@ -1,4 +1,4 @@
-﻿using MouseRidersWeb.Models;
+﻿using MRWeb.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 
 // Definición clase UsuarioDTO
-namespace MouseRidersGenNHibernate.DTO.MouseRiders
+namespace MRWeb.DTO
 {
     public class UsuarioDTO
     {

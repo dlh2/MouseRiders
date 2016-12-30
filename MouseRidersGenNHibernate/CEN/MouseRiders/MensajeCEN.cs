@@ -7,13 +7,13 @@ using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MouseRidersGenNHibernate.Exceptions;
+using MRModel.Exceptions;
 
-using MouseRidersGenNHibernate.EN.MouseRiders;
-using MouseRidersGenNHibernate.CAD.MouseRiders;
+using MRModel.EN;
+using MRModel.CAD;
 
 
-namespace MouseRidersGenNHibernate.CEN.MouseRiders
+namespace MRModel.CEN
 {
 /*
  *      Definition of the class MensajeCEN
@@ -38,7 +38,7 @@ public IMensajeCAD get_IMensajeCAD ()
         return this._IMensajeCAD;
 }
 
-public int CrearMensaje (string p_asunto, string p_texto, string p_adjunto, MouseRidersGenNHibernate.Enumerated.MouseRiders.T_MensajeEnum p_tipo, int p_es_enviado, System.Collections.Generic.IList<int> p_es_recibido)
+public int CrearMensaje (string p_asunto, string p_texto, string p_adjunto, MRModel.Enumerated.T_MensajeEnum p_tipo, int p_es_enviado, System.Collections.Generic.IList<int> p_es_recibido)
 {
         MensajeEN mensajeEN = null;
         int oid;
@@ -57,22 +57,22 @@ public int CrearMensaje (string p_asunto, string p_texto, string p_adjunto, Mous
         if (p_es_enviado != -1) {
                 // El argumento p_es_enviado -> Property es_enviado es oid = false
                 // Lista de oids id
-                mensajeEN.Es_enviado = new MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN ();
+                mensajeEN.Es_enviado = new MRModel.EN.UsuarioEN ();
                 mensajeEN.Es_enviado.Id = p_es_enviado;
         }
 
 
-        mensajeEN.Es_recibido = new System.Collections.Generic.List<MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN>();
+        mensajeEN.Es_recibido = new System.Collections.Generic.List<MRModel.EN.UsuarioEN>();
         if (p_es_recibido != null) {
                 foreach (int item in p_es_recibido) {
-                        MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN en = new MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN ();
+                        MRModel.EN.UsuarioEN en = new MRModel.EN.UsuarioEN ();
                         en.Id = item;
                         mensajeEN.Es_recibido.Add (en);
                 }
         }
 
         else{
-                mensajeEN.Es_recibido = new System.Collections.Generic.List<MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN>();
+                mensajeEN.Es_recibido = new System.Collections.Generic.List<MRModel.EN.UsuarioEN>();
         }
 
         //Call to MensajeCAD
@@ -81,7 +81,7 @@ public int CrearMensaje (string p_asunto, string p_texto, string p_adjunto, Mous
         return oid;
 }
 
-public void ModificarMensaje (int p_Mensaje_OID, string p_asunto, string p_texto, string p_adjunto, MouseRidersGenNHibernate.Enumerated.MouseRiders.T_MensajeEnum p_tipo)
+public void ModificarMensaje (int p_Mensaje_OID, string p_asunto, string p_texto, string p_adjunto, MRModel.Enumerated.T_MensajeEnum p_tipo)
 {
         MensajeEN mensajeEN = null;
 
@@ -125,7 +125,7 @@ public void RelacionaMensaje (int p_Mensaje_OID, int p_es_enviadoN_OID)
 
         _IMensajeCAD.RelacionaMensaje (p_Mensaje_OID, p_es_enviadoN_OID);
 }
-public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> ReadFilter (MouseRidersGenNHibernate.Enumerated.MouseRiders.T_MensajeEnum? p_tipo, string p_asunto)
+public System.Collections.Generic.IList<MRModel.EN.MensajeEN> ReadFilter (MRModel.Enumerated.T_MensajeEnum? p_tipo, string p_asunto)
 {
         return _IMensajeCAD.ReadFilter (p_tipo, p_asunto);
 }

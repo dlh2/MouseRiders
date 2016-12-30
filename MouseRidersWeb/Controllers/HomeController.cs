@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MouseRidersWeb.Controllers
+namespace MRWeb.Controllers
 {
     public class HomeController : BasicController
     {
