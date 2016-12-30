@@ -42,7 +42,7 @@ namespace MRWeb.Assembler
                 {
                     usDTO.Recibe = new List<MensajeDTO>();
                     foreach (MensajeEN entry in Recibe)
-                        usDTO.Recibe.Add(new MensajeAssembler().Converto(entry));
+                        usDTO.Recibe.Add(new MensajeAssembler().Convert(entry));
                 }
             }
             return usDTO;
