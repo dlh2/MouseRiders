@@ -242,6 +242,7 @@
     <Compile Include="Models\Assembler\BloqueoAssembler.cs" />
     <Compile Include="Models\Assembler\MensajeAssembler.cs" />
     <Compile Include="Models\Assembler\ArticuloAssembler.cs" />
+    <Compile Include="Models\DTO\RespuestaDTO.cs" />
     <Compile Include="Models\DTO\RecompensaDTO.cs" />
     <Compile Include="Models\DTO\PermisoDTO.cs" />
     <Compile Include="Models\DTO\HiloDTO.cs" />
