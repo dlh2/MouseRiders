@@ -12,16 +12,18 @@ namespace MRWeb.Assembler
 {
     public class DenunciaAssembler
     {
-        //public DenunciaDTO Convert(DenunciaEN den)
-        //{
-        //    DenunciaDTO denDTO = null;
-        //    if (den != null)
-        //    {
-        //        denDTO = new DenunciaDTO();
-        //        denDTO.Id = den.Id;
-        //    }
-        //    return denDTO;
-        //}
+        public DenunciaDTO Convert(DenunciaEN den)
+        {
+            DenunciaDTO denDTO = null;
+            if (den != null)
+            {
+                denDTO = new DenunciaDTO();
+                denDTO.Id = den.Id;
+                denDTO.Fecha = den.Fecha;
+                denDTO.Motivo = den.Motivo;
+            }
+            return denDTO;
+        }
         
     }
 }
