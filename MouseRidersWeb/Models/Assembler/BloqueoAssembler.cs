@@ -24,6 +24,22 @@ namespace MRWeb.Assembler
             }
             return bloDTO;
         }
+        public BloqueoDTO ConvertConDenuncia(BloqueoEN us)
+        {
+            BloqueoDTO usDTO = this.Convert(us);
+            if (us != null)
+            {
+                usDTO.Contiene = null;
+                IList<DenunciaEN> Recibe = us.Contiene;
+                if (Recibe != null)
+                {
+                    usDTO.Contiene = new List<DenunciaDTO>();
+                    foreach (DenunciaEN entry in Recibe)
+                        usDTO.Contiene.Add(new DenunciaAssembler().Convert(entry));
+                }
+            }
+            return usDTO;
+        }
 
      }
 }

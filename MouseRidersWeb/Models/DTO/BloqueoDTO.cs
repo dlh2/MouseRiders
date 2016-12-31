@@ -31,10 +31,11 @@ namespace MRWeb.DTO
         [Display(Prompt = "Fecha Fin", Description = "Fecha Fin del comentario", Name = "Fecha Fin:")]
         [Required(ErrorMessage = "Debe de indicar una fecha fin para el comentario")]
         public Nullable<DateTime> FechaFin { get; set; }
-                  
-        
-        
-        //Relaciones
+
+        //Atributo Contiene
+        [ScaffoldColumn(false)]
+        [Display(Prompt = "Denuncias", Description = "Denuncias", Name = "Denuncias")]
+        public IList<DenunciaDTO> Contiene { get; set; }
 
     }
 }
