@@ -40,11 +40,12 @@ namespace MRWeb.DTO
         [Required(ErrorMessage = "Debe tener una Descripcion")]
         [StringLength(maximumLength: Globals.DESCRIPCION_MAX_LENGTH, ErrorMessage = "La Descripcion no puede tener más de {0} caracteres")]
         public string Descripcion { get; set; }
-              
-        
-        
-        
-        //Relaciones
+
+
+        //Atributo Usuario
+        [ScaffoldColumn(false)]
+        [Display(Prompt = "Usuarios", Description = "Usuarios", Name = "Usuarios")]
+        public IList<UsuarioDTO> Obtiene { get; set; }
 
     }
 }

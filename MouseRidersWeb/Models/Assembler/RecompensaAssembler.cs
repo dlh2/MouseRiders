@@ -25,6 +25,22 @@ namespace MRWeb.Assembler
             }
             return recDTO;
         }
+        public RecompensaDTO ConvertConComentario_Articulo(RecompensaEN us)
+        {
+            RecompensaDTO usDTO = this.Convert(us);
+            if (us != null)
+            {
+                usDTO.Obtiene = null;
+                IList<UsuarioEN> Recibe = us.Otorgada;
+                if (Recibe != null)
+                {
+                    usDTO.Obtiene = new List<UsuarioDTO>();
+                    foreach (UsuarioEN entry in Recibe)
+                        usDTO.Obtiene.Add(new UsuarioAssembler().Convert(entry));
+                }
+            }
+            return usDTO;
+        }
 
     }
 }
