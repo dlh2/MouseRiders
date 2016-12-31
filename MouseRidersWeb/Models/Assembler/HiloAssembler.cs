@@ -26,13 +26,13 @@ namespace MRWeb.Assembler
             }
             return hilDTO;
         }
-        public HiloDTO ConvertConComentario_Hilo(HiloDTO us)
+        public HiloDTO ConvertConComentario_Hilo(HiloEN us)
         {
             HiloDTO usDTO = this.Convert(us);
             if (us != null)
             {
                 usDTO.Comentario = null;
-                IList<ComentarioEN> Recibe = us.Comentario;
+                IList<ComentarioEN> Recibe = us.Contiene;
                 if (Recibe != null)
                 {
                     usDTO.Comentario = new List<ComentarioDTO>();
