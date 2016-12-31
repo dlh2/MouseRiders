@@ -6,22 +6,22 @@ using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MouseRidersGenNHibernate.Exceptions;
-using MouseRidersGenNHibernate.EN.MouseRiders;
-using MouseRidersGenNHibernate.CAD.MouseRiders;
+using MRModel.Exceptions;
+using MRModel.EN;
+using MRModel.CAD;
 
 
-/*PROTECTED REGION ID(usingMouseRidersGenNHibernate.CEN.MouseRiders_Usuario_recibirMensaje) ENABLED START*/
+/*PROTECTED REGION ID(usingMRModel.CEN_Usuario_recibirMensaje) ENABLED START*/
 //  references to other libraries
 /*PROTECTED REGION END*/
 
-namespace MouseRidersGenNHibernate.CEN.MouseRiders
+namespace MRModel.CEN
 {
 public partial class UsuarioCEN
 {
-public MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN RecibirMensaje (string p_oid)
+public MensajeEN RecibirMensaje (string p_oid)
 {
-        /*PROTECTED REGION ID(MouseRidersGenNHibernate.CEN.MouseRiders_Usuario_recibirMensaje) ENABLED START*/
+        /*PROTECTED REGION ID(MRModel.CEN_Usuario_recibirMensaje) ENABLED START*/
 
         // Write here your custom code...
 

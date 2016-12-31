@@ -6,22 +6,22 @@ using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MouseRidersGenNHibernate.Exceptions;
-using MouseRidersGenNHibernate.EN.MouseRiders;
-using MouseRidersGenNHibernate.CAD.MouseRiders;
+using MRModel.Exceptions;
+using MRModel.EN;
+using MRModel.CAD;
 
 
-/*PROTECTED REGION ID(usingMouseRidersGenNHibernate.CEN.MouseRiders_Administrador_bloquearUsuario) ENABLED START*/
+/*PROTECTED REGION ID(usingMRModel.CEN_Administrador_bloquearUsuario) ENABLED START*/
 //  references to other libraries
 /*PROTECTED REGION END*/
 
-namespace MouseRidersGenNHibernate.CEN.MouseRiders
+namespace MRModel.CEN
 {
 public partial class AdministradorCEN
 {
 public bool BloquearUsuario (string p_oid)
 {
-        /*PROTECTED REGION ID(MouseRidersGenNHibernate.CEN.MouseRiders_Administrador_bloquearUsuario) ENABLED START*/
+        /*PROTECTED REGION ID(MRModel.CEN_Administrador_bloquearUsuario) ENABLED START*/
 
         // Write here your custom code...
 
@@ -33,11 +33,12 @@ public bool BloquearUsuario (string p_oid)
          *
          */
 
+
+
         int Ndenuncias = 0;
 
         bool bloqueado = false;
-
-        UsuarioEN _usuarioEN = _IUsuarioCAD.ReadOIDDefault (p_oid);
+        UsuarioEN _usuarioEN = (UsuarioEN)_IAdministradorCAD.ReadOIDDefault (Int32.Parse(p_oid));
 
         Ndenuncias = _usuarioEN.CreaD != null ? _usuarioEN.CreaD.Count : 0;
 
@@ -56,7 +57,7 @@ public bool BloquearUsuario (string p_oid)
 
                 UsuarioCEN usuarioCEN = new UsuarioCEN (_IUsuarioCAD);
 
-                usuarioCEN.RelacionaBloqueo (_usuarioEN.Email, _usuarioEN.Es_de.Id);
+                usuarioCEN.RelacionaBloqueo (Int32.Parse(_usuarioEN.Email), _usuarioEN.Es_de.Id);
 
                 bloqueado = true;
         }

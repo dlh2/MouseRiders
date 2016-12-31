@@ -12,13 +12,13 @@ namespace MRWeb.Assembler
 {
     public class ArticuloAssembler
     {
-       
-            public ControladorNotificacionesDTO Convert(ArticuloEN art)
+
+        public ArticuloDTO Convert(ArticuloEN art)
             {
-                ControladorNotificacionesDTO artDTO = null;
+                ArticuloDTO artDTO = null;
                 if (art != null)
                 {
-                    artDTO = new ControladorNotificacionesDTO();
+                    artDTO = new ArticuloDTO();
                     artDTO.Id = art.Id;
                     artDTO.Titulo = art.Titulo;
                     artDTO.Autor = art.Autor;

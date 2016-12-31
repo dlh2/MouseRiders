@@ -6,22 +6,22 @@ using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MouseRidersGenNHibernate.Exceptions;
-using MouseRidersGenNHibernate.EN.MouseRiders;
-using MouseRidersGenNHibernate.CAD.MouseRiders;
+using MRModel.Exceptions;
+using MRModel.EN;
+using MRModel.CAD;
 
 
-/*PROTECTED REGION ID(usingMouseRidersGenNHibernate.CEN.MouseRiders_Encuesta_realizarEncuesta) ENABLED START*/
+/*PROTECTED REGION ID(usingMRModel.CEN_Encuesta_realizarEncuesta) ENABLED START*/
 //  references to other libraries
 /*PROTECTED REGION END*/
 
-namespace MouseRidersGenNHibernate.CEN.MouseRiders
+namespace MRModel.CEN
 {
 public partial class EncuestaCEN
 {
     public void RealizarEncuesta(int p_oid, IList<String> p_respuestas)
 {
-        /*PROTECTED REGION ID(MouseRidersGenNHibernate.CEN.MouseRiders_Encuesta_realizarEncuesta) ENABLED START*/
+        /*PROTECTED REGION ID(MRModel.CEN_Encuesta_realizarEncuesta) ENABLED START*/
         //      public void RealizarEncuesta(int p_oid, IList<String> p_respuestas)
         EncuestaEN _encuesta;
         IEncuestaCAD _IEncuestaCAD = new EncuestaCAD();

@@ -18,8 +18,8 @@ namespace MRWeb.Assembler
             if (per != null)
             {
                 perDTO = new PermisoDTO();
-                perDTO.Rol = per.rol;
-                perDTO.Permiso = per.permiso;
+                //perDTO.Rol = per.rol;
+                //perDTO.Permiso = per.permiso;
                 perDTO.Permisos = per.Permisos;
             }
             return perDTO;
