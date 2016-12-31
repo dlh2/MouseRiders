@@ -12,16 +12,17 @@ namespace MRWeb.Assembler
 {
     public class SeccionAssembler
     {
-        //public SeccionDTO Convert(SeccionEN sec)
-        //{
-        //    SeccionDTO secDTO = null;
-        //    if (sec != null)
-        //    {
-        //        secDTO = new SeccionDTO();
-        //        secDTO.Id = sec.Id;
-        //    }
-        //    return secDTO;
-        //}
+        public SeccionDTO Convert(SeccionEN sec)
+        {
+            SeccionDTO secDTO = null;
+            if (sec != null)
+            {
+                secDTO = new SeccionDTO();
+                secDTO.Seccion = sec.Seccion;
+                secDTO.Nombre = sec.Nombre;
+            }
+            return secDTO;
+        }
 
     }
 }
