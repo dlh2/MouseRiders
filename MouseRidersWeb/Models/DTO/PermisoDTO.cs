@@ -36,9 +36,11 @@ namespace MRWeb.DTO
         [Required(ErrorMessage = "Debe tener unos permisos")]
         [StringLength(maximumLength: Globals.TITULO_MAX_LENGTH, ErrorMessage = "Los permisos no puede tener más de {0} caracteres")]
         public string Permisos { get; set; }
-       
 
-        //Relaciones
+        //Atributo Usuario
+        [ScaffoldColumn(false)]
+        [Display(Prompt = "Usuarios", Description = "Usuarios", Name = "Usuarios")]
+        public IList<UsuarioDTO> Tiene { get; set; }
 
     }
 }

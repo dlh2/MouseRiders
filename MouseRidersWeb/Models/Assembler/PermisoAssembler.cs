@@ -24,7 +24,22 @@ namespace MRWeb.Assembler
             }
             return perDTO;
         }
-
+        public PermisoDTO ConvertConComentario_Articulo(PermisoEN us)
+        {
+            PermisoDTO usDTO = this.Convert(us);
+            if (us != null)
+            {
+                usDTO.Tiene = null;
+                IList<UsuarioEN> Recibe = us.Pertenece;
+                if (Recibe != null)
+                {
+                    usDTO.Tiene = new List<UsuarioDTO>();
+                    foreach (UsuarioEN entry in Recibe)
+                        usDTO.Tiene.Add(new UsuarioAssembler().Convert(entry));
+                }
+            }
+            return usDTO;
+        }
         
     }
 }
