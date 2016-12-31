@@ -12,16 +12,18 @@ namespace MRWeb.Assembler
 {
     public class PermisoAssembler
     {
-        //public PermisoDTO Convert(PermisoEN per)
-        //{
-        //    PermisoDTO perDTO = null;
-        //    if (per != null)
-        //    {
-        //        perDTO = new PermisoDTO();
-        //        perDTO.Id = per.Id;
-        //    }
-        //    return perDTO;
-        //}
+        public PermisoDTO Convert(PermisoEN per)
+        {
+            PermisoDTO perDTO = null;
+            if (per != null)
+            {
+                perDTO = new PermisoDTO();
+                perDTO.Rol = per.rol;
+                perDTO.Permiso = per.permiso;
+                perDTO.Permisos = per.Permisos;
+            }
+            return perDTO;
+        }
         
     }
 }
