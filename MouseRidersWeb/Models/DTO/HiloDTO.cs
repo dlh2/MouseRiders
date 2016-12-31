@@ -49,9 +49,10 @@ namespace MRWeb.DTO
         //[StringLength(maximumLength: Globals.CONTENIDO_MAX_LENGTH, ErrorMessage = "El contenido descargable no puede tener más de {0} caracteres")]
         public int NumComentarios { get; set; }
 
-
-       
-        //Relaciones
+        //Atributo Comentario
+        [ScaffoldColumn(false)]
+        [Display(Prompt = "Comentarios", Description = "Comentarios", Name = "Comentarios")]
+        public IList<ComentarioDTO> Comentario { get; set; }
 
     }
 }

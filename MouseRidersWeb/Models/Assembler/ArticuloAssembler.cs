@@ -33,7 +33,7 @@ namespace MRWeb.Assembler
                 }
                 return artDTO;
             }
-        public ArticuloDTO ConvertConComentario(ArticuloEN us)
+        public ArticuloDTO ConvertConComentario_Articulo(ArticuloEN us)
         {
             ArticuloDTO usDTO = this.Convert(us);
             if (us != null)

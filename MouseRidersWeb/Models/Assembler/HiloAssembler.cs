@@ -26,6 +26,22 @@ namespace MRWeb.Assembler
             }
             return hilDTO;
         }
+        public HiloDTO ConvertConComentario_Hilo(HiloDTO us)
+        {
+            HiloDTO usDTO = this.Convert(us);
+            if (us != null)
+            {
+                usDTO.Comentario = null;
+                IList<ComentarioEN> Recibe = us.Comentario;
+                if (Recibe != null)
+                {
+                    usDTO.Comentario = new List<ComentarioDTO>();
+                    foreach (ComentarioEN entry in Recibe)
+                        usDTO.Comentario.Add(new ComentarioAssembler().Convert(entry));
+                }
+            }
+            return usDTO;
+        }
         
     }
 }
