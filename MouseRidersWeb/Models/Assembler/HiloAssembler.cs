@@ -12,16 +12,20 @@ namespace MRWeb.Assembler
 {
     public class HiloAssembler
     {
-        //public HiloDTO Convert(HiloEN hil)
-        //{
-        //    HiloDTO hilDTO = null;
-        //    if (hil != null)
-        //    {
-        //        hilDTO = new HiloDTO();
-        //        hilDTO.Id = hil.Id;
-        //    }
-        //    return hilDTO;
-        //}
+        public HiloDTO Convert(HiloEN hil)
+        {
+            HiloDTO hilDTO = null;
+            if (hil != null)
+            {
+                hilDTO = new HiloDTO();
+                hilDTO.Id = hil.Id;
+                hilDTO.Creador = hil.Creador;
+                hilDTO.Fecha = hil.Fecha;
+                hilDTO.NumComentarios = hil.NumComentarios;
+                hilDTO.Titulo = hil.Titulo;
+            }
+            return hilDTO;
+        }
         
     }
 }
