@@ -99,11 +99,12 @@ namespace MRWeb.DTO
         [Required(ErrorMessage = "Debe tener una Descripcion")]
         [StringLength(maximumLength: Globals.DESCRIPCION_MAX_LENGTH, ErrorMessage = "La Descripcion no puede tener más de {0} caracteres")]
         public string Descripcion { get; set; }
-              
-        
-        
-        
-        //Relacion/Atributo tiene
+
+
+        //Atributo Comentario
+        [ScaffoldColumn(false)]
+        [Display(Prompt = "Comentarios", Description = "Comentarios", Name = "Comentarios")]
+        public IList<ComentarioDTO> Comentario { get; set; }
 
     }
 }

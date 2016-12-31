@@ -32,6 +32,22 @@ namespace MRWeb.Assembler
                     artDTO.Descripcion = art.Descripcion;
                 }
                 return artDTO;
-            }       
+            }
+        public ArticuloDTO ConvertConComentario(ArticuloEN us)
+        {
+            ArticuloDTO usDTO = this.Convert(us);
+            if (us != null)
+            {
+                usDTO.Comentario = null;
+                IList<ComentarioEN> Recibe = us.Tiene;
+                if (Recibe != null)
+                {
+                    usDTO.Comentario = new List<ComentarioDTO>();
+                    foreach (ComentarioEN entry in Recibe)
+                        usDTO.Comentario.Add(new ComentarioAssembler().Convert(entry));
+                }
+            }
+            return usDTO;
+        }
     }
 }
