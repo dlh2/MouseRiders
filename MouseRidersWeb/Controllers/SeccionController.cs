@@ -54,6 +54,10 @@ namespace MRWeb.Controllers
             SeccionEN resultEN = cCAD.ReadOID(id);
             SeccionDTO result = new SeccionAssembler().ConvertConArticulo(resultEN);
             SessionClose();
+            if (result == null)
+            {
+                return RedirectToAction("Index");
+            }
             return View(result);
         }
 

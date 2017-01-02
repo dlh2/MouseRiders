@@ -20,13 +20,12 @@
 @foreach (var item in Model.Tiene)
 {
     <p>
-        @Html.DisplayFor(modelItem => item.Titulo)
+        @Html.ActionLink(item.Titulo, "Contenido","Articulo", new {  id=item.Id  } , null ) 
     </p>
         <p>
         @Html.DisplayFor(modelItem => item.Descripcion)
     </p>
 }
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
