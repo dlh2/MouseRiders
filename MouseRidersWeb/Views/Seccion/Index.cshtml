@@ -1,41 +1,56 @@
-﻿@model IEnumerable<MRModel.EN.SeccionEN>
+﻿
+@model IEnumerable<MRModel.EN.SeccionEN>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Seccion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </th>
-        <th></th>
-    </tr>
+<div class="customheader">
 
-    @foreach (var item in Model)
-    {
+    <h2 class="customh2">Secciones</h2>
+
+</div>
+
+
+<div class="table-responsive">
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Seccion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Seccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Seccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    <button class="btn btn-default">
+                        @Html.ActionLink("Editar", "Edit", new {  /*id=item.PrimaryKey*/   @class = "btn btn-default" })
+                    </button>
+                    <button class="btn btn-info">
+                        @Html.ActionLink("Detalles", "Details", new { /* id=item.PrimaryKey */ @class = "btn btn-info" })
+                    </button>
+                    <button class="btn btn-danger">
+                        @Html.ActionLink("Eliminar", "Delete", new { /* id=item.PrimaryKey */ @class = "btn btn-danger" })
+                    </button>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+<p class="btn btn-success">
+    @Html.ActionLink("Crear nueva sección", "Create")
+</p>

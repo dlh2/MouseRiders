@@ -39,6 +39,36 @@ body {
     opacity: 0.7;
 }
 
+
+
+
+.customh2{
+    font-size: 80px;
+    background: #fff;
+    background: rgba(0,0,0,0.9);
+    color: white;
+    opacity: 0.8;
+    text-align: center;
+    border-radius: 25px;
+}
+
+
+.btn-secondary2{
+    background: rgba(50, 50, 50, 0.7);
+    color:white;
+}
+
+.divsection{
+    border-bottom: 5px;
+    border-bottom-style: solid;
+    border-color: rgba(150,150,150,0.5);
+}
+
+.psection{
+    font-size: 25px;
+}
+
+
 .featurette-divider {
     margin: 80px 0;
 }
