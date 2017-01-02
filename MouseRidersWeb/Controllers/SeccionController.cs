@@ -22,15 +22,6 @@ namespace MRWeb.Controllers
             SessionInitialize();
             SeccionCAD cCAD = new SeccionCAD(session);
             IList<SeccionEN> result = cCAD.ReadAllDefault(0, 10);
-            SessionClose();
-            return View(result);
-        }
-
-        public ActionResult Mostrar()
-        {
-            SessionInitialize();
-            SeccionCAD cCAD = new SeccionCAD(session);
-            IList<SeccionEN> result = cCAD.ReadAllDefault(0, 10);
             IList<SeccionDTO> resultfinal = new List<SeccionDTO>();
             foreach (SeccionEN entry in result)
                 resultfinal.Add(new SeccionAssembler().Convert(entry));
@@ -38,7 +29,9 @@ namespace MRWeb.Controllers
             return View(resultfinal);
         }
 
-        public ActionResult Mostrar2(string nombre)
+
+
+        public ActionResult Mostrar2(String nombre)
         {
             SessionInitialize();
             SeccionCAD cCAD = new SeccionCAD(session);
@@ -58,7 +51,8 @@ namespace MRWeb.Controllers
         {
             SessionInitialize();
             SeccionCAD cCAD = new SeccionCAD(session);
-            SeccionEN result = cCAD.ReadOIDDefault(id);
+            SeccionEN resultEN = cCAD.ReadOID(id);
+            SeccionDTO result = new SeccionAssembler().ConvertConArticulo(resultEN);
             SessionClose();
             return View(result);
         }

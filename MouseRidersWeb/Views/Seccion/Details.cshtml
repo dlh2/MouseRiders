@@ -1,14 +1,32 @@
-﻿@model MRModel.EN.SeccionEN
+﻿@model MRWeb.DTO.SeccionDTO
 
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-    <fieldset>
-        <legend>SeccionEN</legend>
-    </fieldset>
+<h2>Details</h2>
+
+<fieldset>
+    <legend>SeccionDTO</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Nombre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nombre)
+    </div>
+</fieldset>
+@foreach (var item in Model.Tiene)
+{
     <p>
-        @Html.ActionLink("Edit", "Edit", new {  id=Model.Seccion}) |
-        @Html.ActionLink("Back to List", "Index")
+        @Html.DisplayFor(modelItem => item.Titulo)
     </p>
+        <p>
+        @Html.DisplayFor(modelItem => item.Descripcion)
+    </p>
+}
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

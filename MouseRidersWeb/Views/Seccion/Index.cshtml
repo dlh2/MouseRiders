@@ -1,56 +1,57 @@
-﻿
-@model IEnumerable<MRModel.EN.SeccionEN>
+﻿@model IEnumerable<MRWeb.DTO.SeccionDTO>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Secciones";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<h2 class="customh2">Secciones</h2>
 
-<div class="customheader">
-
-    <h2 class="customh2">Secciones</h2>
-
+<div class="btn-group-lg btn-group-justified" role="group">
+    <a href="" class="btn btn-secondary2">PC</a>
+    <a href="" class="btn btn-secondary2">PS4</a>
+    <a href="" class="btn btn-secondary2">XBOX One</a>
+    <a href="" class="btn btn-secondary2">Wii U</a>
+    <a href="" class="btn btn-secondary2">Nintendo 3DS</a>
 </div>
 
+<h3 style="text-align:center"> Ordenar por </h3>
 
+<div class="btn-group-justified" role="group">
+    <a href="" class="btn btn-secondary2">Fecha</a>
+    <a href="" class="btn btn-secondary2">Orden Ascendente</a>
+    <a href="" class="btn btn-secondary2">Orden Descendente</a>
+    <a href="" class="btn btn-secondary2">Valoración</a>
+</div>
+
+<!---
 <div class="table-responsive">
     <table class="table">
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Seccion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
             <th></th>
         </tr>
+        */
+    -->
+@foreach (var item in Model)
+{
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Seccion)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nombre)
-                </td>
-                <td>
-                    <button class="btn btn-default">
-                        @Html.ActionLink("Editar", "Edit", new {  id=item.PrimaryKey,   @class = "btn btn-default" })
-                    </button>
-                    <button class="btn btn-info">
-                        @Html.ActionLink("Detalles", "Details", new {  id=item.PrimaryKey , @class = "btn btn-info" })
-                    </button>
-                    <button class="btn btn-danger">
-                        @Html.ActionLink("Eliminar", "Delete", new { id=item.PrimaryKey, @class = "btn btn-danger" })
-                    </button>
-                </td>
-            </tr>
-        }
+    <div class="container-fluid divsection">
+        <div class="col-md-10">
+            <h2>
+                <!-- TITULO DE LA SECCION-->
+                @Html.ActionLink(item.Nombre, "Details", new { id = item.Seccion, @class = "btn btn-default" })
+            </h2>
+            <p class="psection">texto de ejemplo </p> <!--DESCRIPCION DE LA SECCION-->
+        </div>
+
+        <div class="col-xs-2">
+            <!--IMAGEN DE LA SECCION-->
+            <img src="C:\Users\OIDEWin7\Desktop\preview.jpg" style="height:150px; width:150px;" />
+        </div>
+    </div>
+
+
+}
+<!--
     </table>
-</div>
-
-<p class="btn btn-success">
-    @Html.ActionLink("Crear nueva sección", "Create")
-</p>
+</div>-->
