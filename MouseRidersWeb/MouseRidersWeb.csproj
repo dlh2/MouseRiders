@@ -264,6 +264,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Contenido\Articulos\Articulo1.html" />
+    <Content Include="Contenido\Articulos\Articulo2.html" />
+    <Content Include="Contenido\Articulos\Articulo3.html" />
+    <Content Include="Contenido\CVs\void.txt" />
+    <Content Include="Contenido\Imagenes\void.txt" />
+    <Content Include="Contenido\Sugerencias\void.txt" />
     <Content Include="Content\css\bootstrap-theme.css" />
     <Content Include="Content\css\bootstrap-theme.min.css" />
     <Content Include="Content\css\bootstrap.css" />
@@ -464,8 +470,6 @@
     <Content Include="Views\Comentario\Edit.cshtml" />
     <Content Include="Views\Comentario\Delete.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\string.cshtml" />
-    <Content Include="Views\Seccion\Mostrar.cshtml" />
-    <Content Include="Views\Seccion\Mostrar2.cshtml" />
     <Content Include="Views\Usuario\Login.cshtml" />
     <Content Include="Views\Comentario\_Comentario.cshtml" />
     <Content Include="Views\Articulo\Contenido.cshtml" />
@@ -473,6 +477,8 @@
     <Content Include="Views\Usuario\Register_boceto.cshtml" />
     <Content Include="Views\Usuario\register_login_boceto.cshtml" />
     <Content Include="Views\Usuario\Index.cshtml" />
+    <Content Include="Views\Seccion\Mostrar2.cshtml" />
+    <Content Include="Views\Seccion\Mostrar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

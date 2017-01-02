@@ -1,7 +1,8 @@
-﻿@model IEnumerable<MRModel.EN.ArticuloEN>
+﻿@model IEnumerable<MRWeb.DTO.ArticuloDTO>
 
 @{
     ViewBag.Title = "Mostrar2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Mostrar2</h2>
@@ -15,19 +16,19 @@
             @Html.DisplayNameFor(model => model.Titulo)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Autor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Puntuacion)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Contenido)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ContenidoDescargable)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Puntuacion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fecha)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Contador)
@@ -50,19 +51,19 @@
             @Html.DisplayFor(modelItem => item.Titulo)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.Fecha)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Autor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Puntuacion)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Contenido)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ContenidoDescargable)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Puntuacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fecha)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Contador)

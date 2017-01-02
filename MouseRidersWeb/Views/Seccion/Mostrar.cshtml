@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MRModel.EN.SeccionEN>
+﻿@model IEnumerable<MRWeb.DTO.SeccionDTO>
 
 @{
     ViewBag.Title = "Secciones";
@@ -31,26 +31,29 @@
         </tr>
         */
     -->
-        @foreach (var item in Model)
-        {
-           
-            <div class="container-fluid divsection">
-                <div class="col-md-10">
-                    <h2> <!-- TITULO DE LA SECCION-->
-                        <a href="~/Seccion/Mostrar2/@Html.DisplayFor(modelItem => item.Nombre)">
-                            @Html.DisplayFor(modelItem => item.Nombre)
-                        </a>
-                    </h2>
-                    <p class="psection">texto de ejemplo </p> <!--DESCRIPCION DE LA SECCION-->
-                </div>
+@foreach (var item in Model)
+{
 
-                <div class="col-xs-2"> <!--IMAGEN DE LA SECCION-->
-                    <img src="C:\Users\OIDEWin7\Desktop\preview.jpg" style="height:150px; width:150px;" />
-                </div>
-            </div>
+    <div class="container-fluid divsection">
+        <div class="col-md-10">
+            <h2>
+                <!-- TITULO DE LA SECCION-->
+                <a href="~/Seccion/Mostrar2/@Html.DisplayFor(modelItem => item.Nombre)">
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </a>
+            </h2>
+            <p class="psection">texto de ejemplo </p> <!--DESCRIPCION DE LA SECCION-->
+        </div>
 
-          
-        }
+        <div class="col-xs-2">
+            <!--IMAGEN DE LA SECCION-->
+            <img src="C:\Users\OIDEWin7\Desktop\preview.jpg" style="height:150px; width:150px;" />
+        </div>
+    </div>
+
+
+}
 <!--
     </table>
 </div>-->
+

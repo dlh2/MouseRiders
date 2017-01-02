@@ -2,6 +2,8 @@
 using MRModel.CEN;
 using MRModel.EN;
 using MRModel.Enumerated;
+using MRWeb.Assembler;
+using MRWeb.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,8 +31,11 @@ namespace MRWeb.Controllers
             SessionInitialize();
             SeccionCAD cCAD = new SeccionCAD(session);
             IList<SeccionEN> result = cCAD.ReadAllDefault(0, 10);
+            IList<SeccionDTO> resultfinal = new List<SeccionDTO>();
+            foreach (SeccionEN entry in result)
+                resultfinal.Add(new SeccionAssembler().Convert(entry));
             SessionClose();
-            return View(result);
+            return View(resultfinal);
         }
 
         public ActionResult Mostrar2(string nombre)
@@ -39,6 +44,9 @@ namespace MRWeb.Controllers
             SeccionCAD cCAD = new SeccionCAD(session);
             SeccionEN result = cCAD.ReadFilter(nombre);
             IList<ArticuloEN> resultfinal=result.Tiene;
+            IList<ArticuloDTO> resultadofinal = new List<ArticuloDTO>();
+            foreach (ArticuloEN entry in resultfinal)
+                resultadofinal.Add(new ArticuloAssembler().Convert(entry));
             SessionClose();
             return View(resultfinal);
         }
