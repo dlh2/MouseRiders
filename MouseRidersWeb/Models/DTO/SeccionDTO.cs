@@ -21,8 +21,9 @@ namespace MRWeb.DTO
         public string Nombre { get; set; }
 
         /**
-        *	Atributo Seccion
+        *	Atributo Seccion (ID)
         */
+        [ScaffoldColumn(false)]
         [Display(Prompt = "Seccion", Description = "Seccion", Name = "Seccion:")]
         //[StringLength(maximumLength: Globals.CONTENIDO_MAX_LENGTH, ErrorMessage = "El contenido descargable no puede tener más de {0} caracteres")]
         public int Seccion { get; set; }

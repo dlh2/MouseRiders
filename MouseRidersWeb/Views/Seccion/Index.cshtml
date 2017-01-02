@@ -37,13 +37,13 @@
                 </td>
                 <td>
                     <button class="btn btn-default">
-                        @Html.ActionLink("Editar", "Edit", new {  /*id=item.PrimaryKey*/   @class = "btn btn-default" })
+                        @Html.ActionLink("Editar", "Edit", new {  id=item.PrimaryKey,   @class = "btn btn-default" })
                     </button>
                     <button class="btn btn-info">
-                        @Html.ActionLink("Detalles", "Details", new { /* id=item.PrimaryKey */ @class = "btn btn-info" })
+                        @Html.ActionLink("Detalles", "Details", new {  id=item.PrimaryKey , @class = "btn btn-info" })
                     </button>
                     <button class="btn btn-danger">
-                        @Html.ActionLink("Eliminar", "Delete", new { /* id=item.PrimaryKey */ @class = "btn btn-danger" })
+                        @Html.ActionLink("Eliminar", "Delete", new { id=item.PrimaryKey, @class = "btn btn-danger" })
                     </button>
                 </td>
             </tr>
