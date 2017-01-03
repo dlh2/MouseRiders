@@ -1,0 +1,31 @@
+﻿@model MouseRidersWeb.DTO.SeccionDTO
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>SeccionDTO</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Nombre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nombre)
+    </div>
+</fieldset>
+@foreach (var item in Model.Tiene)
+{
+    <p>
+        @Html.ActionLink(item.Titulo, "Contenido", "Articulo", new { id = item.Id }, null)
+    </p>
+    <p>
+        @Html.DisplayFor(modelItem => item.Descripcion)
+    </p>
+}
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
