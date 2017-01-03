@@ -74,6 +74,24 @@ public static void Create (string databaseArg, string userArg, string passArg)
         }
 }
 
+
+private const string _chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+private static string RandomString(int size) //metodo que genera Strings aleatorios de x tamaño 
+{
+    Random rng = new Random();
+    char[] buffer = new char[size];
+    int datatest = 0;
+    for (int i = 0; i < size; i++)
+    {
+        buffer[i] = _chars[rng.Next(_chars.Length)];
+        datatest = rng.Next(_chars.Length);
+    }
+    return new string(buffer);
+}
+
+
+
 public static void InitializeData ()
 {
         /*PROTECTED REGION ID(initializeDataMethod) ENABLED START*/
@@ -91,6 +109,9 @@ public static void InitializeData ()
                 IUsuarioCAD _IUsuarioCAD = new UsuarioCAD ();
                 UsuarioCEN usuarioCEN = new UsuarioCEN (_IUsuarioCAD);
 
+                IList<UsuarioEN> users;
+                users=new List<UsuarioEN>(); //lista de Usuarios
+                
                 //Usuario1
                 UsuarioEN usuario1EN = new UsuarioEN ();
                 usuario1EN.Email = "pepe@gmail.com";
@@ -103,6 +124,8 @@ public static void InitializeData ()
                 usuario1EN.FechaRegistro = DateTime.Now;
                 int oid_usu = usuarioCEN.CrearUsuario (usuario1EN.Email, usuario1EN.Nombre, usuario1EN.Apellidos, usuario1EN.Pais, usuario1EN.Telefono, usuario1EN.Puntuacion, usuario1EN.FechaRegistro, usuario1EN.Contrasenya, "user1");
                 usuario1EN.Id = oid_usu;
+                users.Add(usuario1EN);
+  
                 //Usuario2
                 UsuarioEN usuario2EN = new UsuarioEN ();
                 usuario2EN.Email = "jorge@gmail.com";
@@ -115,6 +138,8 @@ public static void InitializeData ()
                 usuario2EN.FechaRegistro = DateTime.Now;
                 int oid_usu2 = usuarioCEN.CrearUsuario (usuario2EN.Email, usuario2EN.Nombre, usuario2EN.Apellidos, usuario2EN.Pais, usuario2EN.Telefono, usuario2EN.Puntuacion, usuario2EN.FechaRegistro, usuario2EN.Contrasenya, "user2");
                 usuario2EN.Id = oid_usu2;
+                users.Add(usuario2EN);
+
                 //Usuario3
                 UsuarioEN usuario3EN = new UsuarioEN ();
                 usuario3EN.Email = "javi@gmail.com";
@@ -127,6 +152,8 @@ public static void InitializeData ()
                 usuario3EN.FechaRegistro = DateTime.Now;
                 int oid_usu3 = usuarioCEN.CrearUsuario (usuario3EN.Email, usuario3EN.Nombre, usuario3EN.Apellidos, usuario3EN.Pais, usuario3EN.Telefono, usuario3EN.Puntuacion, usuario3EN.FechaRegistro, usuario3EN.Contrasenya, "user3");
                 usuario3EN.Id = oid_usu3;
+                users.Add(usuario3EN);
+
                 //Usuario4
                 UsuarioEN usuario4EN = new UsuarioEN ();
                 usuario4EN.Email = "pedro@gmail.com";
@@ -138,6 +165,7 @@ public static void InitializeData ()
                 usuario4EN.Puntuacion = 3000;
                 usuario4EN.FechaRegistro = DateTime.Now;
                 usuario4EN.Id = usuarioCEN.CrearUsuario (usuario4EN.Email, usuario4EN.Nombre, usuario4EN.Apellidos, usuario4EN.Pais, usuario4EN.Telefono, usuario4EN.Puntuacion, usuario4EN.FechaRegistro, usuario4EN.Contrasenya, "user4");
+                users.Add(usuario4EN);    
 
 
                 #endregion
@@ -541,6 +569,9 @@ public static void InitializeData ()
                 IArticuloCAD _IArticuloCAD = new ArticuloCAD ();
                 ArticuloCEN articuloCEN = new ArticuloCEN (_IArticuloCAD);
 
+                IList<ArticuloEN> articulos;
+                articulos = new List<ArticuloEN>(); //lista con todos los articulos
+
                 ArticuloEN articulo1EN = new ArticuloEN ();
                 articulo1EN.Autor = usuario1EN.Email;
                 articulo1EN.Contador = 0;
@@ -553,6 +584,7 @@ public static void InitializeData ()
                 articulo1EN.Portada = "https://i1.sndcdn.com/artworks-000127833709-vqi28b-t500x500.jpg";
                 articulo1EN.Descripcion = "Por lo general, los juegos que tardan una década en salir tienen problemas. ¿Acaso olvidaste la catástrofe que fue Duke Nukem Forever? Pero Square Enix cambió de planes y eso incluía un nombre nuevo con una historia un poco distinta.";
                 int oid_a1 = articuloCEN.CrearArticulo (oid_s, articulo1EN.Titulo, articulo1EN.Autor, articulo1EN.Contenido, articulo1EN.ContenidoDescargable, articulo1EN.Puntuacion, articulo1EN.Fecha, articulo1EN.Contador, articulo1EN.Subtitulo, articulo1EN.Portada, articulo1EN.Descripcion);
+                articulos.Add(articulo1EN);
 
                 ArticuloEN articulo2EN = new ArticuloEN ();
                 articulo2EN.Autor = usuario1EN.Email;
@@ -566,6 +598,7 @@ public static void InitializeData ()
                 articulo2EN.Portada = "https://forums.planetcoaster.com/attachment.php?attachmentid=352&d=1466078141";
                 articulo2EN.Descripcion = "Construir tu propio parque de atracciones, sin límites, con gigantescas montañas rusas y grandes espectáculos. ¿Quién podría resistirse a algo así? Planet Coaster te permite crear tu particular Disney World con una sorprendente libertad de acción.";
                 int oid_a2 = articuloCEN.CrearArticulo (oid_s1, articulo2EN.Titulo, articulo2EN.Autor, articulo2EN.Contenido, articulo2EN.ContenidoDescargable, articulo2EN.Puntuacion, articulo2EN.Fecha, articulo2EN.Contador, articulo2EN.Subtitulo, articulo2EN.Portada, articulo2EN.Descripcion);
+                articulos.Add(articulo2EN);
 
                 ArticuloEN articulo3EN = new ArticuloEN ();
                 articulo3EN.Autor = usuario1EN.Email;
@@ -579,6 +612,8 @@ public static void InitializeData ()
                 articulo3EN.Portada = "http://static.mensup.fr/photos/132266/carre-call-of-duty-modern-warfare-remastered-les-images.jpg";
                 articulo3EN.Descripcion = "El juego que revolucionó el shooter moderno hace casi diez años vuelve con una de las mejores remasterizaciones que hemos podido probar hasta la fecha.";
                 int oid_a3 = articuloCEN.CrearArticulo (oid_s2, articulo3EN.Titulo, articulo3EN.Autor, articulo3EN.Contenido, articulo3EN.ContenidoDescargable, articulo3EN.Puntuacion, articulo3EN.Fecha, articulo3EN.Contador, articulo3EN.Subtitulo, articulo3EN.Portada, articulo3EN.Descripcion);
+                articulos.Add(articulo3EN);
+                
                 #endregion
 
                 #region Foro
@@ -597,12 +632,16 @@ public static void InitializeData ()
                 IHiloCAD _IHiloCAD = new HiloCAD ();
                 HiloCEN hiloCEN = new HiloCEN (_IHiloCAD);
 
+                IList<HiloEN> hilos;
+                hilos = new List<HiloEN>();
+
                 HiloEN hilo1EN = new HiloEN ();
                 hilo1EN.Creador = admin_foroEN.Email;
                 hilo1EN.Fecha = DateTime.Now;
                 hilo1EN.NumComentarios = 2;
                 hilo1EN.Titulo = "hilo1";
                 int oid_h1 = hiloCEN.CrearHilo (hilo1EN.Creador, hilo1EN.Fecha, hilo1EN.NumComentarios, hilo1EN.Titulo);
+                hilos.Add(hilo1EN);
 
                 HiloEN hilo2EN = new HiloEN ();
                 hilo2EN.Creador = redactorEN.Email;
@@ -610,6 +649,7 @@ public static void InitializeData ()
                 hilo2EN.NumComentarios = 2;
                 hilo2EN.Titulo = "hilo2madebyanonimo";
                 int oid_h2 = hiloCEN.CrearHilo (hilo2EN.Creador, hilo2EN.Fecha, hilo2EN.NumComentarios, hilo2EN.Titulo);
+                hilos.Add(hilo2EN);
 
                 #endregion
 
@@ -623,6 +663,7 @@ public static void InitializeData ()
                 comentario1EN.Fecha = DateTime.Now;
                 comentario1EN.Valoracion = 0;
                 int oid_c1 = comentarioCEN.CrearComentario (comentario1EN.Creador, comentario1EN.Fecha, comentario1EN.Contenido, comentario1EN.Valoracion);
+                    
 
                 ComentarioEN comentario2EN = new ComentarioEN ();
                 comentario2EN.Contenido = "eso es mentira";
@@ -743,22 +784,33 @@ public static void InitializeData ()
                 comentarioCEN.RelacionaHilo (oid_c12, oid_h2);
                 comentarioCEN.RelacionaHilo (oid_c13, oid_h2);
 
-
+            IList<ComentarioEN> comentarios;
+            comentarios = new List<ComentarioEN>(); //lista de comentarios
+            /*
             for(int i=0; i<100; i++){
+                int picker=0; //variable que se usa para la toma de decisiones a la hora de enlazar los comentarios a hilos, articulos, etc...
                 Random rnd = new Random();
                 comentario1EN = new ComentarioEN ();
-                comentario1EN.Contenido = rnd.Next(1000000).ToString();
-                comentario1EN.Creador = usuario1EN.Email;
+                comentario1EN.Contenido = RandomString(100);
+                comentario1EN.Creador = users[rnd.Next(users.Count)].Email;
                 comentario1EN.Fecha = DateTime.Now;
-                comentario1EN.Valoracion = 0;
+                comentario1EN.Valoracion = rnd.Next(6);
                 oid_c1 = comentarioCEN.CrearComentario (comentario1EN.Creador, comentario1EN.Fecha, comentario1EN.Contenido, comentario1EN.Valoracion);
-
-                comentarioCEN.RelacionaArticulo (oid_c1, oid_a1);
-
+                picker=rnd.Next(0, 2);
                 
+                if (picker == 0) //se relaciona con un articulo aleatorio
+                {
+                    comentarioCEN.RelacionaArticulo(oid_c1, articulos[rnd.Next(articulos.Count)].Id);
+                }
+                else //se relaciona con un hilo aleatorio
+                {
+                    comentarioCEN.RelacionaHilo(oid_c1, hilos[rnd.Next(hilos.Count)].Id);
+                }
 
-
+                comentarios.Add(comentario1EN);
             };
+             */
+
             Console.WriteLine("He añadido todos los comentarios"); //true
                 #endregion
 
