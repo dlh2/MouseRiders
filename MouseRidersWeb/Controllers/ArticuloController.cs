@@ -2,6 +2,8 @@
 using MouseRidersGenNHibernate.CAD.MouseRiders;
 using MouseRidersGenNHibernate.CEN.MouseRiders;
 using MouseRidersGenNHibernate.EN.MouseRiders;
+using MouseRidersWeb.Assembler;
+using MouseRidersWeb.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,6 +64,7 @@ namespace MouseRidersWeb.Controllers
         public ActionResult Create()
         {
             ArticuloEN art = new ArticuloEN();
+            ArticuloDTO result = new ArticuloAssembler().Convert(art);
             return View(art);
         }
 
@@ -76,8 +79,8 @@ namespace MouseRidersWeb.Controllers
                 ArticuloCAD cCAD = new ArticuloCAD();
                 ArticuloCEN cen = new ArticuloCEN(cCAD);
                 DateTime p_fecha = DateTime.Now;
-                //cen.CrearArticulo(art.Pertenece,art.Titulo,art.Autor,art.Contenido,art.ContenidoDescargable,art.Puntuacion,p_fecha,art.Contador);
-                return RedirectToAction("Details", new { id = art.Id });
+                int id=cen.CrearArticulo(art.Pertenece.Seccion,art.Titulo,art.Autor,art.Contenido,art.ContenidoDescargable,art.Puntuacion,p_fecha,art.Contador,art.Subtitulo, art.Portada,art.Descripcion);
+                return RedirectToAction("Details", new { id = id });
             }
             catch
             {
