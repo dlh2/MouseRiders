@@ -7,13 +7,22 @@
 
 <h2 class="customh2">Secciones</h2>
 
-<div class="btn-group-lg btn-group-justified" role="group">
-    <a href="" class="btn btn-secondary2">PC</a>
-    <a href="" class="btn btn-secondary2">PS4</a>
-    <a href="" class="btn btn-secondary2">XBOX One</a>
-    <a href="" class="btn btn-secondary2">Wii U</a>
-    <a href="" class="btn btn-secondary2">Nintendo 3DS</a>
-</div>
+@using (Ajax.BeginForm("Index", "Articulo", new { },
+    new AjaxOptions
+    {
+        HttpMethod = "get",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "ArticuloAJAX"
+    }))
+{
+    <div class="btn-group-lg btn-group-justified" role="group" id="secciones_aux">
+        a href="" class="btn btn-secondary2"PC
+        @foreach (var item in Model)
+        {
+            @Html.ActionLink(item.Nombre, "Details", new { id = item.Seccion })
+        }
+    </div>
+}
 
 <h3 style="text-align:center"> Ordenar por </h3>
 
@@ -24,34 +33,18 @@
     <a href="" class="btn btn-secondary2">Valoración</a>
 </div>
 
-<!---
-<div class="table-responsive">
-    <table class="table">
-        <tr>
-            <th></th>
-        </tr>
-        */
-    -->
-@foreach (var item in Model)
+<script>
+    $('#secciones_aux a').click(function (e) {
+        e.preventDefault();
+        var clickedPage = $(this).html().valueOf() - 1;
+        $("#secciones_aux a").parent("form").submit();
+    });
+</script>
+@if (Model == null)
 {
-
-    <div class="container-fluid divsection">
-        <div class="col-md-10">
-            <h2>
-                <!-- TITULO DE LA SECCION-->
-                @Html.ActionLink(item.Nombre, "Details", new { id = item.Seccion})
-            </h2>
-            <p class="psection">texto de ejemplo </p> <!--DESCRIPCION DE LA SECCION-->
-        </div>
-
-        <div class="col-xs-2">
-            <!--IMAGEN DE LA SECCION-->
-            <img src="C:\Users\OIDEWin7\Desktop\preview.jpg" style="height:150px; width:150px;" />
-        </div>
-    </div>
-
-
+    @Html.Partial("_Articulo", new List<MouseRidersWeb.DTO.ArticuloDTO>());
 }
-<!--
-    </table>
-</div>-->
+else
+{
+    @Html.Partial("_Articulo", Model);
+}
