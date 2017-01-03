@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace MouseRidersWeb.Controllers
 {
-    public class RedaccionController : Controller
+    public class RedaccionController : BasicController
     {
         //
         // GET: /Redaccion/

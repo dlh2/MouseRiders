@@ -33,10 +33,14 @@ namespace MouseRidersWeb.Assembler
         }
         public UsuarioDTO ConvertConCorreoRecibido(UsuarioEN us)
         {
-            UsuarioDTO usDTO = this.Convert(us);
+            UsuarioDTO usDTO = null;
             if (us != null)
             {
-                usDTO.Recibe = null;
+                usDTO = this.Convert(us);
+                if (usDTO != null)
+                {
+                    usDTO.Recibe = null;
+                }
                 IList<MensajeEN> Recibe = us.Recibe;
                 if (Recibe != null)
                 {

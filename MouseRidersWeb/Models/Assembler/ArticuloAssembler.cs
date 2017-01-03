@@ -35,10 +35,16 @@ namespace MouseRidersWeb.Assembler
             }
         public ArticuloDTO ConvertConComentario_Articulo(ArticuloEN us)
         {
-            ArticuloDTO usDTO = this.Convert(us);
-            if (us != null)
-            {
-                usDTO.Comentario = null;
+                ArticuloDTO usDTO = null;
+                if (us != null)
+                {
+                    usDTO = this.Convert(us);
+                }
+            
+                if (usDTO != null)
+                {
+                    usDTO.Comentario = null;
+                }
                 IList<ComentarioEN> Recibe = us.Tiene;
                 if (Recibe != null)
                 {
@@ -46,7 +52,6 @@ namespace MouseRidersWeb.Assembler
                     foreach (ComentarioEN entry in Recibe)
                         usDTO.Comentario.Add(new ComentarioAssembler().Convert(entry));
                 }
-            }
             return usDTO;
         }
     }

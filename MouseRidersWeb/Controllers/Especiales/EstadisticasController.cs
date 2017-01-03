@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace MouseRidersWeb.Controllers.Especiales
 {
-    public class EstadisticasController : Controller
+    public class EstadisticasController : BasicController
     {
         //
         // GET: /Estadisticas/

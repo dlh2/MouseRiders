@@ -25,10 +25,14 @@ namespace MouseRidersWeb.Assembler
 
         public ControladorNotificacionesDTO ConvertConNotificacionesRecibidas(ControladorNotificacionesEN c)
         {
-            ControladorNotificacionesDTO cDTO = this.Convert(c);
+            ControladorNotificacionesDTO cDTO = null;
             if (c != null)
             {
-                cDTO.enviaN = null;
+                cDTO = this.Convert(c);
+                if (cDTO != null)
+                {
+                    cDTO.enviaN = null;
+                }
                 IList<MensajeEN> Recibe = c.EnviaN;
                 if (Recibe != null)
                 {

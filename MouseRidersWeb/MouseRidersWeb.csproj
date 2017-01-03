@@ -221,6 +221,7 @@
     <Compile Include="Controllers\Especiales\AyudaController.cs" />
     <Compile Include="Controllers\Especiales\ContactoController.cs" />
     <Compile Include="Controllers\Especiales\EstadisticasController.cs" />
+    <Compile Include="Controllers\Especiales\NoticiasController.cs" />
     <Compile Include="Controllers\HiloController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MensajeController.cs" />
@@ -490,6 +491,7 @@
     <Content Include="Views\Contacto\Index.cshtml" />
     <Content Include="Views\Ayuda\Index.cshtml" />
     <Content Include="Views\Estadisticas\Index.cshtml" />
+    <Content Include="Views\Noticias\Index.cshtml" />
     <Content Include="Views\Busqueda\Buscador.cshtml" />
   </ItemGroup>
   <ItemGroup>
