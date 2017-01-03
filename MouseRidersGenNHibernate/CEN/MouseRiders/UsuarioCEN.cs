@@ -140,5 +140,10 @@ public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.
 {
         return _IUsuarioCAD.ReadFilter (p_nombre);
 }
+
+public int Autenticar(string p1, string p2)
+{
+    throw new NotImplementedException();
+}
 }
 }

@@ -71,7 +71,7 @@ namespace MouseRidersWeb.DTO
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [Display(Prompt = "Fecha", Description = "Fecha del usuario", Name = "Fecha:")]
         [Required(ErrorMessage = "Debe de indicar una fecha para el usuario")]
-        public Nullable<DateTime> Fecha { get; set; }
+        public Nullable<DateTime> FechaRegistro { get; set; }
 
         //Atributo Recibe
         [ScaffoldColumn(false)]

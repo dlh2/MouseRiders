@@ -25,7 +25,7 @@ namespace MouseRidersWeb.Assembler
                 usDTO.Pais = us.Pais;
                 usDTO.Telefono = us.Telefono;
                 usDTO.Puntuacion = us.Puntuacion;
-                usDTO.Fecha = us.FechaRegistro;
+                usDTO.FechaRegistro = us.FechaRegistro;
                 usDTO.Contrasenya = us.Contrasenya;
                 usDTO.Nombreusuario = us.Nombreusuario;
             }

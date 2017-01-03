@@ -96,8 +96,8 @@
                     @{
                         int rolSession = 0;
                         bool noSession;
-                        if(@HttpContext.Current.Session["user_rol"]!=null){
-                            noSession = Int32.TryParse(@HttpContext.Current.Session["user_rol"].ToString(), out rolSession);
+                        if(@Session["user_rol"]!=null){
+                            noSession = !Int32.TryParse(@Session["user_rol"].ToString(), out rolSession);
                         } else {
                             noSession = true;
                         }
