@@ -46,8 +46,9 @@ namespace MouseRidersWeb.Controllers
             SessionInitialize();
             ArticuloCAD cCAD = new ArticuloCAD(session);
             ArticuloEN result = cCAD.ReadOIDDefault(id);
+            ArticuloDTO resultfinal = new ArticuloAssembler().ConvertConComentario_Articulo(result);
             SessionClose();
-            return View(result);
+            return View(resultfinal);
         }
 
         public ActionResult Contenido(int id)
@@ -65,7 +66,7 @@ namespace MouseRidersWeb.Controllers
         {
             ArticuloEN art = new ArticuloEN();
             ArticuloDTO result = new ArticuloAssembler().Convert(art);
-            return View(art);
+            return View(result);
         }
 
         //
@@ -94,7 +95,8 @@ namespace MouseRidersWeb.Controllers
         public ActionResult Edit(int id)
         {
             ArticuloCAD cCAD = new ArticuloCAD();
-            ArticuloEN result = cCAD.ReadOIDDefault(id);
+            ArticuloEN resultaux = cCAD.ReadOIDDefault(id);
+            ArticuloDTO result = new ArticuloAssembler().Convert(resultaux);
             return View(result);
         }
 
@@ -125,10 +127,9 @@ namespace MouseRidersWeb.Controllers
             SessionInitialize();
             ArticuloCAD cCAD = new ArticuloCAD(session);
             ArticuloEN result = cCAD.ReadOIDDefault(id);
+            ArticuloDTO resultfinal = new ArticuloAssembler().Convert(result);
             SessionClose();
-            new ArticuloCEN().BorrarArticulo(id);
-
-            return View(result);
+            return View(resultfinal);
         }
 
         //
@@ -139,10 +140,7 @@ namespace MouseRidersWeb.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
-
-
-
+                new ArticuloCEN().BorrarArticulo(art.Id);
                 return RedirectToAction("Index");
             }
             catch

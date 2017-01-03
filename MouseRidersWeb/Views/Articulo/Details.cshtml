@@ -1,4 +1,4 @@
-﻿@model MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN
+﻿@model MouseRidersWeb.DTO.ArticuloDTO
 
 @{
     ViewBag.Title = "Details";
@@ -8,7 +8,7 @@
 <h2>Details</h2>
 
 <fieldset>
-    <legend>ArticuloEN</legend>
+    <legend>ArticuloDTO</legend>
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.Titulo)
@@ -18,10 +18,24 @@
     </div>
 
     <div class="display-label">
+         @Html.DisplayNameFor(model => model.Fecha)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Fecha)
+    </div>
+
+    <div class="display-label">
          @Html.DisplayNameFor(model => model.Autor)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Autor)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Puntuacion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Puntuacion)
     </div>
 
     <div class="display-label">
@@ -36,20 +50,6 @@
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.ContenidoDescargable)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Puntuacion)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Puntuacion)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Fecha)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Fecha)
     </div>
 
     <div class="display-label">
