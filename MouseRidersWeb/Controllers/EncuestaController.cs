@@ -75,7 +75,7 @@ namespace MouseRidersWeb.Controllers
                 EncuestaCAD eCAD = new EncuestaCAD();
                 EncuestaCEN ecen = new EncuestaCEN(eCAD);
                 DateTime p_fecha = DateTime.Now;
-                ecen.CrearEncuesta(enc.Titulo, enc.Descripcion);
+                ecen.CrearEncuesta(enc.Titulo, enc.Descripcion, enc.Privada);
                 return(RedirectToAction("Details", new { id = enc.Id }));
             }
             catch
@@ -103,7 +103,7 @@ namespace MouseRidersWeb.Controllers
             try
             {
                 EncuestaCEN cen = new EncuestaCEN();
-                cen.ModificarEncuesta(enc.Id, enc.Titulo, enc.Descripcion);
+                cen.ModificarEncuesta(enc.Id, enc.Titulo, enc.Descripcion, enc.Privada);
 
                 return RedirectToAction("Details", new { id = enc.Id });
             }

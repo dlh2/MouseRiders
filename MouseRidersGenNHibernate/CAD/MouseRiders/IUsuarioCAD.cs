@@ -33,7 +33,7 @@ UsuarioEN ReadOID (int id
 System.Collections.Generic.IList<UsuarioEN> ReadAll (int first, int size);
 
 
-void RelacionaPermiso (int p_Usuario_OID, System.Collections.Generic.IList<PermisoEN_OID> p_tiene_OIDs);
+void RelacionaPermiso (int p_Usuario_OID, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN_OID> p_tiene_OIDs);
 
 void RelacionaRecompensa (int p_Usuario_OID, System.Collections.Generic.IList<int> p_obtiene_OIDs);
 
@@ -41,6 +41,6 @@ void RelacionaDenuncia (int p_Usuario_OID, System.Collections.Generic.IList<int>
 
 void RelacionaBloqueo (int p_Usuario_OID, int p_es_de_OID);
 
-System.Collections.Generic.IList<UsuarioEN> ReadFilter (string p_nombre);
+System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN> ReadFilter (string p_nombre);
 }
 }

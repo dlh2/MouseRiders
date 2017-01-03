@@ -459,7 +459,7 @@ public static void InitializeData ()
                 EncuestaEN encuestaEN = new EncuestaEN ();
                 encuestaEN.Titulo = "satisfaccion de los usuarios";
                 encuestaEN.Descripcion = "como de satisfechos estan los usuarios";
-                int oid_e = encuestaCEN.CrearEncuesta (encuestaEN.Titulo, encuestaEN.Descripcion);
+                int oid_e = encuestaCEN.CrearEncuesta (encuestaEN.Titulo, encuestaEN.Descripcion, false);
 
                 #endregion
 

@@ -38,7 +38,7 @@ public IEncuestaCAD get_IEncuestaCAD ()
         return this._IEncuestaCAD;
 }
 
-public int CrearEncuesta (string p_titulo, string p_descripcion)
+public int CrearEncuesta (string p_titulo, string p_descripcion, bool p_privada)
 {
         EncuestaEN encuestaEN = null;
         int oid;
@@ -49,13 +49,15 @@ public int CrearEncuesta (string p_titulo, string p_descripcion)
 
         encuestaEN.Descripcion = p_descripcion;
 
+        encuestaEN.Privada = p_privada;
+
         //Call to EncuestaCAD
 
         oid = _IEncuestaCAD.CrearEncuesta (encuestaEN);
         return oid;
 }
 
-public void ModificarEncuesta (int p_Encuesta_OID, string p_titulo, string p_descripcion)
+public void ModificarEncuesta (int p_Encuesta_OID, string p_titulo, string p_descripcion, bool p_privada)
 {
         EncuestaEN encuestaEN = null;
 
@@ -64,6 +66,7 @@ public void ModificarEncuesta (int p_Encuesta_OID, string p_titulo, string p_des
         encuestaEN.Id = p_Encuesta_OID;
         encuestaEN.Titulo = p_titulo;
         encuestaEN.Descripcion = p_descripcion;
+        encuestaEN.Privada = p_privada;
         //Call to EncuestaCAD
 
         _IEncuestaCAD.ModificarEncuesta (encuestaEN);

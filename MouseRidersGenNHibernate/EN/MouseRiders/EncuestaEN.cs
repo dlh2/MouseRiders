@@ -33,6 +33,13 @@ private string descripcion;
 
 
 
+/**
+ *	Atributo privada
+ */
+private bool privada;
+
+
+
 
 
 
@@ -60,6 +67,12 @@ public virtual string Descripcion {
 
 
 
+public virtual bool Privada {
+        get { return privada; } set { privada = value;  }
+}
+
+
+
 
 
 public EncuestaEN()
@@ -69,20 +82,20 @@ public EncuestaEN()
 
 
 
-public EncuestaEN(int id, string titulo, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PreguntaEN> tiene, string descripcion
+public EncuestaEN(int id, string titulo, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PreguntaEN> tiene, string descripcion, bool privada
                   )
 {
-        this.init (Id, titulo, tiene, descripcion);
+        this.init (Id, titulo, tiene, descripcion, privada);
 }
 
 
 public EncuestaEN(EncuestaEN encuesta)
 {
-        this.init (Id, encuesta.Titulo, encuesta.Tiene, encuesta.Descripcion);
+        this.init (Id, encuesta.Titulo, encuesta.Tiene, encuesta.Descripcion, encuesta.Privada);
 }
 
 private void init (int id
-                   , string titulo, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PreguntaEN> tiene, string descripcion)
+                   , string titulo, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PreguntaEN> tiene, string descripcion, bool privada)
 {
         this.Id = id;
 
@@ -92,6 +105,8 @@ private void init (int id
         this.Tiene = tiene;
 
         this.Descripcion = descripcion;
+
+        this.Privada = privada;
 }
 
 public override bool Equals (object obj)

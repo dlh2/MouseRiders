@@ -18,6 +18,9 @@
 					<property name="Descripcion" type="string"> 
 						<column name="descripcion"  not-null="true"/>
 					</property>
+					<property name="Privada" type="boolean"> 
+						<column name="privada"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -33,6 +36,8 @@
 					    </bag>
 					
 			
+			
+					
 					
 					
 					

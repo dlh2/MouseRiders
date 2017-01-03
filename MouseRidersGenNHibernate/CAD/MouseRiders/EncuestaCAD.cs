@@ -97,6 +97,9 @@ public void ModifyDefault (EncuestaEN encuesta)
 
                 encuestaEN.Descripcion = encuesta.Descripcion;
 
+
+                encuestaEN.Privada = encuesta.Privada;
+
                 session.Update (encuestaEN);
                 SessionCommit ();
         }
@@ -153,6 +156,9 @@ public void ModificarEncuesta (EncuestaEN encuesta)
 
 
                 encuestaEN.Descripcion = encuesta.Descripcion;
+
+
+                encuestaEN.Privada = encuesta.Privada;
 
                 session.Update (encuestaEN);
                 SessionCommit ();
