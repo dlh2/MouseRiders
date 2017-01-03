@@ -350,7 +350,6 @@
     <Content Include="Views\Admin_foro\Index.cshtml" />
     <Content Include="Views\Admin_foro\VerDenunciasEnviadas.cshtml" />
     <Content Include="Views\Admin_foro\VerDenunciasRecibidas.cshtml" />
-    <Content Include="Views\Articulo\Create.cshtml" />
     <Content Include="Views\Articulo\Delete.cshtml" />
     <Content Include="Views\Articulo\Details.cshtml" />
     <Content Include="Views\Articulo\Edit.cshtml" />
@@ -471,7 +470,6 @@
     <Content Include="Views\Redactor\VerDenunciasRecibidas.cshtml" />
     <Content Include="Views\Comentario\Index.cshtml" />
     <Content Include="Views\Comentario\Details.cshtml" />
-    <Content Include="Views\Comentario\Create.cshtml" />
     <Content Include="Views\Comentario\Edit.cshtml" />
     <Content Include="Views\Comentario\Delete.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\string.cshtml" />
@@ -493,6 +491,8 @@
     <Content Include="Views\Estadisticas\Index.cshtml" />
     <Content Include="Views\Noticias\Index.cshtml" />
     <Content Include="Views\Busqueda\Buscador.cshtml" />
+    <Content Include="Views\Comentario\Create.cshtml" />
+    <Content Include="Views\Articulo\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -219,22 +219,6 @@ public static void InitializeData ()
 
                 #endregion
 
-                #region Usuario_Mensaje
-                /*
-                 * usuario2EN.Envia.Add (mensaje1EN);
-                 * usuario1EN.Envia.Add (mensaje2EN);
-                 * usuario1EN.Envia.Add (mensaje3EN);
-                 *
-                 * usuario1EN.Recibe.Add (mensaje1EN);
-                 * usuario2EN.Recibe.Add (mensaje2EN);
-                 * usuario3EN.Recibe.Add (mensaje3EN);
-                 *
-                 * _IUsuarioCAD.ModificarUsuario (usuario1EN);
-                 * _IUsuarioCAD.ModificarUsuario (usuario2EN);
-                 * _IUsuarioCAD.ModificarUsuario (usuario3EN);
-                 */
-                #endregion
-
                 #region ControladorNotificaciones y Mensaje
                 IControladorNotificacionesCAD _IControladorNotificacionesCAD = new ControladorNotificacionesCAD ();
                 ControladorNotificacionesCEN controladorNotificacionesCEN = new ControladorNotificacionesCEN (_IControladorNotificacionesCAD);
@@ -338,7 +322,6 @@ public static void InitializeData ()
                  *  usuarioCEN.RelacionaRecompensa (oid_usu3, ss2);
                  */
                 #endregion
-
 
                 #region Denuncia
                 IDenunciaCAD _IDenunciaCAD = new DenunciaCAD ();
@@ -690,15 +673,6 @@ public static void InitializeData ()
                 comentario8EN.Valoracion = 0;
                 int oid_c8 = comentarioCEN.CrearComentario (comentario8EN.Creador, comentario8EN.Fecha, comentario8EN.Contenido, comentario8EN.Valoracion);
 
-                comentarioCEN.RelacionaArticulo (oid_c1, oid_a1);
-                comentarioCEN.RelacionaArticulo (oid_c2, oid_a1);
-                comentarioCEN.RelacionaArticulo (oid_c3, oid_a2);
-                comentarioCEN.RelacionaArticulo (oid_c4, oid_a2);
-                comentarioCEN.RelacionaHilo (oid_c5, oid_h1);
-                comentarioCEN.RelacionaHilo (oid_c6, oid_h1);
-                comentarioCEN.RelacionaHilo (oid_c7, oid_h2);
-                comentarioCEN.RelacionaHilo (oid_c8, oid_h2);
-
                 ComentarioEN comentario9EN = new ComentarioEN ();
                 comentario9EN.Contenido = "Rising discretito? Sera a nivel tecnico, porque jugablemente es top del genero.";
                 comentario9EN.Creador = usuario3EN.Email;
@@ -753,11 +727,39 @@ public static void InitializeData ()
                         comentario13EN.Fecha,
                         comentario13EN.Contenido,
                         comentario13EN.Valoracion);
+
+
+                comentarioCEN.RelacionaArticulo (oid_c1, oid_a1);
+                comentarioCEN.RelacionaArticulo (oid_c2, oid_a1);
+                comentarioCEN.RelacionaArticulo (oid_c3, oid_a2);
+                comentarioCEN.RelacionaArticulo (oid_c4, oid_a2);
+                comentarioCEN.RelacionaHilo (oid_c5, oid_h1);
+                comentarioCEN.RelacionaHilo (oid_c6, oid_h1);
+                comentarioCEN.RelacionaHilo (oid_c7, oid_h2);
+                comentarioCEN.RelacionaHilo (oid_c8, oid_h2);
                 comentarioCEN.RelacionaHilo (oid_c9, oid_h2);
                 comentarioCEN.RelacionaHilo (oid_c10, oid_h2);
                 comentarioCEN.RelacionaHilo (oid_c11, oid_h2);
                 comentarioCEN.RelacionaHilo (oid_c12, oid_h2);
                 comentarioCEN.RelacionaHilo (oid_c13, oid_h2);
+
+
+            for(int i=0; i<100; i++){
+                Random rnd = new Random();
+                comentario1EN = new ComentarioEN ();
+                comentario1EN.Contenido = rnd.Next(1000000).ToString();
+                comentario1EN.Creador = usuario1EN.Email;
+                comentario1EN.Fecha = DateTime.Now;
+                comentario1EN.Valoracion = 0;
+                oid_c1 = comentarioCEN.CrearComentario (comentario1EN.Creador, comentario1EN.Fecha, comentario1EN.Contenido, comentario1EN.Valoracion);
+
+                comentarioCEN.RelacionaArticulo (oid_c1, oid_a1);
+
+                
+
+
+            };
+            Console.WriteLine("He añadido todos los comentarios"); //true
                 #endregion
 
                 #region Metodos
@@ -806,8 +808,8 @@ public static void InitializeData ()
 
 
                 //Autenticar (funciona a la primera!!!)
-                Console.WriteLine ("Autenticar Result :" + usuarioCEN.Autenticar (1, usuario1EN.Email, usuario1EN.Contrasenya));
-                Console.WriteLine ("Autenticar Result1 :" + usuarioCEN.Autenticar (1, usuario1EN.Email, "jasfjskgj"));
+                //Console.WriteLine ("Autenticar Result :" + usuarioCEN.Autenticar (1, usuario1EN.Email, usuario1EN.Contrasenya));
+                //Console.WriteLine ("Autenticar Result1 :" + usuarioCEN.Autenticar (1, usuario1EN.Email, "jasfjskgj"));
 
 
                 //Calcular Puntuacion (funciona tras modificaciones tontas!!!)
