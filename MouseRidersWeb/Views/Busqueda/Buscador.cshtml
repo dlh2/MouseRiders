@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "Buscador";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+    <h2 class="customh2">Buscador</h2>
+    <div class="form-inline"> <!-- Zona de busqueda principal-->
+        <!-- Texto a buscar -->
+        <div class="form-group">
+            <label for="busqueda"> Buscar: </label>
+            <input type="text" class="form-control" id="busqueda" />
+        </div>
+
+        <!--Lista para mostrar distintos tipos de elementos-->
+        <div class="form-group">
+            <div class="dropdown">
+                <button class="btn btn-secondary2" type="button" data-toggle="dropdown"> 
+                Buscar en
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="">Todo</a>
+                    </li>
+                    <li>
+                        <a href="">Usuarios</a>
+                    </li>
+                    <li>
+                        <a href="">Hilos</a>
+                    </li>
+                    <li>
+                        <a href="">Artículos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!--Selección de fecha-->
+        <div class="form-group">
+            <label for="selfecha"> Fecha </label>
+            <select class="form-control" id="selfecha">
+                <option> anterior a </option>
+                <option> posterior a </option>
+            </select>
+            <!--FALTA AÑADIR DATEPICKER AQUI-->
+        </div>
+        
+        <!--Selección de valoración-->
+        <div class="form-group">
+            <label for="selval"> Valoración</label>
+            <select class="form-control" id="selval">
+                <option> Menor que </option>
+                <option> Mayor que </option>
+            </select>
+            <label for="valvalue">Puntos</label>
+            <input type="text" class="form-control" id="valvalue" />
+        </div>    
+    </div>
+
+
+    <!--Resultados de la busqueda-->
+    <div class="container-fluid">
+
+    </div>
+
+
+</body>
