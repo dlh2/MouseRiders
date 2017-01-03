@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace MouseRidersWeb.Controllers.Especiales
 {
-    public class ContactoController : Controller
+    public class ContactoController : BasicController
     {
         //
         // GET: /Contacto/

@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace MouseRidersWeb.Controllers.Especiales
 {
-    public class AyudaController : Controller
+    public class AyudaController : BasicController
     {
         //
         // GET: /Ayuda/
