@@ -492,6 +492,7 @@
     <Content Include="Views\Ayuda\Index.cshtml" />
     <Content Include="Views\Estadisticas\Index.cshtml" />
     <Content Include="Views\Noticias\Index.cshtml" />
+    <Content Include="Views\Busqueda\Buscador.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
