@@ -36,7 +36,7 @@ namespace MRWeb.Controllers
             IList<EncuestaDTO> lista = new List<EncuestaDTO>();
             for (int i = 0; i < encuestaEN.Count; i++)
             {
-                lista.Add(enc.ConvertENToModelUI(encuestaEN[i]));
+                lista.Add(enc.ConvertConPreguntaYRespuesta(encuestaEN[i]));
             }
             SessionClose();
             return View(lista);

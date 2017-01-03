@@ -11,45 +11,37 @@ namespace MRWeb.Assembler
 {
     public class EncuestaAssembler
     {
-      public EncuestaDTO ConvertENToModelUI (EncuestaEN enc){
-        EncuestaDTO encDTO = new EncuestaDTO();
-        
-        if( enc !=null ){
-            encDTO = new EncuestaDTO();
-                    
-            encDTO.id=enc.Id;
-            encDTO.titulo=enc.Titulo;
-            
-            encDTO.Tiene=null;
-            IList<PreguntaEN> Tiene=enc.Tiene;
-            if(Tiene!=null){
-                encDTO.Tiene= new List<PreguntaDTO>();
-                foreach (PreguntaEN entry in Tiene)
-                    encDTO.Tiene.Add(new PreguntaAssembler().Convert(entry));
-            }}        
-            return encDTO;
-        }      
-    }
 
-    public class PreguntaAssembler
+        public EncuestaDTO Convert(EncuestaEN enc)
         {
-        public PreguntaDTO Convert (PreguntaEN preg){
-            PreguntaDTO pregDTO = new PreguntaDTO();
-            if (preg != null)
+            EncuestaDTO encDTO = null;
+            if (enc != null)
             {
-                pregDTO = new PreguntaDTO();
-
-                pregDTO.id = preg.Id;
-                pregDTO.Pregunta=preg.Pregunta;
-                pregDTO.Tiene=null;
-                IList<RespuestaEN> Tiene=preg.Tiene;
-                if(Tiene!=null){
-                    pregDTO.Tiene= new List<RespuestaEN>();
-                    foreach (RespuestaEN entry in Tiene)
-                        pregDTO.Tiene.Add(entry);
+                encDTO = new EncuestaDTO();
+                encDTO.id = enc.Id;
+                encDTO.titulo = enc.Titulo;
+            }
+            return encDTO;
+        }
+        public EncuestaDTO ConvertConPreguntaYRespuesta(EncuestaEN enc)
+        {
+            EncuestaDTO encDTO = null;
+            if (enc != null)
+            {
+                encDTO = this.Convert(enc);
+            }
+            if (encDTO != null)
+            {
+                encDTO.Tiene = null;
+                IList<PreguntaEN> Tiene = enc.Tiene;
+                if (Tiene != null)
+                {
+                    encDTO.Tiene = new List<PreguntaDTO>();
+                    foreach (PreguntaEN entry in Tiene)
+                        encDTO.Tiene.Add(new PreguntaAssembler().ConvertConRespuesta(entry));
                 }
             }
-            return pregDTO;
-         }
+            return encDTO;
+        }
     }
 }

@@ -218,12 +218,16 @@
     <Compile Include="Controllers\ControladorNotificacionesController.cs" />
     <Compile Include="Controllers\DenunciaController.cs" />
     <Compile Include="Controllers\EncuestaController.cs" />
+    <Compile Include="Controllers\Especiales\AyudaController.cs" />
+    <Compile Include="Controllers\Especiales\ContactoController.cs" />
+    <Compile Include="Controllers\Especiales\EstadisticasController.cs" />
     <Compile Include="Controllers\HiloController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MensajeController.cs" />
     <Compile Include="Controllers\PermisoController.cs" />
     <Compile Include="Controllers\PreguntaController.cs" />
     <Compile Include="Controllers\RecompensaController.cs" />
+    <Compile Include="Controllers\Especiales\RedaccionController.cs" />
     <Compile Include="Controllers\RespuestaController.cs" />
     <Compile Include="Controllers\SeccionController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -232,6 +236,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Assembler\PreguntaAssembler.cs" />
     <Compile Include="Models\Assembler\RecompensaAssembler.cs" />
     <Compile Include="Models\Assembler\SeccionAssembler.cs" />
     <Compile Include="Models\Assembler\RespuestaAssembler.cs" />
@@ -477,6 +482,14 @@
     <Content Include="Views\Usuario\register_login_boceto.cshtml" />
     <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Seccion\Details.cshtml" />
+    <Content Include="Views\Redaccion\Index.cshtml" />
+    <Content Include="Views\Contacto\Puesto.cshtml" />
+    <Content Include="Views\Contacto\Redactor.cshtml" />
+    <Content Include="Views\Contacto\Admin.cshtml" />
+    <Content Include="Views\Contacto\Contenido.cshtml" />
+    <Content Include="Views\Contacto\Index.cshtml" />
+    <Content Include="Views\Ayuda\Index.cshtml" />
+    <Content Include="Views\Estadisticas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
