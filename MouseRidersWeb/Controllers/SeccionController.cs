@@ -14,22 +14,36 @@ namespace MouseRidersWeb.Controllers
 {
     public class SeccionController : BasicController
     {
-        //
-        // GET: /Seccion/
 
-        public ActionResult Index()
+        //
+        // Ajax GET: /Seccion/
+
+        public ActionResult Index(String minimo,int id_seccion)
         {
             SessionInitialize();
             SeccionCAD cCAD = new SeccionCAD(session);
-            IList<SeccionEN> result = cCAD.ReadAllDefault(0, 10);
-            IList<SeccionDTO> resultfinal = new List<SeccionDTO>();
-            foreach (SeccionEN entry in result)
-                resultfinal.Add(new SeccionAssembler().Convert(entry));
+            IList<SeccionEN> resultEN;
+            if (Request.IsAjaxRequest())
+            {
+                int a = Int32.Parse(minimo) * 10;
+                resultEN = cCAD.ReadAllDefault(a, 10);
+            }
+            else
+            {
+                resultEN = cCAD.ReadAllDefault(0, 10);
+            }
+            IList<SeccionDTO> result = new List<SeccionDTO>();
+            for (int i = 0; i < resultEN.Count; i++)
+            {
+                result.Add(new SeccionAssembler().ConvertConArticulo(resultEN[i]));
+            }
             SessionClose();
-            return View(resultfinal);
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_Articulo", result);
+            }
+            return View(result);
         }
-
-
 
         public ActionResult Mostrar2(String nombre)
         {
