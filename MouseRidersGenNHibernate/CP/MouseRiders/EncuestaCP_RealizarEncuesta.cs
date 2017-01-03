@@ -6,23 +6,23 @@ using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MRModel.EN;
-using MRModel.CAD;
-using MRModel.CEN;
+using MouseRidersGenNHibernate.EN.MouseRiders;
+using MouseRidersGenNHibernate.CAD.MouseRiders;
+using MouseRidersGenNHibernate.CEN.MouseRiders;
 
 
 
-/*PROTECTED REGION ID(usingMRModel.CP_Encuesta_realizarEncuesta) ENABLED START*/
+/*PROTECTED REGION ID(usingMouseRidersGenNHibernate.CP.MouseRiders_Encuesta_realizarEncuesta) ENABLED START*/
 using System.Collections.Generic;
 /*PROTECTED REGION END*/
 
-namespace MRModel.CP
+namespace MouseRidersGenNHibernate.CP.MouseRiders
 {
 public partial class EncuestaCP : BasicCP
 {
 public void RealizarEncuesta (int p_oid, System.Collections.Generic.IList<string> p_respuestas)
 {
-        /*PROTECTED REGION ID(MRModel.CP_Encuesta_realizarEncuesta) ENABLED START*/
+        /*PROTECTED REGION ID(MouseRidersGenNHibernate.CP.MouseRiders_Encuesta_realizarEncuesta) ENABLED START*/
 
         try
         {

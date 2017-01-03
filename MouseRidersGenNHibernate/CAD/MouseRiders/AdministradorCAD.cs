@@ -1,13 +1,13 @@
 
 using System;
 using System.Text;
-using MRModel.CEN;
+using MouseRidersGenNHibernate.CEN.MouseRiders;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MRModel.EN;
-using MRModel.Exceptions;
+using MouseRidersGenNHibernate.EN.MouseRiders;
+using MouseRidersGenNHibernate.Exceptions;
 
 
 /*
@@ -15,7 +15,7 @@ using MRModel.Exceptions;
  *
  */
 
-namespace MRModel.CAD
+namespace MouseRidersGenNHibernate.CAD.MouseRiders
 {
 public partial class AdministradorCAD : BasicCAD, IAdministradorCAD
 {
@@ -43,9 +43,9 @@ public AdministradorEN ReadOIDDefault (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in AdministradorCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in AdministradorCAD.", ex);
         }
 
 
@@ -74,9 +74,9 @@ public System.Collections.Generic.IList<AdministradorEN> ReadAllDefault (int fir
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in AdministradorCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in AdministradorCAD.", ex);
         }
 
         return result;
@@ -96,9 +96,9 @@ public void ModifyDefault (AdministradorEN administrador)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in AdministradorCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in AdministradorCAD.", ex);
         }
 
 
@@ -121,9 +121,9 @@ public int CrearAdministrador (AdministradorEN administrador)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in AdministradorCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in AdministradorCAD.", ex);
         }
 
 
@@ -174,9 +174,9 @@ public void ModificarAdministrador (AdministradorEN administrador)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in AdministradorCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in AdministradorCAD.", ex);
         }
 
 
@@ -198,9 +198,9 @@ public void BorrarAdministrador (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in AdministradorCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in AdministradorCAD.", ex);
         }
 
 
@@ -226,9 +226,9 @@ public AdministradorEN ReadOID (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in AdministradorCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in AdministradorCAD.", ex);
         }
 
 
@@ -256,9 +256,9 @@ public System.Collections.Generic.IList<AdministradorEN> ReadAll (int first, int
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in AdministradorCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in AdministradorCAD.", ex);
         }
 
 

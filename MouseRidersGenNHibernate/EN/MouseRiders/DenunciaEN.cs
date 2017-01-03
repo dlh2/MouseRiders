@@ -1,7 +1,7 @@
 
 using System;
 // Definición clase DenunciaEN
-namespace MRModel.EN
+namespace MouseRidersGenNHibernate.EN.MouseRiders
 {
 public partial class DenunciaEN
 {
@@ -22,14 +22,14 @@ private string motivo;
 /**
  *	Atributo pertenece
  */
-private MRModel.EN.BloqueoEN pertenece;
+private MouseRidersGenNHibernate.EN.MouseRiders.BloqueoEN pertenece;
 
 
 
 /**
  *	Atributo es_creada
  */
-private MRModel.EN.UsuarioEN es_creada;
+private MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN es_creada;
 
 
 
@@ -43,7 +43,7 @@ private Nullable<DateTime> fecha;
 /**
  *	Atributo es_recibida
  */
-private MRModel.EN.UsuarioEN es_recibida;
+private MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN es_recibida;
 
 
 
@@ -62,13 +62,13 @@ public virtual string Motivo {
 
 
 
-public virtual MRModel.EN.BloqueoEN Pertenece {
+public virtual MouseRidersGenNHibernate.EN.MouseRiders.BloqueoEN Pertenece {
         get { return pertenece; } set { pertenece = value;  }
 }
 
 
 
-public virtual MRModel.EN.UsuarioEN Es_creada {
+public virtual MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN Es_creada {
         get { return es_creada; } set { es_creada = value;  }
 }
 
@@ -80,7 +80,7 @@ public virtual Nullable<DateTime> Fecha {
 
 
 
-public virtual MRModel.EN.UsuarioEN Es_recibida {
+public virtual MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN Es_recibida {
         get { return es_recibida; } set { es_recibida = value;  }
 }
 
@@ -94,7 +94,7 @@ public DenunciaEN()
 
 
 
-public DenunciaEN(int id, string motivo, MRModel.EN.BloqueoEN pertenece, MRModel.EN.UsuarioEN es_creada, Nullable<DateTime> fecha, MRModel.EN.UsuarioEN es_recibida
+public DenunciaEN(int id, string motivo, MouseRidersGenNHibernate.EN.MouseRiders.BloqueoEN pertenece, MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN es_creada, Nullable<DateTime> fecha, MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN es_recibida
                   )
 {
         this.init (Id, motivo, pertenece, es_creada, fecha, es_recibida);
@@ -107,7 +107,7 @@ public DenunciaEN(DenunciaEN denuncia)
 }
 
 private void init (int id
-                   , string motivo, MRModel.EN.BloqueoEN pertenece, MRModel.EN.UsuarioEN es_creada, Nullable<DateTime> fecha, MRModel.EN.UsuarioEN es_recibida)
+                   , string motivo, MouseRidersGenNHibernate.EN.MouseRiders.BloqueoEN pertenece, MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN es_creada, Nullable<DateTime> fecha, MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN es_recibida)
 {
         this.Id = id;
 

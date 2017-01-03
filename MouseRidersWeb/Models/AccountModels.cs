@@ -6,7 +6,7 @@ using System.Data.Entity;
 using System.Globalization;
 using System.Web.Security;
 
-namespace MRWeb.Models
+namespace MouseRidersWeb.Models
 {
     public class UsersContext : DbContext
     {

@@ -6,24 +6,24 @@ using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MRModel.EN;
-using MRModel.CAD;
-using MRModel.CEN;
+using MouseRidersGenNHibernate.EN.MouseRiders;
+using MouseRidersGenNHibernate.CAD.MouseRiders;
+using MouseRidersGenNHibernate.CEN.MouseRiders;
 
 
 
-/*PROTECTED REGION ID(usingMRModel.CP_ControladorNotificaciones_enviarNotificaciones) ENABLED START*/
+/*PROTECTED REGION ID(usingMouseRidersGenNHibernate.CP.MouseRiders_ControladorNotificaciones_enviarNotificaciones) ENABLED START*/
 using System.Collections.Generic;
-using MRModel.Enumerated;
+using MouseRidersGenNHibernate.Enumerated.MouseRiders;
 /*PROTECTED REGION END*/
 
-namespace MRModel.CP
+namespace MouseRidersGenNHibernate.CP.MouseRiders
 {
 public partial class ControladorNotificacionesCP : BasicCP
 {
-public bool EnviarNotificaciones (MRModel.EN.PermisoEN permiso, MRModel.EN.RecompensaEN oidRecompensa, string asunto, string texto, string adjunto)
+public bool EnviarNotificaciones (MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN permiso, MouseRidersGenNHibernate.EN.MouseRiders.RecompensaEN oidRecompensa, string asunto, string texto, string adjunto)
 {
-        /*PROTECTED REGION ID(MRModel.CP_ControladorNotificaciones_enviarNotificaciones) ENABLED START*/
+        /*PROTECTED REGION ID(MouseRidersGenNHibernate.CP.MouseRiders_ControladorNotificaciones_enviarNotificaciones) ENABLED START*/
 
         IControladorNotificacionesCAD controladorNotificacionesCAD = null;
         ControladorNotificacionesCEN controladorNotificacionesCEN = null;

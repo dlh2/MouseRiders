@@ -1,11 +1,11 @@
 
 using System;
 // Definición clase PermisoEN
-namespace MRModel.EN
+namespace MouseRidersGenNHibernate.EN.MouseRiders
 {
 public partial class PermisoEN
 {
-protected MRModel.EN.PermisoEN_OID permisoEN_OID;
+protected MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN_OID permisoEN_OID;
 public virtual PermisoEN_OID PermisoOID {
         get { return permisoEN_OID; } set { permisoEN_OID = value;  }
 }
@@ -16,7 +16,7 @@ public virtual PermisoEN_OID PermisoOID {
 /**
  *	Atributo rol
  */
-private MRModel.Enumerated.T_RolEnum rol;
+private MouseRidersGenNHibernate.Enumerated.MouseRiders.T_RolEnum rol;
 
 
 
@@ -37,7 +37,7 @@ private string permisos;
 /**
  *	Atributo pertenece
  */
-private System.Collections.Generic.IList<MRModel.EN.UsuarioEN> pertenece;
+private System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN> pertenece;
 
 
 
@@ -54,7 +54,7 @@ public virtual string Permisos {
 
 
 
-public virtual System.Collections.Generic.IList<MRModel.EN.UsuarioEN> Pertenece {
+public virtual System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN> Pertenece {
         get { return pertenece; } set { pertenece = value;  }
 }
 
@@ -64,16 +64,16 @@ public virtual System.Collections.Generic.IList<MRModel.EN.UsuarioEN> Pertenece 
 
 public PermisoEN()
 {
-        permisoEN_OID = new MRModel.EN.PermisoEN_OID ();
+        permisoEN_OID = new MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN_OID ();
 
 
 
-        pertenece = new System.Collections.Generic.List<MRModel.EN.UsuarioEN>();
+        pertenece = new System.Collections.Generic.List<MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN>();
 }
 
 
 
-public PermisoEN(MRModel.EN.PermisoEN_OID permisoEN_OID, string permisos, System.Collections.Generic.IList<MRModel.EN.UsuarioEN> pertenece
+public PermisoEN(MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN_OID permisoEN_OID, string permisos, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN> pertenece
                  )
 {
         this.init (PermisoOID, permisos, pertenece);
@@ -85,8 +85,8 @@ public PermisoEN(PermisoEN permiso)
         this.init (PermisoOID, permiso.Permisos, permiso.Pertenece);
 }
 
-private void init (MRModel.EN.PermisoEN_OID permisoEN_OID
-                   , string permisos, System.Collections.Generic.IList<MRModel.EN.UsuarioEN> pertenece)
+private void init (MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN_OID permisoEN_OID
+                   , string permisos, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN> pertenece)
 {
         this.PermisoOID = permisoEN_OID;
 

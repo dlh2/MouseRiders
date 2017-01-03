@@ -6,22 +6,22 @@ using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MRModel.Exceptions;
-using MRModel.EN;
-using MRModel.CAD;
+using MouseRidersGenNHibernate.Exceptions;
+using MouseRidersGenNHibernate.EN.MouseRiders;
+using MouseRidersGenNHibernate.CAD.MouseRiders;
 
 
-/*PROTECTED REGION ID(usingMRModel.CEN_Usuario_calcularPuntuacion) ENABLED START*/
+/*PROTECTED REGION ID(usingMouseRidersGenNHibernate.CEN.MouseRiders_Usuario_calcularPuntuacion) ENABLED START*/
 //  references to other libraries
 /*PROTECTED REGION END*/
 
-namespace MRModel.CEN
+namespace MouseRidersGenNHibernate.CEN.MouseRiders
 {
 public partial class UsuarioCEN
 {
 public int CalcularPuntuacion (int p_oid, int puntuacion)
 {
-        /*PROTECTED REGION ID(MRModel.CEN_Usuario_calcularPuntuacion) ENABLED START*/
+        /*PROTECTED REGION ID(MouseRidersGenNHibernate.CEN.MouseRiders_Usuario_calcularPuntuacion) ENABLED START*/
 
         // Write here your custom code...
 

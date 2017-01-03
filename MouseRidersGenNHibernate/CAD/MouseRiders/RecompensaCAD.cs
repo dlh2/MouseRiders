@@ -1,13 +1,13 @@
 
 using System;
 using System.Text;
-using MRModel.CEN;
+using MouseRidersGenNHibernate.CEN.MouseRiders;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MRModel.EN;
-using MRModel.Exceptions;
+using MouseRidersGenNHibernate.EN.MouseRiders;
+using MouseRidersGenNHibernate.Exceptions;
 
 
 /*
@@ -15,7 +15,7 @@ using MRModel.Exceptions;
  *
  */
 
-namespace MRModel.CAD
+namespace MouseRidersGenNHibernate.CAD.MouseRiders
 {
 public partial class RecompensaCAD : BasicCAD, IRecompensaCAD
 {
@@ -43,9 +43,9 @@ public RecompensaEN ReadOIDDefault (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in RecompensaCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in RecompensaCAD.", ex);
         }
 
 
@@ -74,9 +74,9 @@ public System.Collections.Generic.IList<RecompensaEN> ReadAllDefault (int first,
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in RecompensaCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in RecompensaCAD.", ex);
         }
 
         return result;
@@ -106,9 +106,9 @@ public void ModifyDefault (RecompensaEN recompensa)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in RecompensaCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in RecompensaCAD.", ex);
         }
 
 
@@ -131,9 +131,9 @@ public int CrearRecompensa (RecompensaEN recompensa)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in RecompensaCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in RecompensaCAD.", ex);
         }
 
 
@@ -166,9 +166,9 @@ public void ModificarRecompensa (RecompensaEN recompensa)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in RecompensaCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in RecompensaCAD.", ex);
         }
 
 
@@ -190,9 +190,9 @@ public void BorrarRecompensa (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in RecompensaCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in RecompensaCAD.", ex);
         }
 
 
@@ -218,9 +218,9 @@ public RecompensaEN ReadOID (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in RecompensaCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in RecompensaCAD.", ex);
         }
 
 
@@ -248,9 +248,9 @@ public System.Collections.Generic.IList<RecompensaEN> ReadAll (int first, int si
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in RecompensaCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in RecompensaCAD.", ex);
         }
 
 
@@ -262,9 +262,9 @@ public System.Collections.Generic.IList<RecompensaEN> ReadAll (int first, int si
         return result;
 }
 
-public System.Collections.Generic.IList<MRModel.EN.RecompensaEN> ReadFilter (string p_nombre)
+public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.RecompensaEN> ReadFilter (string p_nombre)
 {
-        System.Collections.Generic.IList<MRModel.EN.RecompensaEN> result;
+        System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.RecompensaEN> result;
         try
         {
                 SessionInitializeTransaction ();
@@ -273,15 +273,15 @@ public System.Collections.Generic.IList<MRModel.EN.RecompensaEN> ReadFilter (str
                 IQuery query = (IQuery)session.GetNamedQuery ("RecompensaENreadFilterHQL");
                 query.SetParameter ("p_nombre", p_nombre);
 
-                result = query.List<MRModel.EN.RecompensaEN>();
+                result = query.List<MouseRidersGenNHibernate.EN.MouseRiders.RecompensaEN>();
                 SessionCommit ();
         }
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in RecompensaCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in RecompensaCAD.", ex);
         }
 
 

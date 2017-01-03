@@ -1,8 +1,8 @@
 
 using System;
-using MRModel.EN;
+using MouseRidersGenNHibernate.EN.MouseRiders;
 
-namespace MRModel.CAD
+namespace MouseRidersGenNHibernate.CAD.MouseRiders
 {
 public partial interface IMensajeCAD
 {
@@ -31,6 +31,6 @@ System.Collections.Generic.IList<MensajeEN> ReadAll (int first, int size);
 
 void RelacionaMensaje (int p_Mensaje_OID, int p_es_enviadoN_OID);
 
-System.Collections.Generic.IList<MRModel.EN.MensajeEN> ReadFilter (MRModel.Enumerated.T_MensajeEnum? p_tipo, string p_asunto);
+System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> ReadFilter (MouseRidersGenNHibernate.Enumerated.MouseRiders.T_MensajeEnum? p_tipo, string p_asunto);
 }
 }

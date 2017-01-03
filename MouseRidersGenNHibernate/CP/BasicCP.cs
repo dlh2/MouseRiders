@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NHibernate;
-using MRModel.CAD;
+using MouseRidersGenNHibernate.CAD.MouseRiders;
 
-namespace MRModel.CP
+namespace MouseRidersGenNHibernate.CP.MouseRiders
 {
 public class BasicCP
 {

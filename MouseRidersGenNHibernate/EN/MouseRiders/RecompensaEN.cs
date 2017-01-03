@@ -1,7 +1,7 @@
 
 using System;
 // Definición clase RecompensaEN
-namespace MRModel.EN
+namespace MouseRidersGenNHibernate.EN.MouseRiders
 {
 public partial class RecompensaEN
 {
@@ -29,7 +29,7 @@ private string descripcion;
 /**
  *	Atributo otorgada
  */
-private System.Collections.Generic.IList<MRModel.EN.UsuarioEN> otorgada;
+private System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN> otorgada;
 
 
 
@@ -61,7 +61,7 @@ public virtual string Descripcion {
 
 
 
-public virtual System.Collections.Generic.IList<MRModel.EN.UsuarioEN> Otorgada {
+public virtual System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN> Otorgada {
         get { return otorgada; } set { otorgada = value;  }
 }
 
@@ -77,12 +77,12 @@ public virtual int Puntuacion {
 
 public RecompensaEN()
 {
-        otorgada = new System.Collections.Generic.List<MRModel.EN.UsuarioEN>();
+        otorgada = new System.Collections.Generic.List<MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN>();
 }
 
 
 
-public RecompensaEN(int id, string nombre, string descripcion, System.Collections.Generic.IList<MRModel.EN.UsuarioEN> otorgada, int puntuacion
+public RecompensaEN(int id, string nombre, string descripcion, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN> otorgada, int puntuacion
                     )
 {
         this.init (Id, nombre, descripcion, otorgada, puntuacion);
@@ -95,7 +95,7 @@ public RecompensaEN(RecompensaEN recompensa)
 }
 
 private void init (int id
-                   , string nombre, string descripcion, System.Collections.Generic.IList<MRModel.EN.UsuarioEN> otorgada, int puntuacion)
+                   , string nombre, string descripcion, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN> otorgada, int puntuacion)
 {
         this.Id = id;
 

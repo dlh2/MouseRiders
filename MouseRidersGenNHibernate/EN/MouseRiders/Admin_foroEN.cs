@@ -1,9 +1,9 @@
 
 using System;
 // Definición clase Admin_foroEN
-namespace MRModel.EN
+namespace MouseRidersGenNHibernate.EN.MouseRiders
 {
-public partial class Admin_foroEN                                                                   : MRModel.EN.AdministradorEN
+public partial class Admin_foroEN                                                                   : MouseRidersGenNHibernate.EN.MouseRiders.AdministradorEN
 
 
 {
@@ -15,7 +15,7 @@ public Admin_foroEN() : base ()
 
 public Admin_foroEN(int id,
 
-                    string email, string nombre, string apellidos, string pais, int telefono, int puntuacion, System.Collections.Generic.IList<MRModel.EN.DenunciaEN> creaD, System.Collections.Generic.IList<MRModel.EN.RecompensaEN> obtiene, System.Collections.Generic.IList<MRModel.EN.PermisoEN> tiene, Nullable<DateTime> fechaRegistro, System.Collections.Generic.IList<MRModel.EN.MensajeEN> envia, System.Collections.Generic.IList<MRModel.EN.MensajeEN> recibe, MRModel.EN.BloqueoEN es_de, string contrasenya, System.Collections.Generic.IList<MRModel.EN.DenunciaEN> recibeD, string nombreusuario
+                    string email, string nombre, string apellidos, string pais, int telefono, int puntuacion, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN> creaD, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.RecompensaEN> obtiene, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN> tiene, Nullable<DateTime> fechaRegistro, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> envia, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> recibe, MouseRidersGenNHibernate.EN.MouseRiders.BloqueoEN es_de, string contrasenya, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN> recibeD, string nombreusuario
                     )
 {
         this.init (Id, email, nombre, apellidos, pais, telefono, puntuacion, creaD, obtiene, tiene, fechaRegistro, envia, recibe, es_de, contrasenya, recibeD, nombreusuario);
@@ -28,7 +28,7 @@ public Admin_foroEN(Admin_foroEN admin_foro)
 }
 
 private void init (int id
-                   , string email, string nombre, string apellidos, string pais, int telefono, int puntuacion, System.Collections.Generic.IList<MRModel.EN.DenunciaEN> creaD, System.Collections.Generic.IList<MRModel.EN.RecompensaEN> obtiene, System.Collections.Generic.IList<MRModel.EN.PermisoEN> tiene, Nullable<DateTime> fechaRegistro, System.Collections.Generic.IList<MRModel.EN.MensajeEN> envia, System.Collections.Generic.IList<MRModel.EN.MensajeEN> recibe, MRModel.EN.BloqueoEN es_de, string contrasenya, System.Collections.Generic.IList<MRModel.EN.DenunciaEN> recibeD, string nombreusuario)
+                   , string email, string nombre, string apellidos, string pais, int telefono, int puntuacion, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN> creaD, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.RecompensaEN> obtiene, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN> tiene, Nullable<DateTime> fechaRegistro, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> envia, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> recibe, MouseRidersGenNHibernate.EN.MouseRiders.BloqueoEN es_de, string contrasenya, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN> recibeD, string nombreusuario)
 {
         this.Id = id;
 

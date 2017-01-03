@@ -1,8 +1,8 @@
 
 using System;
-using MRModel.EN;
+using MouseRidersGenNHibernate.EN.MouseRiders;
 
-namespace MRModel.CAD
+namespace MouseRidersGenNHibernate.CAD.MouseRiders
 {
 public partial interface IEncuestaCAD
 {
@@ -31,6 +31,6 @@ EncuestaEN ReadOID (int id
 System.Collections.Generic.IList<EncuestaEN> ReadAll (int first, int size);
 
 
-System.Collections.Generic.IList<MRModel.EN.EncuestaEN> ReadFilter (string p_titulo);
+System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.EncuestaEN> ReadFilter (string p_titulo);
 }
 }

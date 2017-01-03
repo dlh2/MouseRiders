@@ -5,13 +5,13 @@ using System.Collections.Generic;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
-using MRModel.Exceptions;
-using MRModel.EN;
-using MRModel.CAD;
-using MRModel.CEN;
+using MouseRidersGenNHibernate.Exceptions;
+using MouseRidersGenNHibernate.EN.MouseRiders;
+using MouseRidersGenNHibernate.CAD.MouseRiders;
+using MouseRidersGenNHibernate.CEN.MouseRiders;
 
 
-namespace MRModel.CP
+namespace MouseRidersGenNHibernate.CP.MouseRiders
 {
 public partial class AdministradorCP : BasicCP
 {

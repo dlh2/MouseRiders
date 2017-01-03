@@ -1,7 +1,7 @@
 
 using System;
 // Definición clase PreguntaEN
-namespace MRModel.EN
+namespace MouseRidersGenNHibernate.EN.MouseRiders
 {
 public partial class PreguntaEN
 {
@@ -22,21 +22,21 @@ private string pregunta;
 /**
  *	Atributo tipo
  */
-private MRModel.Enumerated.T_PreguntaEnum tipo;
+private MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum tipo;
 
 
 
 /**
  *	Atributo pertenece
  */
-private MRModel.EN.EncuestaEN pertenece;
+private MouseRidersGenNHibernate.EN.MouseRiders.EncuestaEN pertenece;
 
 
 
 /**
  *	Atributo tiene
  */
-private System.Collections.Generic.IList<MRModel.EN.RespuestaEN> tiene;
+private System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.RespuestaEN> tiene;
 
 
 
@@ -55,19 +55,19 @@ public virtual string Pregunta {
 
 
 
-public virtual MRModel.Enumerated.T_PreguntaEnum Tipo {
+public virtual MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum Tipo {
         get { return tipo; } set { tipo = value;  }
 }
 
 
 
-public virtual MRModel.EN.EncuestaEN Pertenece {
+public virtual MouseRidersGenNHibernate.EN.MouseRiders.EncuestaEN Pertenece {
         get { return pertenece; } set { pertenece = value;  }
 }
 
 
 
-public virtual System.Collections.Generic.IList<MRModel.EN.RespuestaEN> Tiene {
+public virtual System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.RespuestaEN> Tiene {
         get { return tiene; } set { tiene = value;  }
 }
 
@@ -77,12 +77,12 @@ public virtual System.Collections.Generic.IList<MRModel.EN.RespuestaEN> Tiene {
 
 public PreguntaEN()
 {
-        tiene = new System.Collections.Generic.List<MRModel.EN.RespuestaEN>();
+        tiene = new System.Collections.Generic.List<MouseRidersGenNHibernate.EN.MouseRiders.RespuestaEN>();
 }
 
 
 
-public PreguntaEN(int id, string pregunta, MRModel.Enumerated.T_PreguntaEnum tipo, MRModel.EN.EncuestaEN pertenece, System.Collections.Generic.IList<MRModel.EN.RespuestaEN> tiene
+public PreguntaEN(int id, string pregunta, MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum tipo, MouseRidersGenNHibernate.EN.MouseRiders.EncuestaEN pertenece, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.RespuestaEN> tiene
                   )
 {
         this.init (Id, pregunta, tipo, pertenece, tiene);
@@ -95,7 +95,7 @@ public PreguntaEN(PreguntaEN pregunta)
 }
 
 private void init (int id
-                   , string pregunta, MRModel.Enumerated.T_PreguntaEnum tipo, MRModel.EN.EncuestaEN pertenece, System.Collections.Generic.IList<MRModel.EN.RespuestaEN> tiene)
+                   , string pregunta, MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum tipo, MouseRidersGenNHibernate.EN.MouseRiders.EncuestaEN pertenece, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.RespuestaEN> tiene)
 {
         this.Id = id;
 

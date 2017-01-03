@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
 		                   assembly="MouseRidersGenNHibernate"
-		                   namespace="MRModel.EN">
+		                   namespace="MouseRidersGenNHibernate.EN.MouseRiders">
 		    
 		    
 			
@@ -32,7 +32,7 @@
 			
 			
 		  			
-						<many-to-one name="Es_enviado" class="MRModel.EN.UsuarioEN" >	
+						<many-to-one name="Es_enviado" class="MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN" >	
 								<column name="FK_id_idUsuario"/> 
 						</many-to-one>
 											 					
@@ -43,13 +43,13 @@
 								
 									<column name="FK_idMensaje_idMensaje"/> 
 							</key>
-      						<many-to-many class="MRModel.EN.UsuarioEN">
+      						<many-to-many class="MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN">
 									<column name="FK_id_idEs_recibido"/> 
       						</many-to-many>
     					</bag>
 			
 		  			
-						<many-to-one name="Es_enviadoN" class="MRModel.EN.ControladorNotificacionesEN" >	
+						<many-to-one name="Es_enviadoN" class="MouseRidersGenNHibernate.EN.MouseRiders.ControladorNotificacionesEN" >	
 								<column name="FK_idControladorNotificaciones_idControladorNotificaciones"/> 
 						</many-to-one>
 											 					

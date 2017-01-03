@@ -1,13 +1,13 @@
 
 using System;
 using System.Text;
-using MRModel.CEN;
+using MouseRidersGenNHibernate.CEN.MouseRiders;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MRModel.EN;
-using MRModel.Exceptions;
+using MouseRidersGenNHibernate.EN.MouseRiders;
+using MouseRidersGenNHibernate.Exceptions;
 
 
 /*
@@ -15,7 +15,7 @@ using MRModel.Exceptions;
  *
  */
 
-namespace MRModel.CAD
+namespace MouseRidersGenNHibernate.CAD.MouseRiders
 {
 public partial class BloqueoCAD : BasicCAD, IBloqueoCAD
 {
@@ -43,9 +43,9 @@ public BloqueoEN ReadOIDDefault (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in BloqueoCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in BloqueoCAD.", ex);
         }
 
 
@@ -74,9 +74,9 @@ public System.Collections.Generic.IList<BloqueoEN> ReadAllDefault (int first, in
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in BloqueoCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in BloqueoCAD.", ex);
         }
 
         return result;
@@ -104,9 +104,9 @@ public void ModifyDefault (BloqueoEN bloqueo)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in BloqueoCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in BloqueoCAD.", ex);
         }
 
 
@@ -124,13 +124,13 @@ public int CrearBloqueo (BloqueoEN bloqueo)
                 SessionInitializeTransaction ();
                 if (bloqueo.Contiene != null) {
                         for (int i = 0; i < bloqueo.Contiene.Count; i++) {
-                                bloqueo.Contiene [i] = (MRModel.EN.DenunciaEN)session.Load (typeof(MRModel.EN.DenunciaEN), bloqueo.Contiene [i].Id);
+                                bloqueo.Contiene [i] = (MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN)session.Load (typeof(MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN), bloqueo.Contiene [i].Id);
                                 bloqueo.Contiene [i].Pertenece = bloqueo;
                         }
                 }
                 if (bloqueo.Pertenece != null) {
                         // Argumento OID y no colección.
-                        bloqueo.Pertenece = (MRModel.EN.UsuarioEN)session.Load (typeof(MRModel.EN.UsuarioEN), bloqueo.Pertenece.Id);
+                        bloqueo.Pertenece = (MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN)session.Load (typeof(MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN), bloqueo.Pertenece.Id);
 
                         bloqueo.Pertenece.Es_de
                                 = bloqueo;
@@ -142,9 +142,9 @@ public int CrearBloqueo (BloqueoEN bloqueo)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in BloqueoCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in BloqueoCAD.", ex);
         }
 
 
@@ -174,9 +174,9 @@ public void ModificarBloqueo (BloqueoEN bloqueo)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in BloqueoCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in BloqueoCAD.", ex);
         }
 
 
@@ -198,9 +198,9 @@ public void BorrarBloqueo (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in BloqueoCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in BloqueoCAD.", ex);
         }
 
 
@@ -226,9 +226,9 @@ public BloqueoEN ReadOID (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in BloqueoCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in BloqueoCAD.", ex);
         }
 
 
@@ -256,9 +256,9 @@ public System.Collections.Generic.IList<BloqueoEN> ReadAll (int first, int size)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in BloqueoCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in BloqueoCAD.", ex);
         }
 
 

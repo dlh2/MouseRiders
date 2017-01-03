@@ -5,11 +5,11 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
 using System.Data;
-using MRModel.EN;
-using MRModel.CEN;
-using MRModel.CAD;
-using MRModel.Enumerated;
-using MRModel.CP;
+using MouseRidersGenNHibernate.EN.MouseRiders;
+using MouseRidersGenNHibernate.CEN.MouseRiders;
+using MouseRidersGenNHibernate.CAD.MouseRiders;
+using MouseRidersGenNHibernate.Enumerated.MouseRiders;
+using MouseRidersGenNHibernate.CP.MouseRiders;
 
 /*PROTECTED REGION END*/
 namespace InitializeDB

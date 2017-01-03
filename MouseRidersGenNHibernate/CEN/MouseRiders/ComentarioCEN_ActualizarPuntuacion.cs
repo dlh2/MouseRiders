@@ -6,22 +6,22 @@ using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MRModel.Exceptions;
-using MRModel.EN;
-using MRModel.CAD;
+using MouseRidersGenNHibernate.Exceptions;
+using MouseRidersGenNHibernate.EN.MouseRiders;
+using MouseRidersGenNHibernate.CAD.MouseRiders;
 
 
-/*PROTECTED REGION ID(usingMRModel.CEN_Comentario_actualizarPuntuacion) ENABLED START*/
+/*PROTECTED REGION ID(usingMouseRidersGenNHibernate.CEN.MouseRiders_Comentario_actualizarPuntuacion) ENABLED START*/
 //  references to other libraries
 /*PROTECTED REGION END*/
 
-namespace MRModel.CEN
+namespace MouseRidersGenNHibernate.CEN.MouseRiders
 {
 public partial class ComentarioCEN
 {
 public bool ActualizarPuntuacion (int id_comentario, int puntuacion)
 {
-        /*PROTECTED REGION ID(MRModel.CEN_Comentario_actualizarPuntuacion) ENABLED START*/
+        /*PROTECTED REGION ID(MouseRidersGenNHibernate.CEN.MouseRiders_Comentario_actualizarPuntuacion) ENABLED START*/
 
         // Write here your custom code...
 

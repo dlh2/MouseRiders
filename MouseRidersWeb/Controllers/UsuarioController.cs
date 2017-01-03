@@ -1,10 +1,10 @@
 ﻿
-using MRWeb.Assembler;
-using MRModel.CAD;
-using MRModel.CEN;
-using MRWeb.DTO;
-using MRModel.EN;
-using MRWeb.Models;
+using MouseRidersWeb.Assembler;
+using MouseRidersGenNHibernate.CAD.MouseRiders;
+using MouseRidersGenNHibernate.CEN.MouseRiders;
+using MouseRidersWeb.DTO;
+using MouseRidersGenNHibernate.EN.MouseRiders;
+using MouseRidersWeb.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebMatrix.WebData;
 
-namespace MRWeb.Controllers
+namespace MouseRidersWeb.Controllers
 {
     public class UsuarioController : BasicController
     {

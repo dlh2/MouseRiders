@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace MRWeb
+namespace MouseRidersWeb
 {
     public class BundleConfig
     {

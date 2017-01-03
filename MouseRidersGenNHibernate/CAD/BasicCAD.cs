@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using NHibernate;
 using NHibernate.Exceptions;
-using MRModel.Exceptions;
+using MouseRidersGenNHibernate.Exceptions;
 
-namespace MRModel.CAD
+namespace MouseRidersGenNHibernate.CAD.MouseRiders
 {
 public class BasicCAD
 {

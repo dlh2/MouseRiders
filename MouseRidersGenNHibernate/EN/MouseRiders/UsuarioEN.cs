@@ -1,7 +1,7 @@
 
 using System;
 // Definición clase UsuarioEN
-namespace MRModel.EN
+namespace MouseRidersGenNHibernate.EN.MouseRiders
 {
 public partial class UsuarioEN
 {
@@ -50,21 +50,21 @@ private int puntuacion;
 /**
  *	Atributo creaD
  */
-private System.Collections.Generic.IList<MRModel.EN.DenunciaEN> creaD;
+private System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN> creaD;
 
 
 
 /**
  *	Atributo obtiene
  */
-private System.Collections.Generic.IList<MRModel.EN.RecompensaEN> obtiene;
+private System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.RecompensaEN> obtiene;
 
 
 
 /**
  *	Atributo tiene
  */
-private System.Collections.Generic.IList<MRModel.EN.PermisoEN> tiene;
+private System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN> tiene;
 
 
 
@@ -78,21 +78,21 @@ private Nullable<DateTime> fechaRegistro;
 /**
  *	Atributo envia
  */
-private System.Collections.Generic.IList<MRModel.EN.MensajeEN> envia;
+private System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> envia;
 
 
 
 /**
  *	Atributo recibe
  */
-private System.Collections.Generic.IList<MRModel.EN.MensajeEN> recibe;
+private System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> recibe;
 
 
 
 /**
  *	Atributo es_de
  */
-private MRModel.EN.BloqueoEN es_de;
+private MouseRidersGenNHibernate.EN.MouseRiders.BloqueoEN es_de;
 
 
 
@@ -106,7 +106,7 @@ private string contrasenya;
 /**
  *	Atributo recibeD
  */
-private System.Collections.Generic.IList<MRModel.EN.DenunciaEN> recibeD;
+private System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN> recibeD;
 
 
 
@@ -163,19 +163,19 @@ public virtual int Puntuacion {
 
 
 
-public virtual System.Collections.Generic.IList<MRModel.EN.DenunciaEN> CreaD {
+public virtual System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN> CreaD {
         get { return creaD; } set { creaD = value;  }
 }
 
 
 
-public virtual System.Collections.Generic.IList<MRModel.EN.RecompensaEN> Obtiene {
+public virtual System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.RecompensaEN> Obtiene {
         get { return obtiene; } set { obtiene = value;  }
 }
 
 
 
-public virtual System.Collections.Generic.IList<MRModel.EN.PermisoEN> Tiene {
+public virtual System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN> Tiene {
         get { return tiene; } set { tiene = value;  }
 }
 
@@ -187,19 +187,19 @@ public virtual Nullable<DateTime> FechaRegistro {
 
 
 
-public virtual System.Collections.Generic.IList<MRModel.EN.MensajeEN> Envia {
+public virtual System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> Envia {
         get { return envia; } set { envia = value;  }
 }
 
 
 
-public virtual System.Collections.Generic.IList<MRModel.EN.MensajeEN> Recibe {
+public virtual System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> Recibe {
         get { return recibe; } set { recibe = value;  }
 }
 
 
 
-public virtual MRModel.EN.BloqueoEN Es_de {
+public virtual MouseRidersGenNHibernate.EN.MouseRiders.BloqueoEN Es_de {
         get { return es_de; } set { es_de = value;  }
 }
 
@@ -211,7 +211,7 @@ public virtual string Contrasenya {
 
 
 
-public virtual System.Collections.Generic.IList<MRModel.EN.DenunciaEN> RecibeD {
+public virtual System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN> RecibeD {
         get { return recibeD; } set { recibeD = value;  }
 }
 
@@ -233,17 +233,17 @@ public virtual string Nombreusuario {
 
 public UsuarioEN()
 {
-        creaD = new System.Collections.Generic.List<MRModel.EN.DenunciaEN>();
-        obtiene = new System.Collections.Generic.List<MRModel.EN.RecompensaEN>();
-        tiene = new System.Collections.Generic.List<MRModel.EN.PermisoEN>();
-        envia = new System.Collections.Generic.List<MRModel.EN.MensajeEN>();
-        recibe = new System.Collections.Generic.List<MRModel.EN.MensajeEN>();
-        recibeD = new System.Collections.Generic.List<MRModel.EN.DenunciaEN>();
+        creaD = new System.Collections.Generic.List<MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN>();
+        obtiene = new System.Collections.Generic.List<MouseRidersGenNHibernate.EN.MouseRiders.RecompensaEN>();
+        tiene = new System.Collections.Generic.List<MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN>();
+        envia = new System.Collections.Generic.List<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN>();
+        recibe = new System.Collections.Generic.List<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN>();
+        recibeD = new System.Collections.Generic.List<MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN>();
 }
 
 
 
-public UsuarioEN(int id, string email, string nombre, string apellidos, string pais, int telefono, int puntuacion, System.Collections.Generic.IList<MRModel.EN.DenunciaEN> creaD, System.Collections.Generic.IList<MRModel.EN.RecompensaEN> obtiene, System.Collections.Generic.IList<MRModel.EN.PermisoEN> tiene, Nullable<DateTime> fechaRegistro, System.Collections.Generic.IList<MRModel.EN.MensajeEN> envia, System.Collections.Generic.IList<MRModel.EN.MensajeEN> recibe, MRModel.EN.BloqueoEN es_de, string contrasenya, System.Collections.Generic.IList<MRModel.EN.DenunciaEN> recibeD, string nombreusuario
+public UsuarioEN(int id, string email, string nombre, string apellidos, string pais, int telefono, int puntuacion, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN> creaD, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.RecompensaEN> obtiene, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN> tiene, Nullable<DateTime> fechaRegistro, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> envia, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> recibe, MouseRidersGenNHibernate.EN.MouseRiders.BloqueoEN es_de, string contrasenya, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN> recibeD, string nombreusuario
                  )
 {
         this.init (Id, email, nombre, apellidos, pais, telefono, puntuacion, creaD, obtiene, tiene, fechaRegistro, envia, recibe, es_de, contrasenya, recibeD, nombreusuario);
@@ -256,7 +256,7 @@ public UsuarioEN(UsuarioEN usuario)
 }
 
 private void init (int id
-                   , string email, string nombre, string apellidos, string pais, int telefono, int puntuacion, System.Collections.Generic.IList<MRModel.EN.DenunciaEN> creaD, System.Collections.Generic.IList<MRModel.EN.RecompensaEN> obtiene, System.Collections.Generic.IList<MRModel.EN.PermisoEN> tiene, Nullable<DateTime> fechaRegistro, System.Collections.Generic.IList<MRModel.EN.MensajeEN> envia, System.Collections.Generic.IList<MRModel.EN.MensajeEN> recibe, MRModel.EN.BloqueoEN es_de, string contrasenya, System.Collections.Generic.IList<MRModel.EN.DenunciaEN> recibeD, string nombreusuario)
+                   , string email, string nombre, string apellidos, string pais, int telefono, int puntuacion, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN> creaD, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.RecompensaEN> obtiene, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN> tiene, Nullable<DateTime> fechaRegistro, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> envia, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> recibe, MouseRidersGenNHibernate.EN.MouseRiders.BloqueoEN es_de, string contrasenya, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN> recibeD, string nombreusuario)
 {
         this.Id = id;
 

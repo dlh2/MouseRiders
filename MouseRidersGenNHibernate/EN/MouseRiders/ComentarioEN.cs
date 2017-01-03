@@ -1,7 +1,7 @@
 
 using System;
 // Definición clase ComentarioEN
-namespace MRModel.EN
+namespace MouseRidersGenNHibernate.EN.MouseRiders
 {
 public partial class ComentarioEN
 {
@@ -43,14 +43,14 @@ private int valoracion;
 /**
  *	Atributo pertenece
  */
-private MRModel.EN.ArticuloEN pertenece;
+private MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN pertenece;
 
 
 
 /**
  *	Atributo pertenece_a
  */
-private MRModel.EN.HiloEN pertenece_a;
+private MouseRidersGenNHibernate.EN.MouseRiders.HiloEN pertenece_a;
 
 
 
@@ -87,13 +87,13 @@ public virtual int Valoracion {
 
 
 
-public virtual MRModel.EN.ArticuloEN Pertenece {
+public virtual MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN Pertenece {
         get { return pertenece; } set { pertenece = value;  }
 }
 
 
 
-public virtual MRModel.EN.HiloEN Pertenece_a {
+public virtual MouseRidersGenNHibernate.EN.MouseRiders.HiloEN Pertenece_a {
         get { return pertenece_a; } set { pertenece_a = value;  }
 }
 
@@ -107,7 +107,7 @@ public ComentarioEN()
 
 
 
-public ComentarioEN(int id, string creador, Nullable<DateTime> fecha, string contenido, int valoracion, MRModel.EN.ArticuloEN pertenece, MRModel.EN.HiloEN pertenece_a
+public ComentarioEN(int id, string creador, Nullable<DateTime> fecha, string contenido, int valoracion, MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN pertenece, MouseRidersGenNHibernate.EN.MouseRiders.HiloEN pertenece_a
                     )
 {
         this.init (Id, creador, fecha, contenido, valoracion, pertenece, pertenece_a);
@@ -120,7 +120,7 @@ public ComentarioEN(ComentarioEN comentario)
 }
 
 private void init (int id
-                   , string creador, Nullable<DateTime> fecha, string contenido, int valoracion, MRModel.EN.ArticuloEN pertenece, MRModel.EN.HiloEN pertenece_a)
+                   , string creador, Nullable<DateTime> fecha, string contenido, int valoracion, MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN pertenece, MouseRidersGenNHibernate.EN.MouseRiders.HiloEN pertenece_a)
 {
         this.Id = id;
 

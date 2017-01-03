@@ -1,4 +1,4 @@
-﻿using MRWeb.Models;
+﻿using MouseRidersWeb.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 
 // Definición clase ComentarioDTO
-namespace MRWeb.DTO
+namespace MouseRidersWeb.DTO
 {
     public class ComentarioDTO
     {

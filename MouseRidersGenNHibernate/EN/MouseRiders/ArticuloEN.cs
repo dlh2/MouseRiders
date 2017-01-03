@@ -1,14 +1,14 @@
 
 using System;
 // Definición clase ArticuloEN
-namespace MRModel.EN
+namespace MouseRidersGenNHibernate.EN.MouseRiders
 {
 public partial class ArticuloEN
 {
 /**
  *	Atributo pertenece
  */
-private MRModel.EN.SeccionEN pertenece;
+private MouseRidersGenNHibernate.EN.MouseRiders.SeccionEN pertenece;
 
 
 
@@ -64,7 +64,7 @@ private Nullable<DateTime> fecha;
 /**
  *	Atributo tiene
  */
-private System.Collections.Generic.IList<MRModel.EN.ComentarioEN> tiene;
+private System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.ComentarioEN> tiene;
 
 
 
@@ -99,7 +99,7 @@ private string descripcion;
 
 
 
-public virtual MRModel.EN.SeccionEN Pertenece {
+public virtual MouseRidersGenNHibernate.EN.MouseRiders.SeccionEN Pertenece {
         get { return pertenece; } set { pertenece = value;  }
 }
 
@@ -147,7 +147,7 @@ public virtual Nullable<DateTime> Fecha {
 
 
 
-public virtual System.Collections.Generic.IList<MRModel.EN.ComentarioEN> Tiene {
+public virtual System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.ComentarioEN> Tiene {
         get { return tiene; } set { tiene = value;  }
 }
 
@@ -181,12 +181,12 @@ public virtual string Descripcion {
 
 public ArticuloEN()
 {
-        tiene = new System.Collections.Generic.List<MRModel.EN.ComentarioEN>();
+        tiene = new System.Collections.Generic.List<MouseRidersGenNHibernate.EN.MouseRiders.ComentarioEN>();
 }
 
 
 
-public ArticuloEN(int id, MRModel.EN.SeccionEN pertenece, string titulo, string autor, string contenido, string contenidoDescargable, float puntuacion, Nullable<DateTime> fecha, System.Collections.Generic.IList<MRModel.EN.ComentarioEN> tiene, int contador, string subtitulo, string portada, string descripcion
+public ArticuloEN(int id, MouseRidersGenNHibernate.EN.MouseRiders.SeccionEN pertenece, string titulo, string autor, string contenido, string contenidoDescargable, float puntuacion, Nullable<DateTime> fecha, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.ComentarioEN> tiene, int contador, string subtitulo, string portada, string descripcion
                   )
 {
         this.init (Id, pertenece, titulo, autor, contenido, contenidoDescargable, puntuacion, fecha, tiene, contador, subtitulo, portada, descripcion);
@@ -199,7 +199,7 @@ public ArticuloEN(ArticuloEN articulo)
 }
 
 private void init (int id
-                   , MRModel.EN.SeccionEN pertenece, string titulo, string autor, string contenido, string contenidoDescargable, float puntuacion, Nullable<DateTime> fecha, System.Collections.Generic.IList<MRModel.EN.ComentarioEN> tiene, int contador, string subtitulo, string portada, string descripcion)
+                   , MouseRidersGenNHibernate.EN.MouseRiders.SeccionEN pertenece, string titulo, string autor, string contenido, string contenidoDescargable, float puntuacion, Nullable<DateTime> fecha, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.ComentarioEN> tiene, int contador, string subtitulo, string portada, string descripcion)
 {
         this.Id = id;
 

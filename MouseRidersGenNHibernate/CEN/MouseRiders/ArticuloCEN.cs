@@ -7,13 +7,13 @@ using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MRModel.Exceptions;
+using MouseRidersGenNHibernate.Exceptions;
 
-using MRModel.EN;
-using MRModel.CAD;
+using MouseRidersGenNHibernate.EN.MouseRiders;
+using MouseRidersGenNHibernate.CAD.MouseRiders;
 
 
-namespace MRModel.CEN
+namespace MouseRidersGenNHibernate.CEN.MouseRiders
 {
 /*
  *      Definition of the class ArticuloCEN
@@ -49,7 +49,7 @@ public int CrearArticulo (int p_pertenece, string p_titulo, string p_autor, stri
         if (p_pertenece != -1) {
                 // El argumento p_pertenece -> Property pertenece es oid = false
                 // Lista de oids id
-                articuloEN.Pertenece = new MRModel.EN.SeccionEN ();
+                articuloEN.Pertenece = new MouseRidersGenNHibernate.EN.MouseRiders.SeccionEN ();
                 articuloEN.Pertenece.Seccion = p_pertenece;
         }
 
@@ -123,7 +123,7 @@ public System.Collections.Generic.IList<ArticuloEN> ReadAll (int first, int size
         list = _IArticuloCAD.ReadAll (first, size);
         return list;
 }
-public System.Collections.Generic.IList<MRModel.EN.ArticuloEN> ReadFilter (string p_nombre, Nullable<DateTime> p_fecha, bool? p_mayor, float? p_puntuacion, bool ? p_mayor1)
+public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN> ReadFilter (string p_nombre, Nullable<DateTime> p_fecha, bool? p_mayor, float? p_puntuacion, bool ? p_mayor1)
 {
         return _IArticuloCAD.ReadFilter (p_nombre, p_fecha, p_mayor, p_puntuacion, p_mayor1);
 }

@@ -1,8 +1,8 @@
 
 using System;
-using MRModel.EN;
+using MouseRidersGenNHibernate.EN.MouseRiders;
 
-namespace MRModel.CAD
+namespace MouseRidersGenNHibernate.CAD.MouseRiders
 {
 public partial interface IArticuloCAD
 {
@@ -30,6 +30,6 @@ System.Collections.Generic.IList<ArticuloEN> ReadAll (int first, int size);
 
 
 
-System.Collections.Generic.IList<MRModel.EN.ArticuloEN> ReadFilter (string p_nombre, Nullable<DateTime> p_fecha, bool? p_mayor, float? p_puntuacion, bool ? p_mayor1);
+System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN> ReadFilter (string p_nombre, Nullable<DateTime> p_fecha, bool? p_mayor, float? p_puntuacion, bool ? p_mayor1);
 }
 }

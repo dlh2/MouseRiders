@@ -1,8 +1,8 @@
 
 using System;
-using MRModel.EN;
+using MouseRidersGenNHibernate.EN.MouseRiders;
 
-namespace MRModel.CAD
+namespace MouseRidersGenNHibernate.CAD.MouseRiders
 {
 public partial interface IUsuarioCAD
 {

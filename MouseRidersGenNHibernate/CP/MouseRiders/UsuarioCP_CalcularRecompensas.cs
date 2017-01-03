@@ -6,24 +6,24 @@ using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MRModel.EN;
-using MRModel.CAD;
-using MRModel.CEN;
+using MouseRidersGenNHibernate.EN.MouseRiders;
+using MouseRidersGenNHibernate.CAD.MouseRiders;
+using MouseRidersGenNHibernate.CEN.MouseRiders;
 
 
 
-/*PROTECTED REGION ID(usingMRModel.CP_Usuario_calcularRecompensas) ENABLED START*/
+/*PROTECTED REGION ID(usingMouseRidersGenNHibernate.CP.MouseRiders_Usuario_calcularRecompensas) ENABLED START*/
 //  references to other libraries
 using System.Collections.Generic;
 /*PROTECTED REGION END*/
 
-namespace MRModel.CP
+namespace MouseRidersGenNHibernate.CP.MouseRiders
 {
 public partial class UsuarioCP : BasicCP
 {
 public bool CalcularRecompensas (int p_oid)
 {
-        /*PROTECTED REGION ID(MRModel.CP_Usuario_calcularRecompensas) ENABLED START*/
+        /*PROTECTED REGION ID(MouseRidersGenNHibernate.CP.MouseRiders_Usuario_calcularRecompensas) ENABLED START*/
 
         try
         {

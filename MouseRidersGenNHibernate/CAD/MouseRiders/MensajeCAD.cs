@@ -1,13 +1,13 @@
 
 using System;
 using System.Text;
-using MRModel.CEN;
+using MouseRidersGenNHibernate.CEN.MouseRiders;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MRModel.EN;
-using MRModel.Exceptions;
+using MouseRidersGenNHibernate.EN.MouseRiders;
+using MouseRidersGenNHibernate.Exceptions;
 
 
 /*
@@ -15,7 +15,7 @@ using MRModel.Exceptions;
  *
  */
 
-namespace MRModel.CAD
+namespace MouseRidersGenNHibernate.CAD.MouseRiders
 {
 public partial class MensajeCAD : BasicCAD, IMensajeCAD
 {
@@ -43,9 +43,9 @@ public MensajeEN ReadOIDDefault (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in MensajeCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in MensajeCAD.", ex);
         }
 
 
@@ -74,9 +74,9 @@ public System.Collections.Generic.IList<MensajeEN> ReadAllDefault (int first, in
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in MensajeCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in MensajeCAD.", ex);
         }
 
         return result;
@@ -111,9 +111,9 @@ public void ModifyDefault (MensajeEN mensaje)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in MensajeCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in MensajeCAD.", ex);
         }
 
 
@@ -131,14 +131,14 @@ public int CrearMensaje (MensajeEN mensaje)
                 SessionInitializeTransaction ();
                 if (mensaje.Es_enviado != null) {
                         // Argumento OID y no colección.
-                        mensaje.Es_enviado = (MRModel.EN.UsuarioEN)session.Load (typeof(MRModel.EN.UsuarioEN), mensaje.Es_enviado.Id);
+                        mensaje.Es_enviado = (MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN)session.Load (typeof(MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN), mensaje.Es_enviado.Id);
 
                         mensaje.Es_enviado.Envia
                         .Add (mensaje);
                 }
                 if (mensaje.Es_recibido != null) {
                         for (int i = 0; i < mensaje.Es_recibido.Count; i++) {
-                                mensaje.Es_recibido [i] = (MRModel.EN.UsuarioEN)session.Load (typeof(MRModel.EN.UsuarioEN), mensaje.Es_recibido [i].Id);
+                                mensaje.Es_recibido [i] = (MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN)session.Load (typeof(MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN), mensaje.Es_recibido [i].Id);
                                 mensaje.Es_recibido [i].Recibe.Add (mensaje);
                         }
                 }
@@ -149,9 +149,9 @@ public int CrearMensaje (MensajeEN mensaje)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in MensajeCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in MensajeCAD.", ex);
         }
 
 
@@ -187,9 +187,9 @@ public void ModificarMensaje (MensajeEN mensaje)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in MensajeCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in MensajeCAD.", ex);
         }
 
 
@@ -211,9 +211,9 @@ public void BorrarMensaje (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in MensajeCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in MensajeCAD.", ex);
         }
 
 
@@ -239,9 +239,9 @@ public MensajeEN ReadOID (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in MensajeCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in MensajeCAD.", ex);
         }
 
 
@@ -269,9 +269,9 @@ public System.Collections.Generic.IList<MensajeEN> ReadAll (int first, int size)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in MensajeCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in MensajeCAD.", ex);
         }
 
 
@@ -285,12 +285,12 @@ public System.Collections.Generic.IList<MensajeEN> ReadAll (int first, int size)
 
 public void RelacionaMensaje (int p_Mensaje_OID, int p_es_enviadoN_OID)
 {
-        MRModel.EN.MensajeEN mensajeEN = null;
+        MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN mensajeEN = null;
         try
         {
                 SessionInitializeTransaction ();
                 mensajeEN = (MensajeEN)session.Load (typeof(MensajeEN), p_Mensaje_OID);
-                mensajeEN.Es_enviadoN = (MRModel.EN.ControladorNotificacionesEN)session.Load (typeof(MRModel.EN.ControladorNotificacionesEN), p_es_enviadoN_OID);
+                mensajeEN.Es_enviadoN = (MouseRidersGenNHibernate.EN.MouseRiders.ControladorNotificacionesEN)session.Load (typeof(MouseRidersGenNHibernate.EN.MouseRiders.ControladorNotificacionesEN), p_es_enviadoN_OID);
 
                 mensajeEN.Es_enviadoN.EnviaN.Add (mensajeEN);
 
@@ -302,9 +302,9 @@ public void RelacionaMensaje (int p_Mensaje_OID, int p_es_enviadoN_OID)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in MensajeCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in MensajeCAD.", ex);
         }
 
 
@@ -314,9 +314,9 @@ public void RelacionaMensaje (int p_Mensaje_OID, int p_es_enviadoN_OID)
         }
 }
 
-public System.Collections.Generic.IList<MRModel.EN.MensajeEN> ReadFilter (MRModel.Enumerated.T_MensajeEnum? p_tipo, string p_asunto)
+public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> ReadFilter (MouseRidersGenNHibernate.Enumerated.MouseRiders.T_MensajeEnum? p_tipo, string p_asunto)
 {
-        System.Collections.Generic.IList<MRModel.EN.MensajeEN> result;
+        System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> result;
         try
         {
                 SessionInitializeTransaction ();
@@ -326,15 +326,15 @@ public System.Collections.Generic.IList<MRModel.EN.MensajeEN> ReadFilter (MRMode
                 query.SetParameter ("p_tipo", p_tipo);
                 query.SetParameter ("p_asunto", p_asunto);
 
-                result = query.List<MRModel.EN.MensajeEN>();
+                result = query.List<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN>();
                 SessionCommit ();
         }
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in MensajeCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in MensajeCAD.", ex);
         }
 
 

@@ -1,13 +1,13 @@
 
 using System;
 using System.Text;
-using MRModel.CEN;
+using MouseRidersGenNHibernate.CEN.MouseRiders;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MRModel.EN;
-using MRModel.Exceptions;
+using MouseRidersGenNHibernate.EN.MouseRiders;
+using MouseRidersGenNHibernate.Exceptions;
 
 
 /*
@@ -15,7 +15,7 @@ using MRModel.Exceptions;
  *
  */
 
-namespace MRModel.CAD
+namespace MouseRidersGenNHibernate.CAD.MouseRiders
 {
 public partial class RespuestaCAD : BasicCAD, IRespuestaCAD
 {
@@ -43,9 +43,9 @@ public RespuestaEN ReadOIDDefault (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in RespuestaCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in RespuestaCAD.", ex);
         }
 
 
@@ -74,9 +74,9 @@ public System.Collections.Generic.IList<RespuestaEN> ReadAllDefault (int first, 
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in RespuestaCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in RespuestaCAD.", ex);
         }
 
         return result;
@@ -109,9 +109,9 @@ public void ModifyDefault (RespuestaEN respuesta)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in RespuestaCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in RespuestaCAD.", ex);
         }
 
 
@@ -129,7 +129,7 @@ public int CrearRespuesta (RespuestaEN respuesta)
                 SessionInitializeTransaction ();
                 if (respuesta.Pertenece != null) {
                         // Argumento OID y no colección.
-                        respuesta.Pertenece = (MRModel.EN.PreguntaEN)session.Load (typeof(MRModel.EN.PreguntaEN), respuesta.Pertenece.Id);
+                        respuesta.Pertenece = (MouseRidersGenNHibernate.EN.MouseRiders.PreguntaEN)session.Load (typeof(MouseRidersGenNHibernate.EN.MouseRiders.PreguntaEN), respuesta.Pertenece.Id);
 
                         respuesta.Pertenece.Tiene
                         .Add (respuesta);
@@ -141,9 +141,9 @@ public int CrearRespuesta (RespuestaEN respuesta)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in RespuestaCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in RespuestaCAD.", ex);
         }
 
 
@@ -179,9 +179,9 @@ public void ModificarRespuesta (RespuestaEN respuesta)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in RespuestaCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in RespuestaCAD.", ex);
         }
 
 
@@ -203,9 +203,9 @@ public void BorrarRespuesta (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in RespuestaCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in RespuestaCAD.", ex);
         }
 
 

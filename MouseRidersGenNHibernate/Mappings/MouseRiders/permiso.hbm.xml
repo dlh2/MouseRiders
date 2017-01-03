@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
 		                   assembly="MouseRidersGenNHibernate"
-		                   namespace="MRModel.EN">
+		                   namespace="MouseRidersGenNHibernate.EN.MouseRiders">
 		    
 		    
 			
 				<class name="PermisoEN" table="Permiso"> 
 				<composite-id name="PermisoOID" 
-				class="MRModel.EN.PermisoEN_OID">
+				class="MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN_OID">
 					<key-property name="Rol"/> 
 					<key-property name="Permiso"/> 
 				</composite-id>	
@@ -29,7 +29,7 @@
 									<column name="FK_rol_idPermiso"/> 
 									<column name="FK_permiso_idPermiso"/> 
 							</key>
-      						<many-to-many class="MRModel.EN.UsuarioEN">
+      						<many-to-many class="MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN">
 									<column name="FK_id_idUsuario"/> 
       						</many-to-many>
     					</bag>

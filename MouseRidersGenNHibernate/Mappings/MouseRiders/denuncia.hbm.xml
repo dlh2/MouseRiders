@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
 		                   assembly="MouseRidersGenNHibernate"
-		                   namespace="MRModel.EN">
+		                   namespace="MouseRidersGenNHibernate.EN.MouseRiders">
 		    
 		    
 			
@@ -23,20 +23,20 @@
 			
 			
 		  			
-						<many-to-one name="Pertenece" class="MRModel.EN.BloqueoEN" >	
+						<many-to-one name="Pertenece" class="MouseRidersGenNHibernate.EN.MouseRiders.BloqueoEN" >	
 								<column name="FK_idBloqueo_idBloqueo"/> 
 						</many-to-one>
 											 					
 			
 		  			
-						<many-to-one name="Es_creada" class="MRModel.EN.UsuarioEN" >	
+						<many-to-one name="Es_creada" class="MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN" >	
 								<column name="FK_id_idUsuario_0"/> 
 						</many-to-one>
 											 					
 			
 			
 		  			
-						<many-to-one name="Es_recibida" class="MRModel.EN.UsuarioEN" >	
+						<many-to-one name="Es_recibida" class="MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN" >	
 								<column name="FK_id_idUsuario"/> 
 						</many-to-one>
 											 					

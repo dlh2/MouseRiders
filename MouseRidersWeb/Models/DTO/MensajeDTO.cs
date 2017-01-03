@@ -1,5 +1,5 @@
-﻿using MRModel.Enumerated;
-using MRWeb.Models;
+﻿using MouseRidersGenNHibernate.Enumerated.MouseRiders;
+using MouseRidersWeb.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MRWeb.DTO
+namespace MouseRidersWeb.DTO
 {
     public class MensajeDTO
     {

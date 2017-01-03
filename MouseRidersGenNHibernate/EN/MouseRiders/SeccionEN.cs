@@ -1,14 +1,14 @@
 
 using System;
 // Definición clase SeccionEN
-namespace MRModel.EN
+namespace MouseRidersGenNHibernate.EN.MouseRiders
 {
 public partial class SeccionEN
 {
 /**
  *	Atributo tiene
  */
-private System.Collections.Generic.IList<MRModel.EN.ArticuloEN> tiene;
+private System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN> tiene;
 
 
 
@@ -29,7 +29,7 @@ private string nombre;
 
 
 
-public virtual System.Collections.Generic.IList<MRModel.EN.ArticuloEN> Tiene {
+public virtual System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN> Tiene {
         get { return tiene; } set { tiene = value;  }
 }
 
@@ -51,12 +51,12 @@ public virtual string Nombre {
 
 public SeccionEN()
 {
-        tiene = new System.Collections.Generic.List<MRModel.EN.ArticuloEN>();
+        tiene = new System.Collections.Generic.List<MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN>();
 }
 
 
 
-public SeccionEN(int seccion, System.Collections.Generic.IList<MRModel.EN.ArticuloEN> tiene, string nombre
+public SeccionEN(int seccion, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN> tiene, string nombre
                  )
 {
         this.init (Seccion, tiene, nombre);
@@ -69,7 +69,7 @@ public SeccionEN(SeccionEN seccion)
 }
 
 private void init (int seccion
-                   , System.Collections.Generic.IList<MRModel.EN.ArticuloEN> tiene, string nombre)
+                   , System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN> tiene, string nombre)
 {
         this.Seccion = seccion;
 

@@ -1,7 +1,7 @@
 
 using System;
 // Definición clase BloqueoEN
-namespace MRModel.EN
+namespace MouseRidersGenNHibernate.EN.MouseRiders
 {
 public partial class BloqueoEN
 {
@@ -15,14 +15,14 @@ private int id;
 /**
  *	Atributo contiene
  */
-private System.Collections.Generic.IList<MRModel.EN.DenunciaEN> contiene;
+private System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN> contiene;
 
 
 
 /**
  *	Atributo pertenece
  */
-private MRModel.EN.UsuarioEN pertenece;
+private MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN pertenece;
 
 
 
@@ -49,13 +49,13 @@ public virtual int Id {
 
 
 
-public virtual System.Collections.Generic.IList<MRModel.EN.DenunciaEN> Contiene {
+public virtual System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN> Contiene {
         get { return contiene; } set { contiene = value;  }
 }
 
 
 
-public virtual MRModel.EN.UsuarioEN Pertenece {
+public virtual MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN Pertenece {
         get { return pertenece; } set { pertenece = value;  }
 }
 
@@ -77,12 +77,12 @@ public virtual Nullable<DateTime> FechaFin {
 
 public BloqueoEN()
 {
-        contiene = new System.Collections.Generic.List<MRModel.EN.DenunciaEN>();
+        contiene = new System.Collections.Generic.List<MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN>();
 }
 
 
 
-public BloqueoEN(int id, System.Collections.Generic.IList<MRModel.EN.DenunciaEN> contiene, MRModel.EN.UsuarioEN pertenece, Nullable<DateTime> fechaInicio, Nullable<DateTime> fechaFin
+public BloqueoEN(int id, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN> contiene, MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN pertenece, Nullable<DateTime> fechaInicio, Nullable<DateTime> fechaFin
                  )
 {
         this.init (Id, contiene, pertenece, fechaInicio, fechaFin);
@@ -95,7 +95,7 @@ public BloqueoEN(BloqueoEN bloqueo)
 }
 
 private void init (int id
-                   , System.Collections.Generic.IList<MRModel.EN.DenunciaEN> contiene, MRModel.EN.UsuarioEN pertenece, Nullable<DateTime> fechaInicio, Nullable<DateTime> fechaFin)
+                   , System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN> contiene, MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN pertenece, Nullable<DateTime> fechaInicio, Nullable<DateTime> fechaFin)
 {
         this.Id = id;
 

@@ -1,13 +1,13 @@
 
 using System;
 using System.Text;
-using MRModel.CEN;
+using MouseRidersGenNHibernate.CEN.MouseRiders;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MRModel.EN;
-using MRModel.Exceptions;
+using MouseRidersGenNHibernate.EN.MouseRiders;
+using MouseRidersGenNHibernate.Exceptions;
 
 
 /*
@@ -15,7 +15,7 @@ using MRModel.Exceptions;
  *
  */
 
-namespace MRModel.CAD
+namespace MouseRidersGenNHibernate.CAD.MouseRiders
 {
 public partial class PreguntaCAD : BasicCAD, IPreguntaCAD
 {
@@ -43,9 +43,9 @@ public PreguntaEN ReadOIDDefault (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in PreguntaCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in PreguntaCAD.", ex);
         }
 
 
@@ -74,9 +74,9 @@ public System.Collections.Generic.IList<PreguntaEN> ReadAllDefault (int first, i
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in PreguntaCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in PreguntaCAD.", ex);
         }
 
         return result;
@@ -104,9 +104,9 @@ public void ModifyDefault (PreguntaEN pregunta)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in PreguntaCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in PreguntaCAD.", ex);
         }
 
 
@@ -124,7 +124,7 @@ public int CrearPregunta (PreguntaEN pregunta)
                 SessionInitializeTransaction ();
                 if (pregunta.Pertenece != null) {
                         // Argumento OID y no colección.
-                        pregunta.Pertenece = (MRModel.EN.EncuestaEN)session.Load (typeof(MRModel.EN.EncuestaEN), pregunta.Pertenece.Id);
+                        pregunta.Pertenece = (MouseRidersGenNHibernate.EN.MouseRiders.EncuestaEN)session.Load (typeof(MouseRidersGenNHibernate.EN.MouseRiders.EncuestaEN), pregunta.Pertenece.Id);
 
                         pregunta.Pertenece.Tiene
                         .Add (pregunta);
@@ -136,9 +136,9 @@ public int CrearPregunta (PreguntaEN pregunta)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in PreguntaCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in PreguntaCAD.", ex);
         }
 
 
@@ -168,9 +168,9 @@ public void ModificarPregunta (PreguntaEN pregunta)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in PreguntaCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in PreguntaCAD.", ex);
         }
 
 
@@ -192,9 +192,9 @@ public void BorrarPregunta (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in PreguntaCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in PreguntaCAD.", ex);
         }
 
 

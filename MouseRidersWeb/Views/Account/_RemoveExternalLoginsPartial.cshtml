@@ -1,11 +1,11 @@
-﻿@model ICollection<MRWeb.Models.ExternalLogin>
+﻿@model ICollection<MouseRidersWeb.Models.ExternalLogin>
 
 @if (Model.Count > 0)
 {
     <h3>Inicios de sesión externos registrados</h3>
     <table>
         <tbody>
-        @foreach (MRWeb.Models.ExternalLogin externalLogin in Model)
+        @foreach (MouseRidersWeb.Models.ExternalLogin externalLogin in Model)
         {
             <tr>
                 <td>@externalLogin.ProviderDisplayName</td>

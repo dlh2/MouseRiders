@@ -1,13 +1,13 @@
 
 using System;
 using System.Text;
-using MRModel.CEN;
+using MouseRidersGenNHibernate.CEN.MouseRiders;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MRModel.EN;
-using MRModel.Exceptions;
+using MouseRidersGenNHibernate.EN.MouseRiders;
+using MouseRidersGenNHibernate.Exceptions;
 
 
 /*
@@ -15,7 +15,7 @@ using MRModel.Exceptions;
  *
  */
 
-namespace MRModel.CAD
+namespace MouseRidersGenNHibernate.CAD.MouseRiders
 {
 public partial class ComentarioCAD : BasicCAD, IComentarioCAD
 {
@@ -43,9 +43,9 @@ public ComentarioEN ReadOIDDefault (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in ComentarioCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in ComentarioCAD.", ex);
         }
 
 
@@ -74,9 +74,9 @@ public System.Collections.Generic.IList<ComentarioEN> ReadAllDefault (int first,
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in ComentarioCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in ComentarioCAD.", ex);
         }
 
         return result;
@@ -110,9 +110,9 @@ public void ModifyDefault (ComentarioEN comentario)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in ComentarioCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in ComentarioCAD.", ex);
         }
 
 
@@ -135,9 +135,9 @@ public int CrearComentario (ComentarioEN comentario)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in ComentarioCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in ComentarioCAD.", ex);
         }
 
 
@@ -173,9 +173,9 @@ public void ModificarComentario (ComentarioEN comentario)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in ComentarioCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in ComentarioCAD.", ex);
         }
 
 
@@ -197,9 +197,9 @@ public void BorrarComentario (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in ComentarioCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in ComentarioCAD.", ex);
         }
 
 
@@ -211,12 +211,12 @@ public void BorrarComentario (int id
 
 public void RelacionaArticulo (int p_Comentario_OID, int p_pertenece_OID)
 {
-        MRModel.EN.ComentarioEN comentarioEN = null;
+        MouseRidersGenNHibernate.EN.MouseRiders.ComentarioEN comentarioEN = null;
         try
         {
                 SessionInitializeTransaction ();
                 comentarioEN = (ComentarioEN)session.Load (typeof(ComentarioEN), p_Comentario_OID);
-                comentarioEN.Pertenece = (MRModel.EN.ArticuloEN)session.Load (typeof(MRModel.EN.ArticuloEN), p_pertenece_OID);
+                comentarioEN.Pertenece = (MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN)session.Load (typeof(MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN), p_pertenece_OID);
 
                 comentarioEN.Pertenece.Tiene.Add (comentarioEN);
 
@@ -228,9 +228,9 @@ public void RelacionaArticulo (int p_Comentario_OID, int p_pertenece_OID)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in ComentarioCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in ComentarioCAD.", ex);
         }
 
 
@@ -242,12 +242,12 @@ public void RelacionaArticulo (int p_Comentario_OID, int p_pertenece_OID)
 
 public void RelacionaHilo (int p_Comentario_OID, int p_pertenece_a_OID)
 {
-        MRModel.EN.ComentarioEN comentarioEN = null;
+        MouseRidersGenNHibernate.EN.MouseRiders.ComentarioEN comentarioEN = null;
         try
         {
                 SessionInitializeTransaction ();
                 comentarioEN = (ComentarioEN)session.Load (typeof(ComentarioEN), p_Comentario_OID);
-                comentarioEN.Pertenece_a = (MRModel.EN.HiloEN)session.Load (typeof(MRModel.EN.HiloEN), p_pertenece_a_OID);
+                comentarioEN.Pertenece_a = (MouseRidersGenNHibernate.EN.MouseRiders.HiloEN)session.Load (typeof(MouseRidersGenNHibernate.EN.MouseRiders.HiloEN), p_pertenece_a_OID);
 
                 comentarioEN.Pertenece_a.Contiene.Add (comentarioEN);
 
@@ -259,9 +259,9 @@ public void RelacionaHilo (int p_Comentario_OID, int p_pertenece_a_OID)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in ComentarioCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in ComentarioCAD.", ex);
         }
 
 
@@ -290,9 +290,9 @@ public int NumComentsArticulo (int ? p_id)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in ComentarioCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in ComentarioCAD.", ex);
         }
 
 
@@ -322,9 +322,9 @@ public int NumComentsHilo (int ? p_id)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in ComentarioCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in ComentarioCAD.", ex);
         }
 
 

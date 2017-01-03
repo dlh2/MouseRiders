@@ -1,16 +1,16 @@
-﻿using MRModel.CAD;
-using MRModel.CEN;
-using MRModel.EN;
-using MRModel.Enumerated;
-using MRWeb.Assembler;
-using MRWeb.DTO;
+﻿using MouseRidersGenNHibernate.CAD.MouseRiders;
+using MouseRidersGenNHibernate.CEN.MouseRiders;
+using MouseRidersGenNHibernate.EN.MouseRiders;
+using MouseRidersGenNHibernate.Enumerated.MouseRiders;
+using MouseRidersWeb.Assembler;
+using MouseRidersWeb.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MRWeb.Controllers
+namespace MouseRidersWeb.Controllers
 {
     public class SeccionController : BasicController
     {

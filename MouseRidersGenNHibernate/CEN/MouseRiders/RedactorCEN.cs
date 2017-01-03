@@ -7,13 +7,13 @@ using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MRModel.Exceptions;
+using MouseRidersGenNHibernate.Exceptions;
 
-using MRModel.EN;
-using MRModel.CAD;
+using MouseRidersGenNHibernate.EN.MouseRiders;
+using MouseRidersGenNHibernate.CAD.MouseRiders;
 
 
-namespace MRModel.CEN
+namespace MouseRidersGenNHibernate.CEN.MouseRiders
 {
 /*
  *      Definition of the class RedactorCEN

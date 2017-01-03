@@ -7,13 +7,13 @@ using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MRModel.Exceptions;
+using MouseRidersGenNHibernate.Exceptions;
 
-using MRModel.EN;
-using MRModel.CAD;
+using MouseRidersGenNHibernate.EN.MouseRiders;
+using MouseRidersGenNHibernate.CAD.MouseRiders;
 
 
-namespace MRModel.CEN
+namespace MouseRidersGenNHibernate.CEN.MouseRiders
 {
 /*
  *      Definition of the class BloqueoCEN
@@ -46,24 +46,24 @@ public int CrearBloqueo (System.Collections.Generic.IList<int> p_contiene, int p
         //Initialized BloqueoEN
         bloqueoEN = new BloqueoEN ();
 
-        bloqueoEN.Contiene = new System.Collections.Generic.List<MRModel.EN.DenunciaEN>();
+        bloqueoEN.Contiene = new System.Collections.Generic.List<MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN>();
         if (p_contiene != null) {
                 foreach (int item in p_contiene) {
-                        MRModel.EN.DenunciaEN en = new MRModel.EN.DenunciaEN ();
+                        MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN en = new MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN ();
                         en.Id = item;
                         bloqueoEN.Contiene.Add (en);
                 }
         }
 
         else{
-                bloqueoEN.Contiene = new System.Collections.Generic.List<MRModel.EN.DenunciaEN>();
+                bloqueoEN.Contiene = new System.Collections.Generic.List<MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN>();
         }
 
 
         if (p_pertenece != -1) {
                 // El argumento p_pertenece -> Property pertenece es oid = false
                 // Lista de oids id
-                bloqueoEN.Pertenece = new MRModel.EN.UsuarioEN ();
+                bloqueoEN.Pertenece = new MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN ();
                 bloqueoEN.Pertenece.Id = p_pertenece;
         }
 

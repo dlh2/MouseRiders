@@ -1,4 +1,4 @@
-﻿using MRWeb.Models;
+﻿using MouseRidersWeb.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 
 // Definición clase ControladorNotificacionesDTO
-namespace MRWeb.DTO
+namespace MouseRidersWeb.DTO
 {
     public class ControladorNotificacionesDTO
     {

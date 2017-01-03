@@ -7,13 +7,13 @@ using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MRModel.Exceptions;
+using MouseRidersGenNHibernate.Exceptions;
 
-using MRModel.EN;
-using MRModel.CAD;
+using MouseRidersGenNHibernate.EN.MouseRiders;
+using MouseRidersGenNHibernate.CAD.MouseRiders;
 
 
-namespace MRModel.CEN
+namespace MouseRidersGenNHibernate.CEN.MouseRiders
 {
 /*
  *      Definition of the class RecompensaCEN
@@ -94,7 +94,7 @@ public System.Collections.Generic.IList<RecompensaEN> ReadAll (int first, int si
         list = _IRecompensaCAD.ReadAll (first, size);
         return list;
 }
-public System.Collections.Generic.IList<MRModel.EN.RecompensaEN> ReadFilter (string p_nombre)
+public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.RecompensaEN> ReadFilter (string p_nombre)
 {
         return _IRecompensaCAD.ReadFilter (p_nombre);
 }

@@ -1,8 +1,8 @@
 
 using System;
-using MRModel.EN;
+using MouseRidersGenNHibernate.EN.MouseRiders;
 
-namespace MRModel.CAD
+namespace MouseRidersGenNHibernate.CAD.MouseRiders
 {
 public partial interface ISeccionCAD
 {
@@ -29,6 +29,6 @@ SeccionEN ReadOID (int seccion
 System.Collections.Generic.IList<SeccionEN> ReadAll (int first, int size);
 
 
-MRModel.EN.SeccionEN ReadFilter (string p_nombre);
+MouseRidersGenNHibernate.EN.MouseRiders.SeccionEN ReadFilter (string p_nombre);
 }
 }

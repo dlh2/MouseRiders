@@ -1,5 +1,5 @@
-﻿using MRModel.EN;
-using MRModel.Enumerated;
+﻿using MouseRidersGenNHibernate.EN.MouseRiders;
+using MouseRidersGenNHibernate.Enumerated.MouseRiders;
 using System;
 using System.Collections.Generic;
 using System.Linq;

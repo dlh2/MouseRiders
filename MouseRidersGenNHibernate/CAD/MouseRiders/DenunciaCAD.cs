@@ -1,13 +1,13 @@
 
 using System;
 using System.Text;
-using MRModel.CEN;
+using MouseRidersGenNHibernate.CEN.MouseRiders;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
 using NHibernate.Exceptions;
-using MRModel.EN;
-using MRModel.Exceptions;
+using MouseRidersGenNHibernate.EN.MouseRiders;
+using MouseRidersGenNHibernate.Exceptions;
 
 
 /*
@@ -15,7 +15,7 @@ using MRModel.Exceptions;
  *
  */
 
-namespace MRModel.CAD
+namespace MouseRidersGenNHibernate.CAD.MouseRiders
 {
 public partial class DenunciaCAD : BasicCAD, IDenunciaCAD
 {
@@ -43,9 +43,9 @@ public DenunciaEN ReadOIDDefault (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in DenunciaCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in DenunciaCAD.", ex);
         }
 
 
@@ -74,9 +74,9 @@ public System.Collections.Generic.IList<DenunciaEN> ReadAllDefault (int first, i
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in DenunciaCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in DenunciaCAD.", ex);
         }
 
         return result;
@@ -105,9 +105,9 @@ public void ModifyDefault (DenunciaEN denuncia)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in DenunciaCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in DenunciaCAD.", ex);
         }
 
 
@@ -125,14 +125,14 @@ public int CrearDenuncia (DenunciaEN denuncia)
                 SessionInitializeTransaction ();
                 if (denuncia.Es_creada != null) {
                         // Argumento OID y no colección.
-                        denuncia.Es_creada = (MRModel.EN.UsuarioEN)session.Load (typeof(MRModel.EN.UsuarioEN), denuncia.Es_creada.Id);
+                        denuncia.Es_creada = (MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN)session.Load (typeof(MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN), denuncia.Es_creada.Id);
 
                         denuncia.Es_creada.CreaD
                         .Add (denuncia);
                 }
                 if (denuncia.Es_recibida != null) {
                         // Argumento OID y no colección.
-                        denuncia.Es_recibida = (MRModel.EN.UsuarioEN)session.Load (typeof(MRModel.EN.UsuarioEN), denuncia.Es_recibida.Id);
+                        denuncia.Es_recibida = (MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN)session.Load (typeof(MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN), denuncia.Es_recibida.Id);
 
                         denuncia.Es_recibida.RecibeD
                         .Add (denuncia);
@@ -144,9 +144,9 @@ public int CrearDenuncia (DenunciaEN denuncia)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in DenunciaCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in DenunciaCAD.", ex);
         }
 
 
@@ -176,9 +176,9 @@ public void ModificarDenuncia (DenunciaEN denuncia)
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in DenunciaCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in DenunciaCAD.", ex);
         }
 
 
@@ -200,9 +200,9 @@ public void BorrarDenuncia (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in DenunciaCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in DenunciaCAD.", ex);
         }
 
 
@@ -228,9 +228,9 @@ public DenunciaEN ReadOID (int id
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in DenunciaCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in DenunciaCAD.", ex);
         }
 
 
@@ -258,9 +258,9 @@ public System.Collections.Generic.IList<DenunciaEN> ReadAll (int first, int size
 
         catch (Exception ex) {
                 SessionRollBack ();
-                if (ex is MRModel.Exceptions.ModelException)
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
                         throw ex;
-                throw new MRModel.Exceptions.DataLayerException ("Error in DenunciaCAD.", ex);
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in DenunciaCAD.", ex);
         }
 
 

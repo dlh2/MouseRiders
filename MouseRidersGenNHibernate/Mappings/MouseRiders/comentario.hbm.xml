@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
 		                   assembly="MouseRidersGenNHibernate"
-		                   namespace="MRModel.EN">
+		                   namespace="MouseRidersGenNHibernate.EN.MouseRiders">
 		    
 		    
 			
@@ -32,13 +32,13 @@
 			
 			
 		  			
-						<many-to-one name="Pertenece" class="MRModel.EN.ArticuloEN" >	
+						<many-to-one name="Pertenece" class="MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN" >	
 								<column name="FK_idArticulo_idArticulo"/> 
 						</many-to-one>
 											 					
 			
 		  			
-						<many-to-one name="Pertenece_a" class="MRModel.EN.HiloEN" >	
+						<many-to-one name="Pertenece_a" class="MouseRidersGenNHibernate.EN.MouseRiders.HiloEN" >	
 								<column name="FK_idHilo_idHilo"/> 
 						</many-to-one>
 											 					
