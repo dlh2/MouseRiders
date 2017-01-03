@@ -1,6 +1,8 @@
 ﻿using MouseRidersGenNHibernate.CAD.MouseRiders;
 using MouseRidersGenNHibernate.CEN.MouseRiders;
 using MouseRidersGenNHibernate.EN.MouseRiders;
+using MouseRidersWeb.Assembler;
+using MouseRidersWeb.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,8 +21,11 @@ namespace MouseRidersWeb.Controllers
             SessionInitialize();
             HiloCAD cCAD = new HiloCAD(session);
             IList<HiloEN> result = cCAD.ReadAllDefault(0, 10);
+            IList<HiloDTO> resultfinal = new List<HiloDTO>();
+            foreach (HiloEN entry in result)
+                resultfinal.Add(new HiloAssembler().Convert(entry));
             SessionClose();
-            return View(result);
+            return View(resultfinal);
         }
 
         //
@@ -31,8 +36,9 @@ namespace MouseRidersWeb.Controllers
             SessionInitialize();
             HiloCAD cCAD = new HiloCAD(session);
             HiloEN result = cCAD.ReadOIDDefault(id);
+            HiloDTO resultfinal = new HiloAssembler().ConvertConComentario_Hilo(result);
             SessionClose();
-            return View(result);
+            return View(resultfinal);
         }
 
 
@@ -42,7 +48,8 @@ namespace MouseRidersWeb.Controllers
         public ActionResult Create()
         {
             HiloEN hilo = new HiloEN();
-            return View(hilo);
+            HiloDTO result = new HiloAssembler().Convert(hilo);
+            return View(result);
         }
 
         //
@@ -56,8 +63,8 @@ namespace MouseRidersWeb.Controllers
                 HiloCAD cCAD = new HiloCAD();
                 HiloCEN cen = new HiloCEN(cCAD);
                 DateTime p_fecha = DateTime.Now;
-                cen.CrearHilo(hilo.Creador,p_fecha,hilo.NumComentarios,hilo.Titulo);
-                return RedirectToAction("Details", new { id = hilo.Id });
+                int id=cen.CrearHilo(hilo.Creador,p_fecha,hilo.NumComentarios,hilo.Titulo);
+                return RedirectToAction("Details", new { id = id });
             }
             catch
             {
@@ -72,7 +79,8 @@ namespace MouseRidersWeb.Controllers
         {
             HiloCAD cCAD = new HiloCAD();
             HiloEN result = cCAD.ReadOIDDefault(id);
-            return View(result);
+            HiloDTO resultfinal = new HiloAssembler().Convert(result);
+            return View(resultfinal);
         }
 
         //
@@ -102,10 +110,10 @@ namespace MouseRidersWeb.Controllers
             SessionInitialize();
             HiloCAD cCAD = new HiloCAD(session);
             HiloEN result = cCAD.ReadOIDDefault(id);
+            HiloDTO resultfinal = new HiloAssembler().Convert(result);
             SessionClose();
-            new HiloCEN().BorrarHilo(id);
 
-            return View(result);
+            return View(resultfinal);
         }
 
         //
@@ -116,10 +124,7 @@ namespace MouseRidersWeb.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
-
-
-
+                new HiloCEN().BorrarHilo(hilo.Id);
                 return RedirectToAction("Index");
             }
             catch

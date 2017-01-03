@@ -380,7 +380,6 @@
     <Content Include="Images\orderedList7.png" />
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
-    <Content Include="Views\Mensaje\Create.cshtml" />
     <Content Include="Views\Mensaje\PorTipo.cshtml" />
     <Content Include="Views\Comentario\Index.cshtml" />
     <Content Include="Views\Comentario\Details.cshtml" />
@@ -410,6 +409,17 @@
     <Content Include="Views\Articulo\Edit.cshtml" />
     <Content Include="Views\Articulo\Details.cshtml" />
     <Content Include="Views\Articulo\Delete.cshtml" />
+    <Content Include="Views\Hilo\Details.cshtml" />
+    <Content Include="Views\Hilo\Index.cshtml" />
+    <Content Include="Views\Hilo\Create.cshtml" />
+    <Content Include="Views\Hilo\Edit.cshtml" />
+    <Content Include="Views\Hilo\Delete.cshtml" />
+    <Content Include="Views\Pregunta\Index.cshtml" />
+    <Content Include="Views\Pregunta\Edit.cshtml" />
+    <Content Include="Views\Pregunta\Delete.cshtml" />
+    <Content Include="Views\Respuesta\Index.cshtml" />
+    <Content Include="Views\ControladorNotificaciones\Create.cshtml" />
+    <Content Include="Views\Mensaje\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

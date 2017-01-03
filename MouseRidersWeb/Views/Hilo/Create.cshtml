@@ -1,4 +1,4 @@
-﻿@model MouseRidersWeb.DTO.MensajeDTO
+﻿@model MouseRidersWeb.DTO.HiloDTO
 
 @{
     ViewBag.Title = "Create";
@@ -12,30 +12,30 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>MensajeDTO</legend>
+        <legend>HiloDTO</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Asunto)
+            @Html.LabelFor(model => model.Titulo)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Asunto)
-            @Html.ValidationMessageFor(model => model.Asunto)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Texto)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Texto)
-            @Html.ValidationMessageFor(model => model.Texto)
+            @Html.EditorFor(model => model.Titulo)
+            @Html.ValidationMessageFor(model => model.Titulo)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Adjunto)
+            @Html.LabelFor(model => model.Creador)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Adjunto)
-            @Html.ValidationMessageFor(model => model.Adjunto)
+            @Html.EditorFor(model => model.Creador)
+            @Html.ValidationMessageFor(model => model.Creador)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NumComentarios)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NumComentarios)
+            @Html.ValidationMessageFor(model => model.NumComentarios)
         </div>
 
         <p>

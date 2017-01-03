@@ -1,6 +1,7 @@
 ﻿using MouseRidersGenNHibernate.CAD.MouseRiders;
 using MouseRidersGenNHibernate.CEN.MouseRiders;
 using MouseRidersGenNHibernate.EN.MouseRiders;
+using MouseRidersWeb.Assembler;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,52 +20,14 @@ namespace MouseRidersWeb.Controllers
             SessionInitialize();
             PreguntaCAD cCAD = new PreguntaCAD(session);
             IList<PreguntaEN> result = cCAD.ReadAllDefault(0, 999);
+            IList<PreguntaDTO> resultfinal = new List<PreguntaDTO>();
+            foreach (PreguntaEN entry in result)
+                resultfinal.Add(new PreguntaAssembler().Convert(entry));
             SessionClose();
-            return View(result);
+            return View(resultfinal);
         }
 
-        //
-        // GET: /Pregunta/Details/5
-
-        public ActionResult Details(int id)
-        {
-            SessionInitialize();
-            PreguntaCAD cCAD = new PreguntaCAD(session);
-            PreguntaEN result = cCAD.ReadOIDDefault(id);
-            SessionClose();
-            return View(result);
-        }
-
-        //
-        // GET: /Pregunta/Create
-
-        public ActionResult Create()
-        {
-            PreguntaEN usu = new PreguntaEN();
-            return View(usu);
-        }
-
-        //
-        // POST: /Pregunta/Create
-
-        [HttpPost]
-        public ActionResult Create(PreguntaEN preg)
-        {
-            try
-            {
-                PreguntaCAD cCAD = new PreguntaCAD();
-                PreguntaCEN cen = new PreguntaCEN(cCAD);
-                DateTime p_fecha = DateTime.Now;
-                cen.CrearPregunta(preg.Pregunta, preg.Tipo, preg.Pertenece.Id);
-
-                return RedirectToAction("Details", new { id = preg.Id });
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
+       
         //
         // GET: /Pregunta/Edit/5
 
@@ -72,7 +35,8 @@ namespace MouseRidersWeb.Controllers
         {
             PreguntaCAD cCAD = new PreguntaCAD();
             PreguntaEN result = cCAD.ReadOIDDefault(id);
-            return View(result);
+            PreguntaDTO resultfinal = new PreguntaAssembler().Convert(result);
+            return View(resultfinal);
         }
 
         //
@@ -102,10 +66,10 @@ namespace MouseRidersWeb.Controllers
             SessionInitialize();
             PreguntaCAD cCAD = new PreguntaCAD(session);
             PreguntaEN result = cCAD.ReadOIDDefault(id);
+            PreguntaDTO resultfinal = new PreguntaAssembler().Convert(result);
             SessionClose();
-            new PreguntaCEN().BorrarPregunta(id);
 
-            return View(result);
+            return View(resultfinal);
         }
 
         //
@@ -116,8 +80,8 @@ namespace MouseRidersWeb.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
-
+                
+                new PreguntaCEN().BorrarPregunta(pregu.Id);
                 return RedirectToAction("Index");
             }
             catch
