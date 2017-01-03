@@ -7,9 +7,9 @@
 @{
     int rolSession = 0;
     bool noSession;
-    if (@HttpContext.Current.Session["user_rol"] != null)
+    if (@Session["user_rol"] != null)
     {
-        noSession = Int32.TryParse(@HttpContext.Current.Session["user_rol"].ToString(), out rolSession);
+        noSession = Int32.TryParse(@Session["user_rol"].ToString(), out rolSession);
     }
     else
     {
@@ -19,19 +19,20 @@
 <h2>Index</h2>
 
 
-  
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 
-@if(Model==null){
+@if (Model == null)
+{
     @Html.Partial("_Comentario", new List<MouseRidersWeb.DTO.ComentarioDTO>());
 }
 else
 {
     @Html.Partial("_Comentario", Model);
 }
-@using (Ajax.BeginForm("Index", "Comentario", new {},
+@using (Ajax.BeginForm("Index", "Comentario", new { },
     new AjaxOptions
     {
         HttpMethod = "get",
@@ -61,12 +62,12 @@ else
             Starrr = (function () {
                 Starrr.prototype.defaults = {
                     rating: void 0,
-                    numStars: 5,
-                    readOnly: false,
+                    numStars: 5
+
                 };
 
                 function Starrr($el, options) {
-                    var  _ref = this.defaults, _this = this;
+                    var _ref = this.defaults, _this = this;
                     this.options = $.extend({}, this.defaults, options);
                     this.$el = $el;
                     var i, _;
@@ -78,18 +79,24 @@ else
                     }
                     this.createStars();
                     this.syncRating();
-                    if (this.options.readOnly) {
-                      return;
+                    @if (rolSession == 2)
+                    {
+                        <text>  return null;</text>
                     }
-                    this.$el.on('mouseover.starrr', 'span', function (e) {
-                        return _this.syncRating(_this.$el.find('span').index(e.currentTarget) + 1);
-                    });
-                    this.$el.on('mouseout.starrr', function () {
-                        return _this.syncRating();
-                    });
-                    this.$el.on('click.starrr', 'span', function (e) {
-                        return _this.setRating(_this.$el.find('span').index(e.currentTarget) + 1);
-                    });
+                    else
+                    {
+                        <text>
+                            this.$el.on('mouseover.starrr', 'span', function (e) {
+                                return _this.syncRating(_this.$el.find('span').index(e.currentTarget) + 1);
+                            });
+                            this.$el.on('mouseout.starrr', function () {
+                                return _this.syncRating();
+                            });
+                            this.$el.on('click.starrr', 'span', function (e) {
+                                return _this.setRating(_this.$el.find('span').index(e.currentTarget) + 1);
+                            });
+                        </text>
+                    }
                 }
 
                 Starrr.prototype.createStars = function () {
@@ -156,11 +163,11 @@ else
         $(function () {
             @if (!noSession){
                 @:return $(".starrr").starrr();
-            }
+                                                                                                        }
             else
-            { 
-                @:return $(".starrr").starrr({readOnly: true});
-            }
+            {
+                @:return $(".starrr").starrr({ readOnly: true });
+                                                                                                        }
         });
     }
 </script>
@@ -173,7 +180,7 @@ else
         var clickedPage = $(this).html().valueOf() - 1;
         $("input:hidden[name=minimo]").val(clickedPage);
         $(".pagination").parent("form").submit();
-        
+
     });
     $(document).ajaxStop(function () {
         // 0 === $.active
@@ -183,18 +190,19 @@ else
 </script>
 <div>
 
-@if (noSession)
-{
-    using (Html.BeginForm("FastCreate","Comentario")) {
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
-        @Html.Label("Comentario","Comentario rápido")
-    <br />
-        //TextArea
-        @Html.TextArea("Comentario", new { rows = 4, columns = 200, @style = "width: 450px;", @placeholder = @Html.DisplayNameFor(model => model.Contenido) })
-    //TODO: Hacerlo que sea por parametro de sesion
-        <input type="hidden" name="usuario" value="usuario@gmail.com">
-        <input type="submit" value="Create" />
+    @if (noSession)
+    {
+        using (Html.BeginForm("FastCreate", "Comentario"))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            @Html.Label("Comentario", "Comentario rápido")
+            <br />
+            //TextArea
+            @Html.TextArea("Comentario", new { rows = 4, columns = 200, @style = "width: 450px;", @placeholder = @Html.DisplayNameFor(model => model.Contenido) })
+            //TODO: Hacerlo que sea por parametro de sesion
+            <input type="hidden" name="usuario" value="usuario@gmail.com">
+            <input type="submit" value="Create" />
+        }
     }
-}
 </div>
