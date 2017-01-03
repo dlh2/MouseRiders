@@ -168,7 +168,6 @@ namespace MouseRidersWeb.Controllers
             ComentarioEN resultEN = cCAD.ReadOIDDefault(id);
             ComentarioDTO result = new ComentarioAssembler().Convert(resultEN);
             SessionClose();
-            
 
             return View(result);
         }

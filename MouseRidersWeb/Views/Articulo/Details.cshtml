@@ -79,6 +79,12 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.Descripcion)
     </div>
+    @foreach (var item in Model.Comentario)
+    {
+        <p>
+            @Html.DisplayFor(modelItem => item.Contenido)
+        </p>
+    }
 </fieldset>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
