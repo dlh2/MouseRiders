@@ -27,10 +27,14 @@ namespace MouseRidersWeb.Assembler
         }
         public RecompensaDTO ConvertConComentario_Articulo(RecompensaEN us)
         {
-            RecompensaDTO usDTO = this.Convert(us);
+            RecompensaDTO usDTO = null;
             if (us != null)
             {
-                usDTO.Obtiene = null;
+                usDTO = this.Convert(us);
+                if (usDTO != null)
+                {
+                    usDTO.Obtiene = null;
+                }
                 IList<UsuarioEN> Recibe = us.Otorgada;
                 if (Recibe != null)
                 {

@@ -26,10 +26,14 @@ namespace MouseRidersWeb.Assembler
         }
         public PermisoDTO ConvertConComentario_Articulo(PermisoEN us)
         {
-            PermisoDTO usDTO = this.Convert(us);
+            PermisoDTO usDTO = null;
             if (us != null)
             {
-                usDTO.Tiene = null;
+                usDTO = this.Convert(us);
+                if (usDTO != null)
+                {
+                    usDTO.Tiene = null;
+                }
                 IList<UsuarioEN> Recibe = us.Pertenece;
                 if (Recibe != null)
                 {
