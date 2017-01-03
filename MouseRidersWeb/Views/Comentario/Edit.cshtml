@@ -4,13 +4,22 @@
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 @section admin{
-@{ Response.Redirect("~/Home");}
+    @{
+        int rolSession = 0;
+        if (@Session["user_rol"] != null) { Int32.TryParse(@Session["user_rol"].ToString(), out rolSession); }
+        if (rolSession != 2)
+        {
+            Response.Redirect("~/Home");
+        }
+    }
 }
 
 <h2>Edit</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 

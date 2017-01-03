@@ -57,23 +57,27 @@ namespace MouseRidersWeb.Controllers
             return View(result);
         }
 
-        public ActionResult Login(string returnUrl)
+        public ActionResult Login()
         {
-            ViewBag.ReturnUrl = returnUrl;
-            return View();
+            UsuarioDTO result = new UsuarioDTO();
+            return View(result);
         }
 
         [HttpPost]
-        public ActionResult Login(LoginModel model, string returnUrl)
+        public ActionResult Login(UsuarioEN model)
         {
-            if (ModelState.IsValid && WebSecurity.Login(model.NombreUsuario, model.Password, persistCookie: model.RememberMe))
-            {
-                //return RedirectToLocal(returnUrl);
-            }
 
-            // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
-            ModelState.AddModelError("", "El nombre de usuario o la contraseña especificados son incorrectos.");
-            return View(model);
+            //int user_rol = new UsuarioCEN().Autenticar(model.Nombreusuario,model.Contrasenya);
+            int user_rol = 2;
+            if (user_rol == -1)
+            {
+                // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
+                ModelState.AddModelError("", "El nombre de usuario o la contraseña especificados son incorrectos.");
+                return View(new UsuarioAssembler().Convert(model));
+            }
+            Session["user_rol"] = "" + user_rol;
+            Session["user_name"] = model.Nombreusuario;
+            return RedirectToAction("Index","Home");
         }
 
         //
@@ -112,7 +116,8 @@ namespace MouseRidersWeb.Controllers
         public ActionResult Edit(int id)
         {
             UsuarioCAD cCAD = new UsuarioCAD();
-            UsuarioEN result = cCAD.ReadOIDDefault(id);
+            UsuarioEN resultEN = cCAD.ReadOIDDefault(id);
+            UsuarioDTO result = new UsuarioAssembler().Convert(resultEN);
             return View(result);
         }
 
