@@ -21,7 +21,12 @@ namespace MouseRidersWeb.Controllers
         {
             SessionInitialize();
             ArticuloCAD cCAD = new ArticuloCAD(session);
-            IList<ArticuloEN> result = cCAD.ReadAllDefault(0, 10);
+            IList<ArticuloEN> resultEN = cCAD.ReadAllDefault(0, 10);
+            IList<ArticuloDTO> result = new List<ArticuloDTO>();
+            for (int i = 0; i < resultEN.Count; i++)
+            {
+                result.Add(new ArticuloAssembler().Convert(resultEN[i]));
+            }
             SessionClose();
             return View(result);
         }
@@ -31,7 +36,12 @@ namespace MouseRidersWeb.Controllers
         {
             SessionInitialize();
             ArticuloCAD cCAD = new ArticuloCAD(session);
-            IList<ArticuloEN> result = cCAD.ReadAllDefault(num, 1);
+            IList<ArticuloEN> resultEN = cCAD.ReadAllDefault(num, 1);
+            IList<ArticuloDTO> result = new List<ArticuloDTO>();
+            for (int i = 0; i < resultEN.Count; i++)
+            {
+                result.Add(new ArticuloAssembler().Convert(resultEN[i]));
+            }
             SessionClose();
             return PartialView(result);
         }
@@ -45,17 +55,18 @@ namespace MouseRidersWeb.Controllers
         {
             SessionInitialize();
             ArticuloCAD cCAD = new ArticuloCAD(session);
-            ArticuloEN result = cCAD.ReadOIDDefault(id);
-            ArticuloDTO resultfinal = new ArticuloAssembler().ConvertConComentario_Articulo(result);
+            ArticuloEN resultEN = cCAD.ReadOIDDefault(id);
+            ArticuloDTO result = new ArticuloAssembler().ConvertConComentario_Articulo(resultEN);
             SessionClose();
-            return View(resultfinal);
+            return View(result);
         }
 
         public ActionResult Contenido(int id)
         {
             SessionInitialize();
             ArticuloCAD cCAD = new ArticuloCAD(session);
-            ArticuloEN result = cCAD.ReadOIDDefault(id);
+            ArticuloEN resultEN = cCAD.ReadOIDDefault(id);
+            ArticuloDTO result = new ArticuloAssembler().ConvertConComentario_Articulo(resultEN);
             SessionClose();
             return View(result);
         }

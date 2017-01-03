@@ -11,70 +11,70 @@
     <legend>ArticuloDTO</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Titulo)
+        @Html.DisplayNameFor(model => model.Titulo)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Titulo)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Fecha)
+        @Html.DisplayNameFor(model => model.Fecha)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Fecha)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Autor)
+        @Html.DisplayNameFor(model => model.Autor)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Autor)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Puntuacion)
+        @Html.DisplayNameFor(model => model.Puntuacion)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Puntuacion)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Contenido)
+        @Html.DisplayNameFor(model => model.Contenido)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Contenido)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.ContenidoDescargable)
+        @Html.DisplayNameFor(model => model.ContenidoDescargable)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.ContenidoDescargable)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Contador)
+        @Html.DisplayNameFor(model => model.Contador)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Contador)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Subtitulo)
+        @Html.DisplayNameFor(model => model.Subtitulo)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Subtitulo)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Portada)
+        @Html.DisplayNameFor(model => model.Portada)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Portada)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Descripcion)
+        @Html.DisplayNameFor(model => model.Descripcion)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Descripcion)
@@ -82,11 +82,23 @@
     @foreach (var item in Model.Comentario)
     {
         <p>
+            @Html.DisplayFor(modelItem => item.Id)
+        </p>
+        <p>
             @Html.DisplayFor(modelItem => item.Contenido)
+        </p>
+        <p>
+            @Html.DisplayFor(modelItem => item.Creador)
+        </p>
+        <p>
+            @Html.DisplayFor(modelItem => item.Valoracion)
+        </p>
+        <p>
+            @Html.DisplayFor(modelItem => item.Fecha)
         </p>
     }
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
