@@ -28,10 +28,14 @@ namespace MouseRidersWeb.Assembler
         }
         public HiloDTO ConvertConComentario_Hilo(HiloEN us)
         {
-            HiloDTO usDTO = this.Convert(us);
+            HiloDTO usDTO = null;
             if (us != null)
             {
-                usDTO.Comentario = null;
+                usDTO = this.Convert(us);
+                if (usDTO != null)
+                {
+                    usDTO.Comentario = null;
+                }
                 IList<ComentarioEN> Recibe = us.Contiene;
                 if (Recibe != null)
                 {

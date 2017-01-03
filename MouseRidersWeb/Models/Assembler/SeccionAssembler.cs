@@ -25,10 +25,14 @@ namespace MouseRidersWeb.Assembler
         }
         public SeccionDTO ConvertConArticulo(SeccionEN sec)
         {
-            SeccionDTO secDTO = this.Convert(sec);
+            SeccionDTO secDTO = null;
             if (sec != null)
             {
-                secDTO.Tiene = null;
+                secDTO = this.Convert(sec);
+                if (secDTO != null)
+                {
+                    secDTO.Tiene = null;
+                }
                 IList<ArticuloEN> Recibe = sec.Tiene;
                 if (Recibe != null)
                 {

@@ -26,10 +26,14 @@ namespace MouseRidersWeb.Assembler
         }
         public BloqueoDTO ConvertConDenuncia(BloqueoEN us)
         {
-            BloqueoDTO usDTO = this.Convert(us);
+            BloqueoDTO usDTO = null;
             if (us != null)
             {
+                usDTO = this.Convert(us);
+                if(usDTO !=null)
+                {
                 usDTO.Contiene = null;
+                }
                 IList<DenunciaEN> Recibe = us.Contiene;
                 if (Recibe != null)
                 {
