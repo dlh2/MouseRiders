@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 
 // Definición clase PreguntaDTO
-namespace MouseRidersGenNHibernate.EN.MouseRiders
+namespace MouseRidersWeb.DTO
 {
     public class PreguntaDTO
     {
@@ -43,7 +43,7 @@ namespace MouseRidersGenNHibernate.EN.MouseRiders
         [Display(Prompt = "Encuesta", Description = "Encuesta a la que pertenece la pregunta", Name = "EncuestaN ")]
         [Required(ErrorMessage = "Debe indicar la encuesta en la que aparece esta pregunta")]
         [DataType(DataType.Currency, ErrorMessage = "El dato introducido debe de ser una encuesta")]
-        public MouseRidersGenNHibernate.EN.MouseRiders.EncuestaDTO Pertenece { get; set; }
+        public MouseRidersWeb.DTO.EncuestaDTO Pertenece { get; set; }
 
 
         /**

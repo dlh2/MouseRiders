@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 
 // Definición clase EncuestaDTO
-namespace MouseRidersGenNHibernate.EN.MouseRiders
+namespace MouseRidersWeb.DTO
 {
     public class EncuestaDTO
     {
@@ -34,7 +34,7 @@ namespace MouseRidersGenNHibernate.EN.MouseRiders
         [Display(Prompt = "Preguntas", Description = "Preguntas de la encuesta", Name = "PreguntasN ")]
         [Required(ErrorMessage = "Debe indicar las preguntas que pertenecen a la encuesta")]
         [DataType(DataType.Currency, ErrorMessage = "El dato introducido debe de ser una lista de preguntas")]
-        public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PreguntaDTO> Tiene { get; set; }
+        public System.Collections.Generic.IList<MouseRidersWeb.DTO.PreguntaDTO> Tiene { get; set; }
 
         //private System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PreguntaDTO> tiene;
     }

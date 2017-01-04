@@ -422,6 +422,8 @@
     <Content Include="Views\Mensaje\Create.cshtml" />
     <Content Include="Views\Articulo\Index.cshtml" />
     <Content Include="Views\Seccion\_Articulo.cshtml" />
+    <Content Include="Views\Encuesta\Index.cshtml" />
+    <Content Include="Views\Busqueda\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

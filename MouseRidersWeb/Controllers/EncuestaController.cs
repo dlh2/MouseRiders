@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MouseRidersWeb.DTO;
 
 namespace MouseRidersWeb.Controllers
 {
@@ -20,8 +21,13 @@ namespace MouseRidersWeb.Controllers
             SessionInitialize();
             EncuestaCAD eCAD = new EncuestaCAD(session);
             IList<EncuestaEN> encuestaEN = eCAD.ReadAllDefault(0, 999);
+            IList<EncuestaDTO> lista = new List<EncuestaDTO>();
+            for (int i = 0; i < encuestaEN.Count; i++)
+            {
+                lista.Add(new EncuestaAssembler().ConvertConPreguntaYRespuesta(encuestaEN[i]));
+            }
             SessionClose();
-            return View(encuestaEN);
+            return View(lista);
         }
         
         //

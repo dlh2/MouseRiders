@@ -24,7 +24,7 @@ namespace MouseRidersWeb.Controllers
 
         //
         // Ajax GET: /Busqueda/
-        public ActionResult Index(String buscar, int mostrar, Nullable<DateTime> fecha, Nullable<int> valoracion)
+        public ActionResult Index(String buscar, Nullable<int> mostrar, Nullable<DateTime> fecha, Nullable<int> valoracion)
         {
             int i = 1;
             String array = "";

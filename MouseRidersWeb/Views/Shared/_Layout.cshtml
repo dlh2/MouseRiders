@@ -23,30 +23,30 @@
     @RenderSection("scripts", required: false)
     <script src="~/Scripts/bootstrap.min.js"></script>
     <style>
-       .glyphicon-star {
-	color: #e67e22;
-}
+        .glyphicon-star {
+            color: #e67e22;
+        }
 
-.glyphicon-star.half {
-	position: relative;
-}
+            .glyphicon-star.half {
+                position: relative;
+            }
 
-.glyphicon-star.half:before {
-	position: relative;
-	z-index: 9;
-	width: 47%;
-	display: block;
-	overflow: hidden;
-}
+                .glyphicon-star.half:before {
+                    position: relative;
+                    z-index: 9;
+                    width: 47%;
+                    display: block;
+                    overflow: hidden;
+                }
 
-.glyphicon-star.half:after {
-	content: '\e006';
-	position: absolute;
-	z-index: 8;
-	color: #bdc3c7;
-	top: 0;
-	left: 0;
-}
+                .glyphicon-star.half:after {
+                    content: '\e006';
+                    position: absolute;
+                    z-index: 8;
+                    color: #bdc3c7;
+                    top: 0;
+                    left: 0;
+                }
     </style>
 </head>
 <body>
@@ -67,50 +67,50 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="">Secciones</a>
+                        @Html.ActionLink("Secciones", "Index", "Seccion")
                     </li>
                     <li>
-                        <a href="">Noticias</a>
+                        @Html.ActionLink("Noticias", "Index", "Noticias")
                     </li>
                     <li>
-                        <a href="">Categorías</a>
+                        @Html.ActionLink("Foro", "Index", "Hilo")
                     </li>
                     <li>
-                        <a href="">Foro</a>
+                        @Html.ActionLink("Encuestas", "Index", "Encuesta")
                     </li>
                     <li>
-                        <a href="">Encuestas</a>
+                        @Html.ActionLink("Sobre nosotros", "Index", "Redaccion")
                     </li>
                     <li>
-                        @Html.ActionLink("Sobre nosotros", "About", "Home")
-                    </li>
-                    <li>
-                        @Html.ActionLink("Ayuda", "Contact", "Home")
+                        @Html.ActionLink("Ayuda", "Index", "Ayuda")
                     </li>
                     @{
                         int rolSession = 0;
                         bool noSession;
-                        if(@Session["user_rol"]!=null){
+                        if (@Session["user_rol"] != null)
+                        {
                             noSession = !Int32.TryParse(@Session["user_rol"].ToString(), out rolSession);
-                        } else {
+                        }
+                        else
+                        {
                             noSession = true;
                         }
                     }
                     ﻿		@if (!noSession)
                     {
                         <li>
-                            <a href="">Mi Perfil</a>
+                            @Html.ActionLink("Mi Perfil", "Details/"+0, "Usuario")
                         </li>
                     }
                     else
                     {
                         <li>
-                            <a href="">Iniciar Sesión/Registrarse</a>
+                            @Html.ActionLink("Iniciar Sesión/Registrarse", "Login", "Usuario")
                         </li>
                     }
 
                     <li>
-                        <a href="">Buscador</a>
+                        @Html.ActionLink("Buscador", "Index", "Busqueda")
                     </li>
                 </ul>
             </div>
@@ -120,92 +120,92 @@
     </nav>
     @if (!noSession)
     {
-            if (rolSession == 1)
-            { @*Usuario*@
+        if (rolSession == 1)
+        { @*Usuario*@
 
-            }
-            else if (rolSession == 2)
-            { @*Admin*@
-            <nav class="navbar navbar-inverse" role="navigation" id="second-navbar">
-                <div class="container">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <li>
-                                <a href="">AdminSubir Artículo</a>
-                            </li>
-                            <li>
-                                <a href="">Modificar Artículos</a>
-                            </li>
-                            <li>
-                                <a href="">Eliminar Artículos</a>
-                            </li>
-                            <li>
-                                <a href="">Gestión de Sugerencias</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /.navbar-collapse -->
+        }
+        else if (rolSession == 2)
+        { @*Admin*@
+        <nav class="navbar navbar-inverse" role="navigation" id="second-navbar">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="">AdminSubir Artículo</a>
+                        </li>
+                        <li>
+                            <a href="">Modificar Artículos</a>
+                        </li>
+                        <li>
+                            <a href="">Eliminar Artículos</a>
+                        </li>
+                        <li>
+                            <a href="">Gestión de Sugerencias</a>
+                        </li>
+                    </ul>
                 </div>
-                <!-- /.container -->
-            </nav>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </nav>
 
-            }
-            else if (rolSession == 3)
-            { @*Redactor*@
-            <nav class="navbar navbar-inverse" role="navigation" id="second-navbar">
-                <div class="container">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <li>
-                                <a href="">Redactor</a>
-                            </li>
-                            <li>
-                                <a href="">Modificar Artículos</a>
-                            </li>
-                            <li>
-                                <a href="">Eliminar Artículos</a>
-                            </li>
-                            <li>
-                                <a href="">Gestión de Sugerencias</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /.navbar-collapse -->
+        }
+        else if (rolSession == 3)
+        { @*Redactor*@
+        <nav class="navbar navbar-inverse" role="navigation" id="second-navbar">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="">Redactor</a>
+                        </li>
+                        <li>
+                            <a href="">Modificar Artículos</a>
+                        </li>
+                        <li>
+                            <a href="">Eliminar Artículos</a>
+                        </li>
+                        <li>
+                            <a href="">Gestión de Sugerencias</a>
+                        </li>
+                    </ul>
                 </div>
-                <!-- /.container -->
-            </nav>
-            }
-            else if (rolSession == 4)
-            { @*//Admin_Foro*@
-            <nav class="navbar navbar-inverse" role="navigation" id="second-navbar">
-                <div class="container">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <li>
-                                <a href="">Admin_Foro</a>
-                            </li>
-                            <li>
-                                <a href="">Modificar Artículos</a>
-                            </li>
-                            <li>
-                                <a href="">Eliminar Artículos</a>
-                            </li>
-                            <li>
-                                <a href="">Gestión de Sugerencias</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /.navbar-collapse -->
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </nav>
+        }
+        else if (rolSession == 4)
+        { @*//Admin_Foro*@
+        <nav class="navbar navbar-inverse" role="navigation" id="second-navbar">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="">Admin_Foro</a>
+                        </li>
+                        <li>
+                            <a href="">Modificar Artículos</a>
+                        </li>
+                        <li>
+                            <a href="">Eliminar Artículos</a>
+                        </li>
+                        <li>
+                            <a href="">Gestión de Sugerencias</a>
+                        </li>
+                    </ul>
                 </div>
-                <!-- /.container -->
-            </nav>
-            }
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </nav>
+        }
     }
     @RenderSection("featured", required: false)
 

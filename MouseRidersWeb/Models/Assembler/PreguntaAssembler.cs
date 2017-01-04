@@ -1,6 +1,7 @@
 ﻿using MouseRidersGenNHibernate.CAD.MouseRiders;
 using MouseRidersGenNHibernate.CEN.MouseRiders;
 using MouseRidersGenNHibernate.EN.MouseRiders;
+using MouseRidersWeb.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
