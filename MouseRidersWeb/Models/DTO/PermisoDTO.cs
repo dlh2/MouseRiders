@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-
 // Definición clase PermisoDTO
 namespace MouseRidersWeb.DTO
 {

@@ -1,9 +1,9 @@
-﻿using System;
+﻿using MouseRidersWeb.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-
 // Definición clase PreguntaDTO
 namespace MouseRidersWeb.DTO
 {
