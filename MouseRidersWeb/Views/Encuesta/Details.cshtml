@@ -1,0 +1,37 @@
+﻿@model MouseRidersWeb.DTO.EncuestaDTO
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>EncuestaDTO</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.titulo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.titulo)
+    </div>
+</fieldset>
+@foreach (var preg in Model.Tiene)
+{
+    
+    <p>
+        @Html.DisplayFor(modelpreg => preg.Pregunta)
+    </p>
+    foreach (var resp in preg.Tiene)
+    {
+        <p>
+            @Html.DisplayFor(modelresp => resp.Respuesta)
+        </p>
+    }
+
+}
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

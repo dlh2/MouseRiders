@@ -429,6 +429,7 @@
     <Content Include="Views\Seccion\Edit.cshtml" />
     <Content Include="Views\Encuesta\Delete.cshtml" />
     <Content Include="Views\Encuesta\Edit.cshtml" />
+    <Content Include="Views\Encuesta\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

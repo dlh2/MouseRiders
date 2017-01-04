@@ -57,8 +57,9 @@ namespace MouseRidersWeb.Controllers
             SessionInitialize();
             EncuestaCAD eCAD = new EncuestaCAD(session);
             EncuestaEN encuesta_EN = eCAD.ReadOID(id);
+            EncuestaDTO result = new EncuestaAssembler().ConvertConPreguntaYRespuesta(encuesta_EN);
             SessionClose();
-            return View(encuesta_EN);
+            return View(result);
         }
 
         //
