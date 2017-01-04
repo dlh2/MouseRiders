@@ -38,5 +38,15 @@ namespace MouseRidersWeb.DTO
         [Required(ErrorMessage = "Debe existir un tipo")]
         //[StringLength(maximumLength: Globals.TIPO_MAX_LENGTH, ErrorMessage = "El tipo del mensaje no puede tener más de {0} caracteres")]
         public T_MensajeEnum Tipo { get; set; }
+
+        //Atributo U_Recibido
+        [ScaffoldColumn(false)]
+        [Display(Prompt = "U_Recibido", Description = "U_Recibido", Name = "U_Recibido")]
+        public IList<UsuarioDTO> U_Recibido { get; set; }
+
+        //Atributo Notificaciones
+        [ScaffoldColumn(false)]
+        [Display(Prompt = "Notificaciones", Description = "Notificaciones", Name = "Notificaciones")]
+        public ControladorNotificacionesDTO Notificaciones { get; set; }
     }
 }

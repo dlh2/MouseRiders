@@ -26,6 +26,43 @@ namespace MouseRidersWeb.Assembler
             }
             return menDTO;
         }
-
+        public MensajeDTO ConvertConUsuRecibido(MensajeEN us)
+        {
+            MensajeDTO usDTO = null;
+            if (us != null)
+            {
+                usDTO = this.Convert(us);
+                if (usDTO != null)
+                {
+                    usDTO.U_Recibido = null;
+                }
+                IList<UsuarioEN> Recibe = us.Es_recibido;
+                if (Recibe != null)
+                {
+                    usDTO.U_Recibido = new List<UsuarioDTO>();
+                    foreach (UsuarioEN entry in Recibe)
+                        usDTO.U_Recibido.Add(new UsuarioAssembler().Convert(entry));
+                }
+            }
+            return usDTO;
+        }
+        public MensajeDTO ConvertConNotificacionesRecibidas(MensajeEN c)
+        {
+            MensajeDTO cDTO = null;
+            if (c != null)
+            {
+                cDTO = this.Convert(c);
+                if (cDTO != null)
+                {
+                    cDTO.Notificaciones = null;
+                }
+                ControladorNotificacionesEN Recibe = c.Es_enviadoN;
+                if (Recibe != null)
+                {
+                       cDTO.Notificaciones=new ControladorNotificacionesAssembler().Convert(Recibe);
+                }
+            }
+            return cDTO;
+        }
     }
 }

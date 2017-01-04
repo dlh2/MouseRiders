@@ -24,6 +24,42 @@ namespace MouseRidersWeb.Assembler
             }
             return denDTO;
         }
+        public DenunciaDTO ConvertConUsuAcusado(DenunciaEN us)
+        {
+            DenunciaDTO usDTO = null;
+            if (us != null)
+            {
+                usDTO = this.Convert(us);
+                if (usDTO != null)
+                {
+                    usDTO.U_Acusado = null;
+                }
+                UsuarioEN Recibe = us.Es_recibida;
+                if (Recibe != null)
+                {
+                    usDTO.U_Acusado = new UsuarioAssembler().Convert(Recibe);
+                }
+            }
+            return usDTO;
+        }
+        public DenunciaDTO ConvertConUsuDenunciante(DenunciaEN us)
+        {
+            DenunciaDTO usDTO = null;
+            if (us != null)
+            {
+                usDTO = this.Convert(us);
+                if (usDTO != null)
+                {
+                    usDTO.U_Denunciante = null;
+                }
+                UsuarioEN Recibe = us.Es_creada;
+                if (Recibe != null)
+                {
+                    usDTO.U_Denunciante = new UsuarioAssembler().Convert(Recibe);
+                }
+            }
+            return usDTO;
+        }
         
     }
 }
