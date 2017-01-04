@@ -274,6 +274,8 @@
     <Content Include="Contenido\Articulos\Articulo2.html" />
     <Content Include="Contenido\Articulos\Articulo3.html" />
     <Content Include="Contenido\Articulos\Articulo4.html" />
+    <Content Include="Contenido\Articulos\Articulo5.html" />
+    <Content Include="Contenido\Articulos\Articulo6.html" />
     <Content Include="Contenido\CVs\void.txt" />
     <Content Include="Contenido\Imagenes\void.txt" />
     <Content Include="Contenido\Sugerencias\void.txt" />
