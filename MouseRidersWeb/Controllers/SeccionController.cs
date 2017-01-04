@@ -16,31 +16,45 @@ namespace MouseRidersWeb.Controllers
     {
 
         //
-        // Ajax GET: /Seccion/
+        // Ajax GET: /Seccion/ La id es la id seccion
 
-        public ActionResult Index(String minimo,int id_seccion)
+        public ActionResult Index(String minimo, Nullable<int> id)
         {
             SessionInitialize();
             SeccionCAD cCAD = new SeccionCAD(session);
-            IList<SeccionEN> resultEN;
-            if (Request.IsAjaxRequest())
+            IList<SeccionEN> resultEN = cCAD.ReadAllDefault(0, 10);
+            int a = 0;
+            if (id == null)
             {
-                int a = Int32.Parse(minimo) * 10;
-                resultEN = cCAD.ReadAllDefault(a, 10);
+                a = Int32.Parse(minimo) * 3;
             }
             else
             {
-                resultEN = cCAD.ReadAllDefault(0, 10);
+                a = Int32.Parse(minimo) * 10;
             }
             IList<SeccionDTO> result = new List<SeccionDTO>();
             for (int i = 0; i < resultEN.Count; i++)
             {
-                result.Add(new SeccionAssembler().ConvertConArticulo(resultEN[i]));
+                if (id == null)
+                {
+                    result.Add(new SeccionAssembler().ConvertConArticuloNum(resultEN[i],a,3));
+                }
+                else
+                {
+                    if (resultEN[i].Seccion == id)
+                    {
+                        result.Add(new SeccionAssembler().ConvertConArticuloNum(resultEN[i],a,10));
+                    }
+                }
             }
             SessionClose();
             if (Request.IsAjaxRequest())
             {
-                return PartialView("_Articulo", result);
+                if (result.Count != 0)
+                {
+                    return PartialView("_Articulo", result[0].Tiene);
+                }
+                return PartialView("_Articulo", new List<ArticuloDTO>());
             }
             return View(result);
         }
@@ -50,14 +64,14 @@ namespace MouseRidersWeb.Controllers
             SessionInitialize();
             SeccionCAD cCAD = new SeccionCAD(session);
             SeccionEN result = cCAD.ReadFilter(nombre);
-            IList<ArticuloEN> resultfinal=result.Tiene;
+            IList<ArticuloEN> resultfinal = result.Tiene;
             IList<ArticuloDTO> resultadofinal = new List<ArticuloDTO>();
             foreach (ArticuloEN entry in resultfinal)
                 resultadofinal.Add(new ArticuloAssembler().Convert(entry));
             SessionClose();
             return View(resultfinal);
         }
-    
+
         //
         // GET: /Seccion/Details/5
 
@@ -126,7 +140,7 @@ namespace MouseRidersWeb.Controllers
             try
             {
                 SeccionCEN cen = new SeccionCEN();
-                cen.ModificarSeccion(sec.Seccion,sec.Nombre);
+                cen.ModificarSeccion(sec.Seccion, sec.Nombre);
 
                 return RedirectToAction("Details", new { id = sec.Seccion });
             }

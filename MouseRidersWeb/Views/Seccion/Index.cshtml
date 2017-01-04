@@ -7,7 +7,7 @@
 
 <h2 class="customh2">Secciones</h2>
 
-@using (Ajax.BeginForm("Index", "Articulo", new { },
+@using (Ajax.BeginForm("Index", "Seccion", new { },
     new AjaxOptions
     {
         HttpMethod = "get",
@@ -15,11 +15,17 @@
         UpdateTargetId = "ArticuloAJAX"
     }))
 {
+    <input type="hidden" name="id" value="0">
+    <input type="hidden" name="minimo" value="0">
     <div class="btn-group-lg btn-group-justified" role="group" id="secciones_aux">
-        a href="" class="btn btn-secondary2"PC
         @foreach (var item in Model)
         {
-            @Html.ActionLink(item.Nombre, "Details", new { id = item.Seccion })
+            if (item != null)
+            {
+   
+                @Html.ActionLink(item.Nombre, "Index", "Seccion", null, new { id = item.Seccion, @class = "btn btn-secondary2", href = "#" })
+            }
+
         }
     </div>
 }
@@ -33,18 +39,49 @@
     <a href="" class="btn btn-secondary2">Valoración</a>
 </div>
 
+
+<div id="ArticuloAJAX">
+    @foreach (var item in Model)
+    {
+        if (Model == null)
+        {
+            @Html.Partial("_Articulo", new List<MouseRidersWeb.DTO.ArticuloDTO>());
+        }
+        else
+        {
+            if (item != null)
+            {
+                @Html.Partial("_Articulo", item.Tiene);
+            }
+        }
+    }
+</div>
+@using (Ajax.BeginForm("Index", "Seccion", new { },
+    new AjaxOptions
+    {
+        HttpMethod = "get",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "ArticuloAJAX"
+    }))
+{
+    <input type="hidden" name="id" value="0">
+    <input type="hidden" name="minimo" value="0">
+    <div class="btn-group-lg btn-group-justified" role="group" id="cargar_mas">
+        <a href="#" class="btn btn-secondary2">Cargar mas...</a>
+    </div>
+}
+
 <script>
     $('#secciones_aux a').click(function (e) {
         e.preventDefault();
-        var clickedPage = $(this).html().valueOf() - 1;
-        $("#secciones_aux a").parent("form").submit();
+        $("input:hidden[name=id]").val($(this).attr('id'));
+        $("input:hidden[name=minimo]").val(0);
+        $("#secciones_aux").parent("form").submit();
     });
+    $('#cargar_mas a').click(function (e) {
+        e.preventDefault();
+        $("input:hidden[name=minimo]").val(parseInt($("input:hidden[name=minimo]").val()) + 1);
+        $("#cargar_mas").parent("form").submit();
+    });
+
 </script>
-@if (Model == null)
-{
-    @Html.Partial("_Articulo", new List<MouseRidersWeb.DTO.ArticuloDTO>());
-}
-else
-{
-    @Html.Partial("_Articulo", Model);
-}

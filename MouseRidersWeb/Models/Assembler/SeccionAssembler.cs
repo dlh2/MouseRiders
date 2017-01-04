@@ -12,11 +12,16 @@ namespace MouseRidersWeb.Assembler
 {
     public class SeccionAssembler
     {
+     
         public SeccionDTO Convert(SeccionEN sec)
         {
             SeccionDTO secDTO = null;
             if (sec != null)
             {
+                if (sec.Nombre.Equals("NoticiasPC"))
+                {
+                    return null;
+                }
                 secDTO = new SeccionDTO();
                 secDTO.Seccion = sec.Seccion;
                 secDTO.Nombre = sec.Nombre;
@@ -29,6 +34,73 @@ namespace MouseRidersWeb.Assembler
             if (sec != null)
             {
                 secDTO = this.Convert(sec);
+                if (secDTO != null)
+                {
+                    secDTO.Tiene = null;
+                }
+                else
+                {
+                    return secDTO;
+                }
+                IList<ArticuloEN> Recibe = sec.Tiene;
+                if (Recibe != null)
+                {
+                    secDTO.Tiene = new List<ArticuloDTO>();
+                    foreach (ArticuloEN entry in Recibe)
+                        secDTO.Tiene.Add(new ArticuloAssembler().Convert(entry));
+                }
+            }
+            return secDTO;
+        }
+        public SeccionDTO ConvertConArticuloNum(SeccionEN sec,int comienzo, int cantidad)
+        {
+            SeccionDTO secDTO = null;
+            if (sec != null)
+            {
+                secDTO = this.Convert(sec);
+                if (secDTO != null)
+                {
+                    secDTO.Tiene = null;
+                }
+                else
+                {
+                    return secDTO;
+                }
+                IList<ArticuloEN> Recibe = sec.Tiene;
+                if (Recibe != null)
+                {
+                    secDTO.Tiene = new List<ArticuloDTO>();
+                    for (int i = comienzo; i < Recibe.Count && i <= cantidad; i++)
+                    {
+                        secDTO.Tiene.Add(new ArticuloAssembler().Convert(Recibe[i]));
+                    }
+                }
+            }
+            return secDTO;
+        }
+
+        public SeccionDTO ConvertNoticia(SeccionEN sec)
+        {
+            SeccionDTO secDTO = null;
+            if (sec != null)
+            {
+                if (!sec.Nombre.Equals("NoticiasPC"))
+                {
+                    return null;
+                }
+                secDTO = new SeccionDTO();
+                secDTO.Seccion = sec.Seccion;
+                secDTO.Nombre = sec.Nombre;
+            }
+            return secDTO;
+        }
+
+        public SeccionDTO ConvertNoticiaConArticulo(SeccionEN sec)
+        {
+            SeccionDTO secDTO = null;
+            if (sec != null)
+            {
+                secDTO = this.ConvertNoticia(sec);
                 if (secDTO != null)
                 {
                     secDTO.Tiene = null;

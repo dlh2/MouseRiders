@@ -22,7 +22,7 @@ namespace MouseRidersWeb.Controllers.Especiales
             SessionInitialize();
             SeccionCAD cCAD = new SeccionCAD(session);
             SeccionEN result = cCAD.ReadFilter("NoticiasPC");
-            SeccionDTO resultfinal = new SeccionAssembler().ConvertConArticulo(result);
+            SeccionDTO resultfinal = new SeccionAssembler().ConvertNoticiaConArticulo(result);
             SessionClose();
             return View(resultfinal);
         }
