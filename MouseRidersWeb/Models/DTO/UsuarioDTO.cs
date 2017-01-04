@@ -78,5 +78,30 @@ namespace MouseRidersWeb.DTO
         [ScaffoldColumn(false)]
         [Display(Prompt = "Mensajes recibidos", Description = "Mensajes recibidos", Name = "Mensajes recibidos")]
         public IList<MensajeDTO> Recibe { get; set; }
+
+        //Atributo Enviado
+        [ScaffoldColumn(false)]
+        [Display(Prompt = "Mensajes enviados", Description = "Mensajes enviados", Name = "Mensajes enviados")]
+        public IList<MensajeDTO> Enviado { get; set; }
+
+        //Atributo Permisos_usu
+        [ScaffoldColumn(false)]
+        [Display(Prompt = "Permisos de usuario", Description = "Permisos de usuario", Name = "Permisos de usuario")]
+        public IList<PermisoDTO> Permisos_usu { get; set; }
+
+        //Atributo Recompensa_usu
+        [ScaffoldColumn(false)]
+        [Display(Prompt = "Recompensas de usuario", Description = "Recompensas de usuario", Name = "Recompensas de usuario")]
+        public IList<RecompensaDTO> Recompensa_usu { get; set; }
+
+        //Atributo Denuncia_recibida
+        [ScaffoldColumn(false)]
+        [Display(Prompt = "Denuncias recibidas", Description = "Denuncias recibidas", Name = "Denuncias recibidas")]
+        public IList<DenunciaDTO> Denuncia_recibida { get; set; }
+
+        //Atributo Denuncia_creada
+        [ScaffoldColumn(false)]
+        [Display(Prompt = "Denuncias creadas", Description = "Denuncias creadas", Name = "Denuncias creadas")]
+        public IList<DenunciaDTO> Denuncia_creada { get; set; }
     }
 }
