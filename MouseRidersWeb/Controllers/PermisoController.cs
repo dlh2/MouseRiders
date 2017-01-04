@@ -47,8 +47,8 @@ namespace MouseRidersWeb.Controllers
         public ActionResult Create(int id)
         {
             PermisoEN permiso = new PermisoEN();
-           // permiso.Permisos = id;
-            return View(permiso);
+            PermisoDTO result = new PermisoAssembler().Convert(permiso);
+            return View(result);
         }
 
         //
@@ -61,8 +61,8 @@ namespace MouseRidersWeb.Controllers
             {
                 PermisoCAD cCAD = new PermisoCAD();
                 PermisoCEN cen = new PermisoCEN(cCAD);
-                //cen.CrearPermiso(permiso.PermisoOID,permiso.,permiso.Permisos);
-                return RedirectToAction("Index");
+                //cen.CrearPermiso(permiso.PermisoOID,permiso,permiso.Permisos);
+                return RedirectToAction("Details", new { id = permiso.PermisoOID });
             }
             catch
             {
