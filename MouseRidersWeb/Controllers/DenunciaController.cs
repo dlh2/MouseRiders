@@ -1,6 +1,8 @@
 ﻿using MouseRidersGenNHibernate.CAD.MouseRiders;
 using MouseRidersGenNHibernate.CEN.MouseRiders;
 using MouseRidersGenNHibernate.EN.MouseRiders;
+using MouseRidersWeb.Assembler;
+using MouseRidersWeb.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,8 +43,8 @@ namespace MouseRidersWeb.Controllers
         public ActionResult Create(int id)
         {
             DenunciaEN denuncia = new DenunciaEN();
-            denuncia.Id = id;
-            return View(denuncia);
+            DenunciaDTO result = new DenunciaAssembler().Convert(denuncia);
+            return View(result);
         }
 
         //
@@ -57,8 +59,8 @@ namespace MouseRidersWeb.Controllers
                 DenunciaCAD cCAD = new DenunciaCAD();
                 DenunciaCEN cen = new DenunciaCEN(cCAD);
                 DateTime p_fecha = DateTime.Now;
-                cen.CrearDenuncia (denuncia.Motivo, denuncia.Es_creada.Id,p_fecha,denuncia.Es_recibida.Id);
-                return RedirectToAction("Details", new { id = denuncia.Id });
+                int id=cen.CrearDenuncia (denuncia.Motivo, denuncia.Es_creada.Id,p_fecha,denuncia.Es_recibida.Id);
+                return RedirectToAction("Details", new { id = id });
             }
             catch
             {
@@ -74,8 +76,8 @@ namespace MouseRidersWeb.Controllers
             SessionInitialize();
             DenunciaCAD denunciaCAD = new DenunciaCAD(session);
             DenunciaEN result = denunciaCAD.ReadOIDDefault(id);
-            SessionClose();
-            return View(result);
+            DenunciaDTO resultfinal = new DenunciaAssembler().Convert(result);
+            return View(resultfinal);
         }
 
         //
@@ -88,7 +90,7 @@ namespace MouseRidersWeb.Controllers
             {
                 DenunciaCEN denunciaCEN = new DenunciaCEN();
                 denunciaCEN.ModificarDenuncia(denuncia.Id, denuncia.Motivo, DateTime.Now);
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { id = denuncia.Id });
             }
             catch
             {
@@ -106,10 +108,11 @@ namespace MouseRidersWeb.Controllers
                 // TODO: Add delete logic here
                 SessionInitialize();
                 DenunciaCAD denunciaCAD = new DenunciaCAD(session);
-                DenunciaCEN denunciaCEN = new DenunciaCEN(denunciaCAD);
-                denunciaCEN.BorrarDenuncia(id);
+                DenunciaEN result = denunciaCAD.ReadOIDDefault(id);
+                DenunciaDTO resultfinal = new DenunciaAssembler().Convert(result);
                 SessionClose();
-                return RedirectToAction("Index");
+
+                return View(resultfinal);
             }
             catch
             {
@@ -126,7 +129,7 @@ namespace MouseRidersWeb.Controllers
             try
             {
                 // TODO: Add delete logic here
-
+                new DenunciaCEN().BorrarDenuncia(id);
                 return RedirectToAction("Index");
             }
             catch

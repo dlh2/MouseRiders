@@ -131,7 +131,7 @@ namespace MouseRidersWeb.Assembler
             }
             return usDTO;
         }
-        public UsuarioDTO ConvertConDenunciasRecibidas(UsuarioEN us)
+        public UsuarioDTO ConvertConDenunciasEnviadas(UsuarioEN us)
         {
             UsuarioDTO usDTO = null;
             if (us != null)

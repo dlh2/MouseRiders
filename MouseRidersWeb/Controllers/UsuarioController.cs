@@ -47,6 +47,19 @@ namespace MouseRidersWeb.Controllers
         }
 
         //
+        // GET: /Usuario/MensajesPrivados/5
+
+        public ActionResult MensajesPrivados(int id)
+        {
+            SessionInitialize();
+            UsuarioCAD cCAD = new UsuarioCAD(session);
+            UsuarioEN result = cCAD.ReadOIDDefault(id);
+            UsuarioDTO resultfinal = new UsuarioAssembler().ConvertConCorreoRecibido(result);
+            SessionClose();
+            return View(resultfinal);
+        }
+
+        //
         // GET: /Usuario/Denuncias/5
 
         public ActionResult VerDenunciasRecibidas(int id)
@@ -54,8 +67,66 @@ namespace MouseRidersWeb.Controllers
             SessionInitialize();
             UsuarioCAD cCAD = new UsuarioCAD(session);
             UsuarioEN cCEN = cCAD.ReadOIDDefault(id);
-            IList<DenunciaEN> result = cCEN.RecibeD;
+            IList<DenunciaEN> resultEN = cCEN.RecibeD;
+            IList<DenunciaDTO> resultfinal = new List<DenunciaDTO>();
+            foreach (DenunciaEN entry in resultEN)
+                resultfinal.Add(new DenunciaAssembler().Convert(entry));
+            SessionClose();
+            return View(resultfinal);
+        }
+        //
+        // GET: /Usuario/Denuncias/5
+
+        public ActionResult VerMensajesRecibidos(int id)
+        {
+            SessionInitialize();
+            UsuarioCAD cCAD = new UsuarioCAD(session);
+            UsuarioEN result = cCAD.ReadOIDDefault(id);
+            UsuarioDTO resultfinal = new UsuarioAssembler().ConvertConCorreoRecibido(result);
+            SessionClose();
+            return View(resultfinal);
+        }
+        //
+        // GET: /Usuario/Denuncias/5
+
+        public ActionResult VerMensajesEnviados(int id)
+        {
+            SessionInitialize();
+            UsuarioCAD cCAD = new UsuarioCAD(session);
+            UsuarioEN result = cCAD.ReadOIDDefault(id);
+            UsuarioDTO resultfinal = new UsuarioAssembler().ConvertConCorreoEnviado(result);
+            SessionClose();
+            return View(resultfinal);
+        }
+
+        //
+        // GET: /Denuncia/Create
+
+        public ActionResult Denunciar(int id)
+        {
+            DenunciaEN denuncia = new DenunciaEN();
+            DenunciaDTO result = new DenunciaAssembler().Convert(denuncia);
             return View(result);
+        }
+
+        //
+        // POST: /Denuncia/Create
+
+        [HttpPost]
+        public ActionResult Denunciar(DenunciaEN denuncia)
+        {
+            try
+            {
+                DenunciaCAD cCAD = new DenunciaCAD();
+                DenunciaCEN cen = new DenunciaCEN(cCAD);
+                DateTime p_fecha = DateTime.Now;
+                int id = cen.CrearDenuncia(denuncia.Motivo, denuncia.Es_creada.Id, p_fecha, denuncia.Es_recibida.Id);
+                return RedirectToAction("Details", new { id = id });
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         public ActionResult Login()
@@ -87,7 +158,8 @@ namespace MouseRidersWeb.Controllers
         public ActionResult Create()
         {
             UsuarioEN usu = new UsuarioEN();
-            return View(usu);
+            UsuarioDTO result = new UsuarioAssembler().Convert(usu);
+            return View(result);
         }
 
         //
@@ -101,9 +173,9 @@ namespace MouseRidersWeb.Controllers
                 UsuarioCAD cCAD = new UsuarioCAD();
                 UsuarioCEN cen = new UsuarioCEN(cCAD);
                 DateTime p_fecha = DateTime.Now;
-                cen.CrearUsuario(usu.Email, usu.Nombre, usu.Apellidos, usu.Pais, usu.Telefono, 0, p_fecha, usu.Contrasenya, usu.Nombreusuario) ;
+                int id=cen.CrearUsuario(usu.Email, usu.Nombre, usu.Apellidos, usu.Pais, usu.Telefono, 0, p_fecha, usu.Contrasenya, usu.Nombreusuario) ;
 
-                return RedirectToAction("Details", new { id = usu.Id });
+                return RedirectToAction("Details", new { id = id });
             }
             catch
             {

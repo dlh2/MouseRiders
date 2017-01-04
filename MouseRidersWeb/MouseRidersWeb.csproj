@@ -350,7 +350,6 @@
     </Content>
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Usuario\Edit.cshtml" />
-    <Content Include="Views\Usuario\VerDenunciasRecibidas.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Web.config">
@@ -430,6 +429,15 @@
     <Content Include="Views\Encuesta\Delete.cshtml" />
     <Content Include="Views\Encuesta\Edit.cshtml" />
     <Content Include="Views\Encuesta\Details.cshtml" />
+    <Content Include="Views\Usuario\VerDenunciasRecibidas.cshtml" />
+    <Content Include="Views\Usuario\Create.cshtml" />
+    <Content Include="Views\Denuncia\Create.cshtml" />
+    <Content Include="Views\Denuncia\Edit.cshtml" />
+    <Content Include="Views\Denuncia\Delete.cshtml" />
+    <Content Include="Views\Usuario\Denunciar.cshtml" />
+    <Content Include="Views\Usuario\MensajesPrivados.cshtml" />
+    <Content Include="Views\Usuario\VerMensajesRecibidos.cshtml" />
+    <Content Include="Views\Usuario\VerMensajesEnviados.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
