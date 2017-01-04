@@ -24,26 +24,29 @@ namespace MouseRidersWeb.Controllers
             SeccionCAD cCAD = new SeccionCAD(session);
             IList<SeccionEN> resultEN = cCAD.ReadAllDefault(0, 10);
             int a = 0;
-            if (id == null)
+            if (id != null)
             {
-                a = Int32.Parse(minimo) * 3;
-            }
-            else
-            {
-                a = Int32.Parse(minimo) * 10;
+                if (minimo == null)
+                {
+                    a = Int32.Parse(minimo) * 3;
+                }
+                else
+                {
+                    a = Int32.Parse(minimo) * 10;
+                }
             }
             IList<SeccionDTO> result = new List<SeccionDTO>();
             for (int i = 0; i < resultEN.Count; i++)
             {
                 if (id == null)
                 {
-                    result.Add(new SeccionAssembler().ConvertConArticuloNum(resultEN[i],a,3));
+                    result.Add(new SeccionAssembler().ConvertConArticuloNum(resultEN[i], a, 3));
                 }
                 else
                 {
                     if (resultEN[i].Seccion == id)
                     {
-                        result.Add(new SeccionAssembler().ConvertConArticuloNum(resultEN[i],a,10));
+                        result.Add(new SeccionAssembler().ConvertConArticuloNum(resultEN[i], a, 10));
                     }
                 }
             }
