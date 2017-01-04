@@ -584,6 +584,7 @@ public static void InitializeData ()
                 articulo1EN.Portada = "https://i1.sndcdn.com/artworks-000127833709-vqi28b-t500x500.jpg";
                 articulo1EN.Descripcion = "Por lo general, los juegos que tardan una década en salir tienen problemas. ¿Acaso olvidaste la catástrofe que fue Duke Nukem Forever? Pero Square Enix cambió de planes y eso incluía un nombre nuevo con una historia un poco distinta.";
                 int oid_a1 = articuloCEN.CrearArticulo (oid_s, articulo1EN.Titulo, articulo1EN.Autor, articulo1EN.Contenido, articulo1EN.ContenidoDescargable, articulo1EN.Puntuacion, articulo1EN.Fecha, articulo1EN.Contador, articulo1EN.Subtitulo, articulo1EN.Portada, articulo1EN.Descripcion);
+                articulo1EN.Id = oid_a1;
                 articulos.Add(articulo1EN);
 
                 ArticuloEN articulo2EN = new ArticuloEN ();
@@ -598,6 +599,7 @@ public static void InitializeData ()
                 articulo2EN.Portada = "https://forums.planetcoaster.com/attachment.php?attachmentid=352&d=1466078141";
                 articulo2EN.Descripcion = "Construir tu propio parque de atracciones, sin límites, con gigantescas montañas rusas y grandes espectáculos. ¿Quién podría resistirse a algo así? Planet Coaster te permite crear tu particular Disney World con una sorprendente libertad de acción.";
                 int oid_a2 = articuloCEN.CrearArticulo (oid_s1, articulo2EN.Titulo, articulo2EN.Autor, articulo2EN.Contenido, articulo2EN.ContenidoDescargable, articulo2EN.Puntuacion, articulo2EN.Fecha, articulo2EN.Contador, articulo2EN.Subtitulo, articulo2EN.Portada, articulo2EN.Descripcion);
+                articulo2EN.Id = oid_a2;
                 articulos.Add(articulo2EN);
 
                 ArticuloEN articulo3EN = new ArticuloEN ();
@@ -612,6 +614,7 @@ public static void InitializeData ()
                 articulo3EN.Portada = "http://static.mensup.fr/photos/132266/carre-call-of-duty-modern-warfare-remastered-les-images.jpg";
                 articulo3EN.Descripcion = "El juego que revolucionó el shooter moderno hace casi diez años vuelve con una de las mejores remasterizaciones que hemos podido probar hasta la fecha.";
                 int oid_a3 = articuloCEN.CrearArticulo (oid_s2, articulo3EN.Titulo, articulo3EN.Autor, articulo3EN.Contenido, articulo3EN.ContenidoDescargable, articulo3EN.Puntuacion, articulo3EN.Fecha, articulo3EN.Contador, articulo3EN.Subtitulo, articulo3EN.Portada, articulo3EN.Descripcion);
+                articulo3EN.Id = oid_a3;
                 articulos.Add(articulo3EN);
                 
                 #endregion
@@ -641,6 +644,7 @@ public static void InitializeData ()
                 hilo1EN.NumComentarios = 2;
                 hilo1EN.Titulo = "hilo1";
                 int oid_h1 = hiloCEN.CrearHilo (hilo1EN.Creador, hilo1EN.Fecha, hilo1EN.NumComentarios, hilo1EN.Titulo);
+                hilo1EN.Id = oid_h1;
                 hilos.Add(hilo1EN);
 
                 HiloEN hilo2EN = new HiloEN ();
@@ -649,6 +653,7 @@ public static void InitializeData ()
                 hilo2EN.NumComentarios = 2;
                 hilo2EN.Titulo = "hilo2madebyanonimo";
                 int oid_h2 = hiloCEN.CrearHilo (hilo2EN.Creador, hilo2EN.Fecha, hilo2EN.NumComentarios, hilo2EN.Titulo);
+                hilo2EN.Id = oid_h2;
                 hilos.Add(hilo2EN);
 
                 #endregion
@@ -786,7 +791,7 @@ public static void InitializeData ()
 
             IList<ComentarioEN> comentarios;
             comentarios = new List<ComentarioEN>(); //lista de comentarios
-            /*
+            
             for(int i=0; i<100; i++){
                 int picker=0; //variable que se usa para la toma de decisiones a la hora de enlazar los comentarios a hilos, articulos, etc...
                 Random rnd = new Random();
@@ -809,7 +814,7 @@ public static void InitializeData ()
 
                 comentarios.Add(comentario1EN);
             };
-             */
+             
 
             Console.WriteLine("He añadido todos los comentarios"); //true
                 #endregion
