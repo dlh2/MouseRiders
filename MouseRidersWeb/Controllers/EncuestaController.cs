@@ -127,10 +127,10 @@ namespace MouseRidersWeb.Controllers
             SessionInitialize();
             EncuestaCAD cCAD = new EncuestaCAD(session);
             EncuestaEN result = cCAD.ReadOIDDefault(id);
+            EncuestaDTO resultfinal = new EncuestaAssembler().Convert(result);
             SessionClose();
-            new EncuestaCEN().BorrarEncuesta(id);
 
-            return View(result);
+            return View(resultfinal);
         }
 
         //
@@ -141,8 +141,7 @@ namespace MouseRidersWeb.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
-
+                new EncuestaCEN().BorrarEncuesta(enc.Id);
                 return RedirectToAction("Index");
             }
             catch

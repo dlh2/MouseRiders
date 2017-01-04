@@ -2,6 +2,8 @@
 using MouseRidersGenNHibernate.CEN.MouseRiders;
 using MouseRidersGenNHibernate.EN.MouseRiders;
 using MouseRidersGenNHibernate.Enumerated.MouseRiders;
+using MouseRidersWeb.Assembler;
+using MouseRidersWeb.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,8 +22,11 @@ namespace MouseRidersWeb.Controllers
             SessionInitialize();
             PermisoCAD permisoCAD = new PermisoCAD(session);
             IList<PermisoEN> permisoEN = permisoCAD.ReadAllDefault(0, 10);
+            IList<PermisoDTO> resultfinal = new List<PermisoDTO>();
+            foreach (PermisoEN entry in permisoEN)
+                resultfinal.Add(new PermisoAssembler().Convert(entry));
             SessionClose();
-            return View(permisoEN);
+            return View(resultfinal);
         }
 
         //

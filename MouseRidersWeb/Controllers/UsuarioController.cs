@@ -41,8 +41,9 @@ namespace MouseRidersWeb.Controllers
             SessionInitialize();
             UsuarioCAD cCAD = new UsuarioCAD(session);
             UsuarioEN result = cCAD.ReadOIDDefault(id);
+            UsuarioDTO resultfinal = new UsuarioAssembler().Convert(result);
             SessionClose();
-            return View(result);
+            return View(resultfinal);
         }
 
         //
@@ -148,10 +149,10 @@ namespace MouseRidersWeb.Controllers
             SessionInitialize();
             UsuarioCAD cCAD = new UsuarioCAD(session);
             UsuarioEN result = cCAD.ReadOIDDefault(id);
+            UsuarioDTO resultfinal = new UsuarioAssembler().Convert(result);
             SessionClose();
-            new UsuarioCEN().BorrarUsuario(id);
 
-            return View(result);
+            return View(resultfinal);
         }
 
         //
@@ -162,10 +163,7 @@ namespace MouseRidersWeb.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
-                
-
-
+                new UsuarioCEN().BorrarUsuario(usu.Id);
                 return RedirectToAction("Index");
             }
             catch

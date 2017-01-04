@@ -29,12 +29,7 @@ namespace MouseRidersWeb.DTO
         /**
          *	Atributo tipo
          */
-        /*
-        [Display(Prompt = "Tipo", Description = "Tipo de pregunta", Name = "TipoN ")]
-        [Required(ErrorMessage = "Debe indicar de que tipo es la pregunta")]
-        [DataType(DataType.Currency, ErrorMessage = "La pregunta ha de ser de un tipo concreto")]
-        public MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum tipo { get; set; }
-        */
+      
         private MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum Tipo { get; set; }
 
         /**
@@ -56,4 +51,3 @@ namespace MouseRidersWeb.DTO
 
     }
 }
-        //private System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.RespuestaEN> tiene;

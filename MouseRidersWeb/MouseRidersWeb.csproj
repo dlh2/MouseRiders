@@ -350,8 +350,6 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Usuario\Delete.cshtml" />
-    <Content Include="Views\Usuario\Details.cshtml" />
     <Content Include="Views\Usuario\Edit.cshtml" />
     <Content Include="Views\Usuario\VerDenunciasRecibidas.cshtml" />
     <Content Include="Views\Web.config" />
@@ -416,7 +414,6 @@
     <Content Include="Views\Hilo\Delete.cshtml" />
     <Content Include="Views\Pregunta\Index.cshtml" />
     <Content Include="Views\Pregunta\Edit.cshtml" />
-    <Content Include="Views\Pregunta\Delete.cshtml" />
     <Content Include="Views\Respuesta\Index.cshtml" />
     <Content Include="Views\ControladorNotificaciones\Create.cshtml" />
     <Content Include="Views\Mensaje\Create.cshtml" />
@@ -424,6 +421,10 @@
     <Content Include="Views\Seccion\_Articulo.cshtml" />
     <Content Include="Views\Encuesta\Index.cshtml" />
     <Content Include="Views\Busqueda\Index.cshtml" />
+    <Content Include="Views\Usuario\Details.cshtml" />
+    <Content Include="Views\Permiso\Index.cshtml" />
+    <Content Include="Views\Usuario\Delete.cshtml" />
+    <Content Include="Views\Pregunta\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
