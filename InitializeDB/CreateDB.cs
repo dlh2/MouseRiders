@@ -21,7 +21,7 @@ public static void Create (string databaseArg, string userArg, string passArg)
         String database = databaseArg;
         String user = userArg;
         String pass = passArg;
-
+        
         // Conex DB
         SqlConnection cnn = new SqlConnection (@"Server=(local)\sqlexpress; database=master; integrated security=yes");
 
@@ -76,10 +76,11 @@ public static void Create (string databaseArg, string userArg, string passArg)
 
 
 private const string _chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+private static Random rng = new Random(); //variable aleatoria de los generadores
 
 private static string RandomString(int size) //metodo que genera Strings aleatorios de x tamaño 
 {
-    Random rng = new Random();
+    
     char[] buffer = new char[size];
     int datatest = 0;
     for (int i = 0; i < size; i++)
@@ -104,7 +105,7 @@ public static void InitializeData ()
                 // customer.New_ (p_user:"user", p_password:"1234");
                 //UsuarioCEN usuario = new UsuarioCEN ();
                 //usuario.CrearUsuario ("pepe@gmail.com", "pepe", "lopez lopez", "espanya", 666666666, 0, DateTime.Now);
-
+                
                 #region Usuario
                 IUsuarioCAD _IUsuarioCAD = new UsuarioCAD ();
                 UsuarioCEN usuarioCEN = new UsuarioCEN (_IUsuarioCAD);
@@ -656,6 +657,21 @@ public static void InitializeData ()
                 hilo2EN.Id = oid_h2;
                 hilos.Add(hilo2EN);
 
+                //BUCLE QUE GENERA 10 HILOS DE FORMA AUTOMATICA ASIGNANDOLOS A UN USUARIO ALEATORIO Y CON UN TITULO ALEATORIO
+                
+                for (int i = 0; i < 10; i++) 
+                {
+                    HiloEN hilo3EN = new HiloEN();
+                    hilo3EN.Creador = users[rng.Next(users.Count)].Email;
+                    hilo3EN.Fecha = DateTime.Now;
+                    hilo3EN.NumComentarios = 2;
+                    hilo3EN.Titulo = RandomString(10);
+                    int oid_h3 = hiloCEN.CrearHilo(hilo3EN.Creador, hilo3EN.Fecha, hilo3EN.NumComentarios, hilo3EN.Titulo);
+                    hilo3EN.Id = oid_h3;
+                    hilos.Add(hilo3EN);
+                };
+
+
                 #endregion
 
                 #region Comentario
@@ -794,22 +810,21 @@ public static void InitializeData ()
             
             for(int i=0; i<100; i++){
                 int picker=0; //variable que se usa para la toma de decisiones a la hora de enlazar los comentarios a hilos, articulos, etc...
-                Random rnd = new Random();
                 comentario1EN = new ComentarioEN ();
                 comentario1EN.Contenido = RandomString(100);
-                comentario1EN.Creador = users[rnd.Next(users.Count)].Email;
+                comentario1EN.Creador = users[rng.Next(users.Count)].Email;
                 comentario1EN.Fecha = DateTime.Now;
-                comentario1EN.Valoracion = rnd.Next(6);
+                comentario1EN.Valoracion = rng.Next(6);
                 oid_c1 = comentarioCEN.CrearComentario (comentario1EN.Creador, comentario1EN.Fecha, comentario1EN.Contenido, comentario1EN.Valoracion);
-                picker=rnd.Next(0, 2);
+                picker=rng.Next(0, 2);
                 
                 if (picker == 0) //se relaciona con un articulo aleatorio
                 {
-                    comentarioCEN.RelacionaArticulo(oid_c1, articulos[rnd.Next(articulos.Count)].Id);
+                    comentarioCEN.RelacionaArticulo(oid_c1, articulos[rng.Next(articulos.Count)].Id);
                 }
                 else //se relaciona con un hilo aleatorio
                 {
-                    comentarioCEN.RelacionaHilo(oid_c1, hilos[rnd.Next(hilos.Count)].Id);
+                    comentarioCEN.RelacionaHilo(oid_c1, hilos[rng.Next(hilos.Count)].Id);
                 }
 
                 comentarios.Add(comentario1EN);
