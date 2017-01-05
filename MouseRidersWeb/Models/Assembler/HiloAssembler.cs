@@ -23,6 +23,9 @@ namespace MouseRidersWeb.Assembler
                 hilDTO.Fecha = hil.Fecha;
                 hilDTO.NumComentarios = hil.NumComentarios;
                 hilDTO.Titulo = hil.Titulo;
+                UsuarioCEN usuCEN=new UsuarioCEN();
+                hilDTO.ID_Creador = usuCEN.ReadFilterPorEmail(hil.Creador);
+                
             }
             return hilDTO;
         }
