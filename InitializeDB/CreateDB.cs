@@ -656,6 +656,21 @@ public static void InitializeData ()
                 hilo2EN.Id = oid_h2;
                 hilos.Add(hilo2EN);
 
+                //METODO QUE GENERA 10 HILOS DE FORMA AUTOMATICA ASIGNANDOLOS A UN USUARIO ALEATORIO Y CON UN TITULO ALEATORIO
+                for (int i = 0; i < 10; i++) 
+                {
+                    Random rnd = new Random();
+                    HiloEN hilo3EN = new HiloEN();
+                    hilo3EN.Creador = users[rnd.Next(users.Count)].Email;
+                    hilo3EN.Fecha = DateTime.Now;
+                    hilo3EN.NumComentarios = 2;
+                    hilo3EN.Titulo = RandomString(10);
+                    int oid_h3 = hiloCEN.CrearHilo(hilo3EN.Creador, hilo3EN.Fecha, hilo3EN.NumComentarios, hilo3EN.Titulo);
+                    hilo3EN.Id = oid_h3;
+                    hilos.Add(hilo3EN);
+                };
+
+
                 #endregion
 
                 #region Comentario
