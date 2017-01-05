@@ -655,7 +655,7 @@ public static void InitializeData ()
                  "Articulo4.pdf",
                  "The Legend of Zelda: Breath of the Wild",
                  "Avances del nuevo título de la saga",
-                 "http://img3.meristation.com/files/imagenes/general/link_zeldass.jpeg",
+                 "http://www.zero-yen-media.fr/home/wp-content/uploads/2016/10/Zelda_BOTW_thumb-500x500.jpg",
                  "The Legend of Zelda es uno de los más esperados del año, el que más por la comunidad de Meristation. Y Nintendo quiere sorprender al mundo con uno de los Juegazos de 2016 que traerá consigo."
                 },
 
@@ -663,7 +663,7 @@ public static void InitializeData ()
                  "Articulo5.pdf",
                  "Earth's Dawn",
                  "Entra de lleno a la invasión alienígena",
-                 "http://img3.meristation.com/files/imagenes/juegos/pc/action/earths_dawn/10.jpg",
+                 "https://c2.staticflickr.com/6/5488/30626790385_876b1b957c.jpg",
                  "Llega la aventura de acción con elementos RPG y un diseño artístico tipo manga, con un árbol de habilidades a nuestra disposición para hacer nustro héroe a medida y toneladas de acción con distintos caminos."
                 },
 
@@ -671,7 +671,7 @@ public static void InitializeData ()
                  "Articulo6.pdf",
                  "Mighty No.9",
                  "El intento de sucesión de MegaMan",
-                 "http://img3.meristation.com/files/imagenes/juegos/pc/action/mighty_no._9/1433352596-mightyno9-04.jpg",
+                 "https://www.digitalgamesuruguay.com/wp-content/uploads/2016/06/Mighty-No.-9.jpg",
                  "Mighty no.9 ha sufrido todo tipo de problemas, retrasos y cierta incertidumbre que no hacía presagiar nada bueno. Finalmente ya está aquí. No es el desastre que podía parecer en cierto punto del desarrollo."
                 }
                };     

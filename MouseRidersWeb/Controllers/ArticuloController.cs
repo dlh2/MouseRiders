@@ -36,7 +36,7 @@ namespace MouseRidersWeb.Controllers
         {
             SessionInitialize();
             ArticuloCAD cCAD = new ArticuloCAD(session);
-            IList<ArticuloEN> resultEN = cCAD.ReadAllDefault(num, 1);
+            IList<ArticuloEN> resultEN = cCAD.ReadAllDefault(num, 3);
             IList<ArticuloDTO> result = new List<ArticuloDTO>();
             for (int i = 0; i < resultEN.Count; i++)
             {
