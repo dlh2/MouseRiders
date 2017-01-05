@@ -140,3 +140,30 @@ fieldset fieldset{
     border-radius: 10px;
 }
 
+/*CSS para Artículo (Details)*/
+#autorA, #fechaA{
+    display:inline-block;
+    width: 49%;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+#autorA{
+    text-align:left;
+}
+#fechaA{
+    text-align:right;
+}
+
+#valA{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+#valnumA{
+    font-size: 2em;
+}
+
+#editA{
+    text-align: right;
+}
