@@ -39,9 +39,7 @@
     </div>
     @foreach (var item in Model.Comentario)
     {
-        <p>
-            @Html.DisplayFor(modelItem => item.Contenido)
-        </p>
+        Html.RenderAction("Details", "Comentario", new { id =  item.Id});
     }
 
 </fieldset>

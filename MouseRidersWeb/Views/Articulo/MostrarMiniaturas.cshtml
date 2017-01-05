@@ -11,7 +11,7 @@
         <!-- First Featurette -->
 
     <div class="featurette">
-        <a href="@Url.Action("Contenido", "Articulo", new { id = item.Id })">
+        <a href="@Url.Action("Details", "Articulo", new { id = item.Id })">
             <img class="featurette-image img-circle img-responsive pull-right" src="@Html.DisplayFor(modelItem => item.Portada)">
             <h2 class="featurette-heading">
                 @Html.DisplayFor(modelItem => item.Titulo)
