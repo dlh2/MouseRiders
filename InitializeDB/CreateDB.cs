@@ -582,7 +582,7 @@ public static void InitializeData ()
                 articulo1EN.Autor = usuario1EN.Email;
                 articulo1EN.Contador = 0;
                 articulo1EN.Contenido = "Articulo1.html";
-                articulo1EN.ContenidoDescargable = "documento.pdf";
+                articulo1EN.ContenidoDescargable = "Articulo1.pdf";
                 articulo1EN.Fecha = DateTime.Now;
                 articulo1EN.Puntuacion = 0;
                 articulo1EN.Titulo = "Final Fantasy XV";
@@ -597,7 +597,7 @@ public static void InitializeData ()
                 articulo2EN.Autor = usuario1EN.Email;
                 articulo2EN.Contador = 0;
                 articulo2EN.Contenido = "Articulo2.html";
-                articulo2EN.ContenidoDescargable = "documento.pdf";
+                articulo2EN.ContenidoDescargable = "Articulo2.pdf";
                 articulo2EN.Fecha = DateTime.Now;
                 articulo2EN.Puntuacion = 0;
                 articulo2EN.Titulo = "Planet Coaster";
@@ -612,7 +612,7 @@ public static void InitializeData ()
                 articulo3EN.Autor = usuario1EN.Email;
                 articulo3EN.Contador = 0;
                 articulo3EN.Contenido = "Articulo3.html";
-                articulo3EN.ContenidoDescargable = "documento.pdf";
+                articulo3EN.ContenidoDescargable = "Articulo3.pdf";
                 articulo3EN.Fecha = DateTime.Now;
                 articulo3EN.Puntuacion = 0;
                 articulo3EN.Titulo = "Call of Duty";
