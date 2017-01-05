@@ -656,7 +656,7 @@ public static void InitializeData ()
                  "The Legend of Zelda: Breath of the Wild",
                  "Avances del nuevo título de la saga",
                  "http://img3.meristation.com/files/imagenes/general/link_zeldass.jpeg",
-                 "The Legend of Zelda es uno de los más esperados del año, el que más por la comunidad de Meristation. Y Nintendo quiere sorprender al mundo con uno de los Juegazos de 2016 que traerá consigo, como es habitual, un sinfín de novedades y cambios respecto a sus predecesores. ¿El Zelda definitivo?"
+                 "The Legend of Zelda es uno de los más esperados del año, el que más por la comunidad de Meristation. Y Nintendo quiere sorprender al mundo con uno de los Juegazos de 2016 que traerá consigo."
                 },
 
                 {"Articulo5.html",
@@ -672,14 +672,14 @@ public static void InitializeData ()
                  "Mighty No.9",
                  "El intento de sucesión de MegaMan",
                  "http://img3.meristation.com/files/imagenes/juegos/pc/action/mighty_no._9/1433352596-mightyno9-04.jpg",
-                 "Mighty no.9 ha sufrido todo tipo de problemas, retrasos y cierta incertidumbre que no hacía presagiar nada bueno. Finalmente ya está aquí. No es el desastre que podía parecer en cierto punto del desarrollo, pero no es ni por asomo un Mega Man a la altura. Ni un notable juego de acción y plataformas 2D."
+                 "Mighty no.9 ha sufrido todo tipo de problemas, retrasos y cierta incertidumbre que no hacía presagiar nada bueno. Finalmente ya está aquí. No es el desastre que podía parecer en cierto punto del desarrollo."
                 }
                };     
 
                 for (int i = 0; i < 30; i++)
                 {
                     int picker; //seleccionar uno de los 6 articulos
-                    picker = rng.Next(articuloDatos.GetLowerBound(0), articuloDatos.GetUpperBound(0));
+                    picker = rng.Next(0, 6);
                     ArticuloEN articuloN = new ArticuloEN();
                     //0 = Contenido || 1 = Contenido Descargable || 2 = Titulo || 3 = Subtitulo || 4 = Portada || 5 = Descripcion
                     articuloN.Autor = users[rng.Next(users.Count)].Email;
@@ -690,10 +690,10 @@ public static void InitializeData ()
                     articuloN.Subtitulo = articuloDatos[picker, 3];
                     articuloN.Portada = articuloDatos[picker, 4];
                     articuloN.Descripcion = articuloDatos[picker, 5];
-                    articuloN.Puntuacion = 0;
+                    articuloN.Puntuacion = rng.Next(0,10);
                     articuloN.Fecha = DateTime.Now;
                     picker = rng.Next(idsSeccion.Count);
-                    int oidN = articuloCEN.CrearArticulo(idsSeccion[picker], articulo3EN.Titulo, articulo3EN.Autor, articulo3EN.Contenido, articulo3EN.ContenidoDescargable, articulo3EN.Puntuacion, articulo3EN.Fecha, articulo3EN.Contador, articulo3EN.Subtitulo, articulo3EN.Portada, articulo3EN.Descripcion);
+                    int oidN = articuloCEN.CrearArticulo(idsSeccion[picker], articuloN.Titulo, articuloN.Autor, articuloN.Contenido, articuloN.ContenidoDescargable, articuloN.Puntuacion, articuloN.Fecha, articuloN.Contador, articuloN.Subtitulo, articuloN.Portada, articuloN.Descripcion);
                     articuloN.Id = oidN;
                     articulos.Add(articuloN);
                 };
