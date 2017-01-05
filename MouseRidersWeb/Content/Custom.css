@@ -59,3 +59,21 @@ header h2 {
         font-size: 2em;
     }
 }
+
+/*CSS para Index de Hilo (Foro)*/
+fieldset{
+    width: 95%;
+    margin: 3%;
+    border: medium solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #EEE;
+}
+
+.tituloH{
+    font-size: 1.5em;
+}
+
+#foro{
+    margin-bottom: 40px;
+}

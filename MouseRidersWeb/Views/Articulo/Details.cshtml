@@ -81,21 +81,7 @@
     </div>
     @foreach (var item in Model.Comentario)
     {
-        <p>
-            @Html.DisplayFor(modelItem => item.Id)
-        </p>
-        <p>
-            @Html.DisplayFor(modelItem => item.Contenido)
-        </p>
-        <p>
-            @Html.DisplayFor(modelItem => item.Creador)
-        </p>
-        <p>
-            @Html.DisplayFor(modelItem => item.Valoracion)
-        </p>
-        <p>
-            @Html.DisplayFor(modelItem => item.Fecha)
-        </p>
+        Html.RenderAction("Details", "Comentario", new { id = item.Id });
     }
 </fieldset>
 <p>

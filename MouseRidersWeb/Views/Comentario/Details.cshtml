@@ -2,13 +2,10 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
 
-<h2>Details</h2>
-
 <fieldset>
-    <legend>ComentarioDTO</legend>
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.Creador)
@@ -39,6 +36,6 @@
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Eliminar", "Delete", new { id = Model.Id })
 </p>
