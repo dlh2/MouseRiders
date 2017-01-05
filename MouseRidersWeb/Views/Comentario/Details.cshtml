@@ -7,35 +7,30 @@
 
 <fieldset>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Creador)
+    <div class="display-field" id="creadorC">
+        <a href="@Url.Action("Details", "Usuario", new { id = @Html.DisplayFor(model => model.Creador) })"><p>@Html.DisplayFor(model => model.Creador)</p></a>
     </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Creador)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Fecha)
-    </div>
-    <div class="display-field">
+    <div class="display-field" id="fechaC">
         @Html.DisplayFor(model => model.Fecha)
     </div>
+    
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Contenido)
-    </div>
-    <div class="display-field">
+    <div class="display-field" id="contenidoC">
         @Html.DisplayFor(model => model.Contenido)
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Valoracion)
-    </div>
-    <div class="display-field">
+    <div id="valC">
+        @Html.DisplayNameFor(model => model.Valoracion)
+
         @Html.DisplayFor(model => model.Valoracion)
+
+        <button class="votar"><img src="~/Contenido/Imagenes/ThumbsUp.png" alt="Positivo"></button>
+        <button class="votar"><img src="~/Contenido/Imagenes/ThumbsDown.png" alt="Negativo"></button>
     </div>
+
+    <p id="editC">
+        @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Eliminar", "Delete", new { id = Model.Id })
+    </p>
+
 </fieldset>
-<p>
-    @Html.ActionLink("Editar", "Edit", new { id=Model.Id }) |
-    @Html.ActionLink("Eliminar", "Delete", new { id = Model.Id })
-</p>

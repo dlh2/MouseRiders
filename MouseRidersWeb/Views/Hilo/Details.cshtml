@@ -4,46 +4,59 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@{
+    int rolSession = 0;
+    bool noSession;
+    if (@Session["user_rol"] != null)
+    {
+        noSession = Int32.TryParse(@Session["user_rol"].ToString(), out rolSession);
+    }
+    else
+    {
+        noSession = true;
+    }
+}
 
-<h2>Details</h2>
+<header id="hilo">
+    <h1>
+        @Html.DisplayFor(model => model.Titulo)
+    </h1>
+</header>
 
 <fieldset>
-    <legend>HiloDTO</legend>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Titulo)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Titulo)
-    </div>
+    <div id="creadorH"><a href="@Url.Action("Details", "Usuario", new { id = @Html.DisplayFor(model => model.Creador) })"><p>Creador: @Html.DisplayFor(model => model.Creador)</p></a></div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Fecha)
-    </div>
-    <div class="display-field">
+    <div id="fechaH">
+        @Html.DisplayNameFor(model => model.Fecha)
+
         @Html.DisplayFor(model => model.Fecha)
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Creador)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Creador)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.NumComentarios)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.NumComentarios)
-    </div>
     @foreach (var item in Model.Comentario)
     {
         Html.RenderAction("Details", "Comentario", new { id =  item.Id});
     }
 
+    <div >
+
+        @if (noSession)
+        {
+            using (Html.BeginForm("FastCreate", "Comentario"))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                @Html.Label("Comentario", "Añadir comentario")
+                <br />
+                //TextArea
+                <textarea rows=8 id="comentar" name="contenido" placeholder="Escriba aquí su comentario"></textarea>
+                //TODO: Hacerlo que sea por parametro de sesion
+                <input type="hidden" name="usuario" value="usuario@gmail.com">
+                <div><input type="submit" value="Comentar" /></div>
+            }
+        }
+    </div>
+
 </fieldset>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+@Html.ActionLink("Volver", "Index", "Hilo", null, new { @class = "btn btn-default btn-lg btn-block" })

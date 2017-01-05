@@ -61,6 +61,11 @@ header h2 {
 }
 
 /*CSS para Index de Hilo (Foro)*/
+body{
+    word-wrap: break-word;
+}
+
+
 fieldset{
     width: 95%;
     margin: 3%;
@@ -70,6 +75,10 @@ fieldset{
     background-color: #EEE;
 }
 
+fieldset fieldset{
+    background-color: white;
+}
+
 .tituloH{
     font-size: 1.5em;
 }
@@ -77,3 +86,57 @@ fieldset{
 #foro{
     margin-bottom: 40px;
 }
+
+#fechaH, #creadorH{
+    width: 49%;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+#fechaC, #creadorC{
+    width: 49%;
+    display: inline-block;
+    font-weight: bold;
+}
+
+#fechaC{
+    text-align:right;
+}
+#creadorC{
+    text-align:left;
+}
+#contenidoC{
+    margin:3%;
+}
+#editC{
+    display: inline-block;
+    text-align:right;
+    width: 49%;
+}
+
+#valC{
+    display: inline-block;
+    text-align:left;
+    width: 49%;
+}
+
+.votar{
+    background-color: white;
+    border: none;
+}
+
+.votar:hover{
+    opacity: 0.5;
+}
+
+.votar img{
+    width: 25px;
+}
+
+#comentar{
+    width: 100%;
+    border-radius: 10px;
+}
+
