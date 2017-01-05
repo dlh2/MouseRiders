@@ -75,7 +75,7 @@ public static void Create (string databaseArg, string userArg, string passArg)
 }
 
 
-private const string _chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+private const string _chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
 private static Random rng = new Random(); //variable aleatoria de los generadores
 
 private static string RandomString(int size) //metodo que genera Strings aleatorios de x tamaño 
@@ -563,6 +563,11 @@ public static void InitializeData ()
                 SeccionEN seccion2EN = new SeccionEN ();
                 seccionEN.Nombre = "Semanal";
                 int oid_s2 = seccionCEN.CrearSeccion (seccionEN.Nombre);
+                
+                IList<int> idsSeccion = new List<int>();
+                idsSeccion.Add(oid_s);
+                idsSeccion.Add(oid_s1);
+                idsSeccion.Add(oid_s2);
 
                 #endregion
 
@@ -617,6 +622,83 @@ public static void InitializeData ()
                 int oid_a3 = articuloCEN.CrearArticulo (oid_s2, articulo3EN.Titulo, articulo3EN.Autor, articulo3EN.Contenido, articulo3EN.ContenidoDescargable, articulo3EN.Puntuacion, articulo3EN.Fecha, articulo3EN.Contador, articulo3EN.Subtitulo, articulo3EN.Portada, articulo3EN.Descripcion);
                 articulo3EN.Id = oid_a3;
                 articulos.Add(articulo3EN);
+
+            //matriz con los 6 articulos y los 6 strings variables para cada uno
+                string[,] articuloDatos = new String[,]{
+                
+                //0 = Contenido || 1 = Contenido Descargable || 2 = Titulo || 3 = Subtitulo || 4 = Portada || 5 = Descripcion
+                {"Articulo1.html",
+                 "Articulo1.pdf",
+                 "Final Fantasy XV",
+                 "Todo lo que necesitas saber",
+                 "https://i1.sndcdn.com/artworks-000127833709-vqi28b-t500x500.jpg",
+                 "Por lo general, los juegos que tardan una década en salir tienen problemas. ¿Acaso olvidaste la catástrofe que fue Duke Nukem Forever? Pero Square Enix cambió de planes y eso incluía un nombre nuevo con una historia un poco distinta."
+                },
+
+                {"Articulo1.html",
+                 "Articulo2.pdf", 
+                 "Planet Coaster",
+                 "Tu loco parque de atracciones",
+                 "https://forums.planetcoaster.com/attachment.php?attachmentid=352&d=1466078141",
+                 "Construir tu propio parque de atracciones, sin límites, con gigantescas montañas rusas y grandes espectáculos. ¿Quién podría resistirse a algo así? Planet Coaster te permite crear tu particular Disney World con una sorprendente libertad de acción."
+                },
+
+                {"Articulo3.html",
+                 "Artiuclo3.pdf",
+                 "Call of Duty",
+                 "Modern Warfare Remastered",
+                 "http://static.mensup.fr/photos/132266/carre-call-of-duty-modern-warfare-remastered-les-images.jpg",
+                 "El juego que revolucionó el shooter moderno hace casi diez años vuelve con una de las mejores remasterizaciones que hemos podido probar hasta la fecha."
+                },
+
+                {"Articulo4.html",
+                 "Articulo4.pdf",
+                 "The Legend of Zelda: Breath of the Wild",
+                 "Avances del nuevo título de la saga",
+                 "http://img3.meristation.com/files/imagenes/general/link_zeldass.jpeg",
+                 "The Legend of Zelda es uno de los más esperados del año, el que más por la comunidad de Meristation. Y Nintendo quiere sorprender al mundo con uno de los Juegazos de 2016 que traerá consigo, como es habitual, un sinfín de novedades y cambios respecto a sus predecesores. ¿El Zelda definitivo?"
+                },
+
+                {"Articulo5.html",
+                 "Articulo5.pdf",
+                 "Earth's Dawn",
+                 "Entra de lleno a la invasión alienígena",
+                 "http://img3.meristation.com/files/imagenes/juegos/pc/action/earths_dawn/10.jpg",
+                 "Llega la aventura de acción con elementos RPG y un diseño artístico tipo manga, con un árbol de habilidades a nuestra disposición para hacer nustro héroe a medida y toneladas de acción con distintos caminos."
+                },
+
+                {"Articulo6.html",
+                 "Articulo6.pdf",
+                 "Mighty No.9",
+                 "El intento de sucesión de MegaMan",
+                 "http://img3.meristation.com/files/imagenes/juegos/pc/action/mighty_no._9/1433352596-mightyno9-04.jpg",
+                 "Mighty no.9 ha sufrido todo tipo de problemas, retrasos y cierta incertidumbre que no hacía presagiar nada bueno. Finalmente ya está aquí. No es el desastre que podía parecer en cierto punto del desarrollo, pero no es ni por asomo un Mega Man a la altura. Ni un notable juego de acción y plataformas 2D."
+                }
+               };     
+
+                for (int i = 0; i < 30; i++)
+                {
+                    int picker; //seleccionar uno de los 6 articulos
+                    picker = rng.Next(articuloDatos.GetLowerBound(0), articuloDatos.GetUpperBound(0));
+                    ArticuloEN articuloN = new ArticuloEN();
+                    //0 = Contenido || 1 = Contenido Descargable || 2 = Titulo || 3 = Subtitulo || 4 = Portada || 5 = Descripcion
+                    articuloN.Autor = users[rng.Next(users.Count)].Email;
+                    articuloN.Contador = 0;
+                    articuloN.Contenido = articuloDatos[picker,0];
+                    articuloN.ContenidoDescargable = articuloDatos[picker, 1];
+                    articuloN.Titulo = articuloDatos[picker, 2];
+                    articuloN.Subtitulo = articuloDatos[picker, 3];
+                    articuloN.Portada = articuloDatos[picker, 4];
+                    articuloN.Descripcion = articuloDatos[picker, 5];
+                    articuloN.Puntuacion = 0;
+                    articuloN.Fecha = DateTime.Now;
+                    picker = rng.Next(idsSeccion.Count);
+                    int oidN = articuloCEN.CrearArticulo(idsSeccion[picker], articulo3EN.Titulo, articulo3EN.Autor, articulo3EN.Contenido, articulo3EN.ContenidoDescargable, articulo3EN.Puntuacion, articulo3EN.Fecha, articulo3EN.Contador, articulo3EN.Subtitulo, articulo3EN.Portada, articulo3EN.Descripcion);
+                    articuloN.Id = oidN;
+                    articulos.Add(articuloN);
+                };
+
+              
                 
                 #endregion
 
