@@ -30,6 +30,8 @@ namespace MouseRidersWeb.Assembler
                     artDTO.Subtitulo = art.Subtitulo;
                     artDTO.Portada = art.Portada;
                     artDTO.Descripcion = art.Descripcion;
+                    UsuarioCEN usuCEN = new UsuarioCEN();
+                    artDTO.ID_Creador = usuCEN.ReadFilterPorEmail(art.Autor).Id;
                 }
                 return artDTO;
             }

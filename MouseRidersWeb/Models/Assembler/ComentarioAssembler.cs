@@ -23,6 +23,8 @@ namespace MouseRidersWeb.Assembler
                 comDTO.Fecha = com.Fecha;
                 comDTO.Contenido = com.Contenido;
                 comDTO.Valoracion = com.Valoracion;
+                UsuarioCEN usuCEN = new UsuarioCEN();
+                comDTO.ID_Creador = usuCEN.ReadFilterPorEmail(com.Creador).Id;
             }
             return comDTO;
         }
