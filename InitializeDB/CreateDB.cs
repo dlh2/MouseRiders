@@ -546,9 +546,13 @@ public static void InitializeData ()
                 EncuestaCEN encuestaCEN = new EncuestaCEN (_IEncuestaCAD);
 
                 EncuestaEN encuestaEN = new EncuestaEN ();
-                encuestaEN.Titulo = "satisfaccion de los usuarios";
-                encuestaEN.Descripcion = "como de satisfechos estan los usuarios";
+                encuestaEN.Titulo = "Satisfaccion de los usuarios";
+                encuestaEN.Descripcion = "Como de satisfechos estan los usuarios";
                 int oid_e = encuestaCEN.CrearEncuesta (encuestaEN.Titulo, encuestaEN.Descripcion, false);
+
+                encuestaEN.Titulo = "Calidad del servicio";
+                encuestaEN.Descripcion = "Calidad del mantenimiento y tiempo de respuesta por parte de los adminsitradores y redactores";
+                int oid_e1 = encuestaCEN.CrearEncuesta(encuestaEN.Titulo, encuestaEN.Descripcion, false);
 
                 #endregion
 
@@ -557,22 +561,38 @@ public static void InitializeData ()
                 PreguntaCEN preguntaCEN = new PreguntaCEN (_IPreguntaCAD);
 
                 PreguntaEN pregunta1EN = new PreguntaEN ();
-                pregunta1EN.Pregunta = "�esta satisfecho?";
+                pregunta1EN.Pregunta = "¿Esta satisfecho?";
                 pregunta1EN.Tipo = T_PreguntaEnum.radio;
                 pregunta1EN.Pertenece = encuestaEN;
                 int oid_p1 = preguntaCEN.CrearPregunta (pregunta1EN.Pregunta, pregunta1EN.Tipo, oid_e);
 
                 PreguntaEN pregunta2EN = new PreguntaEN ();
-                pregunta2EN.Pregunta = "�que puntuacion le da la asignatura DSM?";
+                pregunta2EN.Pregunta = "¿Que puntuacion le da la asignatura DSM?";
                 pregunta2EN.Tipo = T_PreguntaEnum.numerico;
                 pregunta2EN.Pertenece = encuestaEN;
                 int oid_p2 = preguntaCEN.CrearPregunta (pregunta2EN.Pregunta, pregunta2EN.Tipo, oid_e);
 
                 PreguntaEN pregunta3EN = new PreguntaEN ();
-                pregunta3EN.Pregunta = "�que cambiaria de nuestra web?";
+                pregunta3EN.Pregunta = "¿Que cambiaria de nuestra web?";
                 pregunta3EN.Tipo = T_PreguntaEnum.radio;
                 pregunta3EN.Pertenece = encuestaEN;
                 int oid_p3 = preguntaCEN.CrearPregunta (pregunta3EN.Pregunta, pregunta3EN.Tipo, oid_e);
+
+
+                pregunta1EN.Pregunta = "¿Son aceptables los tiempos de respuesta?";
+                pregunta1EN.Tipo = T_PreguntaEnum.radio;
+                pregunta1EN.Pertenece = encuestaEN;
+                int oid_p4 = preguntaCEN.CrearPregunta(pregunta1EN.Pregunta, pregunta1EN.Tipo, oid_e1);
+
+                pregunta2EN.Pregunta = "¿Es esta su web favorita?";
+                pregunta2EN.Tipo = T_PreguntaEnum.numerico;
+                pregunta2EN.Pertenece = encuestaEN;
+                int oid_p5 = preguntaCEN.CrearPregunta(pregunta2EN.Pregunta, pregunta2EN.Tipo, oid_e1);
+
+                pregunta3EN.Pregunta = "¿Cencerro?";
+                pregunta3EN.Tipo = T_PreguntaEnum.radio;
+                pregunta3EN.Pertenece = encuestaEN;
+                int oid_p6 = preguntaCEN.CrearPregunta(pregunta3EN.Pregunta, pregunta3EN.Tipo, oid_e1);
 
                 #endregion
 
@@ -581,16 +601,16 @@ public static void InitializeData ()
                 RespuestaCEN respuestaCEN = new RespuestaCEN (_IRespuestaCAD);
 
                 RespuestaEN respuesta1_1EN = new RespuestaEN ();
-                respuesta1_1EN.Contador = 0;
-                respuesta1_1EN.Frecuencia = 0;
-                respuesta1_1EN.Respuesta = "mucho";
+                respuesta1_1EN.Contador = 1;
+                respuesta1_1EN.Frecuencia = 0.5f;
+                respuesta1_1EN.Respuesta = "Mucho";
                 respuesta1_1EN.Tipo = T_PreguntaEnum.radio;
                 respuestaCEN.CrearRespuesta (respuesta1_1EN.Respuesta, respuesta1_1EN.Tipo, oid_p1, respuesta1_1EN.Contador, respuesta1_1EN.Frecuencia);
 
                 RespuestaEN respuesta1_2EN = new RespuestaEN ();
-                respuesta1_2EN.Contador = 0;
-                respuesta1_2EN.Frecuencia = 0;
-                respuesta1_2EN.Respuesta = "poco";
+                respuesta1_2EN.Contador = 1;
+                respuesta1_2EN.Frecuencia = 0.5f;
+                respuesta1_2EN.Respuesta = "Poco";
                 respuesta1_2EN.Tipo = T_PreguntaEnum.radio;
                 respuestaCEN.CrearRespuesta (respuesta1_2EN.Respuesta, respuesta1_2EN.Tipo, oid_p1, respuesta1_2EN.Contador, respuesta1_2EN.Frecuencia);
 
@@ -602,25 +622,81 @@ public static void InitializeData ()
                 respuestaCEN.CrearRespuesta (respuesta2_1EN.Respuesta, respuesta2_1EN.Tipo, oid_p2, respuesta2_1EN.Contador, respuesta2_1EN.Frecuencia);
 
                 RespuestaEN respuesta2_2EN = new RespuestaEN ();
-                respuesta2_2EN.Contador = 0;
-                respuesta2_2EN.Frecuencia = 0;
+                respuesta2_2EN.Contador = 2;
+                respuesta2_2EN.Frecuencia = 1;
                 respuesta2_2EN.Respuesta = "2";
                 respuesta2_2EN.Tipo = T_PreguntaEnum.numerico;
                 respuestaCEN.CrearRespuesta (respuesta2_2EN.Respuesta, respuesta2_2EN.Tipo, oid_p2, respuesta2_2EN.Contador, respuesta2_2EN.Frecuencia);
 
                 RespuestaEN respuesta3_1EN = new RespuestaEN ();
-                respuesta3_1EN.Contador = 0;
-                respuesta3_1EN.Frecuencia = 0;
-                respuesta3_1EN.Respuesta = "todo";
+                respuesta3_1EN.Contador = 3;
+                respuesta3_1EN.Frecuencia = 0.75f;
+                respuesta3_1EN.Respuesta = "Todo";
                 respuesta3_1EN.Tipo = T_PreguntaEnum.radio;
                 respuestaCEN.CrearRespuesta (respuesta3_1EN.Respuesta, respuesta3_1EN.Tipo, oid_p3, respuesta3_1EN.Contador, respuesta3_1EN.Frecuencia);
 
                 RespuestaEN respuesta3_2EN = new RespuestaEN ();
-                respuesta3_2EN.Contador = 0;
-                respuesta3_2EN.Frecuencia = 0;
-                respuesta3_2EN.Respuesta = "nada";
+                respuesta3_2EN.Contador = 1;
+                respuesta3_2EN.Frecuencia = 0.25f;
+                respuesta3_2EN.Respuesta = "Nada";
                 respuesta3_2EN.Tipo = T_PreguntaEnum.radio;
                 respuestaCEN.CrearRespuesta (respuesta3_2EN.Respuesta, respuesta3_2EN.Tipo, oid_p3, respuesta3_2EN.Contador, respuesta3_2EN.Frecuencia);
+
+
+
+                respuesta1_1EN.Contador = 4;
+                respuesta1_1EN.Frecuencia = 0.25f;
+                respuesta1_1EN.Respuesta = "Absolutamente";
+                respuesta1_1EN.Tipo = T_PreguntaEnum.radio;
+                respuestaCEN.CrearRespuesta(respuesta1_1EN.Respuesta, respuesta1_1EN.Tipo, oid_p4, respuesta1_1EN.Contador, respuesta1_1EN.Frecuencia);
+
+                respuesta1_2EN.Contador = 4;
+                respuesta1_2EN.Frecuencia = 0.25f;
+                respuesta1_2EN.Respuesta = "Sí";
+                respuesta1_2EN.Tipo = T_PreguntaEnum.radio;
+                respuestaCEN.CrearRespuesta(respuesta1_2EN.Respuesta, respuesta1_2EN.Tipo, oid_p4, respuesta1_2EN.Contador, respuesta1_2EN.Frecuencia);
+
+                respuesta1_2EN.Contador = 2;
+                respuesta1_2EN.Frecuencia = 0.125f;
+                respuesta1_2EN.Respuesta = "No";
+                respuesta1_2EN.Tipo = T_PreguntaEnum.radio;
+                respuestaCEN.CrearRespuesta(respuesta1_2EN.Respuesta, respuesta1_2EN.Tipo, oid_p4, respuesta1_2EN.Contador, respuesta1_2EN.Frecuencia);
+
+                respuesta1_2EN.Contador = 6;
+                respuesta1_2EN.Frecuencia = 0.375f;
+                respuesta1_2EN.Respuesta = "En absoluto";
+                respuesta1_2EN.Tipo = T_PreguntaEnum.radio;
+                respuestaCEN.CrearRespuesta(respuesta1_2EN.Respuesta, respuesta1_2EN.Tipo, oid_p4, respuesta1_2EN.Contador, respuesta1_2EN.Frecuencia);
+
+                respuesta2_1EN.Contador = 10;
+                respuesta2_1EN.Frecuencia = 1;
+                respuesta2_1EN.Respuesta = "Sí";
+                respuesta2_1EN.Tipo = T_PreguntaEnum.radio;
+                respuestaCEN.CrearRespuesta(respuesta2_1EN.Respuesta, respuesta2_1EN.Tipo, oid_p5, respuesta2_1EN.Contador, respuesta2_1EN.Frecuencia);
+
+                respuesta2_2EN.Contador = 0;
+                respuesta2_2EN.Frecuencia = 0;
+                respuesta2_2EN.Respuesta = "No";
+                respuesta2_2EN.Tipo = T_PreguntaEnum.radio;
+                respuestaCEN.CrearRespuesta(respuesta2_2EN.Respuesta, respuesta2_2EN.Tipo, oid_p5, respuesta2_2EN.Contador, respuesta2_2EN.Frecuencia);
+
+                respuesta3_1EN.Contador = 1;
+                respuesta3_1EN.Frecuencia = 0.1f;
+                respuesta3_1EN.Respuesta = "Candelabro";
+                respuesta3_1EN.Tipo = T_PreguntaEnum.radio;
+                respuestaCEN.CrearRespuesta(respuesta3_1EN.Respuesta, respuesta3_1EN.Tipo, oid_p6, respuesta3_1EN.Contador, respuesta3_1EN.Frecuencia);
+
+                respuesta3_2EN.Contador = 1;
+                respuesta3_2EN.Frecuencia = 0.1f;
+                respuesta3_2EN.Respuesta = "Mantel";
+                respuesta3_2EN.Tipo = T_PreguntaEnum.radio;
+                respuestaCEN.CrearRespuesta(respuesta3_2EN.Respuesta, respuesta3_2EN.Tipo, oid_p6, respuesta3_2EN.Contador, respuesta3_2EN.Frecuencia);
+
+                respuesta3_2EN.Contador = 8;
+                respuesta3_2EN.Frecuencia = 0.8f;
+                respuesta3_2EN.Respuesta = "Campana";
+                respuesta3_2EN.Tipo = T_PreguntaEnum.radio;
+                respuestaCEN.CrearRespuesta(respuesta3_2EN.Respuesta, respuesta3_2EN.Tipo, oid_p6, respuesta3_2EN.Contador, respuesta3_2EN.Frecuencia);
 
 
                 #endregion
@@ -957,7 +1033,7 @@ public static void InitializeData ()
                 Console.WriteLine ("Actualizar puntuacion Result2 :" + articuloCEN.ActualizarPuntuacion (oid_a2, 4.0F));
                 Console.WriteLine ("Actualizar puntuacion Result3 :" + articuloCEN.ActualizarPuntuacion (oid_a2, 5.0F));
 
-
+            /*
                 //Realizar Encuesta (funciona tras modificaciones leves!!!)
                 EncuestaCP encuestaCP = new EncuestaCP ();
                 IList<String> ss5 = new List<String>();
@@ -984,7 +1060,7 @@ public static void InitializeData ()
 
 
                 //Generar Estadisticas (funciona tras modificaciones leves!!!)
-                encuestaCP.GenerarEstadisticas ();
+                encuestaCP.GenerarEstadisticas ();*/
                 //Si funciona, la respuesta mucho debe tener 0.66, poco=0.33, 1=0.33, 2=0.66, todo=1.0
 
 

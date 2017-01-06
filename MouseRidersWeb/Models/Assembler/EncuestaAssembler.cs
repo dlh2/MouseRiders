@@ -21,6 +21,8 @@ namespace MouseRidersWeb.Assembler
                 encDTO = new EncuestaDTO();
                 encDTO.id = enc.Id;
                 encDTO.titulo = enc.Titulo;
+                encDTO.descripcion = enc.Descripcion;
+                encDTO.privacidad = enc.Privada;
             }
             return encDTO;
         }
