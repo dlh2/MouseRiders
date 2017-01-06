@@ -427,7 +427,6 @@
     <Content Include="Views\Seccion\Delete.cshtml" />
     <Content Include="Views\Seccion\Edit.cshtml" />
     <Content Include="Views\Encuesta\Delete.cshtml" />
-    <Content Include="Views\Encuesta\Edit.cshtml" />
     <Content Include="Views\Encuesta\Details.cshtml" />
     <Content Include="Views\Usuario\VerDenunciasRecibidas.cshtml" />
     <Content Include="Views\Usuario\Create.cshtml" />
@@ -438,6 +437,7 @@
     <Content Include="Views\Usuario\MensajesPrivados.cshtml" />
     <Content Include="Views\Usuario\VerMensajesRecibidos.cshtml" />
     <Content Include="Views\Usuario\VerMensajesEnviados.cshtml" />
+    <Content Include="Views\Encuesta\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -98,7 +98,8 @@ namespace MouseRidersWeb.Controllers
         {
             EncuestaCAD eCAD = new EncuestaCAD();
             EncuestaEN result = eCAD.ReadOIDDefault(id);
-            return View(result);
+            EncuestaDTO resultfinal = new EncuestaAssembler().Convert(result);
+            return View(resultfinal);
         }
 
         //
