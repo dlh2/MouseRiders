@@ -5,33 +5,19 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2 class="customh2">@Html.DisplayFor(model => model.titulo)</h2>
 
-<fieldset>
-    <legend>EncuestaDTO</legend>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.titulo)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.titulo)
-    </div>
-</fieldset>
 @foreach (var preg in Model.Tiene)
 {
-    
-    <p>
-        @Html.DisplayFor(modelpreg => preg.Pregunta)
-    </p>
-    foreach (var resp in preg.Tiene)
-    {
-        <p>
-            @Html.DisplayFor(modelresp => resp.Respuesta)
-        </p>
-    }
+    <fieldset class="encuesta">
+        <h2>
+            @Html.DisplayFor(modelpreg => preg.Pregunta)
+        </h2>
+        <img src="@Url.Action("Chart", "Pregunta", new {id= preg.id})" />
+    </fieldset>
 
 }
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

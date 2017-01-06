@@ -168,7 +168,7 @@ fieldset fieldset{
     text-align: right;
 }
 
-/*CSS para Encuesta (Index)*/
+/*CSS para Encuesta (Index y Detail)*/
 #tituloE, #privacidadE{
 
     display: inline-block;
@@ -192,4 +192,15 @@ fieldset fieldset{
 #editE{
     margin-top: 2%;
     text-align:right;
+}
+
+.encuesta img{
+    width: 90%;
+    margin-left:auto;
+    margin-right:auto;
+    display: block;
+}
+
+.encuesta h2{
+    text-align:center;
 }

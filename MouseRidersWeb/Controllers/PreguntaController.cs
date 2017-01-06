@@ -28,6 +28,19 @@ namespace MouseRidersWeb.Controllers
             return View(resultfinal);
         }
 
+        // GET: /Pregunta/
+
+        public ActionResult Chart(int id)
+        {
+            SessionInitialize();
+            PreguntaCAD cCAD = new PreguntaCAD(session);
+            PreguntaEN result = cCAD.ReadOIDDefault(id);
+            PreguntaDTO resultfinal = new PreguntaDTO();
+            resultfinal = new PreguntaAssembler().ConvertConRespuesta(result);
+            SessionClose();
+            return View(resultfinal);
+        }
+
        
         //
         // GET: /Pregunta/Edit/5

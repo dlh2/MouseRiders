@@ -438,6 +438,7 @@
     <Content Include="Views\Usuario\VerMensajesRecibidos.cshtml" />
     <Content Include="Views\Usuario\VerMensajesEnviados.cshtml" />
     <Content Include="Views\Encuesta\Edit.cshtml" />
+    <Content Include="Views\Pregunta\Chart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

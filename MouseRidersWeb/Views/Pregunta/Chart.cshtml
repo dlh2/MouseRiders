@@ -1,0 +1,26 @@
+﻿@model MouseRidersWeb.DTO.PreguntaDTO
+
+    @{
+        string[] pregun = new string[Model.Tiene.Count];
+        float[] frec = new float[Model.Tiene.Count];
+        for (int i = 0; i < Model.Tiene.Count; i++)
+        {
+            pregun[i] = Model.Tiene.ElementAt(i).Respuesta;
+            frec[i] = Model.Tiene.ElementAt(i).Frecuencia * 100;
+        }
+
+
+        string myTheme = @"<Chart BackColor=""#EEEEEE"" ><ChartAreas><ChartArea Name=""Default"" BackColor=""#EEEEEE""></ChartArea></ChartAreas></Chart>";
+
+        
+
+
+
+        var myChart = new Chart(width: 900, height: 600, theme: myTheme)
+            .AddSeries(
+                name: "",
+                xValue: pregun,
+                yValues: frec)
+            .SetYAxis("Frecuencia %")
+            .Write();
+    }
