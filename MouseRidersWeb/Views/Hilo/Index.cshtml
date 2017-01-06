@@ -5,11 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<header id="foro">
-    <h1>
-        Foro
-    </h1>
-</header>
+<h2 class="customh2">Foro</h2>
 
 @Html.ActionLink("Crear nuevo hilo", "Create", "Hilo", null, new {@class = "btn btn-default btn-lg btn-block" })
 
@@ -21,7 +17,7 @@
 
         <p>Fecha de creación: @Html.DisplayFor(modelItem => item.Fecha)</p>
      
-        <a href="@Url.Action("Details", "Usuario", new { id= item.Creador })"><p>Creador: @Html.DisplayFor(modelItem => item.Creador)</p></a>
+        <a href="@Url.Action("Details", "Usuario", new { id= item.ID_Creador })"><p>Creador: @Html.DisplayFor(modelItem => item.Creador)</p></a>
 
         <p>@Html.DisplayFor(modelItem => item.NumComentarios) comentarios</p>
 

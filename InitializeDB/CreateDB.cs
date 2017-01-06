@@ -75,7 +75,7 @@ public static void Create (string databaseArg, string userArg, string passArg)
 }
 
 
-private const string _chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
+private const string _chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz      abcdefghijklmnopqrstuvwxyz      abcdefghijklmnopqrstuvwxyz      ";
 private static Random rng = new Random(); //variable aleatoria de los generadores
 
 private static string RandomString(int size) //metodo que genera Strings aleatorios de x tamaño 
@@ -98,9 +98,67 @@ public static void InitializeData ()
         /*PROTECTED REGION ID(initializeDataMethod) ENABLED START*/
         try
         {
-                // Insert the initilizations of entities using the CEN classes
+            
+             //matriz con los 6 articulos y los 6 strings variables para cada uno
+                string[,] articuloDatos = new String[,]{
+                
+                //0 = Contenido || 1 = Contenido Descargable || 2 = Titulo || 3 = Subtitulo || 4 = Portada || 5 = Descripcion
+                {"Articulo1.html",
+                 "Articulo1.pdf",
+                 "Final Fantasy XV",
+                 "Todo lo que necesitas saber",
+                 "https://i1.sndcdn.com/artworks-000127833709-vqi28b-t500x500.jpg",
+                 "Por lo general, los juegos que tardan una década en salir tienen problemas. ¿Acaso olvidaste la catástrofe que fue Duke Nukem Forever? Pero Square Enix cambió de planes y eso incluía un nombre nuevo con una historia un poco distinta."
+                },
+
+                {"Articulo1.html",
+                 "Articulo2.pdf", 
+                 "Planet Coaster",
+                 "Tu loco parque de atracciones",
+                 "https://forums.planetcoaster.com/attachment.php?attachmentid=352&d=1466078141",
+                 "Construir tu propio parque de atracciones, sin límites, con gigantescas montañas rusas y grandes espectáculos. ¿Quién podría resistirse a algo así? Planet Coaster te permite crear tu particular Disney World con una sorprendente libertad de acción."
+                },
+
+                {"Articulo3.html",
+                 "Artiuclo3.pdf",
+                 "Call of Duty",
+                 "Modern Warfare Remastered",
+                 "http://static.mensup.fr/photos/132266/carre-call-of-duty-modern-warfare-remastered-les-images.jpg",
+                 "El juego que revolucionó el shooter moderno hace casi diez años vuelve con una de las mejores remasterizaciones que hemos podido probar hasta la fecha."
+                },
+
+                {"Articulo4.html",
+                 "Articulo4.pdf",
+                 "The Legend of Zelda: Breath of the Wild",
+                 "Avances del nuevo título de la saga",
+                 "http://www.zero-yen-media.fr/home/wp-content/uploads/2016/10/Zelda_BOTW_thumb-500x500.jpg",
+                 "The Legend of Zelda es uno de los más esperados del año, el que más por la comunidad de Meristation. Y Nintendo quiere sorprender al mundo con uno de los Juegazos de 2016 que traerá consigo."
+                },
+
+                {"Articulo5.html",
+                 "Articulo5.pdf",
+                 "Earth's Dawn",
+                 "Entra de lleno a la invasión alienígena",
+                 "https://c2.staticflickr.com/6/5488/30626790385_876b1b957c.jpg",
+                 "Llega la aventura de acción con elementos RPG y un diseño artístico tipo manga, con un árbol de habilidades a nuestra disposición para hacer nustro héroe a medida y toneladas de acción con distintos caminos."
+                },
+
+                {"Articulo6.html",
+                 "Articulo6.pdf",
+                 "Mighty No.9",
+                 "El intento de sucesión de MegaMan",
+                 "https://www.digitalgamesuruguay.com/wp-content/uploads/2016/06/Mighty-No.-9.jpg",
+                 "Mighty no.9 ha sufrido todo tipo de problemas, retrasos y cierta incertidumbre que no hacía presagiar nada bueno. Finalmente ya está aquí. No es el desastre que podía parecer en cierto punto del desarrollo."
+                }
+               };   
+            
+            
+            
+            
+            // Insert the initilizations of entities using the CEN classes
 
 
+                
                 // p.e. CustomerCEN customer = new CustomerCEN();
                 // customer.New_ (p_user:"user", p_password:"1234");
                 //UsuarioCEN usuario = new UsuarioCEN ();
@@ -245,6 +303,25 @@ public static void InitializeData ()
                 IList<int> ses_recibido5 = new List<int>();
                 ses_recibido5.Add (usuario3EN.Id);
                 int oid2 = mensajeCEN.CrearMensaje (mensaje5EN.Asunto, mensaje5EN.Texto, mensaje5EN.Adjunto, mensaje5EN.Tipo, mensaje5EN.Es_enviado.Id, ses_recibido5);
+
+                //generador de mensajes aleatorios de un usuario a otro (puede ser reciproco)
+                for (int i = 0; i < 40; i++)
+                {
+                    int picker = rng.Next(0, 6);
+                    MensajeEN mensajeN = new MensajeEN();
+                    mensajeN.Asunto = RandomString(20);
+                    mensajeN.Adjunto = articuloDatos[picker,0];
+                    mensajeN.Texto = RandomString(100);
+                    mensajeN.Tipo = T_MensajeEnum.privado;
+                    IList<UsuarioEN> es_recibidoN = new List<UsuarioEN>();
+                    es_recibidoN.Add(users[rng.Next(users.Count)]);
+                    mensajeN.Es_recibido = es_recibidoN;
+                    mensajeN.Es_enviado = users[rng.Next(users.Count)];
+                    IList<int> ses_recibidoN = new List<int>();
+                    ses_recibidoN.Add(users[rng.Next(users.Count)].Id);
+                    int OidN = mensajeCEN.CrearMensaje(mensajeN.Asunto, mensajeN.Texto, mensajeN.Adjunto, mensajeN.Tipo, mensajeN.Es_enviado.Id, ses_recibidoN);
+                }
+                
 
                 #endregion
 
@@ -624,57 +701,7 @@ public static void InitializeData ()
                 articulos.Add(articulo3EN);
 
             //matriz con los 6 articulos y los 6 strings variables para cada uno
-                string[,] articuloDatos = new String[,]{
-                
-                //0 = Contenido || 1 = Contenido Descargable || 2 = Titulo || 3 = Subtitulo || 4 = Portada || 5 = Descripcion
-                {"Articulo1.html",
-                 "Articulo1.pdf",
-                 "Final Fantasy XV",
-                 "Todo lo que necesitas saber",
-                 "https://i1.sndcdn.com/artworks-000127833709-vqi28b-t500x500.jpg",
-                 "Por lo general, los juegos que tardan una década en salir tienen problemas. ¿Acaso olvidaste la catástrofe que fue Duke Nukem Forever? Pero Square Enix cambió de planes y eso incluía un nombre nuevo con una historia un poco distinta."
-                },
-
-                {"Articulo1.html",
-                 "Articulo2.pdf", 
-                 "Planet Coaster",
-                 "Tu loco parque de atracciones",
-                 "https://forums.planetcoaster.com/attachment.php?attachmentid=352&d=1466078141",
-                 "Construir tu propio parque de atracciones, sin límites, con gigantescas montañas rusas y grandes espectáculos. ¿Quién podría resistirse a algo así? Planet Coaster te permite crear tu particular Disney World con una sorprendente libertad de acción."
-                },
-
-                {"Articulo3.html",
-                 "Artiuclo3.pdf",
-                 "Call of Duty",
-                 "Modern Warfare Remastered",
-                 "http://static.mensup.fr/photos/132266/carre-call-of-duty-modern-warfare-remastered-les-images.jpg",
-                 "El juego que revolucionó el shooter moderno hace casi diez años vuelve con una de las mejores remasterizaciones que hemos podido probar hasta la fecha."
-                },
-
-                {"Articulo4.html",
-                 "Articulo4.pdf",
-                 "The Legend of Zelda: Breath of the Wild",
-                 "Avances del nuevo título de la saga",
-                 "http://www.zero-yen-media.fr/home/wp-content/uploads/2016/10/Zelda_BOTW_thumb-500x500.jpg",
-                 "The Legend of Zelda es uno de los más esperados del año, el que más por la comunidad de Meristation. Y Nintendo quiere sorprender al mundo con uno de los Juegazos de 2016 que traerá consigo."
-                },
-
-                {"Articulo5.html",
-                 "Articulo5.pdf",
-                 "Earth's Dawn",
-                 "Entra de lleno a la invasión alienígena",
-                 "https://c2.staticflickr.com/6/5488/30626790385_876b1b957c.jpg",
-                 "Llega la aventura de acción con elementos RPG y un diseño artístico tipo manga, con un árbol de habilidades a nuestra disposición para hacer nustro héroe a medida y toneladas de acción con distintos caminos."
-                },
-
-                {"Articulo6.html",
-                 "Articulo6.pdf",
-                 "Mighty No.9",
-                 "El intento de sucesión de MegaMan",
-                 "https://www.digitalgamesuruguay.com/wp-content/uploads/2016/06/Mighty-No.-9.jpg",
-                 "Mighty no.9 ha sufrido todo tipo de problemas, retrasos y cierta incertidumbre que no hacía presagiar nada bueno. Finalmente ya está aquí. No es el desastre que podía parecer en cierto punto del desarrollo."
-                }
-               };     
+                  
 
                 for (int i = 0; i < 30; i++)
                 {

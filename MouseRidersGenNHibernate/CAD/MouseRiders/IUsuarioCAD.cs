@@ -41,6 +41,12 @@ void RelacionaDenuncia (int p_Usuario_OID, System.Collections.Generic.IList<int>
 
 void RelacionaBloqueo (int p_Usuario_OID, int p_es_de_OID);
 
-System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN> ReadFilter (string p_nombre);
+System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN> ReadFilterBusqueda (string p_nombre);
+
+
+MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN ReadFilterPorEmail (string p_email);
+
+
+MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN ReadFilterAuth (string p_email_o_nick);
 }
 }

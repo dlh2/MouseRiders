@@ -16,7 +16,11 @@ namespace MouseRidersWeb.DTO
         [ScaffoldColumn(false)]
         public int Id { get; set; }
 
-
+        //Nuevo atributo
+        /*
+         * ID_Creador
+         */
+        public int ID_Creador { get; set; }
 
 
         /**

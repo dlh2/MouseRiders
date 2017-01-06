@@ -19,7 +19,7 @@ namespace MouseRidersGenNHibernate.CEN.MouseRiders
 {
 public partial class UsuarioCEN
 {
-public bool Autenticar (int p_id, string p_email, string p_pass)
+public int Autenticar (string p_email_o_nickname, string p_pass)
 {
         /*PROTECTED REGION ID(MouseRidersGenNHibernate.CEN.MouseRiders_Usuario_autenticar) ENABLED START*/
 
@@ -27,17 +27,17 @@ public bool Autenticar (int p_id, string p_email, string p_pass)
 
         UsuarioEN usuarioEn = null;
 
-        if (p_email == null || p_pass == null) {
-                return false;
+        if (p_email_o_nickname == null || p_pass == null) {
+                return -1;
         }
 
-        usuarioEn = _IUsuarioCAD.ReadOID(p_id);
+        usuarioEn = _IUsuarioCAD.ReadFilterAuth(p_email_o_nickname);
 
-        if (usuarioEn.Nombreusuario != p_email  || usuarioEn.Contrasenya != p_pass) {
-                return false;
+        if ((usuarioEn.Nombreusuario != p_email_o_nickname && usuarioEn.Email != p_email_o_nickname) || usuarioEn.Contrasenya != p_pass) {
+                return -1;
         }
 
-        return true;
+        return 0;
 
         /*PROTECTED REGION END*/
 }

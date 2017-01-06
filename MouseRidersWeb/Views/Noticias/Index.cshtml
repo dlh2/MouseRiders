@@ -5,27 +5,36 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2 class="customh2">Noticias</h2>
 
-<fieldset>
-    <legend>SeccionDTO</legend>
+<h3 style="text-align:center"> Ordenar por </h3>
 
-    <div class="display-label">
-        @Html.DisplayNameFor(model => model.Nombre)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Nombre)
-    </div>
-</fieldset>
+<div class="btn-group-justified" role="group">
+    <a href="" class="btn btn-secondary2">Fecha</a>
+    <a href="" class="btn btn-secondary2">Orden Ascendente</a>
+    <a href="" class="btn btn-secondary2">Orden Descendente</a>
+    <a href="" class="btn btn-secondary2">Valoración</a>
+</div>
+
 @foreach (var item in Model.Tiene)
 {
-    <p>
-        @Html.ActionLink(item.Titulo, "Contenido", "Articulo", new { id = item.Id }, null)
-    </p>
-    <p>
-        @Html.DisplayFor(modelItem => item.Descripcion)
-    </p>
+    <hr class="featurette-divider">
+
+        <!-- First Featurette -->
+
+    <div class="featurette">
+        <a href="@Url.Action("Details", "Articulo", new { id = item.Id })">
+            <img class="featurette-image img-circle img-responsive pull-right" src="@Html.DisplayFor(modelItem => item.Portada)">
+            <h2 class="featurette-heading">
+                @Html.DisplayFor(modelItem => item.Titulo)
+                <span class="text-muted">@Html.DisplayFor(modelItem => item.Subtitulo)</span>
+            </h2>
+        </a>
+        <p class="lead">@Html.DisplayFor(modelItem => item.Descripcion)</p>
+    </div>
+
+    <hr class="featurette-divider">
 }
-<p>
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+@Html.ActionLink("Volver", "Index", "Hilo", null, new { @class = "btn btn-default btn-lg btn-block" })
+
