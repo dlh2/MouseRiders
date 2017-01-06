@@ -43,7 +43,7 @@ body {
 
 
 .customh2{
-    font-size: 6em;
+    font-size: 5em;
     background: #fff;
     background: rgba(0,0,0,0.9);
     color: white;
@@ -85,6 +85,16 @@ body {
 .psection{
     font-size: 1.8em;
 }
+
+.phelp{
+    font-size: 3em;
+}
+
+.panel-default .panel-heading{
+    background-color:gray;
+    color:white;
+}
+
 
 
 .featurette-divider {
