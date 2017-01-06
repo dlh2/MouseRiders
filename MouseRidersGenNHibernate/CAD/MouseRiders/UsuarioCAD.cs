@@ -514,5 +514,36 @@ public MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN ReadFilterPorEmail (str
 
         return result;
 }
+public MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN ReadFilterAuth (string p_email_o_nick)
+{
+        MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM UsuarioEN self where FROM UsuarioEN where emailUsuario=:p_email_o_nick or nombreusuario=:p_email_o_nick";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("UsuarioENreadFilterAuthHQL");
+                query.SetParameter ("p_email_o_nick", p_email_o_nick);
+
+
+                result = query.UniqueResult<MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is MouseRidersGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new MouseRidersGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

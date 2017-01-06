@@ -146,5 +146,6 @@
 		  <query name="UsuarioENReadAllHQL">from UsuarioEN</query>
 		  <query name="UsuarioENreadFilterBusquedaHQL"><![CDATA[FROM UsuarioEN where :p_nombre like nombreusuario or :p_nombre like nombre]]></query>
 		  <query name="UsuarioENreadFilterPorEmailHQL"><![CDATA[FROM UsuarioEN where emailUsuario=:p_email]]></query>
+		  <query name="UsuarioENreadFilterAuthHQL"><![CDATA[FROM UsuarioEN where emailUsuario=:p_email_o_nick or nombreusuario=:p_email_o_nick]]></query>
 		</hibernate-mapping>
 	

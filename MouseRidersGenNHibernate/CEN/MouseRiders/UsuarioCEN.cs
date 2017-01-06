@@ -144,5 +144,9 @@ public MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN ReadFilterPorEmail (str
 {
         return _IUsuarioCAD.ReadFilterPorEmail (p_email);
 }
+public MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN ReadFilterAuth (string p_email_o_nick)
+{
+        return _IUsuarioCAD.ReadFilterAuth (p_email_o_nick);
+}
 }
 }

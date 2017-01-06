@@ -45,5 +45,8 @@ System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.Usuario
 
 
 MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN ReadFilterPorEmail (string p_email);
+
+
+MouseRidersGenNHibernate.EN.MouseRiders.UsuarioEN ReadFilterAuth (string p_email_o_nick);
 }
 }
