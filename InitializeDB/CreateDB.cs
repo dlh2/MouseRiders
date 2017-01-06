@@ -75,7 +75,7 @@ public static void Create (string databaseArg, string userArg, string passArg)
 }
 
 
-private const string _chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
+private const string _chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz      abcdefghijklmnopqrstuvwxyz      abcdefghijklmnopqrstuvwxyz      ";
 private static Random rng = new Random(); //variable aleatoria de los generadores
 
 private static string RandomString(int size) //metodo que genera Strings aleatorios de x tamaño 
