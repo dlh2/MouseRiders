@@ -21,7 +21,7 @@
 
         <p>Fecha de creación: @Html.DisplayFor(modelItem => item.Fecha)</p>
      
-        <a href="@Url.Action("Details", "Usuario", new { id= item.Creador })"><p>Creador: @Html.DisplayFor(modelItem => item.Creador)</p></a>
+        <a href="@Url.Action("Details", "Usuario", new { id= item.ID_Creador })"><p>Creador: @Html.DisplayFor(modelItem => item.Creador)</p></a>
 
         <p>@Html.DisplayFor(modelItem => item.NumComentarios) comentarios</p>
 

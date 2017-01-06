@@ -31,9 +31,9 @@ public bool Autenticar (int p_id, string p_email, string p_pass)
                 return false;
         }
 
-        usuarioEn = _IUsuarioCAD.ReadOID(p_id);
+        usuarioEn = _IUsuarioCAD.ReadOID (p_id);
 
-        if (usuarioEn.Nombreusuario != p_email  || usuarioEn.Contrasenya != p_pass) {
+        if (usuarioEn.Nombreusuario != p_email || usuarioEn.Contrasenya != p_pass) {
                 return false;
         }
 
