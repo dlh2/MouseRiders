@@ -4,30 +4,37 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 class="customh2">Encuestas</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.titulo)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.titulo)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
+@foreach (var item in Model)
+{
+
+    <fieldset>
+        <p id="tituloE">@Html.DisplayFor(modelItem => item.titulo)</p>
+
+        <p id="privacidadE">
+            @if (item.privacidad == false)
+            {
+                <text>Pública</text>;
+            }
+            else
+            {
+                <text>Privada</text>;
+            }
+        </p>
+        <p id="descripE">@Html.DisplayFor(modelItem => item.descripcion)</p>
+
+
+        <div class="btn-group-lg btn-group-justified" role="group" id="secciones_aux">
+            <a href="@Url.Action("Details", "Encuesta", new { id = item.id })" class="btn btn-secondary2">Ver estadísticas</a>
+            <a href="@Url.Action("Realizar", "Encuesta", new { id = item.id })" class="btn btn-secondary2">Realizar Encuesta</a>
+        </div>
+
+        <div id="editE">
+            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+        </div>
+    </fieldset>
 }
 
-</table>
