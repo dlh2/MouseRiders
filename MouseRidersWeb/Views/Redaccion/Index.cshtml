@@ -17,7 +17,7 @@
     <h3 class="customh3"> Contáctanos </h3>
 
     <div class="divsection col-sm-12">
-        <button class="btn-secondary2 btn-lg"> Sugiere un contenido </button>
+        @Html.ActionLink("Sugiere un contenido", "Contenido", "Contacto", null, new { @class = "btn-secondary2 btn-lg" , style = "text-decoration:none" })
         <img class="col-sm-3 img-rounded img-responsive sectimg" src="https://thelogicalindian.com/wp-content/uploads/2015/12/Suggest-a-News.png.pagespeed.ce.1M7z0qO9oa.png" />
         <p class="text-justify psection col-sm-9">
             ¿Echas en falta un análisis, un avance o alguna cosa? ¡Háznoslo saber!
@@ -26,7 +26,7 @@
 
     <div class="divsection col-sm-12">
         <p></p>
-        <button class="btn-secondary2 btn-lg"> Contacta con un redactor </button>
+        @Html.ActionLink("Contactar con un redactor", "Redactor", "Contacto", null, new { @class = "btn-secondary2 btn-lg", style = "text-decoration:none" })
         <img class="col-sm-3 img-rounded img-responsive sectimg" src="http://www.omniumsandals.com/images/contact-admin-omnium.png" />
         <p class="text-justify psection col-sm-9">
             ¿Tienes algo que hacerle llegar personalmente a uno de nuestros redactores? ¡No te cortes!
@@ -35,7 +35,7 @@
 
     <div class="divsection col-sm-12">
         <p></p>
-        <button class="btn-secondary2 btn-lg"> Contacta con un administrador </button>
+        @Html.ActionLink("Contacta con un administrador", "Admin", "Contacto", null, new { @class = "btn-secondary2 btn-lg", style = "text-decoration:none" })
         <img class="col-sm-3 img-rounded img-responsive sectimg" src="https://cdn0.iconfinder.com/data/icons/icostrike-characters/512/user_login-512.png" />
         <p class="text-justify psection col-sm-9">
             Para cuando quieres más y más poder. ¡Aségurate de no hacer que te baneen!
@@ -44,7 +44,7 @@
 
     <div class="divsection col-sm-12">
         <p></p>
-        <button class="btn-secondary2 btn-lg"> Solicitar Puesto </button>
+        @Html.ActionLink("Solicitar un puesto", "Puesto", "Contacto", null, new { @class = "btn-secondary2 btn-lg", style = "text-decoration:none" })
         <img class="col-sm-3 img-rounded img-responsive sectimg" src="https://d30y9cdsu7xlg0.cloudfront.net/png/76603-200.png" />
         <p class="text-justify psection col-sm-9">
             ¿Te interesa la prensa videojueguil y eres bueno en esto de meter paja? ¡Súbete al carro del equipo!

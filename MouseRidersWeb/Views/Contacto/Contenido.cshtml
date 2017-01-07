@@ -3,4 +3,29 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Contenido</h2>
+<h2 class="customh2">Sugerir un contenido</h2>
+<p class="psection">
+    Sugiérenos cualquier contenido que eches en falta en nuestra web
+</p>
+<form>
+    <fieldset>
+        <div class="form-group">
+            <label for="AsuntoC">Título que sugieres para el contenido</label>
+            <input type="text" class="form-control" id="AsuntoC" />
+        </div>
+
+        <div class="form-group">
+            <label for="ContenidoC">Descripción del contenido</label>
+            <textarea class="form-control" id="ContenidoC" rows="10"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="AdjuntoC">Adjuntar un archivo</label>
+            <input type="file" class="form-control" id="AdjuntoC" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Enviar mensaje a Redactor</button>
+    </fieldset>
+</form>
+
+@Html.ActionLink("Volver", "Index", "Redaccion", null, new { @class = "btn-secondary2 btn-lg", style = "text-decoration:none" })
