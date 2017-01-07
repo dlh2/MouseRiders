@@ -223,7 +223,7 @@ public static void InitializeData ()
                 usuario4EN.Pais = "mexico";
                 usuario4EN.Puntuacion = 3000;
                 usuario4EN.FechaRegistro = DateTime.Now;
-                usuario4EN.Id = usuarioCEN.CrearUsuario (usuario4EN.Email, usuario4EN.Nombre, usuario4EN.Apellidos, usuario4EN.Pais, usuario4EN.Telefono, usuario4EN.Puntuacion, usuario4EN.FechaRegistro, usuario4EN.Contrasenya, "user4");
+                int oid_usu4 = usuario4EN.Id = usuarioCEN.CrearUsuario (usuario4EN.Email, usuario4EN.Nombre, usuario4EN.Apellidos, usuario4EN.Pais, usuario4EN.Telefono, usuario4EN.Puntuacion, usuario4EN.FechaRegistro, usuario4EN.Contrasenya, "user4");
                 users.Add(usuario4EN);    
 
 
@@ -353,37 +353,54 @@ public static void InitializeData ()
                 //Permiso1
                 PermisoEN permiso1EN = new PermisoEN ();
                 permiso1EN.PermisoOID.Rol = T_RolEnum.usuario;
-                permiso1EN.PermisoOID.Permiso = "foro";
-                permiso1EN.Permisos = "{permiso1: acceder a contactos}";
+                permiso1EN.PermisoOID.Permiso = "general";
+                permiso1EN.Permisos = "{permiso1: general}";
 
-                permisoCEN.CrearPermiso (permiso1EN.PermisoOID.Rol, permiso1EN.PermisoOID.Permiso, permiso1EN.Permisos);
+                PermisoEN_OID permi = permisoCEN.CrearPermiso (permiso1EN.PermisoOID.Rol, permiso1EN.PermisoOID.Permiso, permiso1EN.Permisos);
 
                 //Permiso2
                 PermisoEN permiso2EN = new PermisoEN ();
-                permiso2EN.PermisoOID.Rol = T_RolEnum.usuario;
+                permiso2EN.PermisoOID.Rol = T_RolEnum.admin;
                 permiso2EN.PermisoOID.Permiso = "general";
-                permiso2EN.Permisos = "{permiso2: acceder a fotos}";
+                permiso2EN.Permisos = "{permiso2: general}";
 
-                PermisoEN_OID permi = permisoCEN.CrearPermiso (permiso2EN.PermisoOID.Rol, permiso2EN.PermisoOID.Permiso, permiso2EN.Permisos);
+                PermisoEN_OID permi1 = permisoCEN.CrearPermiso(permiso2EN.PermisoOID.Rol, permiso2EN.PermisoOID.Permiso, permiso2EN.Permisos);
 
                 //Permiso3
                 PermisoEN permiso3EN = new PermisoEN ();
-                permiso3EN.PermisoOID.Rol = T_RolEnum.admin;
-                permiso3EN.PermisoOID.Permiso = "administracion";
-                permiso3EN.Permisos = "{permiso3: acceder a fotos de gatitos}";
+                permiso3EN.PermisoOID.Rol = T_RolEnum.redactor;
+                permiso3EN.PermisoOID.Permiso = "general";
+                permiso3EN.Permisos = "{permiso3: general}";
 
-                PermisoEN_OID permi1 = permisoCEN.CrearPermiso (permiso3EN.PermisoOID.Rol, permiso3EN.PermisoOID.Permiso, permiso3EN.Permisos);
+                PermisoEN_OID permi2 = permisoCEN.CrearPermiso (permiso3EN.PermisoOID.Rol, permiso3EN.PermisoOID.Permiso, permiso3EN.Permisos);
+
+                //Permiso4
+                PermisoEN permiso4EN = new PermisoEN();
+                permiso4EN.PermisoOID.Rol = T_RolEnum.admin_foro;
+                permiso4EN.PermisoOID.Permiso = "general";
+                permiso4EN.Permisos = "{permiso3: general}";
+
+                PermisoEN_OID permi3 = permisoCEN.CrearPermiso(permiso4EN.PermisoOID.Rol, permiso4EN.PermisoOID.Permiso, permiso4EN.Permisos);
 
                 IList<PermisoEN_OID> ss1 = new List<PermisoEN_OID>();
                 ss1.Add (permiso1EN.PermisoOID);
                 usuarioCEN.RelacionaPermiso (oid_usu, ss1);
 
-                ss1.Add (permiso3EN.PermisoOID);
+                ss1.Clear();
+                ss1.Add (permiso1EN.PermisoOID);
                 usuarioCEN.RelacionaPermiso (oid_usu2, ss1);
 
                 ss1.Clear ();
-                ss1.Add (permiso2EN.PermisoOID);
+                ss1.Add (permiso1EN.PermisoOID);
                 usuarioCEN.RelacionaPermiso (oid_usu3, ss1);
+
+                ss1.Clear();
+                ss1.Add(permiso1EN.PermisoOID);
+                usuarioCEN.RelacionaPermiso(oid_usu3, ss1);
+
+                ss1.Clear();
+                ss1.Add(permiso1EN.PermisoOID);
+                usuarioCEN.RelacionaPermiso(oid_usu4, ss1);
                 #endregion
 
                 #region Recompensa
@@ -501,7 +518,11 @@ public static void InitializeData ()
                 administradorEN.Puntuacion = 5000;
                 administradorEN.Telefono = 666777888;
 
-                administradorCEN.CrearAdministrador (administradorEN.Email, administradorEN.Nombre, administradorEN.Apellidos, administradorEN.Pais, administradorEN.Telefono, administradorEN.Puntuacion, administradorEN.FechaRegistro, administradorEN.Contrasenya, "user5");
+                int oid_admin = administradorCEN.CrearAdministrador (administradorEN.Email, administradorEN.Nombre, administradorEN.Apellidos, administradorEN.Pais, administradorEN.Telefono, administradorEN.Puntuacion, administradorEN.FechaRegistro, administradorEN.Contrasenya, "user5");
+
+                ss1.Clear();
+                ss1.Add(permiso2EN.PermisoOID);
+                usuarioCEN.RelacionaPermiso(oid_admin, ss1);
 
                 #endregion
 
@@ -521,6 +542,10 @@ public static void InitializeData ()
 
                 int oid_adminf = admin_foroCEN.CrearAdmin_foro (admin_foroEN.Email, admin_foroEN.Nombre, admin_foroEN.Apellidos, admin_foroEN.Pais, admin_foroEN.Telefono, admin_foroEN.Puntuacion, admin_foroEN.FechaRegistro, admin_foroEN.Contrasenya, "user6");
 
+                ss1.Clear();
+                ss1.Add(permiso4EN.PermisoOID);
+                usuarioCEN.RelacionaPermiso(oid_adminf, ss1);
+
                 #endregion
 
                 #region Redactor
@@ -537,7 +562,11 @@ public static void InitializeData ()
                 redactorEN.Puntuacion = 10000;
                 redactorEN.Telefono = 666345111;
 
-                redactorCEN.CrearRedactor (redactorEN.Email, redactorEN.Nombre, redactorEN.Apellidos, redactorEN.Pais, redactorEN.Telefono, redactorEN.Puntuacion, redactorEN.FechaRegistro, redactorEN.Contrasenya, "user7");
+                int oid_red = redactorCEN.CrearRedactor (redactorEN.Email, redactorEN.Nombre, redactorEN.Apellidos, redactorEN.Pais, redactorEN.Telefono, redactorEN.Puntuacion, redactorEN.FechaRegistro, redactorEN.Contrasenya, "user7");
+
+                ss1.Clear();
+                ss1.Add(permiso3EN.PermisoOID);
+                usuarioCEN.RelacionaPermiso(oid_red, ss1);
 
                 #endregion
 
