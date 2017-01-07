@@ -1,4 +1,21 @@
-﻿/*CSS para Contenido de Articulo*/
+﻿/*Otros*/
+#cabecera{
+    margin-top:-60px;
+}
+
+@media (min-width: 768px) and (max-width: 992px){
+    #cabecera{
+        margin-top: 40px;
+    }
+    section{
+        margin-top: 100px;
+    }
+    nav li{
+        margin-left: 5%;
+    }
+}
+
+/*CSS para Contenido de Articulo*/
 .darwin-inline-image {
     width: 100%;
     height:auto;

@@ -48,6 +48,18 @@
                     left: 0;
                 }
     </style>
+    @{
+        int rolSession = 0;
+        bool noSession;
+        if (@Session["user_rol"] != null)
+        {
+            noSession = !Int32.TryParse(@Session["user_rol"].ToString(), out rolSession);
+        }
+        else
+        {
+            noSession = true;
+        }
+    }
 </head>
 <body>
     <!-- Navigation -->
@@ -84,30 +96,16 @@
                     <li>
                         @Html.ActionLink("Ayuda", "Index", "Ayuda")
                     </li>
-                    @{
-                        int rolSession = 0;
-                        bool noSession;
-                        if (@Session["user_rol"] != null)
-                        {
-                            noSession = !Int32.TryParse(@Session["user_rol"].ToString(), out rolSession);
-                        }
-                        else
-                        {
-                            noSession = true;
-                        }
-                    }
-                    ﻿		@if (!noSession)
+                    @if (!noSession)
                     {
-                        <li>
-                            @Html.ActionLink("Mi Perfil", "Details/"+0, "Usuario")
-                        </li>
-                    }
+                    <li>
+                        @Html.ActionLink("Mi Perfil", "Details/" + 0, "Usuario")
+                    </li>}
                     else
                     {
-                        <li>
-                            @Html.ActionLink("Iniciar Sesión/Registrarse", "Login", "Usuario")
-                        </li>
-                    }
+                    <li>
+                        @Html.ActionLink("Iniciar Sesión/Registrarse", "Login", "Usuario")
+                    </li>}
 
                     <li>
                         @Html.ActionLink("Buscador", "Index", "Busqueda")
