@@ -30,13 +30,14 @@ namespace MouseRidersWeb.Controllers
 
         // GET: /Pregunta/
 
-        public ActionResult Chart(int id)
+        public ActionResult Chart(int id, int width)
         {
             SessionInitialize();
             PreguntaCAD cCAD = new PreguntaCAD(session);
             PreguntaEN result = cCAD.ReadOIDDefault(id);
             PreguntaDTO resultfinal = new PreguntaDTO();
             resultfinal = new PreguntaAssembler().ConvertConRespuesta(result);
+            resultfinal.width = width;
             SessionClose();
             return View(resultfinal);
         }

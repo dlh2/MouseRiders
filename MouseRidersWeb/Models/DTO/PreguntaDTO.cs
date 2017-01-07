@@ -17,7 +17,10 @@ namespace MouseRidersWeb.DTO
         [ScaffoldColumn(false)]
         public int id { get; set; }
 
-
+        /**
+         *	Atributo especial para graficos
+         */
+        public int width { get; set; }
 
         /**
          *	Atributo pregunta
