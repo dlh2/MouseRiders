@@ -12,11 +12,20 @@
 
         string myTheme = @"<Chart BackColor=""#EEEEEE"" ><ChartAreas><ChartArea Name=""Default"" BackColor=""#EEEEEE""></ChartArea></ChartAreas></Chart>";
 
+
+        string aux=Request.Cookies["width"].Value;
+        int aux1 = aux.AsInt();
+        if (aux1 > 900)
+        {
+            aux1 = 900;
+        }
+        aux1 = aux1 - 200;
+        int w1 = aux1;
+        double aux2 = aux1 * 0.66;
+        int h1 = Convert.ToInt32(aux2);
         
-
-
-
-        var myChart = new Chart(width: 900, height: 600, theme: myTheme)
+        
+        var myChart = new Chart(width: w1, height: h1, theme: myTheme)
             .AddSeries(
                 name: "",
                 xValue: pregun,
