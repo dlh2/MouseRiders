@@ -28,12 +28,13 @@ namespace MouseRidersWeb.Controllers
             {
                 if (minimo == null)
                 {
-                    a = Int32.Parse(minimo) * 3;
+                    a =  3;
                 }
                 else
                 {
                     a = Int32.Parse(minimo) * 10;
                 }
+                
             }
             IList<SeccionDTO> result = new List<SeccionDTO>();
             for (int i = 0; i < resultEN.Count; i++)
@@ -44,7 +45,7 @@ namespace MouseRidersWeb.Controllers
                 }
                 else
                 {
-                    if (resultEN[i].Seccion == id)
+                    if (resultEN[i].Seccion == id || id ==0)
                     {
                         result.Add(new SeccionAssembler().ConvertConArticuloNum(resultEN[i], a, 10));
                     }
@@ -55,9 +56,9 @@ namespace MouseRidersWeb.Controllers
             {
                 if (result.Count != 0)
                 {
-                    return PartialView("_Articulo", result[0].Tiene);
+                    return PartialView("_Articulo", result);
                 }
-                return PartialView("_Articulo", new List<ArticuloDTO>());
+                return PartialView("_Articulo", new List<SeccionDTO>());
             }
             return View(result);
         }

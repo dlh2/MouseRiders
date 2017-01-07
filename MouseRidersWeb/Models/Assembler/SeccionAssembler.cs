@@ -70,7 +70,7 @@ namespace MouseRidersWeb.Assembler
                 if (Recibe != null)
                 {
                     secDTO.Tiene = new List<ArticuloDTO>();
-                    for (int i = comienzo; i < Recibe.Count && i <= cantidad; i++)
+                    for (int i = comienzo; i < Recibe.Count && i <= (comienzo+cantidad); i++)
                     {
                         secDTO.Tiene.Add(new ArticuloAssembler().Convert(Recibe[i]));
                     }

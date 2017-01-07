@@ -22,7 +22,7 @@
         {
             if (item != null)
             {
-   
+
                 @Html.ActionLink(item.Nombre, "Index", "Seccion", null, new { id = item.Seccion, @class = "btn btn-secondary2", href = "#" })
             }
 
@@ -41,19 +41,13 @@
 
 
 <div id="ArticuloAJAX">
-    @foreach (var item in Model)
+    @if (Model == null)
     {
-        if (Model == null)
-        {
-            @Html.Partial("_Articulo", new List<MouseRidersWeb.DTO.ArticuloDTO>());
-        }
-        else
-        {
-            if (item != null)
-            {
-                @Html.Partial("_Articulo", item.Tiene);
-            }
-        }
+        @Html.Partial("_Articulo", new List<MouseRidersWeb.DTO.SeccionDTO>());
+    }
+    else
+    {
+        @Html.Partial("_Articulo", Model);
     }
 </div>
 @using (Ajax.BeginForm("Index", "Seccion", new { },

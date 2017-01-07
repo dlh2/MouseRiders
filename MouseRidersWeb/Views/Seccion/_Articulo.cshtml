@@ -1,20 +1,26 @@
-﻿@model IEnumerable<MouseRidersWeb.DTO.ArticuloDTO>
-    @foreach (var item in Model)
+﻿@model IEnumerable<MouseRidersWeb.DTO.SeccionDTO>
+@foreach (var seccion in Model)
+{
+    if (seccion != null)
     {
-        <hr class="featurette-divider">
+        foreach (var item in seccion.Tiene)
+        {
+            <hr class="featurette-divider">
 
         <!-- First Featurette -->
 
-        <div class="featurette">
-            <a href="@Url.Action("Details", "Articulo", new { id = item.Id })">
-                <img class="featurette-image img-circle img-responsive pull-right" src="@Html.DisplayFor(modelItem => item.Portada)">
-                <h2 class="featurette-heading">
-                    @Html.DisplayFor(modelItem => item.Titulo)
-                    <span class="text-muted">@Html.DisplayFor(modelItem => item.Subtitulo)</span>
-                </h2>
-            </a>
-            <p class="lead">@Html.DisplayFor(modelItem => item.Descripcion)</p>
-        </div>
+            <div class="featurette">
+                <a href="@Url.Action("Details", "Articulo", new { id = item.Id })">
+                    <img class="featurette-image img-circle img-responsive pull-right" src="@Html.DisplayFor(modelItem => item.Portada)">
+                    <h2 class="featurette-heading">
+                        @Html.DisplayFor(modelItem => item.Titulo)
+                        <span class="text-muted">@Html.DisplayFor(modelItem => item.Subtitulo)</span>
+                    </h2>
+                </a>
+                <p class="lead">@Html.DisplayFor(modelItem => item.Descripcion)</p>
+            </div>
 
-        <hr class="featurette-divider">
+            <hr class="featurette-divider">
+        }
     }
+}
