@@ -440,6 +440,7 @@
     <Content Include="Views\Encuesta\Edit.cshtml" />
     <Content Include="Views\Pregunta\Chart.cshtml" />
     <Content Include="Views\Noticias\_Articulo.cshtml" />
+    <Content Include="Views\Encuesta\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
