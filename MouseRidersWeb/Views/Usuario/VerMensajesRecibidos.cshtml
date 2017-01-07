@@ -5,11 +5,13 @@
     Layout = null;
 }
 
+<div class="col-sm-12">
+    <h3 class="customh3">Bandeja de entrada</h3>
+</div>
 
 @foreach (var item in Model.Recibe)
 {
     <div class="col-sm-12">
-        <h3 class="customh3">Bandeja de entrada</h3>
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title pprofile">Asunto: @Html.DisplayFor(modelItem => item.Asunto)</h3>
