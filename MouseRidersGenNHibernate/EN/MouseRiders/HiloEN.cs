@@ -47,6 +47,13 @@ private string titulo;
 
 
 
+/**
+ *	Atributo primerComentario
+ */
+private string primerComentario;
+
+
+
 
 
 
@@ -86,6 +93,12 @@ public virtual string Titulo {
 
 
 
+public virtual string PrimerComentario {
+        get { return primerComentario; } set { primerComentario = value;  }
+}
+
+
+
 
 
 public HiloEN()
@@ -95,20 +108,20 @@ public HiloEN()
 
 
 
-public HiloEN(int id, string creador, Nullable<DateTime> fecha, int numComentarios, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.ComentarioEN> contiene, string titulo
+public HiloEN(int id, string creador, Nullable<DateTime> fecha, int numComentarios, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.ComentarioEN> contiene, string titulo, string primerComentario
               )
 {
-        this.init (Id, creador, fecha, numComentarios, contiene, titulo);
+        this.init (Id, creador, fecha, numComentarios, contiene, titulo, primerComentario);
 }
 
 
 public HiloEN(HiloEN hilo)
 {
-        this.init (Id, hilo.Creador, hilo.Fecha, hilo.NumComentarios, hilo.Contiene, hilo.Titulo);
+        this.init (Id, hilo.Creador, hilo.Fecha, hilo.NumComentarios, hilo.Contiene, hilo.Titulo, hilo.PrimerComentario);
 }
 
 private void init (int id
-                   , string creador, Nullable<DateTime> fecha, int numComentarios, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.ComentarioEN> contiene, string titulo)
+                   , string creador, Nullable<DateTime> fecha, int numComentarios, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.ComentarioEN> contiene, string titulo, string primerComentario)
 {
         this.Id = id;
 
@@ -122,6 +135,8 @@ private void init (int id
         this.Contiene = contiene;
 
         this.Titulo = titulo;
+
+        this.PrimerComentario = primerComentario;
 }
 
 public override bool Equals (object obj)

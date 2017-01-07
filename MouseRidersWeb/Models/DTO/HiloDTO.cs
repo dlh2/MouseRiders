@@ -58,5 +58,13 @@ namespace MouseRidersWeb.DTO
         [Display(Prompt = "Comentarios", Description = "Comentarios", Name = "Comentarios")]
         public IList<ComentarioDTO> Comentario { get; set; }
 
+        /**
+         *	Atributo Primer Comentario
+         */
+        [Display(Prompt = "Primer Comentario", Description = "Primer comentario del hilo", Name = "Texto del primer comentario:")]
+        [Required(ErrorMessage = "Debe tener un primer comentario")]
+        [StringLength(maximumLength: Globals.TITULO_MAX_LENGTH, ErrorMessage = "El primer comentario no puede tener más de {0} caracteres")]
+        public string PrimerComentario { get; set; }
+
     }
 }

@@ -103,6 +103,9 @@ public void ModifyDefault (HiloEN hilo)
 
                 hiloEN.Titulo = hilo.Titulo;
 
+
+                hiloEN.PrimerComentario = hilo.PrimerComentario;
+
                 session.Update (hiloEN);
                 SessionCommit ();
         }
@@ -171,6 +174,9 @@ public void ModificarHilo (HiloEN hilo)
 
 
                 hiloEN.Titulo = hilo.Titulo;
+
+
+                hiloEN.PrimerComentario = hilo.PrimerComentario;
 
                 session.Update (hiloEN);
                 SessionCommit ();

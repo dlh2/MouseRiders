@@ -24,6 +24,9 @@
 					<property name="Titulo" type="string"> 
 						<column name="titulo"  not-null="true"/>
 					</property>
+					<property name="PrimerComentario" type="string"> 
+						<column name="primerComentario"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -41,6 +44,8 @@
 					    </bag>
 					
 			
+			
+					
 					
 					
 					

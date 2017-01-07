@@ -23,6 +23,7 @@ namespace MouseRidersWeb.Assembler
                 hilDTO.Fecha = hil.Fecha;
                 hilDTO.NumComentarios = hil.NumComentarios;
                 hilDTO.Titulo = hil.Titulo;
+                hilDTO.PrimerComentario = hil.PrimerComentario;
                 if (hil.Creador != null)
                 {
                     UsuarioCEN usuCEN = new UsuarioCEN();

@@ -56,7 +56,7 @@ namespace MouseRidersWeb.Controllers
         // POST: /Hilo/Create
 
         [HttpPost]
-        public ActionResult Create(HiloEN hilo, ComentarioEN comentario)
+        public ActionResult Create(HiloEN hilo)
         {
             try
             {
@@ -68,10 +68,10 @@ namespace MouseRidersWeb.Controllers
                 DateTime p_fecha = DateTime.Now;
                 IList<ComentarioEN> com = new List<ComentarioEN>();
 
-                int cid=comCEN.CrearComentario(hilo.Creador, p_fecha, comentario.Contenido, 0);
+                int cid=comCEN.CrearComentario(hilo.Creador, p_fecha, hilo.PrimerComentario, 0);
                 
                 com.Add(comCEN.ReadOID(cid));
-                int id=cen.CrearHilo(hilo.Creador,p_fecha,hilo.NumComentarios, com, hilo.Titulo);
+                int id = cen.CrearHilo(hilo.Creador, p_fecha, hilo.NumComentarios, com, hilo.Titulo, hilo.PrimerComentario);
                 return RedirectToAction("Details", new { id = id });
             }
             catch
@@ -100,7 +100,7 @@ namespace MouseRidersWeb.Controllers
             try
             {
                 HiloCEN cen = new HiloCEN();
-                cen.ModificarHilo(hilo.Id,hilo.Creador, hilo.Fecha, hilo.NumComentarios, hilo.Titulo);
+                cen.ModificarHilo(hilo.Id, hilo.Creador, hilo.Fecha, hilo.NumComentarios, hilo.Titulo, hilo.PrimerComentario);
 
                 return RedirectToAction("Details", new { id = hilo.Id });
             }

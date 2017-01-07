@@ -38,7 +38,7 @@ public IHiloCAD get_IHiloCAD ()
         return this._IHiloCAD;
 }
 
-public int CrearHilo (string p_creador, Nullable<DateTime> p_fecha, int p_numComentarios, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.ComentarioEN> p_contiene, string p_titulo)
+public int CrearHilo (string p_creador, Nullable<DateTime> p_fecha, int p_numComentarios, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.ComentarioEN> p_contiene, string p_titulo, string p_primerComentario)
 {
         HiloEN hiloEN = null;
         int oid;
@@ -55,13 +55,15 @@ public int CrearHilo (string p_creador, Nullable<DateTime> p_fecha, int p_numCom
 
         hiloEN.Titulo = p_titulo;
 
+        hiloEN.PrimerComentario = p_primerComentario;
+
         //Call to HiloCAD
 
         oid = _IHiloCAD.CrearHilo (hiloEN);
         return oid;
 }
 
-public void ModificarHilo (int p_Hilo_OID, string p_creador, Nullable<DateTime> p_fecha, int p_numComentarios, string p_titulo)
+public void ModificarHilo (int p_Hilo_OID, string p_creador, Nullable<DateTime> p_fecha, int p_numComentarios, string p_titulo, string p_primerComentario)
 {
         HiloEN hiloEN = null;
 
@@ -72,6 +74,7 @@ public void ModificarHilo (int p_Hilo_OID, string p_creador, Nullable<DateTime> 
         hiloEN.Fecha = p_fecha;
         hiloEN.NumComentarios = p_numComentarios;
         hiloEN.Titulo = p_titulo;
+        hiloEN.PrimerComentario = p_primerComentario;
         //Call to HiloCAD
 
         _IHiloCAD.ModificarHilo (hiloEN);

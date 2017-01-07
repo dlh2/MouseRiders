@@ -826,6 +826,7 @@ public static void InitializeData ()
 
                 IComentarioCAD _IComentarioCAD = new ComentarioCAD();
                 ComentarioCEN comentarioCEN = new ComentarioCEN(_IComentarioCAD);
+                string aux = "Primer comentario por defecto";
 
                 ComentarioEN comentario1EN = new ComentarioEN();
                 comentario1EN.Contenido = "Primer comentario por defecto";
@@ -841,7 +842,7 @@ public static void InitializeData ()
                 hilo1EN.Fecha = DateTime.Now;
                 hilo1EN.NumComentarios = 2;
                 hilo1EN.Titulo = "hilo1";
-                int oid_h1 = hiloCEN.CrearHilo (hilo1EN.Creador, hilo1EN.Fecha, hilo1EN.NumComentarios, com, hilo1EN.Titulo);
+                int oid_h1 = hiloCEN.CrearHilo (hilo1EN.Creador, hilo1EN.Fecha, hilo1EN.NumComentarios, com, hilo1EN.Titulo, aux);
                 hilo1EN.Id = oid_h1;
                 hilos.Add(hilo1EN);
 
@@ -850,7 +851,7 @@ public static void InitializeData ()
                 hilo2EN.Fecha = DateTime.Now;
                 hilo2EN.NumComentarios = 2;
                 hilo2EN.Titulo = "hilo2madebyanonimo";
-                int oid_h2 = hiloCEN.CrearHilo (hilo2EN.Creador, hilo2EN.Fecha, hilo2EN.NumComentarios, com, hilo2EN.Titulo);
+                int oid_h2 = hiloCEN.CrearHilo(hilo2EN.Creador, hilo2EN.Fecha, hilo2EN.NumComentarios, com, hilo2EN.Titulo, aux);
                 hilo2EN.Id = oid_h2;
                 hilos.Add(hilo2EN);
 
@@ -863,7 +864,7 @@ public static void InitializeData ()
                     hilo3EN.Fecha = DateTime.Now;
                     hilo3EN.NumComentarios = 2;
                     hilo3EN.Titulo = RandomString(10);
-                    int oid_h3 = hiloCEN.CrearHilo(hilo3EN.Creador, hilo3EN.Fecha, hilo3EN.NumComentarios, com, hilo3EN.Titulo);
+                    int oid_h3 = hiloCEN.CrearHilo(hilo3EN.Creador, hilo3EN.Fecha, hilo3EN.NumComentarios, com, hilo3EN.Titulo, aux);
                     hilo3EN.Id = oid_h3;
                     hilos.Add(hilo3EN);
                 };

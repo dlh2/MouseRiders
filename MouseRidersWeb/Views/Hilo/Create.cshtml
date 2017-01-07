@@ -1,5 +1,6 @@
 ﻿@model MouseRidersWeb.DTO.HiloDTO
 
+
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -37,6 +38,16 @@
             @Html.EditorFor(model => model.NumComentarios)
             @Html.ValidationMessageFor(model => model.NumComentarios)
         </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PrimerComentario)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PrimerComentario)
+            @Html.ValidationMessageFor(model => model.PrimerComentario)
+        </div>
+
+
 
         <p>
             <input type="submit" value="Create" />
