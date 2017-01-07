@@ -127,6 +127,12 @@ public int CrearHilo (HiloEN hilo)
         try
         {
                 SessionInitializeTransaction ();
+                if (hilo.Contiene != null) {
+                        foreach (MouseRidersGenNHibernate.EN.MouseRiders.ComentarioEN item in hilo.Contiene) {
+                                item.Pertenece_a = hilo;
+                                session.Save (item);
+                        }
+                }
 
                 session.Save (hilo);
                 SessionCommit ();

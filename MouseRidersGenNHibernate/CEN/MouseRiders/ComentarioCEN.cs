@@ -101,5 +101,21 @@ public int NumComentsHilo (int ? p_id)
 {
         return _IComentarioCAD.NumComentsHilo (p_id);
 }
+public ComentarioEN ReadOID (int id
+                             )
+{
+        ComentarioEN comentarioEN = null;
+
+        comentarioEN = _IComentarioCAD.ReadOID (id);
+        return comentarioEN;
+}
+
+public System.Collections.Generic.IList<ComentarioEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<ComentarioEN> list = null;
+
+        list = _IComentarioCAD.ReadAll (first, size);
+        return list;
+}
 }
 }

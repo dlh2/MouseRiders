@@ -55,7 +55,7 @@ public static void Create (string databaseArg, string userArg, string passArg)
                 //CREATE DB
                 cmd = new SqlCommand (createBD, cnn);
                 cmd.ExecuteNonQuery ();
-
+            
                 //Associate user with db
                 cmd = new SqlCommand (associatedUser, cnn);
                 cmd.ExecuteNonQuery ();
@@ -779,7 +779,7 @@ public static void InitializeData ()
             //matriz con los 6 articulos y los 6 strings variables para cada uno
                   
 
-                for (int i = 0; i < 30; i++)
+                for (int i = 0; i < 100; i++)
                 {
                     int picker; //seleccionar uno de los 6 articulos
                     picker = rng.Next(0, 6);
@@ -824,12 +824,24 @@ public static void InitializeData ()
                 IList<HiloEN> hilos;
                 hilos = new List<HiloEN>();
 
+                IComentarioCAD _IComentarioCAD = new ComentarioCAD();
+                ComentarioCEN comentarioCEN = new ComentarioCEN(_IComentarioCAD);
+
+                ComentarioEN comentario1EN = new ComentarioEN();
+                comentario1EN.Contenido = "Primer comentario por defecto";
+                comentario1EN.Creador = usuario1EN.Email;
+                comentario1EN.Fecha = DateTime.Now;
+                comentario1EN.Valoracion = 0;
+                int oid_c1 = comentarioCEN.CrearComentario(comentario1EN.Creador, comentario1EN.Fecha, comentario1EN.Contenido, comentario1EN.Valoracion);
+                IList<ComentarioEN> com = new List<ComentarioEN>();
+                com.Add(comentario1EN);
+
                 HiloEN hilo1EN = new HiloEN ();
                 hilo1EN.Creador = admin_foroEN.Email;
                 hilo1EN.Fecha = DateTime.Now;
                 hilo1EN.NumComentarios = 2;
                 hilo1EN.Titulo = "hilo1";
-                int oid_h1 = hiloCEN.CrearHilo (hilo1EN.Creador, hilo1EN.Fecha, hilo1EN.NumComentarios, hilo1EN.Titulo);
+                int oid_h1 = hiloCEN.CrearHilo (hilo1EN.Creador, hilo1EN.Fecha, hilo1EN.NumComentarios, com, hilo1EN.Titulo);
                 hilo1EN.Id = oid_h1;
                 hilos.Add(hilo1EN);
 
@@ -838,7 +850,7 @@ public static void InitializeData ()
                 hilo2EN.Fecha = DateTime.Now;
                 hilo2EN.NumComentarios = 2;
                 hilo2EN.Titulo = "hilo2madebyanonimo";
-                int oid_h2 = hiloCEN.CrearHilo (hilo2EN.Creador, hilo2EN.Fecha, hilo2EN.NumComentarios, hilo2EN.Titulo);
+                int oid_h2 = hiloCEN.CrearHilo (hilo2EN.Creador, hilo2EN.Fecha, hilo2EN.NumComentarios, com, hilo2EN.Titulo);
                 hilo2EN.Id = oid_h2;
                 hilos.Add(hilo2EN);
 
@@ -851,7 +863,7 @@ public static void InitializeData ()
                     hilo3EN.Fecha = DateTime.Now;
                     hilo3EN.NumComentarios = 2;
                     hilo3EN.Titulo = RandomString(10);
-                    int oid_h3 = hiloCEN.CrearHilo(hilo3EN.Creador, hilo3EN.Fecha, hilo3EN.NumComentarios, hilo3EN.Titulo);
+                    int oid_h3 = hiloCEN.CrearHilo(hilo3EN.Creador, hilo3EN.Fecha, hilo3EN.NumComentarios, com, hilo3EN.Titulo);
                     hilo3EN.Id = oid_h3;
                     hilos.Add(hilo3EN);
                 };
@@ -860,15 +872,13 @@ public static void InitializeData ()
                 #endregion
 
                 #region Comentario
-                IComentarioCAD _IComentarioCAD = new ComentarioCAD ();
-                ComentarioCEN comentarioCEN = new ComentarioCEN (_IComentarioCAD);
 
-                ComentarioEN comentario1EN = new ComentarioEN ();
+                comentario1EN = new ComentarioEN ();
                 comentario1EN.Contenido = "ahhhhhhhhg, siempre todo a ultima hora";
                 comentario1EN.Creador = usuario1EN.Email;
                 comentario1EN.Fecha = DateTime.Now;
                 comentario1EN.Valoracion = 0;
-                int oid_c1 = comentarioCEN.CrearComentario (comentario1EN.Creador, comentario1EN.Fecha, comentario1EN.Contenido, comentario1EN.Valoracion);
+                oid_c1 = comentarioCEN.CrearComentario (comentario1EN.Creador, comentario1EN.Fecha, comentario1EN.Contenido, comentario1EN.Valoracion);
                     
 
                 ComentarioEN comentario2EN = new ComentarioEN ();
@@ -993,7 +1003,7 @@ public static void InitializeData ()
             IList<ComentarioEN> comentarios;
             comentarios = new List<ComentarioEN>(); //lista de comentarios
             
-            for(int i=0; i<100; i++){
+            for(int i=0; i<500; i++){
                 int picker=0; //variable que se usa para la toma de decisiones a la hora de enlazar los comentarios a hilos, articulos, etc...
                 comentario1EN = new ComentarioEN ();
                 comentario1EN.Contenido = RandomString(100);

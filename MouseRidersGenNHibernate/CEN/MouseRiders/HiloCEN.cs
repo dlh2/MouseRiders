@@ -38,7 +38,7 @@ public IHiloCAD get_IHiloCAD ()
         return this._IHiloCAD;
 }
 
-public int CrearHilo (string p_creador, Nullable<DateTime> p_fecha, int p_numComentarios, string p_titulo)
+public int CrearHilo (string p_creador, Nullable<DateTime> p_fecha, int p_numComentarios, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.ComentarioEN> p_contiene, string p_titulo)
 {
         HiloEN hiloEN = null;
         int oid;
@@ -50,6 +50,8 @@ public int CrearHilo (string p_creador, Nullable<DateTime> p_fecha, int p_numCom
         hiloEN.Fecha = p_fecha;
 
         hiloEN.NumComentarios = p_numComentarios;
+
+        hiloEN.Contiene = p_contiene;
 
         hiloEN.Titulo = p_titulo;
 

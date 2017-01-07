@@ -31,5 +31,12 @@ int NumComentsArticulo (int ? p_id);
 
 
 int NumComentsHilo (int ? p_id);
+
+
+ComentarioEN ReadOID (int id
+                      );
+
+
+System.Collections.Generic.IList<ComentarioEN> ReadAll (int first, int size);
 }
 }

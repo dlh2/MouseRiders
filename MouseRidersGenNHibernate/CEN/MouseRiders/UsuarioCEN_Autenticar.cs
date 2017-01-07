@@ -31,7 +31,7 @@ public int Autenticar (string p_email_o_nickname, string p_pass)
                 return -1;
         }
 
-        usuarioEn = _IUsuarioCAD.ReadFilterAuth(p_email_o_nickname);
+        usuarioEn = _IUsuarioCAD.ReadFilterAuth (p_email_o_nickname);
 
         if ((usuarioEn.Nombreusuario != p_email_o_nickname && usuarioEn.Email != p_email_o_nickname) || usuarioEn.Contrasenya != p_pass) {
                 return -1;
