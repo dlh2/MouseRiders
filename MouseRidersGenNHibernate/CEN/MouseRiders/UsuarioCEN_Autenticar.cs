@@ -32,12 +32,21 @@ public int Autenticar (string p_email_o_nickname, string p_pass)
         }
 
         usuarioEn = _IUsuarioCAD.ReadFilterAuth (p_email_o_nickname);
-
+        if (usuarioEn == null)
+        {
+            return -1;
+        }
         if ((usuarioEn.Nombreusuario != p_email_o_nickname && usuarioEn.Email != p_email_o_nickname) || usuarioEn.Contrasenya != p_pass) {
                 return -1;
         }
-
-        return 0;
+        if (usuarioEn.Tiene == null)
+        {
+            return 1; //Usuario
+        }
+        else
+        {
+            return (int)usuarioEn.Tiene[0].PermisoOID.Rol;
+        }
 
         /*PROTECTED REGION END*/
 }

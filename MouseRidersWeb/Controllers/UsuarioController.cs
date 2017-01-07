@@ -138,18 +138,26 @@ namespace MouseRidersWeb.Controllers
         [HttpPost]
         public ActionResult Login(UsuarioEN model)
         {
-
-            //int user_rol = new UsuarioCEN().Autenticar(model.Nombreusuario,model.Contrasenya);
-            int user_rol = 2;
+            SessionInitialize();
+            UsuarioCAD cCAD = new UsuarioCAD(session);
+            int user_rol = new UsuarioCEN(cCAD).Autenticar(model.Nombreusuario,model.Contrasenya);
+            SessionClose();
             if (user_rol == -1)
             {
                 // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
                 ModelState.AddModelError("", "El nombre de usuario o la contraseña especificados son incorrectos.");
                 return View(new UsuarioAssembler().Convert(model));
             }
-            Session["user_rol"] = "" + user_rol;
-            Session["user_name"] = model.Nombreusuario;
-            return RedirectToAction("Index","Home");
+            else
+            {
+                UsuarioEN usuario = new UsuarioCEN().ReadFilterAuth(model.Nombreusuario);
+                Session["user_rol"] = "" + user_rol;
+                Session["user_id"] = usuario.Id;
+                Session["user_name"] = usuario.Nombreusuario;
+                Session["user_email"] = usuario.Email;
+                return RedirectToAction("Index", "Home");
+            }
+         
         }
 
         //
