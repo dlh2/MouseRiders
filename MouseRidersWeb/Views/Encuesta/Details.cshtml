@@ -23,9 +23,8 @@
 </p>
 
 <script>
-    sessionStorage.SessionName = "SessionData" ,
-
-    sessionStorage.getItem("SessionName") and
-
-    sessionStorage.setItem("SessionName","SessionData");
+    $(window).resize(function () {
+        var aux = $(window).width();
+        Cookies.set('width', aux);
+    });
 </script>

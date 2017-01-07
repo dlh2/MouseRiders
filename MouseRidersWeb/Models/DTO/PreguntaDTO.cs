@@ -18,11 +18,6 @@ namespace MouseRidersWeb.DTO
         public int id { get; set; }
 
         /**
-         *	Atributo especial para graficos
-         */
-        public int width { get; set; }
-
-        /**
          *	Atributo pregunta
          */
 
