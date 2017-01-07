@@ -2,80 +2,37 @@
 
 @{
     ViewBag.Title = "VerMensajesRecibidos";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
 
-<h2>VerMensajesRecibidos</h2>
-
-<fieldset>
-    <legend>UsuarioDTO</legend>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Email)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Email)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Nombre)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Nombre)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Apellidos)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Apellidos)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Pais)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Pais)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Telefono)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Telefono)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Puntuacion)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Puntuacion)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Contrasenya)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Contrasenya)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Nombreusuario)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Nombreusuario)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.FechaRegistro)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.FechaRegistro)
-    </div>
 
 @foreach (var item in Model.Recibe)
-    {
-       
+{
+    <div class="col-sm-12">
+        <h3 class="customh3">Bandeja de entrada</h3>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title pprofile">Asunto: @Html.DisplayFor(modelItem => item.Asunto)</h3>
+            </div>
+            <div class="panel-body penhanced">
+                <div class="row">
+                    <div>
+                        <table class="table table-user-information">
+                            <tbody>
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.Texto)</td>
+                                </tr>
+                                <tr>
+                                    <td>Archivos adjuntos: @Html.DisplayFor(modelItem => item.Adjunto)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    /*
             <p>
                 @Html.DisplayFor(modelItem => item.Id)
             </p>
@@ -88,10 +45,8 @@
             <p>
                 @Html.DisplayFor(modelItem => item.Adjunto)
             </p>
-    }
-
-</fieldset>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+     *    
+    
+    
+     * */
+}
