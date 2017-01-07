@@ -34,7 +34,6 @@ namespace MouseRidersWeb.Controllers
                 {
                     a = Int32.Parse(minimo) * 10;
                 }
-                
             }
             IList<SeccionDTO> result = new List<SeccionDTO>();
             for (int i = 0; i < resultEN.Count; i++)
@@ -93,7 +92,6 @@ namespace MouseRidersWeb.Controllers
             return View(result);
         }
 
-        //
 
         //
         // GET: /Seccion/Create

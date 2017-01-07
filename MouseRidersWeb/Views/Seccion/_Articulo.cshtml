@@ -24,3 +24,28 @@
         }
     }
 }
+@if (Model != null)
+{
+    var existe = false;
+    foreach (var item in Model)
+    {
+        if (item != null)
+        {
+            if (item.hayMasArticulos)
+            {
+                existe = true;
+            }
+        }
+    }
+    if (existe)
+    {
+        <div class="btn-group-lg btn-group-justified" role="group" id="cargar_mas">
+            <a href="#" class="btn btn-default btn-lg btn-block">Mostrar más</a>
+        </div>
+    }
+    else
+    {
+        <p style="text-align:center;font-size:2em;color:#999;"><strong>No hay más artículos disponibles para mostrar</strong></p>
+    }
+
+}
