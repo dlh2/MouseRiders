@@ -12,7 +12,7 @@
 
     <div class="featurette">
         <a href="@Url.Action("Details", "Articulo", new { id = item.Id })">
-            <img class="featurette-image img-circle img-responsive pull-right" src="@Html.DisplayFor(modelItem => item.Portada)">
+            <img class="featurette-image img-circle img-responsive pull-right" src="@Html.DisplayFor(modelItem => item.Portada)" >
             <h2 class="featurette-heading">
                 @Html.DisplayFor(modelItem => item.Titulo)
                 <span class="text-muted">@Html.DisplayFor(modelItem => item.Subtitulo)</span>
@@ -20,7 +20,6 @@
         </a>
         <p class="lead">@Html.DisplayFor(modelItem => item.Descripcion)</p>
     </div>
-
-    <hr class="featurette-divider">
 }
 
+<hr class="featurette-divider">
