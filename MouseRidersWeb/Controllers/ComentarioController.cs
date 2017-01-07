@@ -98,7 +98,7 @@ namespace MouseRidersWeb.Controllers
                 ComentarioCEN cen = new ComentarioCEN(cCAD);
                 DateTime p_fecha = DateTime.Now;
                 int p_valoracion = 0;
-                int id = cen.CrearComentario(com.Creador,p_fecha,com.Contenido,p_valoracion);
+                int id = cen.CrearComentario(com.Creador, p_fecha, com.Contenido, p_valoracion);
                 return RedirectToAction("Details", new { id = id });
             }
             catch
@@ -111,16 +111,28 @@ namespace MouseRidersWeb.Controllers
         // POST: /Comentario/FastCreate
 
         [HttpPost]
-        public ActionResult FastCreate(String usuario, String comentario)
+        public ActionResult FastCreate(String usuario, String comentario, int hilo, int articulo)
         {
             try
             {
+                if (hilo == 0 && articulo == 0)
+                {
+                    return Redirect(Request.UrlReferrer.ToString());
+                }
                 ComentarioCAD cCAD = new ComentarioCAD();
                 ComentarioCEN cen = new ComentarioCEN(cCAD);
                 DateTime p_fecha = DateTime.Now;
                 int p_valoracion = 0;
                 int id = cen.CrearComentario(usuario, p_fecha, comentario, p_valoracion);
-                return RedirectToAction("Details", new { id = id });
+                if (hilo != 0)
+                {
+                    new ComentarioCEN().RelacionaHilo(id, hilo);
+                }
+                else if (articulo != 0)
+                {
+                    new ComentarioCEN().RelacionaArticulo(id, articulo);
+                }
+                return Redirect(Request.UrlReferrer.ToString());
             }
             catch
             {
@@ -148,7 +160,7 @@ namespace MouseRidersWeb.Controllers
             try
             {
                 ComentarioCEN cen = new ComentarioCEN();
-                cen.ModificarComentario(com.Id,com.Creador, com.Fecha, com.Contenido, com.Valoracion);
+                cen.ModificarComentario(com.Id, com.Creador, com.Fecha, com.Contenido, com.Valoracion);
 
                 return RedirectToAction("Details", new { id = com.Id });
             }
@@ -181,7 +193,7 @@ namespace MouseRidersWeb.Controllers
             try
             {
                 new ComentarioCEN().BorrarComentario(com.Id);
-                return RedirectToAction("Index");
+                return Redirect(Request.UrlReferrer.ToString());
             }
             catch
             {
@@ -192,8 +204,8 @@ namespace MouseRidersWeb.Controllers
         [HttpPost]
         public void AnyadirEstrellas(int id, int valoracion)
         {
-                ComentarioCEN cen = new ComentarioCEN();
-                cen.ActualizarPuntuacion(id, valoracion);
+            ComentarioCEN cen = new ComentarioCEN();
+            cen.ActualizarPuntuacion(id, valoracion);
         }
 
     }
