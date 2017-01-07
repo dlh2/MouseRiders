@@ -24,7 +24,7 @@ namespace MouseRidersWeb.DTO
         /**
          *	Atributo Titulo
          */
-        [Display(Prompt = "Titulo", Description = "Titulo del articulo", Name = "Titulo:")]
+        [Display(Prompt = "Titulo", Description = "Titulo del articulo", Name = "Título del hilo:")]
         [Required(ErrorMessage = "Debe tener un titulo")]
         [StringLength(maximumLength: Globals.TITULO_MAX_LENGTH, ErrorMessage = "El Titulo no puede tener más de {0} caracteres")]
         public string Titulo { get; set; }
@@ -61,7 +61,7 @@ namespace MouseRidersWeb.DTO
         /**
          *	Atributo Primer Comentario
          */
-        [Display(Prompt = "Primer Comentario", Description = "Primer comentario del hilo", Name = "Texto del primer comentario:")]
+        [Display(Prompt = "Primer Comentario", Description = "Primer comentario del hilo", Name = "Texto del primer comentario del hilo:")]
         [Required(ErrorMessage = "Debe tener un primer comentario")]
         [StringLength(maximumLength: Globals.TITULO_MAX_LENGTH, ErrorMessage = "El primer comentario no puede tener más de {0} caracteres")]
         public string PrimerComentario { get; set; }

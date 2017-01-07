@@ -1,24 +1,36 @@
 ﻿/*Otros*/
-#cabecera{
-    margin-top:-60px;
+#cabecera {
+    margin-top: -60px;
 }
 
-@media (min-width: 768px) and (max-width: 992px){
-    #cabecera{
-        margin-top: 40px;
+#second-navbar {
+    margin-top: -60px;
+    margin-bottom: 60px;
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    #cabecera {
+        margin-top: -10px;
     }
-    section{
-        margin-top: 100px;
+
+    section {
+        margin-top: 70px;
     }
-    nav li{
-        margin-left: 5%;
+
+    nav li {
+        margin-left: -1.75%;
+    }
+
+    #second-navbar {
+        margin-top: -10px;
+        margin-bottom: 0px;
     }
 }
 
 /*CSS para Contenido de Articulo*/
 .darwin-inline-image {
     width: 100%;
-    height:auto;
+    height: auto;
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
@@ -40,7 +52,6 @@ header {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-
     background: radial-gradient(lightgrey 40%, white 60%);
 }
 
@@ -53,12 +64,12 @@ header h2 {
     color: #777;
 }
 
-#hcoments{
+#hcoments {
     margin-top: 60px;
     margin-bottom: 20px;
 }
 
-#dcoments{
+#dcoments {
     border: 5px solid;
     border-radius: 10px;
 }
@@ -78,12 +89,12 @@ header h2 {
 }
 
 /*CSS para Index de Hilo (Foro)*/
-body{
+body {
     word-wrap: break-word;
 }
 
 
-fieldset{
+fieldset {
     width: 95%;
     margin: 3%;
     border: medium solid #333;
@@ -92,19 +103,19 @@ fieldset{
     background-color: #EEE;
 }
 
-fieldset fieldset{
-    background-color: white;
-}
+    fieldset fieldset {
+        background-color: white;
+    }
 
-.tituloH{
+.tituloH {
     font-size: 1.5em;
 }
 
-#foro{
+#foro {
     margin-bottom: 40px;
 }
 
-#fechaH, #creadorH{
+#fechaH, #creadorH {
     width: 49%;
     display: inline-block;
     text-align: center;
@@ -112,112 +123,126 @@ fieldset fieldset{
     font-size: 1.3em;
 }
 
-#fechaC, #creadorC{
+#fechaC, #creadorC {
     width: 49%;
     display: inline-block;
     font-weight: bold;
 }
 
-#fechaC{
-    text-align:right;
+#fechaC {
+    text-align: right;
 }
-#creadorC{
-    text-align:left;
+
+#creadorC {
+    text-align: left;
 }
-#contenidoC{
-    margin:3%;
+
+#contenidoC {
+    margin: 3%;
 }
-#editC{
+
+#editC {
     display: inline-block;
-    text-align:right;
+    text-align: right;
     width: 49%;
 }
 
-#valC{
+#valC {
     display: inline-block;
-    text-align:left;
+    text-align: left;
     width: 49%;
 }
 
-.votar{
+.votar {
     background-color: white;
     border: none;
 }
 
-.votar:hover{
-    opacity: 0.5;
-}
+    .votar:hover {
+        opacity: 0.5;
+    }
 
-.votar img{
-    width: 25px;
-}
+    .votar img {
+        width: 25px;
+    }
 
-#comentar{
+#comentar {
     width: 100%;
     border-radius: 10px;
 }
 
 /*CSS para Artículo (Details)*/
-#autorA, #fechaA{
-    display:inline-block;
+#autorA, #fechaA {
+    display: inline-block;
     width: 49%;
     font-size: 1.2em;
     font-weight: bold;
 }
-#autorA{
-    text-align:left;
-}
-#fechaA{
-    text-align:right;
+
+#autorA {
+    text-align: left;
 }
 
-#valA{
+#fechaA {
+    text-align: right;
+}
+
+#valA {
     margin-top: 20px;
     margin-bottom: 20px;
     font-size: 1.2em;
     font-weight: bold;
 }
-#valnumA{
+
+#valnumA {
     font-size: 2em;
 }
 
-#editA{
+#editA {
     text-align: right;
 }
 
 /*CSS para Encuesta (Index y Detail)*/
-#tituloE, #privacidadE{
-
+#tituloE, #privacidadE {
     display: inline-block;
     width: 49%;
-
 }
-#tituloE{
+
+#tituloE {
     text-align: left;
     font-weight: bold;
     font-size: 2em;
 }
-#privacidadE{
+
+#privacidadE {
     text-align: right;
 }
 
-#descripE{
+#descripE {
     margin-left: 3%;
     margin-bottom: 5%;
 }
 
-#editE{
+#editE {
     margin-top: 2%;
-    text-align:right;
+    text-align: right;
 }
 
-.encuesta img{
+.encuesta img {
     width: 90%;
-    margin-left:auto;
-    margin-right:auto;
+    margin-left: auto;
+    margin-right: auto;
     display: block;
 }
 
-.encuesta h2{
-    text-align:center;
+.encuesta h2 {
+    text-align: center;
+}
+
+
+/*CSS para Hilo (Create)*/
+.custom-field input {
+    width: 85%;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
