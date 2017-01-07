@@ -14,34 +14,42 @@ namespace MouseRidersWeb.Controllers
 {
     public class MensajeController : BasicController
     {
-       // GET: Mensaje/Create
-        public ActionResult Create(int id)
+        // GET: /Mensaje/Create
+
+        public ActionResult Create()
         {
-            //En el ejemplo hay un int id.
-            MensajeEN mensaje = new MensajeEN();
-            MensajeDTO result = new MensajeAssembler().Convert(mensaje);
+            MensajeEN men = new MensajeEN();
+            MensajeDTO result = new MensajeAssembler().Convert(men);
             return View(result);
         }
 
-        // POST: Mensaje/Create
+        //
+        // POST: /Mensaje/Create
+
         [HttpPost]
-        public ActionResult Create(MensajeEN mensaje)
+        public ActionResult Create(MensajeEN men)
         {
-            try
-            {
-                // En el ejemplo, se procura que devuelva la clase directamente, no se como, pero lo hace.
-                // TODO: Parece que aqui siempre hay que cambiar algo.
-                MensajeCEN cen = new MensajeCEN();
+            
+                MensajeCAD cCAD = new MensajeCAD();
+                MensajeCEN cen = new MensajeCEN(cCAD);
                 IList<int> aux = new List<int>();
-                for (int i = 0; i < mensaje.Es_recibido.Count; i++)
-                    aux.Add(mensaje.Es_recibido[i].Id);
-                cen.CrearMensaje(mensaje.Asunto, mensaje.Texto, mensaje.Adjunto, mensaje.Tipo, mensaje.Es_enviado.Id, aux);
-                return RedirectToAction("Details", new { id = mensaje.Id });
-            }
-            catch
-            {
-                return View();
-            }
+                aux.Add(32768);
+                    int id = cen.CrearMensaje(men.Asunto, men.Texto, men.Adjunto, men.Tipo, 32768, aux);
+
+                return RedirectToAction("Details", new { id = id });
+       
+        }
+
+        // GET: /Mensaje/Details/5
+        public ActionResult Details(int id)
+        {
+            SessionInitialize();
+            MensajeCAD cCAD = new MensajeCAD(session);
+            MensajeEN result = cCAD.ReadOIDDefault(id);
+            MensajeDTO resultfinal = new MensajeAssembler().Convert(result);
+            SessionClose();
+            return View(resultfinal);
         }
     }
 }
+

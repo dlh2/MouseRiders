@@ -1,0 +1,37 @@
+﻿@model MouseRidersWeb.DTO.MensajeDTO
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>MensajeEN</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Asunto)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Asunto)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Texto)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Texto)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Adjunto)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Adjunto)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
