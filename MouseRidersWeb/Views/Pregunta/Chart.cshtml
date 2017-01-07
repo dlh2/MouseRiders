@@ -12,8 +12,15 @@
 
         string myTheme = @"<Chart BackColor=""#EEEEEE"" ><ChartAreas><ChartArea Name=""Default"" BackColor=""#EEEEEE""></ChartArea></ChartAreas></Chart>";
 
+        string aux;
 
-        string aux=Request.Cookies["width"].Value;
+        if (Request.Cookies["width"] != null){
+            aux = Request.Cookies["width"].Value;
+        }
+        else {
+            aux = "900";
+        }
+            
         int aux1 = aux.AsInt();
         if (aux1 > 900)
         {
