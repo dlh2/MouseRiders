@@ -216,6 +216,7 @@
     <Compile Include="Controllers\BusquedaController.cs" />
     <Compile Include="Controllers\ComentarioController.cs" />
     <Compile Include="Controllers\ControladorNotificacionesController.cs" />
+    <Compile Include="Controllers\Default1Controller.cs" />
     <Compile Include="Controllers\DenunciaController.cs" />
     <Compile Include="Controllers\EncuestaController.cs" />
     <Compile Include="Controllers\Especiales\AyudaController.cs" />
@@ -412,7 +413,6 @@
     <Content Include="Views\Hilo\Delete.cshtml" />
     <Content Include="Views\Respuesta\Index.cshtml" />
     <Content Include="Views\ControladorNotificaciones\Create.cshtml" />
-    <Content Include="Views\Mensaje\Create.cshtml" />
     <Content Include="Views\Articulo\Index.cshtml" />
     <Content Include="Views\Seccion\_Articulo.cshtml" />
     <Content Include="Views\Encuesta\Index.cshtml" />
@@ -441,6 +441,9 @@
     <Content Include="Views\Pregunta\Chart.cshtml" />
     <Content Include="Views\Noticias\_Articulo.cshtml" />
     <Content Include="Views\Encuesta\Create.cshtml" />
+    <Content Include="Views\Mensaje\Sugerir.cshtml" />
+    <Content Include="Views\Mensaje\Create.cshtml" />
+    <Content Include="Views\Mensaje\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
