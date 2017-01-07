@@ -14,20 +14,37 @@ namespace MouseRidersWeb.Controllers.Especiales
 {
     public class NoticiasController : BasicController
     {
-        //
-        // GET: /Noticias/
 
-        public ActionResult Index()
+        //
+        // Ajax GET: /Noticia/
+
+        public ActionResult Index(String minimo)
         {
             SessionInitialize();
             SeccionCAD cCAD = new SeccionCAD(session);
-            SeccionEN result = cCAD.ReadFilter("NoticiasPC");
-            SeccionDTO resultfinal = new SeccionAssembler().ConvertNoticiaConArticulo(result);
+            SeccionEN resultEN = cCAD.ReadFilter("NoticiasPC");
+            int a = 0;
+            if (minimo == null)
+            {
+                a = 3;
+            }
+            else
+            {
+                a = Int32.Parse(minimo) * 10;
+            }
+            SeccionDTO result = new SeccionAssembler().ConvertNoticiaConArticulo(resultEN, a, 10);
             SessionClose();
-            return View(resultfinal);
+            if (Request.IsAjaxRequest())
+            {
+                if (result != null)
+                {
+                    return PartialView("_Articulo", result);
+                }
+                return PartialView("_Articulo", new SeccionDTO());
+            }
+            return View(result);
         }
 
-  
         //
         // GET: /Noticias/Create
 

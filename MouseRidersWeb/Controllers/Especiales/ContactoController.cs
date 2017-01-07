@@ -39,14 +39,7 @@ namespace MouseRidersWeb.Controllers.Especiales
 
         public ActionResult Redactor()
         {
-            try
-            {
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return View();
         }
 
         //

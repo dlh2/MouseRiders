@@ -6,7 +6,16 @@
 }
 
 <h2 class="customh2">Noticias</h2>
-
+@using (Ajax.BeginForm("Index", "Noticias", new { },
+    new AjaxOptions
+    {
+        HttpMethod = "get",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "ArticuloAJAX"
+    }))
+{
+    <input type="hidden" name="minimo" value="0">
+}
 <h3 style="text-align:center"> Ordenar por </h3>
 
 <div class="btn-group-justified" role="group">
@@ -16,25 +25,29 @@
     <a href="" class="btn btn-secondary2">Valoración</a>
 </div>
 
-@foreach (var item in Model.Tiene)
-{
-    <hr class="featurette-divider">
-
-        <!-- First Featurette -->
-
-    <div class="featurette">
-        <a href="@Url.Action("Details", "Articulo", new { id = item.Id })">
-            <img class="featurette-image img-circle img-responsive pull-right" src="@Html.DisplayFor(modelItem => item.Portada)">
-            <h2 class="featurette-heading">
-                @Html.DisplayFor(modelItem => item.Titulo)
-                <span class="text-muted">@Html.DisplayFor(modelItem => item.Subtitulo)</span>
-            </h2>
-        </a>
-        <p class="lead">@Html.DisplayFor(modelItem => item.Descripcion)</p>
-    </div>
-
-    <hr class="featurette-divider">
-}
+<div id="ArticuloAJAX">
+    @if (Model == null)
+    {
+        @Html.Partial("_Articulo", new MouseRidersWeb.DTO.SeccionDTO());
+    }
+    else
+    {
+        @Html.Partial("_Articulo", Model);
+    }
+</div>
+<script>
+    $('#cargar_mas a').click(function (e) {
+        e.preventDefault();
+        $("input:hidden[name=minimo]").val(parseInt($("input:hidden[name=minimo]").val()) + 1);
+        $("input:hidden[name=minimo]").parent("form").submit();
+    });
+    $(document).ajaxComplete(function () {
+        $('#cargar_mas a').click(function (e) {
+            e.preventDefault();
+            $("input:hidden[name=minimo]").val(parseInt($("input:hidden[name=minimo]").val()) + 1);
+            $("input:hidden[name=minimo]").parent("form").submit();
+        });
+    });
+</script>
 
 @Html.ActionLink("Volver", "Index", "Hilo", null, new { @class = "btn btn-default btn-lg btn-block" })
-
