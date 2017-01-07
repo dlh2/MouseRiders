@@ -68,7 +68,8 @@ namespace MouseRidersWeb.Controllers
         public ActionResult Create()
         {
             EncuestaEN enc = new EncuestaEN();
-            return View(enc);
+            EncuestaDTO result = new EncuestaAssembler().ConvertConPreguntaYRespuesta(enc);
+            return View(result);
         }
 
         //

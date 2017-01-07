@@ -6,14 +6,19 @@
 }
 @{
     int rolSession = 0;
-    bool noSession;
+    String emailSession = "";
+    bool haySession;
     if (@Session["user_rol"] != null)
     {
-        noSession = Int32.TryParse(@Session["user_rol"].ToString(), out rolSession);
+        haySession = Int32.TryParse(@Session["user_rol"].ToString(), out rolSession);
     }
     else
     {
-        noSession = true;
+        haySession = false;
+    }
+    if (@Session["user_email"] != null)
+    {
+        emailSession = @Session["user_email"].ToString();
     }
 }
 
@@ -72,7 +77,7 @@
     }
     <div>
 
-        @if (noSession)
+        @if (haySession)
         {
             using (Html.BeginForm("FastCreate", "Comentario"))
             {
@@ -81,9 +86,11 @@
                 @Html.Label("Comentario", "Añadir comentario")
                 <br />
                 //TextArea
-                <textarea rows=8 id="comentar" name="contenido" placeholder="Escriba aquí su comentario"></textarea>
+                <textarea rows=8 id="comentar" name="Comentario" placeholder="Escriba aquí su comentario"></textarea>
                 //TODO: Hacerlo que sea por parametro de sesion
-                <input type="hidden" name="usuario" value="usuario@gmail.com">
+                <input type="hidden" name="usuario" value="@emailSession">
+                <input type="hidden" name="hilo" value="0">
+                <input type="hidden" name="articulo" value="@Model.Id">
                 <div><input type="submit" value="Comentar" class="btn btn-default btn-lg btn-block btn-primary" /></div>
             }
         }

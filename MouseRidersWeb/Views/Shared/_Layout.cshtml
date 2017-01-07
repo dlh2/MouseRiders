@@ -50,14 +50,14 @@
     </style>
     @{
         int rolSession = 0;
-        bool noSession;
+        bool haySession;
         if (@Session["user_rol"] != null)
         {
-            noSession = !Int32.TryParse(@Session["user_rol"].ToString(), out rolSession);
+            haySession = !Int32.TryParse(@Session["user_rol"].ToString(), out rolSession);
         }
         else
         {
-            noSession = true;
+            haySession = true;
         }
     }
     <script src="~/Scripts/js.cookie.js"></script>
@@ -97,7 +97,7 @@
                     <li>
                         @Html.ActionLink("Ayuda", "Index", "Ayuda")
                     </li>
-                    @if (!noSession)
+                    @if (!haySession)
                     {
                     <li>
                         @Html.ActionLink("Mi Perfil", "Details/" + 32768, "Usuario")
@@ -117,7 +117,7 @@
         </div>
         <!-- /.container -->
     </nav>
-    @if (!noSession)
+    @if (!haySession)
     {
         if (rolSession == 1)
         { @*Usuario*@
