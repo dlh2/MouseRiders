@@ -50,20 +50,6 @@
         @Html.Partial("_Articulo", Model);
     }
 </div>
-@using (Ajax.BeginForm("Index", "Seccion", new { },
-    new AjaxOptions
-    {
-        HttpMethod = "get",
-        InsertionMode = InsertionMode.Replace,
-        UpdateTargetId = "ArticuloAJAX"
-    }))
-{
-    <input type="hidden" name="id" value="0">
-    <input type="hidden" name="minimo" value="0">
-    <div class="btn-group-lg btn-group-justified" role="group" id="cargar_mas">
-        <a href="#" class="btn btn-default btn-lg btn-block">Mostrar más</a>
-    </div>
-}
 
 <script>
     $('#secciones_aux a').click(function (e) {
@@ -75,7 +61,13 @@
     $('#cargar_mas a').click(function (e) {
         e.preventDefault();
         $("input:hidden[name=minimo]").val(parseInt($("input:hidden[name=minimo]").val()) + 1);
-        $("#cargar_mas").parent("form").submit();
+        $("#secciones_aux").parent("form").submit();
     });
-
+    $(document).ajaxComplete(function () {
+        $('#cargar_mas a').click(function (e) {
+            e.preventDefault();
+            $("input:hidden[name=minimo]").val(parseInt($("input:hidden[name=minimo]").val()) + 1);
+            $("#secciones_aux").parent("form").submit();
+        });
+    });
 </script>

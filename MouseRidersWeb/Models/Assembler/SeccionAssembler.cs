@@ -74,6 +74,10 @@ namespace MouseRidersWeb.Assembler
                     {
                         secDTO.Tiene.Add(new ArticuloAssembler().Convert(Recibe[i]));
                     }
+                    for (int i = comienzo+comienzo; i < Recibe.Count && i <= (comienzo+comienzo + cantidad); i++)
+                    {
+                        secDTO.hayMasArticulos = true;
+                    }
                 }
             }
             return secDTO;
