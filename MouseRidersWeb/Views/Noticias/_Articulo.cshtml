@@ -1,0 +1,42 @@
+﻿@model MouseRidersWeb.DTO.SeccionDTO
+@if (Model != null)
+{
+    foreach (var item in Model.Tiene)
+    {
+        <hr class="featurette-divider">
+        <!-- First Featurette -->
+        <div class="featurette">
+            <a href="@Url.Action("Details", "Articulo", new { id = item.Id })">
+                <img class="featurette-image img-circle img-responsive pull-right" src="@Html.DisplayFor(modelItem => item.Portada)">
+                <h2 class="featurette-heading">
+                    @Html.DisplayFor(modelItem => item.Titulo)
+                    <span class="text-muted">@Html.DisplayFor(modelItem => item.Subtitulo)</span>
+                </h2>
+            </a>
+            <p class="lead">@Html.DisplayFor(modelItem => item.Descripcion)</p>
+        </div>
+        <hr class="featurette-divider">
+    }
+}
+
+@if (Model != null)
+{
+    var existe = false;
+    if (Model != null)
+    {
+        if (Model.hayMasArticulos)
+        {
+            existe = true;
+        }
+    }
+    if (existe)
+    {
+        <div class="btn-group-lg btn-group-justified" role="group" id="cargar_mas">
+            <a href="#" class="btn btn-default btn-lg btn-block">Mostrar más</a>
+        </div>
+    }
+    else
+    {
+        <p style="text-align:center;font-size:2em;color:#999;"><strong>No hay más artículos disponibles para mostrar</strong></p>
+    }
+}

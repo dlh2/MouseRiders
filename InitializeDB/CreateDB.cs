@@ -869,7 +869,7 @@ public static void InitializeData ()
                 HiloEN hilo1EN = new HiloEN ();
                 hilo1EN.Creador = admin_foroEN.Email;
                 hilo1EN.Fecha = DateTime.Now;
-                hilo1EN.NumComentarios = 2;
+                hilo1EN.NumComentarios = 10;
                 hilo1EN.Titulo = "hilo1";
                 int oid_h1 = hiloCEN.CrearHilo (hilo1EN.Creador, hilo1EN.Fecha, hilo1EN.NumComentarios, com, hilo1EN.Titulo, aux);
                 hilo1EN.Id = oid_h1;

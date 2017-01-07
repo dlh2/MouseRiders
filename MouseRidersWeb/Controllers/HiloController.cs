@@ -21,9 +21,13 @@ namespace MouseRidersWeb.Controllers
             SessionInitialize();
             HiloCAD cCAD = new HiloCAD(session);
             IList<HiloEN> result = cCAD.ReadAllDefault(0, 10);
+            HiloCEN cen = new HiloCEN();
             IList<HiloDTO> resultfinal = new List<HiloDTO>();
             foreach (HiloEN entry in result)
+            {
+                cen.ModificarHilo(entry.Id, entry.Creador, entry.Fecha, entry.Contiene.Count, entry.Titulo, entry.PrimerComentario);
                 resultfinal.Add(new HiloAssembler().Convert(entry));
+            }
             SessionClose();
             return View(resultfinal);
         }
@@ -35,7 +39,9 @@ namespace MouseRidersWeb.Controllers
         {
             SessionInitialize();
             HiloCAD cCAD = new HiloCAD(session);
+            HiloCEN cen = new HiloCEN();
             HiloEN result = cCAD.ReadOIDDefault(id);
+            cen.ModificarHilo(result.Id, result.Creador, result.Fecha, result.Contiene.Count, result.Titulo, result.PrimerComentario);
             HiloDTO resultfinal = new HiloAssembler().ConvertConComentario_Hilo(result);
             SessionClose();
             return View(resultfinal);
@@ -71,7 +77,7 @@ namespace MouseRidersWeb.Controllers
                 int cid=comCEN.CrearComentario(hilo.Creador, p_fecha, hilo.PrimerComentario, 0);
                 
                 com.Add(comCEN.ReadOID(cid));
-                int id = cen.CrearHilo(hilo.Creador, p_fecha, hilo.NumComentarios, com, hilo.Titulo, hilo.PrimerComentario);
+                int id = cen.CrearHilo(hilo.Creador, p_fecha, 1, com, hilo.Titulo, hilo.PrimerComentario);
                 return RedirectToAction("Details", new { id = id });
             }
             catch
