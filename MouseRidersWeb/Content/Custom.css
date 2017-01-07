@@ -27,6 +27,13 @@
     }
 }
 
+#ayuda{
+    font-size: 2.5em;
+}
+#ayudaImg{
+    width: 50%;
+}
+
 /*CSS para Contenido de Articulo*/
 .darwin-inline-image {
     width: 100%;
