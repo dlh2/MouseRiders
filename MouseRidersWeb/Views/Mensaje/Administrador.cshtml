@@ -4,48 +4,40 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Administrador</h2>
-
-@using (Html.BeginForm()) {
+<h2 class="customh2">Contactar con un administrador</h2>
+<p class="psection">
+    Envia un mensaje a nuestros administradores. Uno de ellos lo recibirá y te responderá lo antes posible
+</p>
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
-
     <fieldset>
-        <legend>MensajeEN</legend>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Asunto)
-        </div>
-        <div class="editor-field">
+        @Html.LabelFor(model => model.Asunto)
+        <span class="custom-field">
             @Html.EditorFor(model => model.Asunto)
             @Html.ValidationMessageFor(model => model.Asunto)
-        </div>
+        </span>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Texto)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Texto)
+            @Html.TextArea("PrimerComentario", new { rows = 8, id = "comentar", @placeholder = "Escriba aquí su comentario" })
             @Html.ValidationMessageFor(model => model.Texto)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Adjunto)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Adjunto)
-            @Html.ValidationMessageFor(model => model.Adjunto)
+        <div class="form-group">
+            <label for="AdjuntoR">Adjuntar un archivo</label>
+            <input type="file" class="form-control" id="AdjuntoR" name="file" />
         </div>
 
-        <p>
-            <input type="submit" value="Create" />
-        </p>
+        <input type="submit" class="btn btn-primary" value="Enviar mensaje a Administrador" />
     </fieldset>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+@Html.ActionLink("Volver", "Index", "Redaccion", null, new { @class = "btn-secondary2 btn-lg", style = "text-decoration:none" })
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

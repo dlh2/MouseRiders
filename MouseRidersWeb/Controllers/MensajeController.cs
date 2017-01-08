@@ -34,7 +34,7 @@ namespace MouseRidersWeb.Controllers
                 MensajeCEN cen = new MensajeCEN(cCAD);
                 IList<int> aux = new List<int>();
                 aux.Add(32768);
-                    int id = cen.CrearMensaje(men.Asunto, men.Texto, men.Adjunto, men.Tipo, 32768, aux);
+                int id = cen.CrearMensaje(men.Asunto, men.Texto, "default", men.Tipo, 32768, aux);
 
                 return RedirectToAction("Details", new { id = id });
        
@@ -60,7 +60,7 @@ namespace MouseRidersWeb.Controllers
             MensajeCEN cen = new MensajeCEN(cCAD);
             IList<int> aux = new List<int>();
             aux.Add(32768);
-            int id = cen.CrearMensaje(men.Asunto, men.Texto, men.Adjunto, men.Tipo, 32768, aux);
+            int id = cen.CrearMensaje(men.Asunto, men.Texto, "default", men.Tipo, 32768, aux);
 
             return RedirectToAction("Details", new { id = id });
 
@@ -86,7 +86,7 @@ namespace MouseRidersWeb.Controllers
             MensajeCEN cen = new MensajeCEN(cCAD);
             IList<int> aux = new List<int>();
             aux.Add(32768);
-            int id = cen.CrearMensaje(men.Asunto, men.Texto, men.Adjunto, men.Tipo, 32768, aux);
+            int id = cen.CrearMensaje(men.Asunto, men.Texto, "default", men.Tipo, 32768, aux);
 
             return RedirectToAction("Details", new { id = id });
 
@@ -112,7 +112,7 @@ namespace MouseRidersWeb.Controllers
             MensajeCEN cen = new MensajeCEN(cCAD);
             IList<int> aux = new List<int>();
             aux.Add(32768);
-            int id = cen.CrearMensaje(men.Asunto, men.Texto, men.Adjunto, men.Tipo, 32768, aux);
+            int id = cen.CrearMensaje(men.Asunto, men.Texto, "default", men.Tipo, 32768, aux);
 
             return RedirectToAction("Details", new { id = id });
 
@@ -138,7 +138,7 @@ namespace MouseRidersWeb.Controllers
             MensajeCEN cen = new MensajeCEN(cCAD);
             IList<int> aux = new List<int>();
             aux.Add(32768);
-            int id = cen.CrearMensaje(men.Asunto, men.Texto, men.Adjunto, men.Tipo, 32768, aux);
+            int id = cen.CrearMensaje(men.Asunto, men.Texto, "default", men.Tipo, 32768, aux);
 
             return RedirectToAction("Details", new { id = id });
 

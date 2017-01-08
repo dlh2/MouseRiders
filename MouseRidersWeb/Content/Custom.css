@@ -249,7 +249,7 @@ fieldset {
 
 /*CSS para Hilo (Create)*/
 .custom-field input {
-    width: 85%;
+    width: 100%;
     border-radius: 10px;
     margin-bottom: 20px;
 }

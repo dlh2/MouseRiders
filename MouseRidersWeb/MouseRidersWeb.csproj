@@ -391,11 +391,6 @@
     <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Seccion\Details.cshtml" />
     <Content Include="Views\Redaccion\Index.cshtml" />
-    <Content Include="Views\Contacto\Puesto.cshtml" />
-    <Content Include="Views\Contacto\Redactor.cshtml" />
-    <Content Include="Views\Contacto\Admin.cshtml" />
-    <Content Include="Views\Contacto\Contenido.cshtml" />
-    <Content Include="Views\Contacto\Index.cshtml" />
     <Content Include="Views\Ayuda\Index.cshtml" />
     <Content Include="Views\Estadisticas\Index.cshtml" />
     <Content Include="Views\Noticias\Index.cshtml" />
