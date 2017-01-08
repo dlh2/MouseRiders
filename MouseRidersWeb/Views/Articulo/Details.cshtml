@@ -60,12 +60,12 @@
         Aquí deberían ir las estrellas para valorarlo
     </div>
 
-    @Html.ActionLink("Descargar en PDF", "Index", "Home", null, new { @class = "btn btn-default btn-lg btn-block" })
+    <a class="btn btn-default btn-lg btn-block" href="~\Contenido\Articulos/@Html.DisplayFor(model => model.ContenidoDescargable)">Ver archivo PDF</a>
 
-    <p id="editA">
-        @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
-        @Html.ActionLink("Eliminar", "Delete", new { id = Model.Id })
-    </p>
+        <p id="editA">
+            @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id = Model.Id })
+        </p>
 
 </fieldset>
 
