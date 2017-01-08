@@ -21,6 +21,12 @@ namespace MouseRidersWeb.DTO
         //[StringLength(maximumLength: Globals.ASUNTO_MAX_LENGTH, ErrorMessage = "El asunto del mensaje no puede tener más de {0} caracteres")]
         public string Asunto { get; set; }
 
+        //Atributo Asunto
+        [Display(Prompt = "Destinatario", Description = "Destinatario", Name = "Destinatario:")]
+        [Required(ErrorMessage = "Debe existir un destinatario")]
+        //[StringLength(maximumLength: Globals.ASUNTO_MAX_LENGTH, ErrorMessage = "El asunto del mensaje no puede tener más de {0} caracteres")]
+        public string Destinatario { get; set; }
+
         //Atributo Texto
         [Display(Prompt = "Texto", Description = "Texto del mensaje", Name = "Texto:")]
         [Required(ErrorMessage = "Debe existir un texto")]
