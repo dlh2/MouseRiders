@@ -26,7 +26,7 @@ namespace MouseRidersWeb.Controllers
                 if (file.ContentLength > 0)
                 {
                     var fileName = Path.GetFileName(file.FileName);
-                    var path = Path.Combine(Server.MapPath("~/App_Data/Images"), fileName);
+                    var path = Path.Combine(Server.MapPath("~/Contenido/FotosUsuario"), fileName);
                     file.SaveAs(path);
                 }
                 ViewBag.Message = "Upload successful";

@@ -71,6 +71,21 @@
             @Html.ValidationMessageFor(model => model.Nombreusuario)
         </div>
         
+        @using (Html.BeginForm("Upload", "UsuarioController", FormMethod.Post,
+        new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <fieldset>
+                <legend>Upload a file</legend>
+                <div class="editor-field">
+                    @Html.TextBox("file", "", new { type = "file" })
+                </div>
+                <div class="editor-field">
+                    <input type="submit" value="Upload" />
+                </div>
+            </fieldset>
+        }
 
         <p>
             <input type="submit" value="Save" />
