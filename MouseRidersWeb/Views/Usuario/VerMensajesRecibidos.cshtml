@@ -4,37 +4,34 @@
     ViewBag.Title = "VerMensajesRecibidos";
     Layout = null;
 }
-
-<div class="col-sm-12">
-    
-</div>
-
-@foreach (var item in Model.Recibe)
-{
-    <div class="col-sm-12">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title pprofile">Asunto: @Html.DisplayFor(modelItem => item.Asunto)</h3>
-            </div>
-            <div class="panel-body penhanced">
-                <div class="row">
-                    <div>
-                        <table class="table table-user-information">
-                            <tbody>
-                                <tr>
-                                    <td>@Html.DisplayFor(modelItem => item.Texto)</td>
-                                </tr>
-                                <tr>
-                                    <td>Archivos adjuntos: @Html.DisplayFor(modelItem => item.Adjunto)</td>
-                                </tr>
-                            </tbody>
-                        </table>
+<fieldset id="bandeja">
+    <h3 class="customh3">Recibidos</h3>
+    @foreach (var item in Model.Recibe)
+    {
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title pprofile">Asunto: @Html.DisplayFor(modelItem => item.Asunto)</h3>
+                </div>
+                <div class="panel-body penhanced">
+                    <div class="row">
+                        <div>
+                            <table class="table table-user-information">
+                                <tbody>
+                                    <tr>
+                                        <td>@Html.DisplayFor(modelItem => item.Texto)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Archivos adjuntos: @Html.DisplayFor(modelItem => item.Adjunto)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    /*
+        /*
             <p>
                 @Html.DisplayFor(modelItem => item.Id)
             </p>
@@ -47,8 +44,9 @@
             <p>
                 @Html.DisplayFor(modelItem => item.Adjunto)
             </p>
-     *    
-    
-    
+     *
+
+
      * */
-}
+    }
+</fieldset>

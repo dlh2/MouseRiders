@@ -62,20 +62,94 @@
               
         </div>
         <div>
-            <h3 class="customh3">Bandeja de mensajes</h3>
+            <h3 class="customh3" id="bandejaE">Mensajes</h3>
             <div class="btn-group-justified" role="group">
-                <a href="" class="btn btn-secondary2">Mensajes Enviados</a>
-                <a href="" class="btn btn-secondary2">Mensajes Recibidos</a>
+                <a href="" class="btn btn-secondary2" id="enviados">Mensajes Enviados</a>
+                <a href="" class="btn btn-secondary2" id="recibidos">Mensajes Recibidos</a>
+                <a href="" class="btn btn-secondary2" id="nuevo">Nuevo Mensaje</a>
             </div>
         </div>
     </div>
 
+@Html.HiddenFor(model => model.Id, new { id = "ident", value = Model.Id });
 
 <div>
     
     @{Html.RenderAction("VerMensajesRecibidos", "Usuario", new { id = Model.Id });}
 </div>
 
-<div>
-    @{Html.RenderAction("VerMensajesEnviados", "Usuario", new { id = Model.Id });}
-</div>
+<script>
+    $(function () {
+
+        $("#enviados").on("click", function (e) {
+
+            e.preventDefault();
+
+            var url = "/Usuario/VerMensajesEnviados/";
+            var aux = $('#ident').val();
+            $.ajax({
+                url: url,
+                data: { id: 32768 },
+                cache: false,
+                type: "GET",
+                success: function (data) {
+                    $("#bandeja").replaceWith(data);
+                },
+                error: function (xhr, status, error) {
+                    console.log(xhr.responseText);
+                    alert("message : \n" +
+                        "An error occurred, for more info check the js console" +
+                        "\n status : \n" + status + " \n error : \n" + error);
+                }
+            });
+
+        });
+
+        $("#recibidos").on("click", function (e) {
+
+            e.preventDefault();
+
+            var url = "/Usuario/VerMensajesRecibidos/";
+            var aux = $('#ident').val();
+            $.ajax({
+                url: url,
+                data: { id: 32768 },
+                cache: false,
+                type: "GET",
+                success: function (data) {
+                    $("#bandeja").replaceWith(data);
+                },
+                error: function (xhr, status, error) {
+                    console.log(xhr.responseText);
+                    alert("message : \n" +
+                        "An error occurred, for more info check the js console" +
+                        "\n status : \n" + status + " \n error : \n" + error);
+                }
+            });
+
+        });
+
+        $("#nuevo").on("click", function (e) {
+
+            e.preventDefault();
+
+            var url = "/Mensaje/Create/";
+            $.ajax({
+                url: url,
+                data: null,
+                cache: false,
+                type: "GET",
+                success: function (data) {
+                    $("#bandeja").replaceWith(data);
+                },
+                error: function (xhr, status, error) {
+                    console.log(xhr.responseText);
+                    alert("message : \n" +
+                        "An error occurred, for more info check the js console" +
+                        "\n status : \n" + status + " \n error : \n" + error);
+                }
+            });
+
+        });
+    });
+</script>
