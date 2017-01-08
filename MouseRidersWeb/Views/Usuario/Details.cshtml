@@ -61,9 +61,21 @@
             </div>
               
         </div>
+        <div>
+            <h3 class="customh3">Bandeja de mensajes</h3>
+            <div class="btn-group-justified" role="group">
+                <a href="" class="btn btn-secondary2">Mensajes Enviados</a>
+                <a href="" class="btn btn-secondary2">Mensajes Recibidos</a>
+            </div>
+        </div>
     </div>
 
 
 <div>
+    
     @{Html.RenderAction("VerMensajesRecibidos", "Usuario", new { id = Model.Id });}
+</div>
+
+<div>
+    @{Html.RenderAction("VerMensajesEnviados", "Usuario", new { id = Model.Id });}
 </div>
