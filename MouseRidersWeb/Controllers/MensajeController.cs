@@ -118,9 +118,16 @@ namespace MouseRidersWeb.Controllers
 
         public ActionResult Sugerir()
         {
-            MensajeEN men = new MensajeEN();
-            MensajeDTO result = new MensajeAssembler().Convert(men);
-            return View(result);
+            if (Session["user_email"] != null && Session["user_email"].ToString() != "")
+            {
+                MensajeEN men = new MensajeEN();
+                MensajeDTO result = new MensajeAssembler().Convert(men);
+                return View(result);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         //
@@ -129,24 +136,35 @@ namespace MouseRidersWeb.Controllers
         [HttpPost]
         public ActionResult Sugerir(MensajeEN men)
         {
-
+            if (Session["user_email"] != null) { 
             MensajeCAD cCAD = new MensajeCAD();
             MensajeCEN cen = new MensajeCEN(cCAD);
             IList<int> aux = new List<int>();
             aux.Add(32768);
-            int id = cen.CrearMensaje(men.Asunto, men.Texto, "default", men.Tipo, 32768, aux);
+            int id = cen.CrearMensaje(men.Asunto, men.Texto, "default", MouseRidersGenNHibernate.Enumerated.MouseRiders.T_MensajeEnum.sugerencia, Convert.ToInt32(Session["user_id"].ToString()), aux);
 
             return RedirectToAction("Details", new { id = id });
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
 
         }
 
         // GET: /Mensaje/Create
 
         public ActionResult Redactor()
-        {
+        {if (Session["user_email"] != null && Session["user_email"].ToString() != "")
+            {
             MensajeEN men = new MensajeEN();
             MensajeDTO result = new MensajeAssembler().Convert(men);
             return View(result);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         //
@@ -155,24 +173,34 @@ namespace MouseRidersWeb.Controllers
         [HttpPost]
         public ActionResult Redactor(MensajeEN men)
         {
-
+            if (Session["user_email"] != null) { 
             MensajeCAD cCAD = new MensajeCAD();
             MensajeCEN cen = new MensajeCEN(cCAD);
             IList<int> aux = new List<int>();
             aux.Add(32768);
-            int id = cen.CrearMensaje(men.Asunto, men.Texto, "default", men.Tipo, 32768, aux);
+            int id = cen.CrearMensaje(men.Asunto, men.Texto, "default", MouseRidersGenNHibernate.Enumerated.MouseRiders.T_MensajeEnum.redactor, Convert.ToInt32(Session["user_id"].ToString()), aux);
 
             return RedirectToAction("Details", new { id = id });
-
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         // GET: /Mensaje/Create
 
         public ActionResult Administrador()
-        {
+        {if (Session["user_email"] != null && Session["user_email"].ToString() != "")
+            {
             MensajeEN men = new MensajeEN();
             MensajeDTO result = new MensajeAssembler().Convert(men);
             return View(result);
+}
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         //
@@ -181,24 +209,34 @@ namespace MouseRidersWeb.Controllers
         [HttpPost]
         public ActionResult Administrador(MensajeEN men)
         {
-
+            if (Session["user_email"] != null) { 
             MensajeCAD cCAD = new MensajeCAD();
             MensajeCEN cen = new MensajeCEN(cCAD);
             IList<int> aux = new List<int>();
             aux.Add(32768);
-            int id = cen.CrearMensaje(men.Asunto, men.Texto, "default", men.Tipo, 32768, aux);
+            int id = cen.CrearMensaje(men.Asunto, men.Texto, "default", MouseRidersGenNHibernate.Enumerated.MouseRiders.T_MensajeEnum.admin, Convert.ToInt32(Session["user_id"].ToString()), aux);
 
             return RedirectToAction("Details", new { id = id });
-
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         // GET: /Mensaje/Create
 
         public ActionResult Solicitar()
-        {
+        {if (Session["user_email"] != null && Session["user_email"].ToString() != "")
+            {
             MensajeEN men = new MensajeEN();
             MensajeDTO result = new MensajeAssembler().Convert(men);
             return View(result);
+}
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         //
@@ -207,15 +245,20 @@ namespace MouseRidersWeb.Controllers
         [HttpPost]
         public ActionResult Solicitar(MensajeEN men)
         {
-
+            if (Session["user_email"] != null)
+            { 
             MensajeCAD cCAD = new MensajeCAD();
             MensajeCEN cen = new MensajeCEN(cCAD);
             IList<int> aux = new List<int>();
             aux.Add(32768);
-            int id = cen.CrearMensaje(men.Asunto, men.Texto, "default", men.Tipo, 32768, aux);
+            int id = cen.CrearMensaje(men.Asunto, men.Texto, "default", MouseRidersGenNHibernate.Enumerated.MouseRiders.T_MensajeEnum.solicitud, Convert.ToInt32(Session["user_id"].ToString()), aux);
 
             return RedirectToAction("Details", new { id = id });
-
+}
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         // GET: /Mensaje/Details/5
