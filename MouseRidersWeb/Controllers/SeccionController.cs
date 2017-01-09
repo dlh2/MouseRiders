@@ -81,7 +81,7 @@ namespace MouseRidersWeb.Controllers
         {
             SessionInitialize();
             SeccionCAD cCAD = new SeccionCAD(session);
-            IList<SeccionEN> resultEN = cCAD.ReadAllDefault(0, 10);
+            IList<SeccionEN> resultEN = cCAD.ReadAllDefault(0, 999);
             IList<SeccionDTO> result = new List<SeccionDTO>();
             for (int i = 0; i < resultEN.Count; i++)
             {
