@@ -94,6 +94,7 @@
     <Content Include="..\MouseRidersGenNHibernate\AppLib\nunit.framework.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CEN\MouseRiders\EncuestaCEN_GenerarEstadisticas.cs" />
     <Compile Include="NHibernateHelper.cs" />
     <Compile Include="Utils\Util.cs" />
     <Compile Include="Exceptions\ModelException.cs" />
@@ -141,7 +142,6 @@
     <Compile Include="CAD\MouseRiders\EncuestaCAD.cs" />
     <Compile Include="CP\MouseRiders\EncuestaCP.cs" />
     <Compile Include="CP\MouseRiders\EncuestaCP_RealizarEncuesta.cs" />
-    <Compile Include="CP\MouseRiders\EncuestaCP_GenerarEstadisticas.cs" />
     <Compile Include="EN\MouseRiders\PreguntaEN.cs" />
     <Compile Include="CEN\MouseRiders\PreguntaCEN.cs" />
     <Compile Include="CAD\MouseRiders\IPreguntaCAD.cs" />

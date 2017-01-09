@@ -101,8 +101,8 @@ namespace MouseRidersWeb.Controllers
                     }
                 }
             }
+            new EncuestaCEN(new EncuestaCAD(session)).GenerarEstadisticas();
             SessionClose();
-            new EncuestaCP().GenerarEstadisticas();
             return (RedirectToAction("Details", new { id = encuestaEN.Id }));
         }
 
