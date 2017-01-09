@@ -202,7 +202,7 @@ namespace MouseRidersWeb.Controllers
         }
 
         [HttpPost]
-        public void AnyadirEstrellas(int id, int valoracion)
+        public void AnyadirPuntuacion(int id, int valoracion)
         {
             ComentarioCEN cen = new ComentarioCEN();
             cen.ActualizarPuntuacion(id, valoracion);

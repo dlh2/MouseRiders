@@ -13,27 +13,38 @@
     <div class="display-field" id="fechaC">
         @Html.DisplayFor(model => model.Fecha)
     </div>
-    
+
 
     <div class="display-field" id="contenidoC">
         @Html.DisplayFor(model => model.Contenido)
     </div>
 
     <div id="valC">
-        @Html.DisplayNameFor(model => model.Valoracion)
+        @if ((Session["user_email"] != null && Session["user_email"].ToString() != ""))
+        {
+            using (Ajax.BeginForm("AnyadirPuntuacion", "Comentario", new { id = Model.Id },
+                 new AjaxOptions
+                 {
+                     HttpMethod = "post"
+                 }))
+            {
+                <span id="valC_value">
+                    @Html.DisplayNameFor(model => model.Valoracion)
+                    @Html.DisplayFor(model => model.Valoracion)
+                </span>
+                <input type="hidden" name="valoracion" value="@Model.Valoracion">
+                <button class="votar" value="1"><img src="~/Contenido/Imagenes/ThumbsUp.png" alt="Positivo"></button>
+                <button class="votar" value="-1"><img src="~/Contenido/Imagenes/ThumbsDown.png" alt="Negativo"></button>
+            }
 
-        @Html.DisplayFor(model => model.Valoracion)
-@if ((Session["user_email"] != null && Session["user_email"].ToString() != "")) {
-        <button class="votar"><img src="~/Contenido/Imagenes/ThumbsUp.png" alt="Positivo"></button>
-        <button class="votar"><img src="~/Contenido/Imagenes/ThumbsDown.png" alt="Negativo"></button>
-}
+        }
     </div>
 
     <p id="editC">
-@if ((Session["user_email"] != null && Session["user_email"].ToString() == Model.Creador) || (Session["user_rol"] != null && Session["user_rol"].ToString() == "2") || (Session["user_rol"] != null && Session["user_rol"].ToString() == "4"))
+        @if ((Session["user_email"] != null && Session["user_email"].ToString() == Model.Creador) || (Session["user_rol"] != null && Session["user_rol"].ToString() == "2") || (Session["user_rol"] != null && Session["user_rol"].ToString() == "4"))
         {
-        @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary btn-xs  " }) 
-        @Html.ActionLink("Eliminar", "Delete", new { id = Model.Id }, new { @class = "btn btn-danger btn-xs  " })
+            @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary btn-xs  " })
+            @Html.ActionLink("Eliminar", "Delete", new { id = Model.Id }, new { @class = "btn btn-danger btn-xs  " })
         }
     </p>
 

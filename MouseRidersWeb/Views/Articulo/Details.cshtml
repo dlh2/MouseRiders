@@ -59,17 +59,18 @@
         </span>
         Aquí deberían ir las estrellas para valorarlo
     </div>
-    @if ((Session["user_email"] != null && Session["user_email"].ToString() != "")) { 
-    <a class="btn btn-default btn-lg btn-block" href="~\Contenido\Articulos/@Html.DisplayFor(model => model.ContenidoDescargable)">Ver archivo PDF</a>
+    @if ((Session["user_email"] != null && Session["user_email"].ToString() != ""))
+    {
+        <a class="btn btn-default btn-lg btn-block" href="~\Contenido\Articulos/@Html.DisplayFor(model => model.ContenidoDescargable)">Ver archivo PDF</a>
     }
 
-        <p id="editA">
+    <p id="editA">
         @if ((Session["user_rol"] != null && Session["user_rol"].ToString() == "2") || (Session["user_rol"] != null && Session["user_rol"].ToString() == "3"))
-            {
-            @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary btn-xs  " }) 
+        {
+            @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary btn-xs  " })
             @Html.ActionLink("Eliminar", "Delete", new { id = Model.Id }, new { @class = "btn btn-danger btn-xs  " })
-            }
-        </p>
+        }
+    </p>
 
 </fieldset>
 
@@ -100,4 +101,15 @@
         }
     </div>
 </fieldset>
+<script>
+    $('.votar').click(function (e) {
+        e.preventDefault();
+        var puntuacion_actual = $(this).parent().children("input:hidden[name=valoracion]").val();
+        puntuacion_actual = parseInt(puntuacion_actual) + parseInt($(this).val());
+        $(this).parent("form").children("input:hidden[name=valoracion]").val(puntuacion_actual);
+        $(this).parent("form").submit();
+        $(this).parent("form").parent("#valC").submit();
+        $(this).parent("form").children("#valC_value").text("Puntuación: "+puntuacion_actual);
+    });
+</script>
 @Html.ActionLink("Volver", "Index", "Seccion", null, new { @class = "btn btn-default btn-lg btn-block" })
