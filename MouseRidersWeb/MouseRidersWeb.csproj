@@ -451,6 +451,8 @@
     <Content Include="Views\Seccion\Lista.cshtml" />
     <Content Include="Views\Respuesta\Edit.cshtml" />
     <Content Include="Views\Respuesta\Delete.cshtml" />
+    <Content Include="Views\Mensaje\Index.cshtml" />
+    <Content Include="Views\Mensaje\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

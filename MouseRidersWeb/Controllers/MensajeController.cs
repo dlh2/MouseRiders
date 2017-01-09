@@ -14,6 +14,49 @@ namespace MouseRidersWeb.Controllers
 {
     public class MensajeController : BasicController
     {
+
+        public ActionResult Index()
+        {
+            SessionInitialize();
+            MensajeCAD cCAD = new MensajeCAD(session);
+            IList<MensajeEN> resultEN = cCAD.ReadAllDefault(0, 10);
+            IList<MensajeDTO> result = new List<MensajeDTO>();
+            for (int i = 0; i < resultEN.Count; i++)
+            {
+                result.Add(new MensajeAssembler().Convert(resultEN[i]));
+            }
+            SessionClose();
+            return View(result);
+        }
+
+
+        public ActionResult Delete(int id)
+        {
+            SessionInitialize();
+            MensajeCAD cCAD = new MensajeCAD(session);
+            MensajeEN result = cCAD.ReadOIDDefault(id);
+            MensajeDTO resultfinal = new MensajeAssembler().Convert(result);
+            SessionClose();
+            return View(resultfinal);
+        }
+
+        //
+        // POST: /Articulo/Delete/5
+
+        [HttpPost]
+        public ActionResult Delete(MensajeEN art)
+        {
+            try
+            {
+                new MensajeCEN().BorrarMensaje(art.Id);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
         // GET: /Mensaje/Create
 
         public ActionResult Create()
