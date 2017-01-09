@@ -141,18 +141,51 @@ namespace MouseRidersWeb.Controllers
         // POST: /Articulo/Create
 
         [HttpPost]
-        public ActionResult Create(ArticuloEN art)
+        public ActionResult Create(ArticuloEN art, HttpPostedFileBase file, HttpPostedFileBase file_des)
         {
             try
             {
                 ArticuloCAD cCAD = new ArticuloCAD();
                 ArticuloCEN cen = new ArticuloCEN(cCAD);
                 DateTime p_fecha = DateTime.Now;
-                int id=cen.CrearArticulo(art.Pertenece.Seccion,art.Titulo,art.Autor,art.Contenido,art.ContenidoDescargable,art.Puntuacion,p_fecha,art.Contador,art.Subtitulo, art.Portada,art.Descripcion);
+                try
+                {
+                    if (file.ContentLength > 0)
+                    {
+                        var fileName = Path.GetFileName(file.FileName);
+                        var path = Path.Combine(Server.MapPath("~/Contenido/Articulos"), fileName);
+                        file.SaveAs(path);
+                    }
+                    ViewBag.Message += "Upload contenido successful";
+                    art.Contenido = file.FileName;
+                }
+                catch
+                {
+                    ViewBag.Message += "Upload contenido failed";
+                }
+                try
+                {
+                    if (file_des.ContentLength > 0)
+                    {
+                        var fileName = Path.GetFileName(file_des.FileName);
+                        var path = Path.Combine(Server.MapPath("~/Contenido/Articulos"), fileName);
+                        file_des.SaveAs(path);
+                    }
+                    ViewBag.Message += "Upload contenido_descargable successful";
+                    art.ContenidoDescargable = file_des.FileName;
+                }
+                catch
+                {
+                    ViewBag.Message += "Upload contenido_descargable failed";
+                }
+                int id = cen.CrearArticulo(art.Pertenece.Seccion, art.Titulo, art.Autor,
+                    art.Contenido, art.ContenidoDescargable,
+                    art.Puntuacion, p_fecha, art.Contador, art.Subtitulo, art.Portada, art.Descripcion);
                 return RedirectToAction("Details", new { id = id });
             }
             catch
             {
+                ViewBag.Message += "Error";
                 return View();
             }
         }

@@ -7,7 +7,8 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm("Create", "Articulo", FormMethod.Post,
+        new { enctype = "multipart/form-data" })) { 
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -47,21 +48,17 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Contenido)
+            @Html.Label("file","Contenido")
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Contenido)
-            @Html.ValidationMessageFor(model => model.Contenido)
-        </div>
-
+            <div class="editor-field">
+                @Html.TextBox("file", "", new { type = "file" })
+            </div>
         <div class="editor-label">
-            @Html.LabelFor(model => model.ContenidoDescargable)
+            @Html.Label("file_des", "Contenido Descargable")
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.ContenidoDescargable)
-            @Html.ValidationMessageFor(model => model.ContenidoDescargable)
+            @Html.TextBox("file_des", "", new { type = "file" })
         </div>
-
         <div class="editor-label">
             @Html.LabelFor(model => model.Contador)
         </div>
