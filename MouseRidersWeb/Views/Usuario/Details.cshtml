@@ -9,9 +9,14 @@
 {
     <p id="error">Error al enviar el mensaje: No se ha encontrado el destinatario seleccionado. Asegúrese de escribir un usuario válido antes de enviar un mensaje.</p>
 }
-
+@if ((Session["user_email"] != null && Session["user_email"].ToString() == Model.Email))
+{
 <h2 class="customh2">Mi perfil</h2>
-
+}
+else
+{
+    <h2 class="customh2">Perfil de @Html.DisplayFor(model => model.Nombre)</h2>
+}
 <div class="col-lg-12">
           <div class="panel panel-default">
             <div class="panel-heading">
@@ -62,13 +67,20 @@
                 </div>
               </div>
                 <div class="row">
+@if ((Session["user_email"] != null && Session["user_email"].ToString() == Model.Email) || (Session["user_rol"] != null && Session["user_rol"].ToString() == "2"))
+{
                     @Html.ActionLink("Cerrar Sesión", "Logout", null, new { @class = "btn-primary btn-lg", style = "text-decoration:none" })
                     @Html.ActionLink("Editar mi perfil", "Edit", new { id = Model.Id }, new { @class = "btn-secondary2 btn-lg", style = "text-decoration:none" })
                     @Html.ActionLink("Eliminar mi perfil", "Delete", new { id = Model.Id }, new { @class = "btn-lg btn-danger", style = "text-decoration:none" })
+}
+@if ((Session["user_rol"] != null && Session["user_rol"].ToString() == "2"))
+{
                     @Html.ActionLink("Volver a lista de usuarios", "Index", new { }, new { @class = "btn-info btn-lg", style = "text-decoration:none" })
-                </div>
-              
+}
+                </div>  
         </div>
+@if ((Session["user_email"] != null && Session["user_email"].ToString() == Model.Email) || (Session["user_rol"] != null && Session["user_rol"].ToString() == "2"))
+{
         <div>
             <h3 class="customh3" id="bandejaE">Mensajes</h3>
             <div class="btn-group-justified" role="group">
@@ -77,7 +89,7 @@
                 <a href="" class="btn btn-secondary2" id="nuevo">Nuevo Mensaje</a>
             </div>
         </div>
-    </div>
+    
 
 @Html.HiddenFor(model => model.Id, new { id = "ident", value = Model.Id });
 
@@ -85,7 +97,7 @@
     
     @{Html.RenderAction("VerMensajesRecibidos", "Usuario", new { id = Model.Id });}
 </div>
-
+      }
 <script>
     $(function () {
 
