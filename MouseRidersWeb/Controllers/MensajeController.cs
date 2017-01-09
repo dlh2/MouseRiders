@@ -46,7 +46,8 @@ namespace MouseRidersWeb.Controllers
                 }
                 else
                 {
-                    return View();
+                    
+                    return RedirectToAction("Details", "Usuario", new { id = Session["user_id"].ToString(), error="si" });
                 }
                 
                 int id = cen.CrearMensaje(men.Asunto, men.Texto, "default", men.Tipo, oid, aux);

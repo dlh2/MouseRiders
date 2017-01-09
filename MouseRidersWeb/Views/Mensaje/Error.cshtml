@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "Error";
+    Layout = null;
+}
+
+<fieldset id="bandeja">
+    <h2>Error</h2>
+    <p>No se ha encontrado el destinatario seleccionado. Asegúrese de escribir un usuario válido antes de enviar un mensaje.</p>
+    @Html.ActionLink("Recargar la página", "Details", "Usuario/" + Session["usu_id"], null, new { @class = "btn btn-default btn-lg btn-block" })
+    </fieldset>
