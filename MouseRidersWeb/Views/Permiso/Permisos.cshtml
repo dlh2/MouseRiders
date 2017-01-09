@@ -5,36 +5,35 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Permisos</h2>
+<h2 class="customh2">Gestión del Permiso</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Permiso)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Permisos)
-        </th>
-        <th></th>
-    </tr>
+<div class="table-responsive">
+    <table class="table table-condensed table-striped">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Permiso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Permisos)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Permiso)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Permisos)
-        </td>
-        <td>
-            @Html.ActionLink("Modificar", "Edit", new { rol = item.Rol, permiso = item.Permiso }, new { @class = "btn btn-default btn-xs btn-block " })
-            @Html.ActionLink("Detalles", "Details", new { rol = item.Rol, permiso = item.Permiso }, new { @class = "btn btn-info btn-xs btn-block " })
-            @Html.ActionLink("Eliminar", "Delete", new { rol = item.Rol }, new { @class = "btn btn-danger btn-xs btn-block " })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Permiso)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Permisos)
+                </td>
+                <td>
+                    @Html.ActionLink("Modificar", "Edit", new { rol = item.Rol, permiso = item.Permiso }, new { @class = "btn btn-default btn-xs btn-block " })
+                    @Html.ActionLink("Eliminar", "Delete", new { rol = item.Rol }, new { @class = "btn btn-danger btn-xs btn-block " })
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
+</div>

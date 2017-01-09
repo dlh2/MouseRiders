@@ -5,19 +5,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
+<h2 class="customh2">Modificar Permiso</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>PermisoDTO</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Permiso)
         </div>
-        <div class="editor-field">
+        <div class="custom-field">
             @Html.EditorFor(model => model.Permiso)
             @Html.ValidationMessageFor(model => model.Permiso)
         </div>
@@ -25,19 +24,19 @@
         <div class="editor-label">
             @Html.LabelFor(model => model.Permisos)
         </div>
-        <div class="editor-field">
+        <div class="custom-field">
             @Html.EditorFor(model => model.Permisos)
             @Html.ValidationMessageFor(model => model.Permisos)
         </div>
 
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" value="Guardar cambios" class="btn btn-primary btn-lg btn-block" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Volver", "Index", null, new { @class="btn btn-default btn-lg btn-block"})
 </div>
 
 @section Scripts {
