@@ -5,8 +5,10 @@
 }
 
 <h2 class="customh2">Encuestas</h2>
-
-
+@if ((Session["user_rol"] != null && Session["user_rol"].ToString() == "2"))
+{
+    @Html.ActionLink("Crear nueva encuesta", "Create", "Encuesta", null, new { @class = "btn btn-default btn-lg btn-block " })
+}
 @foreach (var item in Model)
 {
 
@@ -32,8 +34,11 @@
         </div>
 
         <div id="editE">
-            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            @if ((Session["user_rol"] != null && Session["user_rol"].ToString() == "2"))
+            {
+                @Html.ActionLink("Modificar Encuesta", "Edit", new { id = item.id }, new { @class = "btn btn-primary btn-xs  " })
+                @Html.ActionLink("Eliminar Encuesta", "Delete", new { id = item.id }, new { @class = "btn btn-danger btn-xs  " })
+            }
         </div>
     </fieldset>
 }

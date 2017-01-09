@@ -453,6 +453,8 @@
     <Content Include="Views\Respuesta\Delete.cshtml" />
     <Content Include="Views\Mensaje\Index.cshtml" />
     <Content Include="Views\Mensaje\Delete.cshtml" />
+    <Content Include="Views\Articulo\UploadContenido.cshtml" />
+    <Content Include="Views\Articulo\UploadContenidoDescargable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
