@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using MouseRidersWeb.DTO;
 using MouseRidersGenNHibernate.Enumerated.MouseRiders;
+using MouseRidersGenNHibernate.CP.MouseRiders;
 namespace MouseRidersWeb.Controllers
 {
     public class EncuestaController : BasicController
@@ -77,16 +78,32 @@ namespace MouseRidersWeb.Controllers
 
         //
         // POST: /Encuesta/Realizar/5
-         [HttpPost]
-        public ActionResult Realizar(FormCollection form)
+        [HttpPost]
+        public ActionResult Realizar(EncuestaEN encuesta, FormCollection form)
         {
-            string[] strPregunta = form.GetValues("item.Pregunta");
-            string[] strRespuesta = form.GetValues("Resp_");
-            string[] strRespuesta2 = form.GetValues("Resp_1");
-            var ola = ValueProvider.GetValue("Resp_1");
-             //A SABER COMO MIERDA DESCUBRO SABER QUE RADIO BUTTON ESTA SELECCIONADO, OH MY FUCKING GOD
-            //new RespuestaCEN().ModificarRespuesta();
-            return (RedirectToAction("Details", new { id = 0 }));
+            SessionInitialize();
+            EncuestaEN encuestaEN = new EncuestaCAD(session).ReadOID(encuesta.Id);
+            for (int i = 0; i < encuestaEN.Tiene.Count; i++)
+            {
+                PreguntaEN pregunta = encuestaEN.Tiene[i];
+                for (int j = 0; j < pregunta.Tiene.Count; j++)
+                {
+                    RespuestaEN resp = pregunta.Tiene[j];
+                    var radio = form.GetValues("Resp_" + i);
+                    if (radio != null)
+                    {
+                        if (resp.Respuesta.Equals(radio[0]))
+                        {
+                            new RespuestaCEN().ModificarRespuesta(resp.Id, resp.Respuesta, resp.Tipo,
+                                ++resp.Contador, resp.Frecuencia);
+                            break;
+                        }
+                    }
+                }
+            }
+            SessionClose();
+            new EncuestaCP().GenerarEstadisticas();
+            return (RedirectToAction("Details", new { id = encuestaEN.Id }));
         }
 
         //

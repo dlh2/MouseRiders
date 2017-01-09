@@ -27,16 +27,9 @@ public void RealizarEncuesta (int p_oid, System.Collections.Generic.IList<string
         try
         {
                 SessionInitializeTransaction ();
-                /*  encuestaCAD = new EncuestaCAD (session);
-                 * encuestaCEN = new  EncuestaCEN (encuestaCAD); */
-
-
-
-                //      public void RealizarEncuesta(int p_oid, IList<String> p_respuestas)
                 EncuestaEN _encuesta;
                 IEncuestaCAD _IEncuestaCAD = new EncuestaCAD (session);
                 //EncuestaCEN encuestaCEN = new EncuestaCEN(_IEncuestaCAD);
-
                 _encuesta = _IEncuestaCAD.ReadOIDDefault (p_oid);    //cargar encuesta
                 for (int i = 0; i < _encuesta.Tiene.Count; i++) { //recorrido de preguntas
                         for (int j = 0; j < _encuesta.Tiene [i].Tiene.Count; j++) { // recorrido de respuestas
@@ -46,9 +39,6 @@ public void RealizarEncuesta (int p_oid, System.Collections.Generic.IList<string
                         }
                 }
                 _IEncuestaCAD.ModificarEncuesta (_encuesta);    //guardar cambios en el CAD
-
-
-
                 SessionCommit ();
         }
         catch (Exception ex)
