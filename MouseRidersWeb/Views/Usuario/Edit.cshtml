@@ -70,6 +70,9 @@
             @Html.EditorFor(model => model.Nombreusuario)
             @Html.ValidationMessageFor(model => model.Nombreusuario)
         </div>
+        <div class="editor-label">
+            @{Html.RenderAction("Upload", "Usuario");}
+        </div>
 
         <p>
             <input type="submit" value="Save" />
