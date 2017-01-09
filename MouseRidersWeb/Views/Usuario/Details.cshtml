@@ -61,9 +61,12 @@
                   </table>
                 </div>
               </div>
-                @Html.ActionLink( "Editar mi perfil","Edit", new { id = Model.Id }, new { @class = "btn-secondary2 btn-lg", style = "text-decoration:none" })
-                @Html.ActionLink("Volver a lista de usuarios", "Index", new{}, new { @class = "btn-secondary2 btn-lg", style = "text-decoration:none" })
-            </div>
+                <div class="row">
+                    @Html.ActionLink("Cerrar Sesión", "Logout", null, new { @class = "btn-primary btn-lg", style = "text-decoration:none" })
+                    @Html.ActionLink("Editar mi perfil", "Edit", new { id = Model.Id }, new { @class = "btn-secondary2 btn-lg", style = "text-decoration:none" })
+                    @Html.ActionLink("Eliminar mi perfil", "Delete", new { id = Model.Id }, new { @class = "btn-lg btn-danger", style = "text-decoration:none" })
+                    @Html.ActionLink("Volver a lista de usuarios", "Index", new { }, new { @class = "btn-info btn-lg", style = "text-decoration:none" })
+                </div>
               
         </div>
         <div>
