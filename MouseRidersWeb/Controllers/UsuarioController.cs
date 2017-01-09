@@ -85,7 +85,7 @@ namespace MouseRidersWeb.Controllers
         {
             SessionInitialize();
             UsuarioCAD cCAD = new UsuarioCAD(session);
-            IList<UsuarioEN> resultEN = cCAD.ReadAllDefault(0,10);
+            IList<UsuarioEN> resultEN = cCAD.ReadAllDefault(0,999);
             IList<UsuarioDTO> result = new List<UsuarioDTO>();
             for (int i = 0; i < resultEN.Count; i++)
             {
@@ -220,6 +220,15 @@ namespace MouseRidersWeb.Controllers
                 return RedirectToAction("Index", "Home");
             }
          
+        }
+
+        public ActionResult Logout()
+        {
+            Session["user_rol"] = "";
+            Session["user_id"] = "";
+            Session["user_name"] = "";
+            Session["user_email"] = "";
+            return RedirectToAction("Index", "Home");
         }
 
         //
