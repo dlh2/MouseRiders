@@ -6,6 +6,7 @@ using MouseRidersWeb.Assembler;
 using MouseRidersWeb.DTO;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -14,6 +15,70 @@ namespace MouseRidersWeb.Controllers
 {
     public class ArticuloController : BasicController
     {
+
+        [HttpPost]
+        public ActionResult UploadHTML(HttpPostedFileBase file)
+        {
+            try
+            {
+                if (file.ContentLength > 0)
+                {
+
+                    var fileName = Path.GetFileName(file.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Contenido/FotosUsuario"), fileName);
+                    file.SaveAs(path);
+
+                    SessionInitialize();
+                    UsuarioCAD cCAD = new UsuarioCAD(session);
+                    int id = Int32.Parse(Session["user_id"].ToString());
+
+                    UsuarioEN usu = cCAD.ReadOID(id);
+                    UsuarioCEN cen = new UsuarioCEN();
+                    cen.ModificarUsuario(usu.Id, usu.Email, usu.Nombre, usu.Apellidos, usu.Pais, usu.Telefono, usu.Puntuacion, usu.FechaRegistro, usu.Contrasenya, usu.Nombreusuario, fileName);
+                    SessionClose();
+                }
+
+                ViewBag.Message = "Upload successful";
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                ViewBag.Message = "Upload failed";
+                return RedirectToAction("Uploads");
+            }
+        }
+        [HttpPost]
+        public ActionResult UploadPDF(HttpPostedFileBase file)
+        {
+            try
+            {
+                if (file.ContentLength > 0)
+                {
+
+                    var fileName = Path.GetFileName(file.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Contenido/FotosUsuario"), fileName);
+                    file.SaveAs(path);
+
+                    SessionInitialize();
+                    UsuarioCAD cCAD = new UsuarioCAD(session);
+                    int id = Int32.Parse(Session["user_id"].ToString());
+
+                    UsuarioEN usu = cCAD.ReadOID(id);
+                    UsuarioCEN cen = new UsuarioCEN();
+                    cen.ModificarUsuario(usu.Id, usu.Email, usu.Nombre, usu.Apellidos, usu.Pais, usu.Telefono, usu.Puntuacion, usu.FechaRegistro, usu.Contrasenya, usu.Nombreusuario, fileName);
+                    SessionClose();
+                }
+
+                ViewBag.Message = "Upload successful";
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                ViewBag.Message = "Upload failed";
+                return RedirectToAction("Uploads");
+            }
+        }
+
         //
         // GET: /Articulo/
 
