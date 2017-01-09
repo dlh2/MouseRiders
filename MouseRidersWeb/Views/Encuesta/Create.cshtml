@@ -27,58 +27,54 @@
             @Html.EditorFor(model => model.descripcion)
             @Html.ValidationMessageFor(model => model.descripcion)
         </div>
-
-        <div class="editor-label ptitle">
-            Privacidad
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.privacidad)
-            @Html.ValidationMessageFor(model => model.privacidad)
-        </div>
-        <fieldset>
-
-            @if (Model != null)
-            {
-                if (Model.Tiene != null)
+        <div class="table-responsive">
+            <table class="table-striped col-lg-12">
+                @if (Model != null)
                 {
-                    for (int i = 0; i < Model.Tiene.Count; i++)
+                    if (Model.Tiene != null)
                     {
-                        var item = Model.Tiene[i];
-                        <p>
-                            Pregunta numero @(i + 1)
-                            @Html.RadioButtonFor(itemModel => item.Tipo, MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum.numerico, new { id = MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum.numerico })
-                            <label for=@MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum.numerico>@MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum.numerico</label>
-                            @Html.RadioButtonFor(itemModel => item.Tipo, MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum.radio, new { id = MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum.radio })
-                            <label for=@MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum.radio>@MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum.radio</label>
-                        </p>
-                        <div class="editor-field">
-                            @Html.EditorFor(itemModel => item.Pregunta)
-                            @Html.ValidationMessageFor(itemModel => item.Pregunta)
-                        </div>
-                        <fieldset>
-                            @for (int j = 0; j < item.Tiene.Count; j++)
-                            {
-                                var respuesta = item.Tiene[j];
-                                <p>Respuesta numero @(j + 1)</p>
-                                <div class="editor-field">
-                                    @Html.EditorFor(respuestaModel => respuesta.Respuesta)
-                                    @Html.ValidationMessageFor(respuestaModel => respuesta.Respuesta)
+                        for (int i = 0; i < Model.Tiene.Count; i++)
+                        {
+                            var item = Model.Tiene[i];
+                            <tr>
+                                <p class="penhanced">
+                                    <h3 class="customh3">
+                                        Pregunta numero @(i + 1)
+                                    </h3>
+
+                                </p>
+                                <div class="custom-field">
+                                    @Html.EditorFor(itemModel => item.Pregunta)
+                                    @Html.ValidationMessageFor(itemModel => item.Pregunta)
                                 </div>
-                            }
-                        </fieldset>
+                                <fieldset>
+                                    @for (int j = 0; j < item.Tiene.Count; j++)
+                                    {
+                                        var respuesta = item.Tiene[j];
+                                        <p>Respuesta numero @(j + 1)</p>
+                                        <div class="custom-field">
+                                            @Html.EditorFor(respuestaModel => respuesta.Respuesta)
+                                            @Html.ValidationMessageFor(respuestaModel => respuesta.Respuesta)
+                                        </div>
+                                    }
+                                </fieldset>
+                            </tr>
+                        }
                     }
                 }
-            }
 
-        </fieldset>
-        <p>
-            <input type="submit" class="btn-lg btn-block btn-success" value="Crear Encusta" />
-        </p>
     </fieldset>
+
+    <table></table>
+    <p>
+        <input type="submit" class="btn-lg btn-block btn-success" value="Crear Encuesta" />
+    </p>
+    <div></div>
+
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Volver", "Index", "Encuesta", null, new { @class = "btn btn-default btn-lg btn-block" })
 </div>
 
 @section Scripts {
