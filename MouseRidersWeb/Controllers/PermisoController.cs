@@ -119,11 +119,19 @@ namespace MouseRidersWeb.Controllers
         // GET: /Permiso/Delete/5
         public ActionResult Delete(T_RolEnum rol, string permiso)
         {
-            // TODO: Add delete logic here
-            SessionInitialize();
-            new PermisoCEN(new PermisoCAD(session)).BorrarPermiso(new PermisoEN_OID(rol, permiso));
-            SessionClose();
-            return Redirect(Request.UrlReferrer.ToString());
+            // TODO: PERMISO ELIMINAR NO FUNCIONA
+            try
+            {
+                SessionInitialize();
+                PermisoCAD cad = new PermisoCAD(session);
+                new PermisoCEN(cad).BorrarPermiso(new PermisoEN_OID(rol, permiso));
+                SessionClose();
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         //
         // GET: /Permiso/Delete/5
