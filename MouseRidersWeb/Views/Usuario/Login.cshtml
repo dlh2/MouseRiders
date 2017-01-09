@@ -5,36 +5,30 @@
 }
 
 <hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
-    <h2>Iniciar Sesion</h2>
+    <h2 class="customh2">Iniciar Sesión</h2>
 </hgroup>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
-
         <fieldset>
-            <legend>Formulario de inicio de sesión</legend>
-            <ol>
-                <li>
+            <ol class="list-unstyled">
+                <li class="custom-field ptitle">
                     @Html.LabelFor(m => m.Nombreusuario)
                     @Html.TextBoxFor(m => m.Nombreusuario)
                     @Html.ValidationMessageFor(m => m.Nombreusuario)
                 </li>
-                <li>
+                <li class="custom-field ptitle">
                     @Html.LabelFor(m => m.Contrasenya)
                     @Html.PasswordFor(m => m.Contrasenya)
                     @Html.ValidationMessageFor(m => m.Contrasenya)
                 </li>
                 
             </ol>
-            <input type="submit" value="Iniciar sesión" />
+            <input type="submit" class="btn-lg btn-block btn-success" value="Iniciar sesión" />
         </fieldset>
         <p>
-            @Html.ActionLink("Regístrese", "Create") si no tiene ninguna cuenta.
+            @Html.ActionLink("Regístrese", "Create", "Usuario", new {@class = "btn btn-secondary2"}) si no tiene ninguna cuenta.
         </p>
     }
-
-
-

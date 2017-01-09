@@ -249,5 +249,13 @@ namespace MouseRidersWeb.Controllers
                 return View();
             }
         }
+
+        [HttpPost]
+        public void AnyadirEstrellas(int id, float valoracion)
+        {
+            ArticuloCEN cen = new ArticuloCEN();
+            cen.ActualizarPuntuacion(id, valoracion);
+        }
+
     }
 }
