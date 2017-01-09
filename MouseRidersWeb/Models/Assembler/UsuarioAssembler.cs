@@ -28,6 +28,7 @@ namespace MouseRidersWeb.Assembler
                 usDTO.FechaRegistro = us.FechaRegistro;
                 usDTO.Contrasenya = us.Contrasenya;
                 usDTO.Nombreusuario = us.Nombreusuario;
+                usDTO.FotoUsuario = us.Fotoperfil;
             }
             return usDTO;
         }
