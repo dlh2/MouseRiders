@@ -5,27 +5,44 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2 class="customh2">Detalle de Sección</h2>
 
-<fieldset>
-    <legend>SeccionDTO</legend>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Nombre)
+<div class="col-lg-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title ptitle text-uppercase">@Html.DisplayFor(model => model.Nombre)</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class=" col-lg-12 col-lg-12 ">
+                    <table class="table table-user-information">
+                        <tbody class="pprofile">
+                            <tr>
+                                <td>Nombre de sección</td>
+                                <td>@Html.DisplayFor(model => model.Nombre)</td>
+                            </tr>
+                            
+                                @foreach (var item in Model.Tiene)
+                                {
+                                    <tr>
+                                    <td>
+                                        @Html.ActionLink(item.Titulo, "Contenido", "Articulo", new { id = item.Id }, null)
+                                    </td>
+                                    <td>
+                                        Descripción
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Descripcion)
+                                    </td>
+                                </tr>    
+                            }
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            @Html.ActionLink("Volver", "Index", "Seccion", 0, new { @class = "btn-secondary2 btn-lg", style = "text-decoration:none" })
+        </div>
     </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Nombre)
-    </div>
-</fieldset>
-@foreach (var item in Model.Tiene)
-{
-    <p>
-        @Html.ActionLink(item.Titulo, "Contenido","Articulo", new {  id=item.Id  } , null ) 
-    </p>
-        <p>
-        @Html.DisplayFor(modelItem => item.Descripcion)
-    </p>
-}
-<p>
-    @Html.ActionLink("Volver", "Index")
-</p>
+</div>
