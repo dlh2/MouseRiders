@@ -5,14 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
+<h2 class="customh2">Datos del usuario</h2>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend class="psection">Datos de usuario</legend>
 
         <div class="editor-label ptitle">
             @Html.LabelFor(model => model.Email)

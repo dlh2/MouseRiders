@@ -24,7 +24,6 @@ namespace MouseRidersWeb.Controllers
             SessionInitialize();
             UsuarioCAD cCAD = new UsuarioCAD(session);
             UsuarioEN result = cCAD.ReadOIDDefault(id);
-            BloqueoCAD bCAD = new BloqueoCAD(session);
             BloqueoCEN bloqueo = new BloqueoCEN();
             IList<DenunciaEN> denuncias = result.RecibeD;
             IList<int> iddenuncia = new List<int>();
@@ -36,7 +35,7 @@ namespace MouseRidersWeb.Controllers
             algoaux.AddDays(7);
             bloqueo.CrearBloqueo(iddenuncia,id,DateTime.Now,algoaux);
             SessionClose();
-            return View();
+            return RedirectToAction("VerDenunciasRecibidas", "Usuario", new { id = id});
         }
 
         //
