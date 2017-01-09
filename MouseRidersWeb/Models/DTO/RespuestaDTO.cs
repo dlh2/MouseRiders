@@ -16,10 +16,7 @@ namespace MouseRidersWeb.DTO
         [ScaffoldColumn(false)]
         public int Id { get; set; }
 
-
-        /**
-         *	Atributo Respuesta
-         */
+        //Atributo Respuesta
         [Display(Prompt = "Respuesta", Description = "Respuesta", Name = "Respuesta:")]
         [Required(ErrorMessage = "Debe tener ua Respuesta")]
         [StringLength(maximumLength: Globals.TITULO_MAX_LENGTH, ErrorMessage = "La Respuesta no puede tener más de {0} caracteres")]
@@ -33,16 +30,12 @@ namespace MouseRidersWeb.DTO
         public T_PreguntaEnum Tipo { get; set; }
 
 
-        /**
-        *	Atributo contador
-        */
+        //Atributo contador
         [Display(Prompt = "Contador", Description = "Contador", Name = "Contador:")]
         //[StringLength(maximumLength: Globals.CONTENIDO_MAX_LENGTH, ErrorMessage = "El contenido descargable no puede tener más de {0} caracteres")]
         public int Contador { get; set; }
 
-        /**
-       *	Atributo Frecuencia
-       */
+        //Atributo Frecuencia
         [Display(Prompt = "Frecuencia", Description = "Frecuencia", Name = "Frecuencia:")]
         //[StringLength(maximumLength: Globals.CONTENIDO_MAX_LENGTH, ErrorMessage = "El contenido descargable no puede tener más de {0} caracteres")]
         public float Frecuencia { get; set; }

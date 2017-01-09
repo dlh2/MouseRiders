@@ -15,17 +15,6 @@ namespace MouseRidersWeb.Controllers
 {
     public class ArticuloController : BasicController
     {
-
-
-        public ActionResult UploadContenido()
-        {
-            return View();
-        }
-        public ActionResult UploadContenidoDescargable()
-        {
-            return View();
-        }
-
         [HttpPost]
         public ActionResult UploadHTML(HttpPostedFileBase file)
         {

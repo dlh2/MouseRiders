@@ -19,19 +19,14 @@ namespace MouseRidersWeb.DTO
         //[StringLength(maximumLength: Globals.TIPO_MAX_LENGTH, ErrorMessage = "El tipo del mensaje no puede tener más de {0} caracteres")]
         public T_RolEnum Rol { get; set; }
 
-        /**
-         *	Atributo Permiso
-         *	
-         */
+        //Atributo Permiso
         [ScaffoldColumn(false)]
         [Display(Prompt = "Permiso", Description = "Permiso", Name = "Permiso:")]
         [Required(ErrorMessage = "Debe tener un permiso")]
         [StringLength(maximumLength: Globals.TITULO_MAX_LENGTH, ErrorMessage = "El permiso no puede tener más de {0} caracteres")]
         public string Permiso { get; set; }
 
-        /**
-         *	Atributo Permisos
-         */
+        //Atributo Permisos
         [Display(Prompt = "Permisos", Description = "Permisos", Name = "Permisos:")]
         [Required(ErrorMessage = "Debe tener unos permisos")]
         [StringLength(maximumLength: Globals.TITULO_MAX_LENGTH, ErrorMessage = "Los permisos no puede tener más de {0} caracteres")]

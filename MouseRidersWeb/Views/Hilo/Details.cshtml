@@ -67,3 +67,15 @@
 </fieldset>
 
 @Html.ActionLink("Volver", "Index", "Hilo", null, new { @class = "btn btn-default btn-lg btn-block" })
+
+<script>
+    $('.votar').click(function (e) {
+        e.preventDefault();
+        var puntuacion_actual = $(this).parent().children("input:hidden[name=valoracion]").val();
+        puntuacion_actual = parseInt(puntuacion_actual) + parseInt($(this).val());
+        $(this).parent("form").children("input:hidden[name=valoracion]").val(puntuacion_actual);
+        $(this).parent("form").submit();
+        $(this).parent("form").parent("#valC").submit();
+        $(this).parent("form").children("#valC_value").text("Puntuación: " + puntuacion_actual);
+    });
+</script>
