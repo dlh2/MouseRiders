@@ -155,14 +155,38 @@ namespace MouseRidersWeb.Controllers
                     IList<RespuestaEN> lista_respuestas = new List<RespuestaEN>();
                     for (var j = 0; j < strRespuesta.Length / strPregunta.Length; j++)
                     {
-                        RespuestaEN respuesta = new RespuestaEN();
-                        respuesta.Respuesta = strRespuesta[(strRespuesta.Length / strPregunta.Length) * i + j];
-                        respuesta.Id = new RespuestaCEN().CrearRespuesta(respuesta.Respuesta, T_PreguntaEnum.radio, pregunta.Id, 0, 0);
-                        lista_respuestas.Add(respuesta);
+                        if (!strRespuesta[(strRespuesta.Length / strPregunta.Length) * i + j].Equals(""))
+                        {
+                            RespuestaEN respuesta = new RespuestaEN();
+                            respuesta.Respuesta = strRespuesta[(strRespuesta.Length / strPregunta.Length) * i + j];
+                            respuesta.Id = new RespuestaCEN().CrearRespuesta(respuesta.Respuesta, T_PreguntaEnum.radio, pregunta.Id, 0, 0);
+                            lista_respuestas.Add(respuesta);
+                        }
                     }
-                    pregunta.Tiene = lista_respuestas;
-                    new PreguntaCAD(session).ModificarPregunta(pregunta);
-                    lista_preguntas.Add(pregunta);
+                    if (!strPregunta[i].Equals(""))
+                    { // HAY PREGUNTA
+                        if (lista_respuestas.Count >= 2) // SE NECESITAN 2 RESPUESTAS MINIMO
+                        { // HAY RESPUESTAS
+                            pregunta.Tiene = lista_respuestas;
+                            new PreguntaCAD(session).ModificarPregunta(pregunta);
+                            lista_preguntas.Add(pregunta);
+                        }
+                        else
+                        {  // NO HAY RESPUESTAS - BORRAR PREGUNTA
+                            new PreguntaCEN().BorrarPregunta(pregunta.Id);
+                        }
+                    }
+                    else
+                    { // NO HAY PREGUNTA - BORRAR PREGUNTA
+                        if (lista_respuestas.Count != 0)
+                        {// BORRAR LAS RESPUESTAS CREADAS
+                            for (var j = 0; j < lista_respuestas.Count; j++)
+                            {
+                                new RespuestaCEN().BorrarRespuesta(lista_respuestas[i].Id);
+                            }
+                        }
+                        new PreguntaCEN().BorrarPregunta(pregunta.Id);
+                    }
                 }
                 DateTime p_fecha = DateTime.Now;
                 enc.Tiene = lista_preguntas;
