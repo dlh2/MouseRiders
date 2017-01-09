@@ -17,6 +17,18 @@ namespace MouseRidersWeb.Controllers
 {
     public class UsuarioController : BasicController
     {
+
+
+        public ActionResult Bloquear(int id)
+        {
+            SessionInitialize();
+            UsuarioCAD cCAD = new UsuarioCAD(session);
+            UsuarioEN result = cCAD.ReadOIDDefault(id);
+            UsuarioDTO resultfinal = new UsuarioAssembler().Convert(result);
+            SessionClose();
+            return View(resultfinal);
+        }
+
         //
         // GET:
 
@@ -44,6 +56,7 @@ namespace MouseRidersWeb.Controllers
                     UsuarioEN usu = cCAD.ReadOID(id);
                     UsuarioCEN cen = new UsuarioCEN();
                     cen.ModificarUsuario(usu.Id, usu.Email, usu.Nombre, usu.Apellidos, usu.Pais, usu.Telefono, usu.Puntuacion, usu.FechaRegistro, usu.Contrasenya, usu.Nombreusuario, fileName);
+                    SessionClose();
                 }
 
                 ViewBag.Message = "Upload successful";
