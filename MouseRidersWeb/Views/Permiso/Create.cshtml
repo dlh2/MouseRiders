@@ -1,35 +1,43 @@
 ﻿@model MouseRidersWeb.DTO.PermisoDTO
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 class="customh2">Modificar Permiso</h2>
+<h2>Create</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-            @Html.HiddenFor(model => model.Rol)
-            @Html.HiddenFor(model => model.Permiso)
+        <legend>PermisoDTO</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Permiso)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Permiso)
+            @Html.ValidationMessageFor(model => model.Permiso)
+        </div>
+
         <div class="editor-label">
             @Html.LabelFor(model => model.Permisos)
         </div>
-        <div class="custom-field">
+        <div class="editor-field">
             @Html.EditorFor(model => model.Permisos)
             @Html.ValidationMessageFor(model => model.Permisos)
         </div>
 
         <p>
-            <input type="submit" value="Guardar cambios" class="btn btn-primary btn-lg btn-block" />
+            <input type="submit" value="Create" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Volver", "Index", null, new { @class="btn btn-default btn-lg btn-block"})
+    @Html.ActionLink("Back to List", "Index")
 </div>
 
 @section Scripts {

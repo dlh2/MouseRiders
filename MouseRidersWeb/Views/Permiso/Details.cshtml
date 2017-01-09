@@ -1,0 +1,36 @@
+﻿@model MouseRidersWeb.DTO.PermisoDTO
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>PermisoDTO</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Rol)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Rol)
+    </div>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Permiso)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Permiso)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Permisos)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Permisos)
+    </div>
+</fieldset>
+<p> 
+    @Html.ActionLink("Modificar", "Edit", new { rol = Model.Rol, permiso = Model.Permiso }, new { @class = "btn btn-default btn-xs btn-block " })
+    @Html.ActionLink("Back to List", "Index")
+</p>

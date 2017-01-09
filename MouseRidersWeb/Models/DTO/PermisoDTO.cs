@@ -22,13 +22,13 @@ namespace MouseRidersWeb.DTO
         [Display(Prompt = "Permiso", Description = "Permiso", Name = "Permiso:")]
         [Required(ErrorMessage = "Debe tener un permiso")]
         [StringLength(maximumLength: Globals.TITULO_MAX_LENGTH, ErrorMessage = "El permiso no puede tener más de {0} caracteres")]
-        public string Permiso { get; set; }
+        public String Permiso { get; set; }
 
         //Atributo Permisos
         [Display(Prompt = "Permisos", Description = "Permisos", Name = "Permisos:")]
         [Required(ErrorMessage = "Debe tener unos permisos")]
         [StringLength(maximumLength: Globals.TITULO_MAX_LENGTH, ErrorMessage = "Los permisos no puede tener más de {0} caracteres")]
-        public string Permisos { get; set; }
+        public String Permisos { get; set; }
 
         //Atributo Usuario
         [ScaffoldColumn(false)]

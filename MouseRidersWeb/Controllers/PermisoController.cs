@@ -31,7 +31,7 @@ namespace MouseRidersWeb.Controllers
 
         //
         // GET: /Permiso/Permisos/5
-       
+
         public ActionResult Permisos(T_RolEnum rol)
         {
             SessionInitialize();
@@ -46,7 +46,7 @@ namespace MouseRidersWeb.Controllers
 
         //
         // GET: /Permiso/Details/5
-        public ActionResult Details(T_RolEnum rol,string permiso)
+        public ActionResult Details(T_RolEnum rol, string permiso)
         {
             SessionInitialize();
             PermisoCAD permisoCAD = new PermisoCAD(session);
@@ -75,7 +75,7 @@ namespace MouseRidersWeb.Controllers
             {
                 PermisoCAD cCAD = new PermisoCAD();
                 PermisoCEN cen = new PermisoCEN(cCAD);
-                cen.CrearPermiso(permiso.PermisoOID.Rol,permiso.PermisoOID.Permiso,permiso.Permisos);
+                cen.CrearPermiso(permiso.PermisoOID.Rol, permiso.PermisoOID.Permiso, permiso.Permisos);
                 return RedirectToAction("Details", new { id = permiso.PermisoOID.Rol });
             }
             catch
@@ -86,7 +86,7 @@ namespace MouseRidersWeb.Controllers
 
         //
         // GET: /Permiso/Edit/5/permiso
-        public ActionResult Edit(T_RolEnum rol,string permiso)
+        public ActionResult Edit(T_RolEnum rol, string permiso)
         {
             SessionInitialize();
             PermisoCAD permisoCAD = new PermisoCAD(session);
@@ -100,14 +100,14 @@ namespace MouseRidersWeb.Controllers
         // POST: /Permiso/Edit/5/permiso
 
         [HttpPost]
-        public ActionResult Edit(PermisoEN permiso)
+        public ActionResult Edit(T_RolEnum rol, string permiso, string permisos)
         {
             try
             {
-                
                 PermisoCEN permisoCEN = new PermisoCEN();
-                permisoCEN.ModificarPermiso(permiso.PermisoOID, permiso.Permisos);
-                return RedirectToAction("Details", new { id = permiso.PermisoOID });
+                PermisoEN_OID per = new PermisoEN_OID(rol, permiso);
+                permisoCEN.ModificarPermiso(per, permisos);
+                return RedirectToAction("Details", new { rol = rol, permiso = permiso });
             }
             catch
             {
@@ -117,7 +117,17 @@ namespace MouseRidersWeb.Controllers
 
         //
         // GET: /Permiso/Delete/5
-        public ActionResult Delete(T_RolEnum rol)
+        public ActionResult Delete(T_RolEnum rol, string permiso)
+        {
+            // TODO: Add delete logic here
+            SessionInitialize();
+            new PermisoCEN(new PermisoCAD(session)).BorrarPermiso(new PermisoEN_OID(rol, permiso));
+            SessionClose();
+            return Redirect(Request.UrlReferrer.ToString());
+        }
+        //
+        // GET: /Permiso/Delete/5
+        public ActionResult DeletePermisos(T_RolEnum rol)
         {
             try
             {
@@ -125,7 +135,7 @@ namespace MouseRidersWeb.Controllers
                 SessionInitialize();
                 PermisoCAD permisoCAD = new PermisoCAD(session);
                 PermisoCEN permisoCEN = new PermisoCEN(permisoCAD);
-                IList<PermisoEN> permiso = permisoCAD.ReadFilter(rol,null);
+                IList<PermisoEN> permiso = permisoCAD.ReadFilter(rol, null);
                 permiso.Clear();
                 SessionClose();
                 return RedirectToAction("Index");
@@ -135,22 +145,6 @@ namespace MouseRidersWeb.Controllers
                 return View();
             }
         }
-        //
-        // POST: /Permiso/Delete/5
 
-        [HttpPost]
-        public ActionResult Delete(PermisoEN permiso)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }

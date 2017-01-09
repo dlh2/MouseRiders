@@ -30,7 +30,7 @@
                 </td>
                 <td>
                     @Html.ActionLink("Modificar", "Edit", new { rol = item.Rol, permiso = item.Permiso }, new { @class = "btn btn-default btn-xs btn-block " })
-                    @Html.ActionLink("Eliminar", "Delete", new { rol = item.Rol }, new { @class = "btn btn-danger btn-xs btn-block " })
+                    @Html.ActionLink("Eliminar", "Delete", new { rol = item.Rol, permiso = item.Permiso }, new { @class = "btn btn-danger btn-xs btn-block " })
                 </td>
             </tr>
         }
