@@ -17,7 +17,7 @@ namespace MouseRidersWeb.DTO
 
         //Atributo pregunta
         [Display(Prompt = "Pregunta", Description = "Cuerpo de la pregunta", Name = "PreguntaN ")]
-        [Required(ErrorMessage = "Debe indicar el texto de la pregunta")]
+        //[Required(ErrorMessage = "Debe indicar el texto de la pregunta")] // Con el nuevo formulario de encuesta es mejor asi
         [StringLength(maximumLength: 200, ErrorMessage = "La pregunta no puede tener más de 200 caracteres")]
         public string Pregunta { get; set; }
 
