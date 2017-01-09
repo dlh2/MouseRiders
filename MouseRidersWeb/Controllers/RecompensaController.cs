@@ -77,7 +77,8 @@ namespace MouseRidersWeb.Controllers
 
         public ActionResult Edit(int id)
         {
-            RecompensaCEN recompensaCEN = new RecompensaCEN();
+            RecompensaCAD cCAD = new RecompensaCAD();
+            RecompensaEN result = cCAD.ReadOIDDefault(id);
             RecompensaDTO resultfinal = new RecompensaAssembler().Convert(result);
             return View(resultfinal);
         }
