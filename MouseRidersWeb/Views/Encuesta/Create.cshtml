@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<h2 class="customh2">Nueva Encuesta</h2>
 
 @using (Html.BeginForm())
 {
@@ -13,26 +13,23 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>EncuestaDTO</legend>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.titulo)
+        <div class="editor-label ptitle">
+            Título
         </div>
-        <div class="editor-field">
+        <span class="custom-field">
             @Html.EditorFor(model => model.titulo)
             @Html.ValidationMessageFor(model => model.titulo)
+        </span>
+        <div class="editor-label ptitle">
+            Descripción
         </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.descripcion)
-        </div>
-        <div class="editor-field">
+        <div class="custom-field">
             @Html.EditorFor(model => model.descripcion)
             @Html.ValidationMessageFor(model => model.descripcion)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.privacidad)
+        <div class="editor-label ptitle">
+            Privacidad
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.privacidad)
@@ -75,7 +72,7 @@
 
         </fieldset>
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" class="btn-lg btn-block btn-success" value="Crear Encusta" />
         </p>
     </fieldset>
 }
