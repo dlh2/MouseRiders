@@ -34,7 +34,7 @@
             @Html.LabelFor(model => model.Texto)
         </div>
         <div class="custom-field">
-            @Html.TextAreaFor(model => model.Texto, new { cols = 120, rows = 10 })
+            @Html.TextArea("Texto", new { rows = 8, id = "comentar", @placeholder = "Texto" })
             @Html.ValidationMessageFor(model => model.Texto)
         </div>
 
@@ -53,7 +53,7 @@
     }
 
     <div>
-        @Html.ActionLink("Back to List", "Index")
+      
     </div>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
