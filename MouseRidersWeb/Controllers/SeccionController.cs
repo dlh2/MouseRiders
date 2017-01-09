@@ -180,7 +180,7 @@ namespace MouseRidersWeb.Controllers
             SessionClose();
             new SeccionCEN().BorrarSeccion(id);
 
-            return View(result);
+            return RedirectToAction("Index");
         }
 
         //
