@@ -52,8 +52,7 @@ public override int GetHashCode ()
         int hash = 13;
 
         // Su tipo es Enum
-        hash = hash +
-               (null == rol                                                      ? 0 : this.rol.GetHashCode ());
+        hash = hash +this.rol.GetHashCode ();
         // Su tipo es String
         hash = hash +
                (null == permiso                                                  ? 0 : this.permiso.GetHashCode ());
