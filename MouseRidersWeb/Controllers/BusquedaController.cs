@@ -91,8 +91,7 @@ namespace MouseRidersWeb.Controllers
             {
                 ArticuloCAD cCAD = new ArticuloCAD();
                 ArticuloCEN cen = new ArticuloCEN(cCAD);
-                IList<ArticuloEN> list = cen.Buscar(Request.Params["search"]);
-                return View(list);
+                return View();
             }
             catch
             {
