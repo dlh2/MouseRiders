@@ -48,7 +48,7 @@ namespace MouseRidersWeb.Controllers
             try
             {
                 ControladorNotificacionesCP controlCEN = new ControladorNotificacionesCP();
-                controlCEN.EnviarNotificaciones(null, null, "hola a todos", controladornotificaciones.texto, controladornotificaciones.adjunto);
+                controlCEN.EnviarNotificaciones(null, null, controladornotificaciones.asunto, controladornotificaciones.texto, controladornotificaciones.adjunto);
                 return RedirectToAction("Index", new { id = controladornotificaciones.Id });
             }
             catch
