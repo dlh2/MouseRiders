@@ -1,0 +1,34 @@
+﻿@model IEnumerable<MouseRidersWeb.DTO.SeccionDTO>
+
+@{
+    ViewBag.Title = "Lista";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Seccion }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Seccion }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Seccion })
+        </td>
+    </tr>
+}
+
+</table>
