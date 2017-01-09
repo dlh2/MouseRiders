@@ -59,12 +59,16 @@
         </span>
         Aquí deberían ir las estrellas para valorarlo
     </div>
-
+    @if ((Session["user_email"] != null && Session["user_email"].ToString() != "")) { 
     <a class="btn btn-default btn-lg btn-block" href="~\Contenido\Articulos/@Html.DisplayFor(model => model.ContenidoDescargable)">Ver archivo PDF</a>
+    }
 
         <p id="editA">
-            @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
-            @Html.ActionLink("Eliminar", "Delete", new { id = Model.Id })
+        @if ((Session["user_rol"] != null && Session["user_rol"].ToString() == "2") || (Session["user_rol"] != null && Session["user_rol"].ToString() == "3"))
+            {
+            @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary btn-xs  " }) 
+            @Html.ActionLink("Eliminar", "Delete", new { id = Model.Id }, new { @class = "btn btn-danger btn-xs  " })
+            }
         </p>
 
 </fieldset>
