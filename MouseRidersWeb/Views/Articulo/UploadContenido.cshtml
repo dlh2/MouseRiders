@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "UploadContenido";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("UploadHTML","Articulo", FormMethod.Post,
+        new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <fieldset>
+        <legend class="psection">Foto de perfil</legend>
+        <div class="editor-field">
+            @Html.TextBox("file", "", new { type = "file" })
+        </div>
+        <p></p>
+        <div class="editor-field">
+            <input type="submit" class="btn-lg btn-success" value="Subir Contenido" />
+        </div>
+    </fieldset>
+}
