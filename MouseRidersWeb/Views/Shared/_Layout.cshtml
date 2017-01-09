@@ -109,7 +109,9 @@
                     </li>}
 
                     <li>
-                        @Html.ActionLink("Buscador", "Index", "Busqueda")
+                        <form action="/Busqueda/Buscar" method="get">
+                            <input type="search" name="search" id="search" />
+                        </form>
                     </li>
                 </ul>
             </div>

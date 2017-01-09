@@ -8,7 +8,7 @@
 @if (Request.Params["tipo"].ToString() == "notificacion")
 {
     <h2 class="customh2">Notificaciones</h2>
-    @Html.ActionLink("Enviar Nueva Notificación", "CreateN", "ControladorNotificaciones", null,new { @class = "btn btn-default btn-lg btn-block " })
+    @Html.ActionLink("Enviar Nueva Notificación", "Notificar", "ControladorNotificaciones", null,new { @class = "btn btn-default btn-lg btn-block " })
     <br />
 }
 

@@ -19,7 +19,7 @@ namespace MouseRidersGenNHibernate.CEN.MouseRiders
 {
 public partial class EncuestaCEN
 {
-public void GenerarEstadisticas ()
+protected void GenerarEstadisticas ()
 {
         /*PROTECTED REGION ID(MouseRidersGenNHibernate.CEN.MouseRiders_Encuesta_generarEstadisticas) ENABLED START*/
         IList<EncuestaEN> listaEncuestas = _IEncuestaCAD.ReadAll (0, 1000);
