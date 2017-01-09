@@ -8,7 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MouseRidersWeb.DTO;
-
+using MouseRidersGenNHibernate.Enumerated.MouseRiders;
 namespace MouseRidersWeb.Controllers
 {
     public class EncuestaController : BasicController
@@ -29,7 +29,7 @@ namespace MouseRidersWeb.Controllers
             SessionClose();
             return View(lista);
         }
-        
+
         //
         // GET: /Encuesta/Modelo/
 
@@ -80,6 +80,7 @@ namespace MouseRidersWeb.Controllers
 
         public ActionResult Create()
         {
+            SessionInitialize();
             EncuestaEN enc = new EncuestaEN();
             IList<PreguntaEN> Tiene = new List<PreguntaEN>();
             IList<RespuestaEN> Respuesta = new List<RespuestaEN>();
@@ -90,34 +91,60 @@ namespace MouseRidersWeb.Controllers
             for (int i = 0; i < 5; i++)
             {
                 PreguntaEN Pregunta = new PreguntaEN();
+                Pregunta.Pregunta = "pero " + i;
                 Pregunta.Tiene = Respuesta;
                 Tiene.Add(Pregunta);
             }
+            enc.Titulo = "Totoro";
+            enc.Descripcion = "Descripcion";
+            enc.Privada = false;
             enc.Tiene = Tiene;
             EncuestaDTO result = new EncuestaAssembler().ConvertConPreguntaYRespuesta(enc);
+            SessionClose();
             return View(result);
         }
 
         //
         // POST: /Encuesta/Create
-        
+
         [HttpPost]
-        public ActionResult Create(EncuestaEN enc)
+        public ActionResult Create(EncuestaEN enc, FormCollection form)
         {
             try
             {
-                EncuestaCAD eCAD = new EncuestaCAD();
-                EncuestaCEN ecen = new EncuestaCEN(eCAD);
+                SessionInitialize();
+                string[] strPregunta = form.GetValues("item.Pregunta");
+                string[] strRespuesta = form.GetValues("respuesta.Respuesta");
+                enc.Id = new EncuestaCEN().CrearEncuesta(enc.Titulo,enc.Descripcion,enc.Privada);
+                IList<PreguntaEN> lista_preguntas = new List<PreguntaEN>();
+                for (var i = 0; i < strPregunta.Length; i++)
+                {
+                    PreguntaEN pregunta = new PreguntaEN();
+                    pregunta.Id = new PreguntaCEN().CrearPregunta(strPregunta[i],T_PreguntaEnum.radio,enc.Id);
+                    IList<RespuestaEN> lista_respuestas = new List<RespuestaEN>();
+                    for (var j = 0; j < strRespuesta.Length/strPregunta.Length ; j++)
+                    {
+                        RespuestaEN respuesta = new RespuestaEN();
+                        respuesta.Respuesta = strRespuesta[(strRespuesta.Length / strPregunta.Length) * i + j];
+                        respuesta.Id = new RespuestaCEN().CrearRespuesta(respuesta.Respuesta,T_PreguntaEnum.radio,pregunta.Id,0,0);
+                        lista_respuestas.Add(respuesta);
+                    }
+                    pregunta.Tiene = lista_respuestas;
+                    new PreguntaCAD(session).ModificarPregunta(pregunta);
+                    lista_preguntas.Add(pregunta);
+                }
                 DateTime p_fecha = DateTime.Now;
-                int id = ecen.CrearEncuesta(enc.Titulo, enc.Descripcion, enc.Privada);
-                return(RedirectToAction("Details", new { id = id }));
+                enc.Tiene = lista_preguntas;
+                new EncuestaCAD(session).ModificarEncuesta(enc);
+                SessionClose();
+                return (RedirectToAction("Details", new { id = enc.Id }));
             }
             catch
             {
                 return View();
             }
         }
-        
+
         //
         // GET: /Encuesta/Edit/5
 
