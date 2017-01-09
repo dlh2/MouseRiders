@@ -76,6 +76,20 @@ namespace MouseRidersWeb.Controllers
         }
 
         //
+        // POST: /Encuesta/Realizar/5
+         [HttpPost]
+        public ActionResult Realizar(FormCollection form)
+        {
+            string[] strPregunta = form.GetValues("item.Pregunta");
+            string[] strRespuesta = form.GetValues("Resp_");
+            string[] strRespuesta2 = form.GetValues("Resp_1");
+            var ola = ValueProvider.GetValue("Resp_1");
+             //A SABER COMO MIERDA DESCUBRO SABER QUE RADIO BUTTON ESTA SELECCIONADO, OH MY FUCKING GOD
+            //new RespuestaCEN().ModificarRespuesta();
+            return (RedirectToAction("Details", new { id = 0 }));
+        }
+
+        //
         // GET: /Encuesta/Create
 
         public ActionResult Create()
@@ -115,18 +129,18 @@ namespace MouseRidersWeb.Controllers
                 SessionInitialize();
                 string[] strPregunta = form.GetValues("item.Pregunta");
                 string[] strRespuesta = form.GetValues("respuesta.Respuesta");
-                enc.Id = new EncuestaCEN().CrearEncuesta(enc.Titulo,enc.Descripcion,enc.Privada);
+                enc.Id = new EncuestaCEN().CrearEncuesta(enc.Titulo, enc.Descripcion, enc.Privada);
                 IList<PreguntaEN> lista_preguntas = new List<PreguntaEN>();
                 for (var i = 0; i < strPregunta.Length; i++)
                 {
                     PreguntaEN pregunta = new PreguntaEN();
-                    pregunta.Id = new PreguntaCEN().CrearPregunta(strPregunta[i],T_PreguntaEnum.radio,enc.Id);
+                    pregunta.Id = new PreguntaCEN().CrearPregunta(strPregunta[i], T_PreguntaEnum.radio, enc.Id);
                     IList<RespuestaEN> lista_respuestas = new List<RespuestaEN>();
-                    for (var j = 0; j < strRespuesta.Length/strPregunta.Length ; j++)
+                    for (var j = 0; j < strRespuesta.Length / strPregunta.Length; j++)
                     {
                         RespuestaEN respuesta = new RespuestaEN();
                         respuesta.Respuesta = strRespuesta[(strRespuesta.Length / strPregunta.Length) * i + j];
-                        respuesta.Id = new RespuestaCEN().CrearRespuesta(respuesta.Respuesta,T_PreguntaEnum.radio,pregunta.Id,0,0);
+                        respuesta.Id = new RespuestaCEN().CrearRespuesta(respuesta.Respuesta, T_PreguntaEnum.radio, pregunta.Id, 0, 0);
                         lista_respuestas.Add(respuesta);
                     }
                     pregunta.Tiene = lista_respuestas;
