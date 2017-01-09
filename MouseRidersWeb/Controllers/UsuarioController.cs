@@ -261,6 +261,10 @@ namespace MouseRidersWeb.Controllers
                 DateTime p_fecha = DateTime.Now;
                 usu.Fotoperfil = "default.jpg";
                 int id = cen.CrearUsuario(usu.Email, usu.Nombre, usu.Apellidos, usu.Pais, usu.Telefono, 0, p_fecha, usu.Contrasenya, usu.Nombreusuario, usu.Fotoperfil);
+                Session["user_rol"] = "1";
+                Session["user_id"] = id;
+                Session["user_name"] = usu.Nombreusuario;
+                Session["user_email"] = usu.Email;
                 return RedirectToAction("Details", new { id = id });
             }
             catch (Exception en)
