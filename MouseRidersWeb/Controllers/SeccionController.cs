@@ -75,6 +75,22 @@ namespace MouseRidersWeb.Controllers
             return View(resultfinal);
         }
 
+        // GET: /Usuario/
+
+        public ActionResult Lista()
+        {
+            SessionInitialize();
+            SeccionCAD cCAD = new SeccionCAD(session);
+            IList<SeccionEN> resultEN = cCAD.ReadAllDefault(0, 10);
+            IList<SeccionDTO> result = new List<SeccionDTO>();
+            for (int i = 0; i < resultEN.Count; i++)
+            {
+                result.Add(new SeccionAssembler().Convert(resultEN[i]));
+            }
+            SessionClose();
+            return View(result);
+        }
+
         //
         // GET: /Seccion/Details/5
 

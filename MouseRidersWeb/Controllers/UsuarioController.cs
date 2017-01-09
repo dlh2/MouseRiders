@@ -35,7 +35,7 @@ namespace MouseRidersWeb.Controllers
             algoaux.AddDays(7);
             bloqueo.CrearBloqueo(iddenuncia,id,DateTime.Now,algoaux);
             SessionClose();
-            return View();
+            return RedirectToAction("VerDenunciasRecibidas", "Usuario", new { id = id});
         }
 
         //
