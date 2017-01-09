@@ -17,6 +17,13 @@ namespace MouseRidersWeb.Controllers
 {
     public class UsuarioController : BasicController
     {
+        //
+        // GET:
+
+        public ActionResult Upload()
+        {
+            return View();
+        }
 
         [HttpPost]
         public ActionResult Upload(HttpPostedFileBase file)
@@ -25,10 +32,12 @@ namespace MouseRidersWeb.Controllers
             {
                 if (file.ContentLength > 0)
                 {
+
                     var fileName = Path.GetFileName(file.FileName);
                     var path = Path.Combine(Server.MapPath("~/Contenido/FotosUsuario"), fileName);
                     file.SaveAs(path);
                 }
+
                 ViewBag.Message = "Upload successful";
                 return RedirectToAction("Index");
             }
