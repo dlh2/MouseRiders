@@ -76,7 +76,7 @@
                 <td>
                     @Html.ActionLink("Modificar", "Edit", new { id = item.Id }) |
                     @Html.ActionLink("Ver Perfil", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Ver Denuncias Recibidas", "VerDenunciasRecibidas", new { id = item.Id }) |
+                    @Html.ActionLink("Ver Denuncias Recibidas", "VerDenunciasRecibidas", new { id = item.Id, usu = item.Id }) |
                     @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
                 </td>
             </tr>

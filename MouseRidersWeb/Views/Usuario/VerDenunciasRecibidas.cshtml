@@ -34,7 +34,8 @@
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
     </tr>
+    
 }
-    @Html.ActionLink("Bloquear Usuario", "Bloqueo", new { id = 233433 })
-
+    
 </table>
+@Html.ActionLink("Bloquear Usuario", "Bloqueo", new { id = Request.Params["usu"].ToString() })
