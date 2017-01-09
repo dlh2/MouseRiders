@@ -8,13 +8,13 @@
 <h2 class="customh2">Gestión de Permisos</h2>
 
 <p>
-    @Html.ActionLink("Crear nuevo permiso", "Create", "Usuario", null, new { @class = "btn btn-default btn-lg btn-block " })
+    @Html.ActionLink("Crear nuevo permiso", "Create", "Permiso", null, new { @class = "btn btn-default btn-lg btn-block " })
 </p>
 <div class="table-responsive">
     <table class="table table-condensed table-striped">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Permisos)
+                @Html.DisplayNameFor(model => model.Rol)
             </th>
             <th></th>
         </tr>
@@ -23,12 +23,10 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Permisos)
+                    @Html.DisplayFor(modelItem => item.Rol)
                 </td>
                 <td>
-                    @Html.ActionLink("Modificar", "Edit", new { id = item.Rol }, new { @class = "btn btn-default btn-xs btn-block " })
-                    @Html.ActionLink("Ver Permiso", "Details", new { id = item.Rol }, new { @class = "btn btn-info btn-xs btn-block " })
-                    @Html.ActionLink("Eliminar", "Delete", new { id = item.Rol }, new { @class = "btn btn-danger btn-xs btn-block " })
+                    @Html.ActionLink("Ver Permisos", "Permisos", new { rol = item.Rol, permiso = item.Permiso }, new { @class = "btn btn-info btn-xs btn-block " })
                 </td>
             </tr>
         }
