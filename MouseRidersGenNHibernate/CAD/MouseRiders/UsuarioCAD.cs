@@ -124,6 +124,9 @@ public void ModifyDefault (UsuarioEN usuario)
 
                 usuarioEN.Nombreusuario = usuario.Nombreusuario;
 
+
+                usuarioEN.Fotoperfil = usuario.Fotoperfil;
+
                 session.Update (usuarioEN);
                 SessionCommit ();
         }
@@ -201,6 +204,9 @@ public void ModificarUsuario (UsuarioEN usuario)
 
 
                 usuarioEN.Nombreusuario = usuario.Nombreusuario;
+
+
+                usuarioEN.Fotoperfil = usuario.Fotoperfil;
 
                 session.Update (usuarioEN);
                 SessionCommit ();

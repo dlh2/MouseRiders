@@ -17,6 +17,13 @@ namespace MouseRidersWeb.Controllers
 {
     public class UsuarioController : BasicController
     {
+        //
+        // GET:
+
+        public ActionResult Upload()
+        {
+            return View();
+        }
 
         [HttpPost]
         public ActionResult Upload(HttpPostedFileBase file)
@@ -25,10 +32,12 @@ namespace MouseRidersWeb.Controllers
             {
                 if (file.ContentLength > 0)
                 {
+
                     var fileName = Path.GetFileName(file.FileName);
                     var path = Path.Combine(Server.MapPath("~/Contenido/FotosUsuario"), fileName);
                     file.SaveAs(path);
                 }
+
                 ViewBag.Message = "Upload successful";
                 return RedirectToAction("Index");
             }
@@ -204,7 +213,7 @@ namespace MouseRidersWeb.Controllers
                 UsuarioCAD cCAD = new UsuarioCAD();
                 UsuarioCEN cen = new UsuarioCEN(cCAD);
                 DateTime p_fecha = DateTime.Now;
-                int id=cen.CrearUsuario(usu.Email, usu.Nombre, usu.Apellidos, usu.Pais, usu.Telefono, 0, p_fecha, usu.Contrasenya, usu.Nombreusuario) ;
+                int id=cen.CrearUsuario(usu.Email, usu.Nombre, usu.Apellidos, usu.Pais, usu.Telefono, 0, p_fecha, usu.Contrasenya, usu.Nombreusuario, usu.Fotoperfil) ;
 
                 return RedirectToAction("Details", new { id = id });
             }
@@ -234,7 +243,7 @@ namespace MouseRidersWeb.Controllers
             try
             {
                 UsuarioCEN cen = new UsuarioCEN();
-                cen.ModificarUsuario(usu.Id, usu.Email, usu.Nombre, usu.Apellidos, usu.Pais, usu.Telefono, usu.Puntuacion, usu.FechaRegistro, usu.Contrasenya, usu.Nombreusuario);
+                cen.ModificarUsuario(usu.Id, usu.Email, usu.Nombre, usu.Apellidos, usu.Pais, usu.Telefono, usu.Puntuacion, usu.FechaRegistro, usu.Contrasenya, usu.Nombreusuario, usu.Fotoperfil);
 
                 return RedirectToAction("Details", new { id = usu.Id });
             }

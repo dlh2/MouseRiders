@@ -39,6 +39,9 @@
 					<property name="Nombreusuario" type="string"> 
 						<column name="nombreusuario"  unique="true" not-null="true"/>
 					</property>
+					<property name="Fotoperfil" type="string"> 
+						<column name="fotoperfil"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -123,6 +126,8 @@
 					
 			
 			
+			
+					
 					
 					
 					

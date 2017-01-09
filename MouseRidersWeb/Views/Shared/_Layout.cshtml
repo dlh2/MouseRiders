@@ -100,7 +100,7 @@
                     @if (!haySession)
                     {
                     <li>
-                        @Html.ActionLink("Mi Perfil", "Details/" + 32768, "Usuario")
+                        @Html.ActionLink("Mi Perfil", "Details/" + Session["user_id"], "Usuario")
                     </li>}
                     else
                     {

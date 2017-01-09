@@ -24,21 +24,20 @@ public int ActualizarNumCom (int p_oid, int sumar_o_restar)
         /*PROTECTED REGION ID(MouseRidersGenNHibernate.CEN.MouseRiders_Hilo_actualizarNumCom) ENABLED START*/
 
         // Write here your custom code...
-        
+
         HiloEN hiloEN = null;
-        IHiloCAD _IHiloCAD = new HiloCAD();
-        HiloCEN hiloCEN = new HiloCEN(_IHiloCAD);
-        
-        if (sumar_o_restar !=1 || sumar_o_restar !=-1)
-        {
-            return 0;//en el caso de que sea cero que no haga nada y pon las barras del or que no me van a mi
+        IHiloCAD _IHiloCAD = new HiloCAD ();
+        HiloCEN hiloCEN = new HiloCEN (_IHiloCAD);
+
+        if (sumar_o_restar != 1 || sumar_o_restar != -1) {
+                return 0; //en el caso de que sea cero que no haga nada y pon las barras del or que no me van a mi
         }
-        hiloEN = _IHiloCAD.ReadOID(p_oid);
-        int aux=hiloEN.NumComentarios += sumar_o_restar;
+        hiloEN = _IHiloCAD.ReadOID (p_oid);
+        int aux = hiloEN.NumComentarios += sumar_o_restar;
 
-        hiloCEN.ModificarHilo(p_oid, hiloEN.Creador,hiloEN.Fecha, aux, hiloEN.Titulo, hiloEN.PrimerComentario);
+        hiloCEN.ModificarHilo (p_oid, hiloEN.Creador, hiloEN.Fecha, aux, hiloEN.Titulo, hiloEN.PrimerComentario);
 
-        return (hiloEN.NumComentarios);
+        return(hiloEN.NumComentarios);
 
         /*PROTECTED REGION END*/
 }

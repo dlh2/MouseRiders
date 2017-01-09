@@ -181,7 +181,7 @@ public static void InitializeData ()
                 usuario1EN.Pais = "espanya";
                 usuario1EN.Puntuacion = 1000;
                 usuario1EN.FechaRegistro = DateTime.Now;
-                int oid_usu = usuarioCEN.CrearUsuario (usuario1EN.Email, usuario1EN.Nombre, usuario1EN.Apellidos, usuario1EN.Pais, usuario1EN.Telefono, usuario1EN.Puntuacion, usuario1EN.FechaRegistro, usuario1EN.Contrasenya, "user1");
+                int oid_usu = usuarioCEN.CrearUsuario (usuario1EN.Email, usuario1EN.Nombre, usuario1EN.Apellidos, usuario1EN.Pais, usuario1EN.Telefono, usuario1EN.Puntuacion, usuario1EN.FechaRegistro, usuario1EN.Contrasenya, "user1", "default.jpg");
                 usuario1EN.Id = oid_usu;
                 users.Add(usuario1EN);
   
@@ -195,7 +195,7 @@ public static void InitializeData ()
                 usuario2EN.Pais = "espanya";
                 usuario2EN.Puntuacion = 2000;
                 usuario2EN.FechaRegistro = DateTime.Now;
-                int oid_usu2 = usuarioCEN.CrearUsuario (usuario2EN.Email, usuario2EN.Nombre, usuario2EN.Apellidos, usuario2EN.Pais, usuario2EN.Telefono, usuario2EN.Puntuacion, usuario2EN.FechaRegistro, usuario2EN.Contrasenya, "user2");
+                int oid_usu2 = usuarioCEN.CrearUsuario(usuario2EN.Email, usuario2EN.Nombre, usuario2EN.Apellidos, usuario2EN.Pais, usuario2EN.Telefono, usuario2EN.Puntuacion, usuario2EN.FechaRegistro, usuario2EN.Contrasenya, "user2", "default.jpg");
                 usuario2EN.Id = oid_usu2;
                 users.Add(usuario2EN);
 
@@ -209,7 +209,7 @@ public static void InitializeData ()
                 usuario3EN.Pais = "mexico";
                 usuario3EN.Puntuacion = 3000;
                 usuario3EN.FechaRegistro = DateTime.Now;
-                int oid_usu3 = usuarioCEN.CrearUsuario (usuario3EN.Email, usuario3EN.Nombre, usuario3EN.Apellidos, usuario3EN.Pais, usuario3EN.Telefono, usuario3EN.Puntuacion, usuario3EN.FechaRegistro, usuario3EN.Contrasenya, "user3");
+                int oid_usu3 = usuarioCEN.CrearUsuario(usuario3EN.Email, usuario3EN.Nombre, usuario3EN.Apellidos, usuario3EN.Pais, usuario3EN.Telefono, usuario3EN.Puntuacion, usuario3EN.FechaRegistro, usuario3EN.Contrasenya, "user3", "default.jpg");
                 usuario3EN.Id = oid_usu3;
                 users.Add(usuario3EN);
 
@@ -223,7 +223,7 @@ public static void InitializeData ()
                 usuario4EN.Pais = "mexico";
                 usuario4EN.Puntuacion = 3000;
                 usuario4EN.FechaRegistro = DateTime.Now;
-                int oid_usu4 = usuario4EN.Id = usuarioCEN.CrearUsuario (usuario4EN.Email, usuario4EN.Nombre, usuario4EN.Apellidos, usuario4EN.Pais, usuario4EN.Telefono, usuario4EN.Puntuacion, usuario4EN.FechaRegistro, usuario4EN.Contrasenya, "user4");
+                int oid_usu4 = usuario4EN.Id = usuarioCEN.CrearUsuario(usuario4EN.Email, usuario4EN.Nombre, usuario4EN.Apellidos, usuario4EN.Pais, usuario4EN.Telefono, usuario4EN.Puntuacion, usuario4EN.FechaRegistro, usuario4EN.Contrasenya, "user4", "default.jpg");
                 users.Add(usuario4EN);    
 
 
@@ -518,7 +518,7 @@ public static void InitializeData ()
                 administradorEN.Puntuacion = 5000;
                 administradorEN.Telefono = 666777888;
 
-                int oid_admin = administradorCEN.CrearAdministrador (administradorEN.Email, administradorEN.Nombre, administradorEN.Apellidos, administradorEN.Pais, administradorEN.Telefono, administradorEN.Puntuacion, administradorEN.FechaRegistro, administradorEN.Contrasenya, "user5");
+                int oid_admin = administradorCEN.CrearAdministrador(administradorEN.Email, administradorEN.Nombre, administradorEN.Apellidos, administradorEN.Pais, administradorEN.Telefono, administradorEN.Puntuacion, administradorEN.FechaRegistro, administradorEN.Contrasenya, "user5", "default.jpg");
 
                 ss1.Clear();
                 ss1.Add(permiso2EN.PermisoOID);
@@ -540,7 +540,7 @@ public static void InitializeData ()
                 admin_foroEN.Puntuacion = 100;
                 admin_foroEN.Telefono = 666999111;
 
-                int oid_adminf = admin_foroCEN.CrearAdmin_foro (admin_foroEN.Email, admin_foroEN.Nombre, admin_foroEN.Apellidos, admin_foroEN.Pais, admin_foroEN.Telefono, admin_foroEN.Puntuacion, admin_foroEN.FechaRegistro, admin_foroEN.Contrasenya, "user6");
+                int oid_adminf = admin_foroCEN.CrearAdmin_foro(admin_foroEN.Email, admin_foroEN.Nombre, admin_foroEN.Apellidos, admin_foroEN.Pais, admin_foroEN.Telefono, admin_foroEN.Puntuacion, admin_foroEN.FechaRegistro, admin_foroEN.Contrasenya, "user6", "default.jpg");
 
                 ss1.Clear();
                 ss1.Add(permiso4EN.PermisoOID);
@@ -562,7 +562,7 @@ public static void InitializeData ()
                 redactorEN.Puntuacion = 10000;
                 redactorEN.Telefono = 666345111;
 
-                int oid_red = redactorCEN.CrearRedactor (redactorEN.Email, redactorEN.Nombre, redactorEN.Apellidos, redactorEN.Pais, redactorEN.Telefono, redactorEN.Puntuacion, redactorEN.FechaRegistro, redactorEN.Contrasenya, "user7");
+                int oid_red = redactorCEN.CrearRedactor(redactorEN.Email, redactorEN.Nombre, redactorEN.Apellidos, redactorEN.Pais, redactorEN.Telefono, redactorEN.Puntuacion, redactorEN.FechaRegistro, redactorEN.Contrasenya, "user7", "default.jpg");
 
                 ss1.Clear();
                 ss1.Add(permiso3EN.PermisoOID);

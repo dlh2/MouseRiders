@@ -7,7 +7,8 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -38,13 +39,32 @@
             @Html.ValidationMessageFor(model => model.privacidad)
         </div>
         <fieldset>
-            
-            <p>Pregunta numero 1</p>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.titulo)
-                @Html.
-                @Html.ValidationMessageFor(model => model.titulo)
-            </div>
+            @for (int i = 0; i < Model.Tiene.Count; i++)
+            {
+                var item = Model.Tiene[i];
+                <p>
+                    Pregunta numero @(i + 1)
+                    @Html.RadioButtonFor(itemModel => item.Tipo, MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum.numerico, new { id = MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum.numerico })
+                    <label for=@MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum.numerico>@MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum.numerico</label>
+                    @Html.RadioButtonFor(itemModel => item.Tipo, MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum.radio, new { id = MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum.radio })
+                    <label for=@MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum.radio>@MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum.radio</label>
+                </p>
+                <div class="editor-field">
+                    @Html.EditorFor(itemModel => item.Pregunta)
+                    @Html.ValidationMessageFor(itemModel => item.Pregunta)
+                </div>
+                <fieldset>
+                    @for (int j = 0; j < item.Tiene.Count; j++)
+                    {
+                        var respuesta = item.Tiene[j];
+                        <p>Respuesta numero @(j + 1)</p>
+                        <div class="editor-field">
+                            @Html.EditorFor(respuestaModel => respuesta.Respuesta)
+                            @Html.ValidationMessageFor(respuestaModel => respuesta.Respuesta)
+                        </div>
+                    }
+                </fieldset>
+            }
         </fieldset>
         <p>
             <input type="submit" value="Create" />

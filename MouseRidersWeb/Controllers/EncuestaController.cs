@@ -63,11 +63,37 @@ namespace MouseRidersWeb.Controllers
         }
 
         //
+        // GET: /Encuesta/Realizar/5
+
+        public ActionResult Realizar(int id)
+        {
+            SessionInitialize();
+            EncuestaCAD eCAD = new EncuestaCAD(session);
+            EncuestaEN encuesta_EN = eCAD.ReadOID(id);
+            EncuestaDTO result = new EncuestaAssembler().ConvertConPreguntaYRespuesta(encuesta_EN);
+            SessionClose();
+            return View(result);
+        }
+
+        //
         // GET: /Encuesta/Create
 
         public ActionResult Create()
         {
             EncuestaEN enc = new EncuestaEN();
+            IList<PreguntaEN> Tiene = new List<PreguntaEN>();
+            IList<RespuestaEN> Respuesta = new List<RespuestaEN>();
+            for (int i = 0; i < 4; i++)
+            {
+                Respuesta.Add(new RespuestaEN());
+            }
+            for (int i = 0; i < 5; i++)
+            {
+                PreguntaEN Pregunta = new PreguntaEN();
+                Pregunta.Tiene = Respuesta;
+                Tiene.Add(Pregunta);
+            }
+            enc.Tiene = Tiene;
             EncuestaDTO result = new EncuestaAssembler().ConvertConPreguntaYRespuesta(enc);
             return View(result);
         }
@@ -83,8 +109,8 @@ namespace MouseRidersWeb.Controllers
                 EncuestaCAD eCAD = new EncuestaCAD();
                 EncuestaCEN ecen = new EncuestaCEN(eCAD);
                 DateTime p_fecha = DateTime.Now;
-                ecen.CrearEncuesta(enc.Titulo, enc.Descripcion, enc.Privada);
-                return(RedirectToAction("Details", new { id = enc.Id }));
+                int id = ecen.CrearEncuesta(enc.Titulo, enc.Descripcion, enc.Privada);
+                return(RedirectToAction("Details", new { id = id }));
             }
             catch
             {

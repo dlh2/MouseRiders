@@ -168,6 +168,9 @@ public void ModificarAdmin_foro (Admin_foroEN admin_foro)
 
                 admin_foroEN.Nombreusuario = admin_foro.Nombreusuario;
 
+
+                admin_foroEN.Fotoperfil = admin_foro.Fotoperfil;
+
                 session.Update (admin_foroEN);
                 SessionCommit ();
         }

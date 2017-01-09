@@ -25,16 +25,31 @@ namespace MouseRidersWeb.Controllers
 
         //
         // POST: /Mensaje/Create
-
+        
         [HttpPost]
-        public ActionResult Create(MensajeEN men)
+        public ActionResult Create(MensajeDTO men)
         {
             
                 MensajeCAD cCAD = new MensajeCAD();
                 MensajeCEN cen = new MensajeCEN(cCAD);
+
+                UsuarioCAD uCAD = new UsuarioCAD();
+                UsuarioCEN ucen = new UsuarioCEN(uCAD);
+                string aux1 = Session["user_email"].ToString();
+                int oid = ucen.ReadFilterPorEmail(aux1).Id;
+
                 IList<int> aux = new List<int>();
-                aux.Add(32768);
-                int id = cen.CrearMensaje(men.Asunto, men.Texto, "default", men.Tipo, 32768, aux);
+                UsuarioEN pepe = ucen.ReadFilterPorEmail(men.Destinatario);
+                if (pepe != null)
+                {
+                    aux.Add(pepe.Id);
+                }
+                else
+                {
+                    return View();
+                }
+                
+                int id = cen.CrearMensaje(men.Asunto, men.Texto, "default", men.Tipo, oid, aux);
 
                 return RedirectToAction("Details", new { id = id });
        
