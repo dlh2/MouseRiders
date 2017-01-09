@@ -29,6 +29,20 @@ namespace MouseRidersWeb.Controllers
             return View(result);
         }
 
+        public ActionResult MensajePorTipo(MouseRidersGenNHibernate.Enumerated.MouseRiders.T_MensajeEnum tipo)
+        {
+            SessionInitialize();
+            MensajeCAD cCAD = new MensajeCAD(session);
+            IList<MensajeEN> resultEN = cCAD.ReadFilter(tipo,null);
+            IList<MensajeDTO> result = new List<MensajeDTO>();
+            for (int i = 0; i < resultEN.Count; i++)
+            {
+                result.Add(new MensajeAssembler().Convert(resultEN[i]));
+            }
+            SessionClose();
+            return View(result);
+        }
+
 
         public ActionResult Delete(int id)
         {
