@@ -455,6 +455,8 @@
     <Content Include="Views\ControladorNotificaciones\Create.cshtml" />
     <Content Include="Views\ControladorNotificaciones\Index.cshtml" />
     <Content Include="Views\Busqueda\Buscar.cshtml" />
+    <Content Include="Views\Permiso\Permisos.cshtml" />
+    <Content Include="Views\Permiso\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
