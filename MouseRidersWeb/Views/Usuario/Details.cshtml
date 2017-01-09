@@ -5,6 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@if (Request.Params["error"] == "si")
+{
+    <p id="error">Error al enviar el mensaje: No se ha encontrado el destinatario seleccionado. Asegúrese de escribir un usuario válido antes de enviar un mensaje.</p>
+}
+
 <h2 class="customh2">Mi perfil</h2>
 
 <div class="col-lg-12">

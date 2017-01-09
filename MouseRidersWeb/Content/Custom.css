@@ -38,6 +38,13 @@
     margin-top:10%;
 }
 
+#error{
+    color: red;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align:center;
+}
+
 /*CSS para Contenido de Articulo*/
 .darwin-inline-image {
     width: 100%;
