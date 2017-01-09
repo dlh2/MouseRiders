@@ -24,7 +24,6 @@ namespace MouseRidersWeb.Controllers
             SessionInitialize();
             UsuarioCAD cCAD = new UsuarioCAD(session);
             UsuarioEN result = cCAD.ReadOIDDefault(id);
-            BloqueoCAD bCAD = new BloqueoCAD(session);
             BloqueoCEN bloqueo = new BloqueoCEN();
             IList<DenunciaEN> denuncias = result.RecibeD;
             IList<int> iddenuncia = new List<int>();
