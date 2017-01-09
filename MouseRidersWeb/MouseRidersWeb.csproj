@@ -369,7 +369,6 @@
     <Content Include="Views\Comentario\Edit.cshtml" />
     <Content Include="Views\Comentario\Index.cshtml" />
     <Content Include="Views\Comentario\_Comentario.cshtml" />
-    <Content Include="Views\ControladorNotificaciones\Create.cshtml" />
     <Content Include="Views\Denuncia\Create.cshtml" />
     <Content Include="Views\Denuncia\Delete.cshtml" />
     <Content Include="Views\Denuncia\Edit.cshtml" />
@@ -469,6 +468,9 @@
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
     <Content Include="Views\Mensaje\Error.cshtml" />
+    <Content Include="Views\ControladorNotificaciones\Notificar.cshtml" />
+    <Content Include="Views\ControladorNotificaciones\Create.cshtml" />
+    <Content Include="Views\ControladorNotificaciones\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

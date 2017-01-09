@@ -21,5 +21,17 @@ namespace MouseRidersWeb.DTO
         [ScaffoldColumn(false)]
         [Display(Prompt = "Notificaciones Enviadas", Description = "Notificaciones Enviadas", Name = "Notificaciones Enviadas")]
         public IList<MensajeDTO> enviaN { get; set; }
+
+        //Relacion
+        [Display(Prompt = "adjunto", Description = "adjunto", Name = "adjunto")]
+        public  string adjunto { get; set; }
+
+        //Relacion
+        [Display(Prompt = "texto", Description = "texto", Name = "texto")]
+        public string  texto { get; set; }
+
+        //Relacion
+        [Display(Prompt = "asunto", Description = "asunto", Name = "asunto")]
+        public string asunto { get; set; }
     }
 }

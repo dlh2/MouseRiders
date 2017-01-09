@@ -19,6 +19,9 @@ namespace MouseRidersWeb.Assembler
             {
                 cnsDTO = new ControladorNotificacionesDTO();
                 cnsDTO.Id = cns.Id;
+                cnsDTO.adjunto = null;
+                cnsDTO.asunto = null;
+                cnsDTO.texto = null;
             }
             return cnsDTO;
         }
