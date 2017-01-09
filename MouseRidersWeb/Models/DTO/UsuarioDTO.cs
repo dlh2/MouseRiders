@@ -22,6 +22,9 @@ namespace MouseRidersWeb.DTO
         [StringLength(maximumLength: Globals.EMAIL_MAX_LENGTH, ErrorMessage = "El email del usuario no puede tener más de {0} caracteres")]
         public string Email { get; set; }
 
+        //Atributo FotoUsuario
+        public string FotoUsuario { get; set; }
+
         //Atributo Nombre
         [Display(Prompt = "Nombre", Description = "Nombre del usuario", Name = "Nombre:")]
         [Required(ErrorMessage = "Debe existir un nombre")]
