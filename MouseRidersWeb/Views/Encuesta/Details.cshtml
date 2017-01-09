@@ -6,8 +6,9 @@
 }
 
 <h2 class="customh2">@Html.DisplayFor(model => model.titulo)</h2>
-
-@foreach (var preg in Model.Tiene)
+@if (Model != null)
+{
+foreach (var preg in Model.Tiene)
 {
     <fieldset class="encuesta">
         <h2>
@@ -17,11 +18,12 @@
     </fieldset>
 
 }
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
-
+}
 <script>
     $(window).resize(function () {
         var aux = $(window).width();
