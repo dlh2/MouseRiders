@@ -31,20 +31,23 @@ namespace MouseRidersWeb.Controllers
 
         //
         // GET: /Permiso/Details/5
-        /*
+       
         public ActionResult Details(T_RolEnum rol)
         {
             SessionInitialize();
             PermisoCAD permisoCAD = new PermisoCAD(session);
-            IList<PermisoEN> result = permisoCAD.ReadFilter(rol);
+            IList<PermisoEN> permisoEN = permisoCAD.ReadFilter(rol, null);
+            IList<PermisoDTO> result = new List<PermisoDTO>();
+            foreach (PermisoEN entry in permisoEN)
+                result.Add(new PermisoAssembler().Convert(entry));
             SessionClose();
             return View(result);
-        }*/
+        }
 
         //
         // GET: /Permiso/Create
 
-        public ActionResult Create(int id)
+        public ActionResult Create()
         {
             PermisoEN permiso = new PermisoEN();
             PermisoDTO result = new PermisoAssembler().Convert(permiso);
@@ -61,8 +64,8 @@ namespace MouseRidersWeb.Controllers
             {
                 PermisoCAD cCAD = new PermisoCAD();
                 PermisoCEN cen = new PermisoCEN(cCAD);
-                //cen.CrearPermiso(permiso.PermisoOID,permiso,permiso.Permisos);
-                return RedirectToAction("Details", new { id = permiso.PermisoOID });
+                cen.CrearPermiso(permiso.PermisoOID.Rol,permiso.PermisoOID.Permiso,permiso.Permisos);
+                return RedirectToAction("Details", new { id = permiso.PermisoOID.Rol });
             }
             catch
             {
@@ -71,25 +74,26 @@ namespace MouseRidersWeb.Controllers
         }
 
         //
-        // GET: /Permiso/Edit/5
-        /*
-        public ActionResult Edit(T_RolEnum rol)
+        // GET: /Permiso/Edit/5/permiso
+        public ActionResult Edit(T_RolEnum rol,string permiso)
         {
             SessionInitialize();
             PermisoCAD permisoCAD = new PermisoCAD(session);
-            IList<PermisoEN> permiso = permisoCAD.ReadFilter(rol);
+            IList<PermisoEN> permisoEN = permisoCAD.ReadFilter(rol, permiso);
+            PermisoDTO result = new PermisoAssembler().Convert(permisoEN[0]);
             SessionClose();
-            return View(permiso);
-        }*/
+            return View(result);
+        }
 
         //
-        // POST: /Permiso/Edit/5
+        // POST: /Permiso/Edit/5/permiso
 
         [HttpPost]
         public ActionResult Edit(PermisoEN permiso)
         {
             try
             {
+                
                 PermisoCEN permisoCEN = new PermisoCEN();
                 permisoCEN.ModificarPermiso(permiso.PermisoOID, permiso.Permisos);
                 return RedirectToAction("Details", new { id = permiso.PermisoOID });
@@ -102,7 +106,6 @@ namespace MouseRidersWeb.Controllers
 
         //
         // GET: /Permiso/Delete/5
-        /*
         public ActionResult Delete(T_RolEnum rol)
         {
             try
@@ -111,7 +114,7 @@ namespace MouseRidersWeb.Controllers
                 SessionInitialize();
                 PermisoCAD permisoCAD = new PermisoCAD(session);
                 PermisoCEN permisoCEN = new PermisoCEN(permisoCAD);
-                IList<PermisoEN> permiso = permisoCAD.ReadFilter(rol);
+                IList<PermisoEN> permiso = permisoCAD.ReadFilter(rol,null);
                 permiso.Clear();
                 SessionClose();
                 return RedirectToAction("Index");
@@ -121,7 +124,6 @@ namespace MouseRidersWeb.Controllers
                 return View();
             }
         }
-        */
         //
         // POST: /Permiso/Delete/5
 

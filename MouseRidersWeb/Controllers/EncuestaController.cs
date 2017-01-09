@@ -122,12 +122,12 @@ namespace MouseRidersWeb.Controllers
             for (int i = 0; i < 5; i++)
             {
                 PreguntaEN Pregunta = new PreguntaEN();
-                Pregunta.Pregunta = "pero " + i;
+                Pregunta.Pregunta = "";
                 Pregunta.Tiene = Respuesta;
                 Tiene.Add(Pregunta);
             }
-            enc.Titulo = "Totoro";
-            enc.Descripcion = "Descripcion";
+            enc.Titulo = "";
+            enc.Descripcion = "";
             enc.Privada = false;
             enc.Tiene = Tiene;
             EncuestaDTO result = new EncuestaAssembler().ConvertConPreguntaYRespuesta(enc);
