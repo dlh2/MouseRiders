@@ -58,14 +58,14 @@
                 </div>
             </div>
             @Html.ActionLink("Editar mi perfil", "Edit", new { id = Model.Id }, new { @class = "btn-secondary2 btn-lg", style = "text-decoration:none" })
-            @Html.ActionLink("Volver a lista de usuarios", "Index", "Usuario", new { @class = "btn-secondary2 btn-lg", style = "text-decoration:none" })
+            @Html.ActionLink("Volver a lista de usuarios", "Index", "Usuario",0, new { @class = "btn-secondary2 btn-lg", style = "text-decoration:none" })
         </div>
-
     </div>
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-        <p>
-            <input type="submit" value="Eliminar Perfil" class="btn btn-danger btn-lg btn-block " />
-        </p>
-    }
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Eliminar Perfil" class="btn btn-danger btn-lg btn-block " />
+    </p>
+}
