@@ -305,14 +305,38 @@ public static void InitializeData ()
                 int oid2 = mensajeCEN.CrearMensaje (mensaje5EN.Asunto, mensaje5EN.Texto, mensaje5EN.Adjunto, mensaje5EN.Tipo, mensaje5EN.Es_enviado.Id, ses_recibido5);
 
                 //generador de mensajes aleatorios de un usuario a otro (puede ser reciproco)
-                for (int i = 0; i < 40; i++)
+                for (int i = 0; i < 200; i++)
                 {
                     int picker = rng.Next(0, 6);
                     MensajeEN mensajeN = new MensajeEN();
                     mensajeN.Asunto = RandomString(20);
                     mensajeN.Adjunto = articuloDatos[picker,0];
                     mensajeN.Texto = RandomString(100);
-                    mensajeN.Tipo = T_MensajeEnum.privado;
+                    int tipo = rng.Next(1, 20);
+                    if(tipo==1){
+                        mensajeN.Tipo = T_MensajeEnum.admin;
+                    }
+                    if (tipo == 2)
+                    {
+                        mensajeN.Tipo = T_MensajeEnum.notificacion;
+                    }
+                    if (tipo == 3 || tipo>6)
+                    {
+                        mensajeN.Tipo = T_MensajeEnum.privado;
+                    }
+                    if (tipo == 4)
+                    {
+                        mensajeN.Tipo = T_MensajeEnum.redactor;
+                    }
+                    if (tipo == 5)
+                    {
+                        mensajeN.Tipo = T_MensajeEnum.solicitud;
+                    }
+                    if (tipo == 6)
+                    {
+                        mensajeN.Tipo = T_MensajeEnum.sugerencia;
+                    }
+                    
                     IList<UsuarioEN> es_recibidoN = new List<UsuarioEN>();
                     es_recibidoN.Add(users[rng.Next(users.Count)]);
                     mensajeN.Es_recibido = es_recibidoN;
