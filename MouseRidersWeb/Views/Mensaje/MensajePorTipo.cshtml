@@ -15,10 +15,12 @@
 {
     <h2 class="customh2">Solicitudes</h2>
 }
-@if (Request.Params["tipo"].ToString() == "solicitud")
+
+@if (Request.Params["tipo"].ToString() == "sugerencias")
 {
-    <h2 class="customh2">Solicitudes</h2>
+    <h2 class="customh2">Sugerencias</h2>
 }
+
 
 <div class="table-responsive">
     <table class="table table-condensed table-striped">
