@@ -5,30 +5,42 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Lista</h2>
+<h2 class="customh2">Gestión de Secciones</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear nueva sección", "Create", "Seccion", null, new { @class = "btn btn-default btn-lg btn-block " })
 </p>
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Seccion }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Seccion }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Seccion })
-        </td>
-    </tr>
-}
+<div class="table-responsive">
+    <table class="table table-condensed table-striped">
+        <tr>
+            <th>
+                Sección
+            </th>
+            <th>
+                Nombre
+            </th>
+            <th></th>
+        </tr>
 
-</table>
+        @foreach (var item in Model)
+        {
+            if (item != null) { 
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Seccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.ActionLink("Modificar", "Edit", new { id = item.Seccion }, new { @class = "btn btn-default btn-xs btn-block " })
+                    @Html.ActionLink("Detalle", "Details", new { id = item.Seccion }, new { @class = "btn btn-info btn-xs btn-block " })
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.Seccion }, new { @class = "btn btn-danger btn-xs btn-block " })
+                </td>
+            </tr>
+        }
+        }
+        
+    </table>
+</div>
