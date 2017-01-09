@@ -32,10 +32,18 @@ namespace MouseRidersWeb.Controllers
             {
                 if (file.ContentLength > 0)
                 {
-
+                    
                     var fileName = Path.GetFileName(file.FileName);
                     var path = Path.Combine(Server.MapPath("~/Contenido/FotosUsuario"), fileName);
                     file.SaveAs(path);
+
+                    SessionInitialize();
+                    UsuarioCAD cCAD = new UsuarioCAD(session);
+                    int id = Int32.Parse(Session["user_id"].ToString());
+
+                    UsuarioEN usu = cCAD.ReadOID(id);
+                    UsuarioCEN cen = new UsuarioCEN();
+                    cen.ModificarUsuario(usu.Id, usu.Email, usu.Nombre, usu.Apellidos, usu.Pais, usu.Telefono, usu.Puntuacion, usu.FechaRegistro, usu.Contrasenya, usu.Nombreusuario, fileName);
                 }
 
                 ViewBag.Message = "Upload successful";

@@ -442,7 +442,7 @@
     <Content Include="Views\Mensaje\Administrador.cshtml" />
     <Content Include="Views\Mensaje\Solicitar.cshtml" />
     <Content Include="Views\Usuario\Upload.cshtml" />
-    <Content Include="Views\Mensaje\Error.cshtml" />
+    <Content Include="Views\Encuesta\Realizar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
