@@ -45,6 +45,11 @@
     text-align:center;
 }
 
+#search{
+    border-radius:5px;
+    margin-top: 10px;
+}
+
 /*CSS para Contenido de Articulo*/
 .darwin-inline-image {
     width: 100%;

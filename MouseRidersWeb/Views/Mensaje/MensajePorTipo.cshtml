@@ -11,6 +11,10 @@
     @Html.ActionLink("Enviar Nueva Notificación", "Notificar", "ControladorNotificaciones", null,new { @class = "btn btn-default btn-lg btn-block " })
     <br />
 }
+@if (Request.Params["tipo"].ToString() == "solicitud")
+{
+    <h2 class="customh2">Solicitudes</h2>
+}
 
 <div class="table-responsive">
     <table class="table table-condensed table-striped">
