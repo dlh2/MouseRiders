@@ -5,18 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@section admin{
-    @{
-        int rolSession = 0;
-        if (@Session["user_rol"] != null) { Int32.TryParse(@Session["user_rol"].ToString(), out rolSession); }
-        if (rolSession != 2)
-        {
-            Response.Redirect("~/Home");
-        }
-    }
-}
 
-<h2>Edit</h2>
+
+<h2 class="customh2">Editar comentario</h2>
 
 @using (Html.BeginForm())
 {
@@ -24,42 +15,42 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>ComentarioDTO</legend>
 
-        <div class="editor-label">
+        <div class="editor-label ptitle">
             @Html.LabelFor(model => model.Creador)
         </div>
-        <div class="editor-field">
+        <div class="custom-field">
             @Html.EditorFor(model => model.Creador)
             @Html.ValidationMessageFor(model => model.Creador)
         </div>
 
-        <div class="editor-label">
+        <div class="editor-label ptitle">
             @Html.LabelFor(model => model.Fecha)
         </div>
-        <div class="editor-field">
+        <div class="custom-field">
             @Html.EditorFor(model => model.Fecha)
             @Html.ValidationMessageFor(model => model.Fecha)
         </div>
-
-        <div class="editor-label">
+        
+        <div class="editor-label ptitle">
             @Html.LabelFor(model => model.Contenido)
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Contenido)
+        
+        <div class="custom-field">
+            @Html.TextArea("Contenido", new { rows = 8, id = "comentar", @placeholder = "Contenido" })
             @Html.ValidationMessageFor(model => model.Contenido)
         </div>
 
-        <div class="editor-label">
+        <div class="editor-label ptitle">
             @Html.LabelFor(model => model.Valoracion)
         </div>
-        <div class="editor-field">
+        <div class="custom-field">
             @Html.EditorFor(model => model.Valoracion)
             @Html.ValidationMessageFor(model => model.Valoracion)
         </div>
 
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" class="btn-lg btn-block btn-success" value="Guardar cambios" />
         </p>
     </fieldset>
 }

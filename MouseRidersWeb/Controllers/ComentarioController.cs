@@ -197,7 +197,7 @@ namespace MouseRidersWeb.Controllers
             }
             catch
             {
-                return View();
+                return RedirectToAction("Index","Hilo");
             }
         }
 
