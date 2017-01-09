@@ -20,9 +20,11 @@
         <a href="@Url.Action("Details", "Usuario", new { id= item.ID_Creador })"><p>Creador: @Html.DisplayFor(modelItem => item.Creador)</p></a>
 
         <p>@Html.DisplayFor(modelItem => item.NumComentarios) comentarios</p>
-
-        @Html.ActionLink("Editar Hilo", "Edit", new { id = item.Id }) |
-        @Html.ActionLink("Eliminar Hilo", "Delete", new { id = item.Id })
+        @if ((Session["user_email"] != null && Session["user_email"].ToString() == item.Creador) || (Session["user_rol"] != null && Session["user_rol"].ToString() == "2") || (Session["user_rol"] != null && Session["user_rol"].ToString() == "4"))
+        { 
+        @Html.ActionLink("Editar Hilo", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-xs  " }) 
+        @Html.ActionLink("Eliminar Hilo", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-xs  " })
+        }
 </fieldset>
 
 }
