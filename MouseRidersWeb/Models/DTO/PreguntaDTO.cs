@@ -11,39 +11,27 @@ namespace MouseRidersWeb.DTO
 {
     public class PreguntaDTO
     {
-        /**
-         *	Atributo id
-         */
+        //Atributo id
         [ScaffoldColumn(false)]
         public int id { get; set; }
 
-        /**
-         *	Atributo pregunta
-         */
-
+        //Atributo pregunta
         [Display(Prompt = "Pregunta", Description = "Cuerpo de la pregunta", Name = "PreguntaN ")]
         [Required(ErrorMessage = "Debe indicar el texto de la pregunta")]
         [StringLength(maximumLength: 200, ErrorMessage = "La pregunta no puede tener más de 200 caracteres")]
         public string Pregunta { get; set; }
 
-        /**
-         *	Atributo tipo
-         */
-      
-        private MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum Tipo { get; set; }
+        //Atributo tipo
+        public MouseRidersGenNHibernate.Enumerated.MouseRiders.T_PreguntaEnum Tipo { get; set; }
 
-        /**
-         *	Atributo pertenece
-         */
+        //Atributo pertenece
         [Display(Prompt = "Encuesta", Description = "Encuesta a la que pertenece la pregunta", Name = "EncuestaN ")]
         [Required(ErrorMessage = "Debe indicar la encuesta en la que aparece esta pregunta")]
         [DataType(DataType.Currency, ErrorMessage = "El dato introducido debe de ser una encuesta")]
         public MouseRidersWeb.DTO.EncuestaDTO Pertenece { get; set; }
 
 
-        /**
-         *	Atributo tiene
-         */
+        //Atributo tiene
         [Display(Prompt = "Respuestas", Description = "Respuestas de la pregunta", Name = "RespuestasN ")]
         [Required(ErrorMessage = "Debe indicar las respuestas posibles de la pregunta")]
         [DataType(DataType.Currency, ErrorMessage = "El dato introducido debe de ser una lista de respuestas")]

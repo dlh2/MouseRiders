@@ -68,6 +68,19 @@ namespace MouseRidersWeb.Controllers
         public ActionResult Create()
         {
             EncuestaEN enc = new EncuestaEN();
+            IList<PreguntaEN> Tiene = new List<PreguntaEN>();
+            IList<RespuestaEN> Respuesta = new List<RespuestaEN>();
+            for (int i = 0; i < 4; i++)
+            {
+                Respuesta.Add(new RespuestaEN());
+            }
+            for (int i = 0; i < 5; i++)
+            {
+                PreguntaEN Pregunta = new PreguntaEN();
+                Pregunta.Tiene = Respuesta;
+                Tiene.Add(Pregunta);
+            }
+            enc.Tiene = Tiene;
             EncuestaDTO result = new EncuestaAssembler().ConvertConPreguntaYRespuesta(enc);
             return View(result);
         }
