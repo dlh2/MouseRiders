@@ -5,46 +5,45 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Notificar</h2>
+<h2 class="customh2">Crear Notificación</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>ControladorNotificacionesDTO</legend>
-        <div class="editor-label">
+        <div class="editor-label ptitle">
             @Html.LabelFor(model => model.asunto)
         </div>
-        <div class="editor-field">
+        <div class="custom-field penhanced">
             @Html.EditorFor(model => model.asunto)
             @Html.ValidationMessageFor(model => model.asunto)
         </div>
 
-        <div class="editor-label">
+        <div class="editor-label ptitle">
             @Html.LabelFor(model => model.texto)
         </div>
-        <div class="editor-field">
+        <div class="custom-field penhanced">
             @Html.EditorFor(model => model.texto)
             @Html.ValidationMessageFor(model => model.texto)
         </div>
 
-        <div class="editor-label">
+        <div class="editor-label ptitle">
             @Html.LabelFor(model => model.adjunto)
         </div>
-        <div class="editor-field">
+        <div class="custom-field penhanced">
             @Html.EditorFor(model => model.adjunto)
             @Html.ValidationMessageFor(model => model.adjunto)
         </div>
 
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" class="btn-lg btn-success btn-block" value="Crear Notificación" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Volver", "Index", "ControladorNotificaciones", null, new { @class = "btn btn-default btn-lg btn-block" })
 </div>
 
 @section Scripts {
