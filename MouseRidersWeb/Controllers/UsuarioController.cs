@@ -20,7 +20,7 @@ namespace MouseRidersWeb.Controllers
         //
         // GET:
 
-        public ActionResult Upload()
+        public ActionResult Upload1()
         {
             return View();
         }

@@ -441,7 +441,7 @@
     <Content Include="Views\Mensaje\Redactor.cshtml" />
     <Content Include="Views\Mensaje\Administrador.cshtml" />
     <Content Include="Views\Mensaje\Solicitar.cshtml" />
-    <Content Include="Views\Usuario\Upload.cshtml" />
+    <Content Include="Views\Usuario\Upload1.cshtml" />
     <Content Include="Views\Encuesta\Realizar.cshtml" />
   </ItemGroup>
   <ItemGroup>
