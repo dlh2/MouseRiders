@@ -5,31 +5,29 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
+<h2 class="customh2">Editar Encuesta</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>EncuestaDTO</legend>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.titulo)
+        <div class="editor-label ptitle">
+            Título de la encuesta 
         </div>
-        <div class="editor-field">
+        <div class="custom-field">
             @Html.EditorFor(model => model.titulo)
             @Html.ValidationMessageFor(model => model.titulo)
         </div>
 
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" class="btn-lg btn-block btn-success" value="Guardar Cambios" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Volver", "Index", "Encuesta", null, new { @class = "btn btn-default btn-lg btn-block" })
 </div>
 
 @section Scripts {
