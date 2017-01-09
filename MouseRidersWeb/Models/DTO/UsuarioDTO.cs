@@ -70,7 +70,7 @@ namespace MouseRidersWeb.DTO
         public string Nombreusuario { get; set; }
 
         //Atributo FechaRegistro
-        [HiddenInput(DisplayValue = false)]
+        [HiddenInput(DisplayValue = true)]
         [DataType(DataType.DateTime)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [Display(Prompt = "Fecha", Description = "Fecha del usuario", Name = "Fecha:")]
