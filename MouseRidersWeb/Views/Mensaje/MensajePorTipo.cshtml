@@ -5,48 +5,55 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>MensajePorTipo</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Asunto)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Destinatario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Texto)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Adjunto)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Asunto)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Destinatario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Texto)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Adjunto)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+@if (Request.Params["tipo"].ToString() == "notificacion")
+{
+    <h2 class="customh2">Notificaciones</h2>
+    @Html.ActionLink("Enviar Nueva Notificación", "CreateN", "ControladorNotificaciones", null,new { @class = "btn btn-default btn-lg btn-block " })
+    <br />
 }
 
-</table>
+<div class="table-responsive">
+    <table class="table table-condensed table-striped">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Asunto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destinatario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Texto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adjunto)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Asunto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Destinatario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Texto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Adjunto)
+                </td>
+                <td>
+                    @Html.ActionLink("Responder", "Responder", new { id = item.Id }, new { @class = "btn btn-success btn-xs btn-block " })
+                    @Html.ActionLink("Modificar", "Edit", new { id = item.Id }, new { @class = "btn btn-default btn-xs btn-block " })
+                    @Html.ActionLink("Ver", "Details", new { id = item.Id }, new { @class = "btn btn-info btn-xs btn-block " })
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-xs btn-block " })
+                    
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

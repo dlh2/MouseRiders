@@ -20,7 +20,7 @@ namespace MouseRidersWeb.Controllers
         {
             SessionInitialize();
             RespuestaCAD cCAD = new RespuestaCAD(session);
-            IList<RespuestaEN> result = cCAD.ReadAllDefault(0, 10);
+            IList<RespuestaEN> result = cCAD.ReadAllDefault(0, 100);
             IList<RespuestaDTO> resultfinal = new List<RespuestaDTO>();
             foreach (RespuestaEN entry in result)
                 resultfinal.Add(new RespuestaAssembler().Convert(entry));

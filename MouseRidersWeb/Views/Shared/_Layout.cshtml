@@ -141,22 +141,22 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href=""> Contenido </a>
+                            <a href="/Contenido"> Contenido </a>
                         </li>
                         <li>
-                            <a href=""> Secciones </a>
+                            <a href="/Seccion/Lista"> Secciones </a>
                         </li>
                         <li>
-                            <a href=""> Permisos </a>
+                            <a href="/Permiso"> Permisos </a>
                         </li>
                         <li>
-                            <a href=""> Usuarios </a>
+                            <a href="/Usuario"> Usuarios </a>
                         </li>
                         <li>
-                            <a href=""> Puestos </a>
+                            @Html.ActionLink("Puestos", "MensajePorTipo", "Mensaje", new { tipo = @MouseRidersGenNHibernate.Enumerated.MouseRiders.T_MensajeEnum.solicitud }, null)
                         </li>
                         <li>
-                            <a href=""> Notificaciones </a>
+                            @Html.ActionLink("Notificaciones", "MensajePorTipo", "Mensaje", new { tipo = @MouseRidersGenNHibernate.Enumerated.MouseRiders.T_MensajeEnum.notificacion }, null)
                         </li>
                     </ul>
                 </div>
@@ -184,10 +184,10 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-3">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="">Gestión de Secciones</a>
+                            <a href="/Seccion/Lista">Gestión de Secciones</a>
                         </li>
                         <li>
-                            <a href="">Gestión de Sugerencias</a>
+                            @Html.ActionLink("Gestión de Sugerencias", "MensajePorTipo", "Mensaje", new { tipo = @MouseRidersGenNHibernate.Enumerated.MouseRiders.T_MensajeEnum.sugerencia }, null)
                         </li>
                     </ul>
                 </div>
@@ -214,10 +214,10 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-4">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="">Gestión de usuarios</a>
+                            <a href="/Usuario">Gestión de usuarios</a>
                         </li>
                         <li>
-                            <a href="">Envío de notificaciones</a>
+                            @Html.ActionLink("Gestión de Notificaciones", "MensajePorTipo", "Mensaje", new { tipo = @MouseRidersGenNHibernate.Enumerated.MouseRiders.T_MensajeEnum.notificacion }, null)
                         </li>
                     </ul>
                 </div>

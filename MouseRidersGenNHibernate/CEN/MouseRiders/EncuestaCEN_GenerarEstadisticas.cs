@@ -22,7 +22,6 @@ public partial class EncuestaCEN
 public void GenerarEstadisticas ()
 {
         /*PROTECTED REGION ID(MouseRidersGenNHibernate.CEN.MouseRiders_Encuesta_generarEstadisticas) ENABLED START*/
-
         IList<EncuestaEN> listaEncuestas = _IEncuestaCAD.ReadAll (0, 1000);
         for (int i = 0; i < listaEncuestas.Count; i++) {
                 for (int j = 0; j < listaEncuestas [i].Tiene.Count; j++) {
@@ -31,10 +30,12 @@ public void GenerarEstadisticas ()
                                 porcentaje += listaEncuestas [i].Tiene [j].Tiene [k].Contador;
                         }
                         for (int k = 0; k < listaEncuestas [i].Tiene [j].Tiene.Count; k++) {
-                                listaEncuestas [i].Tiene [j].Tiene [k].Frecuencia = listaEncuestas [i].Tiene [j].Tiene [k].Contador / porcentaje;
+                                RespuestaEN resp = listaEncuestas [i].Tiene [j].Tiene [k];
+                                resp.Frecuencia = (float)resp.Contador / porcentaje;
+                                new RespuestaCEN ().ModificarRespuesta (resp.Id,
+                                        resp.Respuesta, resp.Tipo, resp.Contador, resp.Frecuencia);
                         }
                 }
-                _IEncuestaCAD.ModificarEncuesta (listaEncuestas [i]);
         }
         /*PROTECTED REGION END*/
 }

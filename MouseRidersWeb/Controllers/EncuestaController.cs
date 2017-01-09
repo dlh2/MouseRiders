@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using MouseRidersWeb.DTO;
 using MouseRidersGenNHibernate.Enumerated.MouseRiders;
+using MouseRidersGenNHibernate.CP.MouseRiders;
 namespace MouseRidersWeb.Controllers
 {
     public class EncuestaController : BasicController
@@ -77,16 +78,32 @@ namespace MouseRidersWeb.Controllers
 
         //
         // POST: /Encuesta/Realizar/5
-         [HttpPost]
-        public ActionResult Realizar(FormCollection form)
+        [HttpPost]
+        public ActionResult Realizar(EncuestaEN encuesta, FormCollection form)
         {
-            string[] strPregunta = form.GetValues("item.Pregunta");
-            string[] strRespuesta = form.GetValues("Resp_");
-            string[] strRespuesta2 = form.GetValues("Resp_1");
-            var ola = ValueProvider.GetValue("Resp_1");
-             //A SABER COMO MIERDA DESCUBRO SABER QUE RADIO BUTTON ESTA SELECCIONADO, OH MY FUCKING GOD
-            //new RespuestaCEN().ModificarRespuesta();
-            return (RedirectToAction("Details", new { id = 0 }));
+            SessionInitialize();
+            EncuestaEN encuestaEN = new EncuestaCAD(session).ReadOID(encuesta.Id);
+            for (int i = 0; i < encuestaEN.Tiene.Count; i++)
+            {
+                PreguntaEN pregunta = encuestaEN.Tiene[i];
+                for (int j = 0; j < pregunta.Tiene.Count; j++)
+                {
+                    RespuestaEN resp = pregunta.Tiene[j];
+                    var radio = form.GetValues("Resp_" + i);
+                    if (radio != null)
+                    {
+                        if (resp.Respuesta.Equals(radio[0]))
+                        {
+                            new RespuestaCEN().ModificarRespuesta(resp.Id, resp.Respuesta, resp.Tipo,
+                                ++resp.Contador, resp.Frecuencia);
+                            break;
+                        }
+                    }
+                }
+            }
+            new EncuestaCEN(new EncuestaCAD(session)).GenerarEstadisticas();
+            SessionClose();
+            return (RedirectToAction("Details", new { id = encuestaEN.Id }));
         }
 
         //
@@ -138,14 +155,38 @@ namespace MouseRidersWeb.Controllers
                     IList<RespuestaEN> lista_respuestas = new List<RespuestaEN>();
                     for (var j = 0; j < strRespuesta.Length / strPregunta.Length; j++)
                     {
-                        RespuestaEN respuesta = new RespuestaEN();
-                        respuesta.Respuesta = strRespuesta[(strRespuesta.Length / strPregunta.Length) * i + j];
-                        respuesta.Id = new RespuestaCEN().CrearRespuesta(respuesta.Respuesta, T_PreguntaEnum.radio, pregunta.Id, 0, 0);
-                        lista_respuestas.Add(respuesta);
+                        if (!strRespuesta[(strRespuesta.Length / strPregunta.Length) * i + j].Equals(""))
+                        {
+                            RespuestaEN respuesta = new RespuestaEN();
+                            respuesta.Respuesta = strRespuesta[(strRespuesta.Length / strPregunta.Length) * i + j];
+                            respuesta.Id = new RespuestaCEN().CrearRespuesta(respuesta.Respuesta, T_PreguntaEnum.radio, pregunta.Id, 0, 0);
+                            lista_respuestas.Add(respuesta);
+                        }
                     }
-                    pregunta.Tiene = lista_respuestas;
-                    new PreguntaCAD(session).ModificarPregunta(pregunta);
-                    lista_preguntas.Add(pregunta);
+                    if (!strPregunta[i].Equals(""))
+                    { // HAY PREGUNTA
+                        if (lista_respuestas.Count >= 2) // SE NECESITAN 2 RESPUESTAS MINIMO
+                        { // HAY RESPUESTAS
+                            pregunta.Tiene = lista_respuestas;
+                            new PreguntaCAD(session).ModificarPregunta(pregunta);
+                            lista_preguntas.Add(pregunta);
+                        }
+                        else
+                        {  // NO HAY RESPUESTAS - BORRAR PREGUNTA
+                            new PreguntaCEN().BorrarPregunta(pregunta.Id);
+                        }
+                    }
+                    else
+                    { // NO HAY PREGUNTA - BORRAR PREGUNTA
+                        if (lista_respuestas.Count != 0)
+                        {// BORRAR LAS RESPUESTAS CREADAS
+                            for (var j = 0; j < lista_respuestas.Count; j++)
+                            {
+                                new RespuestaCEN().BorrarRespuesta(lista_respuestas[i].Id);
+                            }
+                        }
+                        new PreguntaCEN().BorrarPregunta(pregunta.Id);
+                    }
                 }
                 DateTime p_fecha = DateTime.Now;
                 enc.Tiene = lista_preguntas;

@@ -584,7 +584,7 @@ public static void InitializeData ()
                 int oid_e1 = encuestaCEN.CrearEncuesta(encuestaEN.Titulo, encuestaEN.Descripcion, false);
 
                 #endregion
-
+            
                 #region Pregunta
                 IPreguntaCAD _IPreguntaCAD = new PreguntaCAD ();
                 PreguntaCEN preguntaCEN = new PreguntaCEN (_IPreguntaCAD);

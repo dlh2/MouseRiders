@@ -23,7 +23,6 @@ void BorrarEncuesta (int id
 
 
 
-
 EncuestaEN ReadOID (int id
                     );
 
