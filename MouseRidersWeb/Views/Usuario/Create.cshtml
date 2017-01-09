@@ -5,95 +5,77 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<h2 class="customh2">Registrarse en Mouse Riders</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>UsuarioDTO</legend>
-
-        <div class="editor-label">
+        <div class="editor-label ptitle">
             @Html.LabelFor(model => model.Email)
         </div>
-        <div class="editor-field">
+        <div class="custom-field">
             @Html.EditorFor(model => model.Email)
             @Html.ValidationMessageFor(model => model.Email)
         </div>
 
-        <div class="editor-label">
+        <div class="editor-label ptitle">
             @Html.LabelFor(model => model.Nombre)
         </div>
-        <div class="editor-field">
+        <div class="custom-field">
             @Html.EditorFor(model => model.Nombre)
             @Html.ValidationMessageFor(model => model.Nombre)
         </div>
 
-        <div class="editor-label">
+        <div class="editor-label ptitle">
             @Html.LabelFor(model => model.Apellidos)
         </div>
-        <div class="editor-field">
+        <div class="custom-field">
             @Html.EditorFor(model => model.Apellidos)
             @Html.ValidationMessageFor(model => model.Apellidos)
         </div>
 
-        <div class="editor-label">
+        <div class="editor-label ptitle">
             @Html.LabelFor(model => model.Pais)
         </div>
-        <div class="editor-field">
+        <div class="custom-field">
             @Html.EditorFor(model => model.Pais)
             @Html.ValidationMessageFor(model => model.Pais)
         </div>
 
-        <div class="editor-label">
+        <div class="editor-label ptitle">
             @Html.LabelFor(model => model.Telefono)
         </div>
-        <div class="editor-field">
+       
+         <div class="custom-field">
             @Html.EditorFor(model => model.Telefono)
             @Html.ValidationMessageFor(model => model.Telefono)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Puntuacion)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Puntuacion)
-            @Html.ValidationMessageFor(model => model.Puntuacion)
-        </div>
-
-        <div class="editor-label">
+        <div class="editor-label ptitle">
             @Html.LabelFor(model => model.Contrasenya)
         </div>
-        <div class="editor-field">
+        <div class="custom-field">
             @Html.EditorFor(model => model.Contrasenya)
             @Html.ValidationMessageFor(model => model.Contrasenya)
         </div>
 
-        <div class="editor-label">
+        <div class="editor-label ptitle">
             @Html.LabelFor(model => model.Nombreusuario)
         </div>
-        <div class="editor-field">
+        <div class="custom-field">
             @Html.EditorFor(model => model.Nombreusuario)
             @Html.ValidationMessageFor(model => model.Nombreusuario)
         </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.FechaRegistro)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.FechaRegistro)
-            @Html.ValidationMessageFor(model => model.FechaRegistro)
-        </div>
-
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" class="btn-lg btn-block btn-success" value="Create" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Volver", "Index", "Home", null, new { @class = "btn btn-default btn-lg btn-block" })
 </div>
 
 @section Scripts {
