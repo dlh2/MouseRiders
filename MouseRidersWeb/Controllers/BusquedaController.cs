@@ -90,13 +90,14 @@ namespace MouseRidersWeb.Controllers
             try
             {
                 ArticuloCAD cCAD = new ArticuloCAD();
-                ArticuloCEN cen = new ArticuloCEN(cCAD);
-                IList<ArticuloEN> res = cen.ReadFilter(Request.Params["search"].ToString(), null, false, null, false); 
+                ArticuloCEN cen = new ArticuloCEN();
+                String termino = Request.Params["search"].ToString();
+                IList<ArticuloEN> res = cen.ReadFilter(termino, null, false, null, false); 
                 return View(res);
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                throw ex;
             }
         }
     }

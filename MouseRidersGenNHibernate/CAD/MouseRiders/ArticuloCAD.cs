@@ -321,11 +321,11 @@ public System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.
                 //String sql = @"FROM ArticuloEN self where FROM ArticuloEN where (:p_nombre is null or :p_nombre like '%titulo%' or :p_nombre like '%descripcion%') and (:p_fecha is null or (:p_mayor is true and :p_fecha>=fecha) or (:p_mayor is false and :p_fecha<=fecha)) and (:p_puntuacion is null or (:p_mayor1 is true and :p_puntuacion>=puntuacion) or (:p_mayor1 is false and :p_puntuacion<=puntuacion))";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ArticuloENreadFilterHQL");
-                query.SetParameter("p_nombre", '%' + p_nombre + '%');
-                query.SetParameter ("p_fecha", p_fecha);
-                query.SetParameter ("p_mayor", p_mayor);
-                query.SetParameter ("p_puntuacion", p_puntuacion);
-                query.SetParameter ("p_mayor1", p_mayor1);
+                query.SetParameter("p_nombre", "%" + p_nombre + "%");
+                //query.SetParameter ("p_fecha", p_fecha);
+                //query.SetParameter ("p_mayor", p_mayor);
+                //query.SetParameter ("p_puntuacion", p_puntuacion);
+                //query.SetParameter ("p_mayor1", p_mayor1);
 
                 result = query.List<MouseRidersGenNHibernate.EN.MouseRiders.ArticuloEN>();
                 SessionCommit ();
