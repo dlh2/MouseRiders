@@ -124,6 +124,13 @@ private string nombreusuario;
 
 
 
+/**
+ *	Atributo fotoperfil
+ */
+private string fotoperfil;
+
+
+
 
 
 
@@ -229,6 +236,12 @@ public virtual string Nombreusuario {
 
 
 
+public virtual string Fotoperfil {
+        get { return fotoperfil; } set { fotoperfil = value;  }
+}
+
+
+
 
 
 public UsuarioEN()
@@ -243,20 +256,20 @@ public UsuarioEN()
 
 
 
-public UsuarioEN(int id, string email, string nombre, string apellidos, string pais, int telefono, int puntuacion, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN> creaD, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.RecompensaEN> obtiene, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN> tiene, Nullable<DateTime> fechaRegistro, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> envia, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> recibe, MouseRidersGenNHibernate.EN.MouseRiders.BloqueoEN es_de, string contrasenya, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN> recibeD, string nombreusuario
+public UsuarioEN(int id, string email, string nombre, string apellidos, string pais, int telefono, int puntuacion, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN> creaD, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.RecompensaEN> obtiene, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN> tiene, Nullable<DateTime> fechaRegistro, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> envia, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> recibe, MouseRidersGenNHibernate.EN.MouseRiders.BloqueoEN es_de, string contrasenya, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN> recibeD, string nombreusuario, string fotoperfil
                  )
 {
-        this.init (Id, email, nombre, apellidos, pais, telefono, puntuacion, creaD, obtiene, tiene, fechaRegistro, envia, recibe, es_de, contrasenya, recibeD, nombreusuario);
+        this.init (Id, email, nombre, apellidos, pais, telefono, puntuacion, creaD, obtiene, tiene, fechaRegistro, envia, recibe, es_de, contrasenya, recibeD, nombreusuario, fotoperfil);
 }
 
 
 public UsuarioEN(UsuarioEN usuario)
 {
-        this.init (Id, usuario.Email, usuario.Nombre, usuario.Apellidos, usuario.Pais, usuario.Telefono, usuario.Puntuacion, usuario.CreaD, usuario.Obtiene, usuario.Tiene, usuario.FechaRegistro, usuario.Envia, usuario.Recibe, usuario.Es_de, usuario.Contrasenya, usuario.RecibeD, usuario.Nombreusuario);
+        this.init (Id, usuario.Email, usuario.Nombre, usuario.Apellidos, usuario.Pais, usuario.Telefono, usuario.Puntuacion, usuario.CreaD, usuario.Obtiene, usuario.Tiene, usuario.FechaRegistro, usuario.Envia, usuario.Recibe, usuario.Es_de, usuario.Contrasenya, usuario.RecibeD, usuario.Nombreusuario, usuario.Fotoperfil);
 }
 
 private void init (int id
-                   , string email, string nombre, string apellidos, string pais, int telefono, int puntuacion, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN> creaD, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.RecompensaEN> obtiene, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN> tiene, Nullable<DateTime> fechaRegistro, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> envia, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> recibe, MouseRidersGenNHibernate.EN.MouseRiders.BloqueoEN es_de, string contrasenya, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN> recibeD, string nombreusuario)
+                   , string email, string nombre, string apellidos, string pais, int telefono, int puntuacion, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN> creaD, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.RecompensaEN> obtiene, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.PermisoEN> tiene, Nullable<DateTime> fechaRegistro, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> envia, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.MensajeEN> recibe, MouseRidersGenNHibernate.EN.MouseRiders.BloqueoEN es_de, string contrasenya, System.Collections.Generic.IList<MouseRidersGenNHibernate.EN.MouseRiders.DenunciaEN> recibeD, string nombreusuario, string fotoperfil)
 {
         this.Id = id;
 
@@ -292,6 +305,8 @@ private void init (int id
         this.RecibeD = recibeD;
 
         this.Nombreusuario = nombreusuario;
+
+        this.Fotoperfil = fotoperfil;
 }
 
 public override bool Equals (object obj)

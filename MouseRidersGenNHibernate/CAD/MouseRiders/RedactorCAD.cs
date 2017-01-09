@@ -168,6 +168,9 @@ public void ModificarRedactor (RedactorEN redactor)
 
                 redactorEN.Nombreusuario = redactor.Nombreusuario;
 
+
+                redactorEN.Fotoperfil = redactor.Fotoperfil;
+
                 session.Update (redactorEN);
                 SessionCommit ();
         }

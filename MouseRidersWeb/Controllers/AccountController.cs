@@ -81,7 +81,7 @@ namespace MouseRidersWeb.Controllers
                 try
                 {
                     UsuarioCEN usu = new UsuarioCEN();
-                    usu.CrearUsuario(model.Email, model.Nombre, model.Apellidos, model.Pais, model.Telefono, 0, DateTime.Now, model.Password, model.NombreUsuario);
+                    usu.CrearUsuario(model.Email, model.Nombre, model.Apellidos, model.Pais, model.Telefono, 0, DateTime.Now, model.Password, model.NombreUsuario, "");
 
                     WebSecurity.CreateUserAndAccount(model.Nombre, model.Password);
                     WebSecurity.Login(model.Nombre, model.Password);

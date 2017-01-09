@@ -38,7 +38,7 @@ public IUsuarioCAD get_IUsuarioCAD ()
         return this._IUsuarioCAD;
 }
 
-public int CrearUsuario (string p_email, string p_nombre, string p_apellidos, string p_pais, int p_telefono, int p_puntuacion, Nullable<DateTime> p_fechaRegistro, string p_contrasenya, string p_nombreusuario)
+public int CrearUsuario (string p_email, string p_nombre, string p_apellidos, string p_pais, int p_telefono, int p_puntuacion, Nullable<DateTime> p_fechaRegistro, string p_contrasenya, string p_nombreusuario, string p_fotoperfil)
 {
         UsuarioEN usuarioEN = null;
         int oid;
@@ -63,13 +63,15 @@ public int CrearUsuario (string p_email, string p_nombre, string p_apellidos, st
 
         usuarioEN.Nombreusuario = p_nombreusuario;
 
+        usuarioEN.Fotoperfil = p_fotoperfil;
+
         //Call to UsuarioCAD
 
         oid = _IUsuarioCAD.CrearUsuario (usuarioEN);
         return oid;
 }
 
-public void ModificarUsuario (int p_Usuario_OID, string p_email, string p_nombre, string p_apellidos, string p_pais, int p_telefono, int p_puntuacion, Nullable<DateTime> p_fechaRegistro, string p_contrasenya, string p_nombreusuario)
+public void ModificarUsuario (int p_Usuario_OID, string p_email, string p_nombre, string p_apellidos, string p_pais, int p_telefono, int p_puntuacion, Nullable<DateTime> p_fechaRegistro, string p_contrasenya, string p_nombreusuario, string p_fotoperfil)
 {
         UsuarioEN usuarioEN = null;
 
@@ -85,6 +87,7 @@ public void ModificarUsuario (int p_Usuario_OID, string p_email, string p_nombre
         usuarioEN.FechaRegistro = p_fechaRegistro;
         usuarioEN.Contrasenya = p_contrasenya;
         usuarioEN.Nombreusuario = p_nombreusuario;
+        usuarioEN.Fotoperfil = p_fotoperfil;
         //Call to UsuarioCAD
 
         _IUsuarioCAD.ModificarUsuario (usuarioEN);

@@ -168,6 +168,9 @@ public void ModificarAdministrador (AdministradorEN administrador)
 
                 administradorEN.Nombreusuario = administrador.Nombreusuario;
 
+
+                administradorEN.Fotoperfil = administrador.Fotoperfil;
+
                 session.Update (administradorEN);
                 SessionCommit ();
         }

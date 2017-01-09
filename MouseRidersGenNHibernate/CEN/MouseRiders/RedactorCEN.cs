@@ -38,7 +38,7 @@ public IRedactorCAD get_IRedactorCAD ()
         return this._IRedactorCAD;
 }
 
-public int CrearRedactor (string p_email, string p_nombre, string p_apellidos, string p_pais, int p_telefono, int p_puntuacion, Nullable<DateTime> p_fechaRegistro, string p_contrasenya, string p_nombreusuario)
+public int CrearRedactor (string p_email, string p_nombre, string p_apellidos, string p_pais, int p_telefono, int p_puntuacion, Nullable<DateTime> p_fechaRegistro, string p_contrasenya, string p_nombreusuario, string p_fotoperfil)
 {
         RedactorEN redactorEN = null;
         int oid;
@@ -63,13 +63,15 @@ public int CrearRedactor (string p_email, string p_nombre, string p_apellidos, s
 
         redactorEN.Nombreusuario = p_nombreusuario;
 
+        redactorEN.Fotoperfil = p_fotoperfil;
+
         //Call to RedactorCAD
 
         oid = _IRedactorCAD.CrearRedactor (redactorEN);
         return oid;
 }
 
-public void ModificarRedactor (int p_Redactor_OID, string p_email, string p_nombre, string p_apellidos, string p_pais, int p_telefono, int p_puntuacion, Nullable<DateTime> p_fechaRegistro, string p_contrasenya, string p_nombreusuario)
+public void ModificarRedactor (int p_Redactor_OID, string p_email, string p_nombre, string p_apellidos, string p_pais, int p_telefono, int p_puntuacion, Nullable<DateTime> p_fechaRegistro, string p_contrasenya, string p_nombreusuario, string p_fotoperfil)
 {
         RedactorEN redactorEN = null;
 
@@ -85,6 +87,7 @@ public void ModificarRedactor (int p_Redactor_OID, string p_email, string p_nomb
         redactorEN.FechaRegistro = p_fechaRegistro;
         redactorEN.Contrasenya = p_contrasenya;
         redactorEN.Nombreusuario = p_nombreusuario;
+        redactorEN.Fotoperfil = p_fotoperfil;
         //Call to RedactorCAD
 
         _IRedactorCAD.ModificarRedactor (redactorEN);

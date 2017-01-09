@@ -38,7 +38,7 @@ public IAdmin_foroCAD get_IAdmin_foroCAD ()
         return this._IAdmin_foroCAD;
 }
 
-public int CrearAdmin_foro (string p_email, string p_nombre, string p_apellidos, string p_pais, int p_telefono, int p_puntuacion, Nullable<DateTime> p_fechaRegistro, string p_contrasenya, string p_nombreusuario)
+public int CrearAdmin_foro (string p_email, string p_nombre, string p_apellidos, string p_pais, int p_telefono, int p_puntuacion, Nullable<DateTime> p_fechaRegistro, string p_contrasenya, string p_nombreusuario, string p_fotoperfil)
 {
         Admin_foroEN admin_foroEN = null;
         int oid;
@@ -63,13 +63,15 @@ public int CrearAdmin_foro (string p_email, string p_nombre, string p_apellidos,
 
         admin_foroEN.Nombreusuario = p_nombreusuario;
 
+        admin_foroEN.Fotoperfil = p_fotoperfil;
+
         //Call to Admin_foroCAD
 
         oid = _IAdmin_foroCAD.CrearAdmin_foro (admin_foroEN);
         return oid;
 }
 
-public void ModificarAdmin_foro (int p_Admin_foro_OID, string p_email, string p_nombre, string p_apellidos, string p_pais, int p_telefono, int p_puntuacion, Nullable<DateTime> p_fechaRegistro, string p_contrasenya, string p_nombreusuario)
+public void ModificarAdmin_foro (int p_Admin_foro_OID, string p_email, string p_nombre, string p_apellidos, string p_pais, int p_telefono, int p_puntuacion, Nullable<DateTime> p_fechaRegistro, string p_contrasenya, string p_nombreusuario, string p_fotoperfil)
 {
         Admin_foroEN admin_foroEN = null;
 
@@ -85,6 +87,7 @@ public void ModificarAdmin_foro (int p_Admin_foro_OID, string p_email, string p_
         admin_foroEN.FechaRegistro = p_fechaRegistro;
         admin_foroEN.Contrasenya = p_contrasenya;
         admin_foroEN.Nombreusuario = p_nombreusuario;
+        admin_foroEN.Fotoperfil = p_fotoperfil;
         //Call to Admin_foroCAD
 
         _IAdmin_foroCAD.ModificarAdmin_foro (admin_foroEN);
