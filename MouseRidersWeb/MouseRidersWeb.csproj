@@ -209,7 +209,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ArticuloController.cs" />
     <Compile Include="Controllers\BasicController.cs" />
     <Compile Include="Controllers\BloqueoController.cs" />
@@ -232,11 +231,9 @@
     <Compile Include="Controllers\RespuestaController.cs" />
     <Compile Include="Controllers\SeccionController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
-    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Assembler\PreguntaAssembler.cs" />
     <Compile Include="Models\Assembler\RecompensaAssembler.cs" />
     <Compile Include="Models\Assembler\SeccionAssembler.cs" />
@@ -341,16 +338,6 @@
     <Content Include="Scripts\js.cookie.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\npm.js" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Manage.cshtml" />
-    <Content Include="Views\Account\Register-Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\_RemoveExternalLoginsPartial.cshtml" />
-    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
     <Content Include="Views\Articulo\Contenido.cshtml" />
     <Content Include="Views\Articulo\Create.cshtml" />
     <Content Include="Views\Articulo\Delete.cshtml" />
@@ -431,9 +418,7 @@
     <Content Include="Views\Usuario\Edit.cshtml" />
     <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Usuario\Login.cshtml" />
-    <Content Include="Views\Usuario\Login_boceto.cshtml" />
     <Content Include="Views\Usuario\MensajesPrivados.cshtml" />
-    <Content Include="Views\Usuario\Register_boceto.cshtml" />
     <Content Include="Views\Usuario\register_login_boceto.cshtml" />
     <Content Include="Views\Usuario\Upload1.cshtml" />
     <Content Include="Views\Usuario\VerDenunciasRecibidas.cshtml" />
