@@ -3,8 +3,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Upload</h2>
-
 
 
 @using (Html.BeginForm("Upload", "Usuario", FormMethod.Post,
@@ -13,12 +11,13 @@
     @Html.AntiForgeryToken()
 
     <fieldset>
-        <legend>Upload a file</legend>
+        <legend class="psection">Foto de perfil</legend>
         <div class="editor-field">
             @Html.TextBox("file", "", new { type = "file" })
         </div>
+        <p></p>
         <div class="editor-field">
-            <input type="submit" value="Upload" />
+            <input type="submit" class="btn-lg btn-success" value="Subir Foto" />
         </div>
     </fieldset>
 }
