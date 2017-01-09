@@ -32,7 +32,6 @@ public bool AdministrarHilos (int p_oid, string creador, int numComentarios, int
          */
         IHiloCAD _IHiloCAD = null;
         IComentarioCAD _IComentarioCAD = null;
-
         try
         {
                 _IHiloCAD = new HiloCAD (session);

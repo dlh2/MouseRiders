@@ -358,8 +358,6 @@
     <Content Include="Views\Articulo\Edit.cshtml" />
     <Content Include="Views\Articulo\Index.cshtml" />
     <Content Include="Views\Articulo\MostrarMiniaturas.cshtml" />
-    <Content Include="Views\Articulo\UploadContenido.cshtml" />
-    <Content Include="Views\Articulo\UploadContenidoDescargable.cshtml" />
     <Content Include="Views\Ayuda\Index.cshtml" />
     <Content Include="Views\Busqueda\Buscador.cshtml" />
     <Content Include="Views\Busqueda\Index.cshtml" />

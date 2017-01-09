@@ -26,39 +26,22 @@ public bool BloquearUsuario (string p_oid)
         // Write here your custom code...
 
         /*
-         *
          * busca y lee las denuncias de un usuario y crea un bloqueo a ese usuario si tiene mas de tres denuncias
          *
-         *
-         *
          */
-
-
-
         int Ndenuncias = 0;
-
         bool bloqueado = false;
         UsuarioEN _usuarioEN = (UsuarioEN)_IAdministradorCAD.ReadOIDDefault (Int32.Parse(p_oid));
-
         Ndenuncias = _usuarioEN.CreaD != null ? _usuarioEN.CreaD.Count : 0;
-
         BloqueoEN _bloqueo = null;
-
         _bloqueo = new BloqueoEN ();
-
         if (Ndenuncias >= 3) {
                 _usuarioEN.Es_de = _bloqueo; //al ser una clave ajena (0,1) se le asigna directamente el bloqueo creado a la relacion que en este caso
-
                 //actua como un atributo en lugar de como una lista
-
                 IUsuarioCAD _IUsuarioCAD = (IUsuarioCAD)_IAdministradorCAD;
-
                 _IUsuarioCAD.ModificarUsuario (_usuarioEN);
-
                 UsuarioCEN usuarioCEN = new UsuarioCEN (_IUsuarioCAD);
-
                 usuarioCEN.RelacionaBloqueo (Int32.Parse(_usuarioEN.Email), _usuarioEN.Es_de.Id);
-
                 bloqueado = true;
         }
 
