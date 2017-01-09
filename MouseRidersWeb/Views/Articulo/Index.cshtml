@@ -5,84 +5,83 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+
+
+<h2 class="customh2">Gestión de Artículos</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear nuevo usuario", "Create", "Usuario", null, new { @class = "btn btn-default btn-lg btn-block " })
 </p>
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Titulo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fecha)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Autor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Puntuacion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Contenido)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ContenidoDescargable)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Contador)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Subtitulo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Portada)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </th>
-        <th></th>
-    </tr>
+<div class="table-responsive">
+    <table class="table table-condensed table-striped">
+        <tr>
+            <th>
+                Título
+            </th>
+            <th>
+                Subtítulo
+            </th>
+            <th>
+                Descripción
+            </th>
+            <th>
+                Fecha
+            </th>
+            <th>
+                Autor
+            </th>
+            <th>
+                Puntuación
+            </th>
+            <th>
+                Contenido
+            </th>
+            <th>
+                Contenido Descargable
+            </th>
+            <th>
+                Contador
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Titulo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fecha)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Autor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Puntuacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Contenido)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContenidoDescargable)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Contador)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Subtitulo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Portada)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descripcion)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Titulo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subtitulo)
+                </td>
+                <td style="max-width:250px; word-wrap:break-word;">
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Autor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Puntuacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contenido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContenidoDescargable)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contador)
+                </td>
+                <td>
+                    @Html.ActionLink("Modificar", "Edit", new { id = item.Id }, new { @class = "btn btn-default btn-xs btn-block " })
+                    @Html.ActionLink("Ver Artículo", "Details", new { id = item.Id }, new { @class = "btn btn-info btn-xs btn-block " })
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-xs btn-block " })
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
+</div>
