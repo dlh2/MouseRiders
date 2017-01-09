@@ -23,6 +23,14 @@ namespace MouseRidersWeb.Assembler
                 menDTO.Texto = men.Texto;
                 menDTO.Tipo = men.Tipo;
                 menDTO.Adjunto = men.Adjunto;
+                for (int i = 0; i < men.Es_recibido.Count; i++)
+                {
+                    menDTO.Destinatario += men.Es_recibido[i].Email;
+                    if (i != men.Es_recibido.Count-1)
+                    {
+                        menDTO.Destinatario += ", ";
+                    }
+                }
             }
             return menDTO;
         }
@@ -59,7 +67,7 @@ namespace MouseRidersWeb.Assembler
                 ControladorNotificacionesEN Recibe = c.Es_enviadoN;
                 if (Recibe != null)
                 {
-                       cDTO.Notificaciones=new ControladorNotificacionesAssembler().Convert(Recibe);
+                    cDTO.Notificaciones = new ControladorNotificacionesAssembler().Convert(Recibe);
                 }
             }
             return cDTO;

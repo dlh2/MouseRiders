@@ -63,12 +63,23 @@ namespace MouseRidersWeb.Controllers
         {
             try
             {
-                new MensajeCEN().BorrarMensaje(art.Id);
+                //Varios intentos de FOREIGN KEY
+                SessionInitialize();
+                MensajeCEN cen = new MensajeCEN();
+                MensajeEN result = cen.ReadOID(art.Id);
+                MensajeCAD cad = new MensajeCAD(session);
+                result.Es_enviado = null;
+                result.Es_enviadoN = null;
+                result.Es_recibido = null;
+                 cen.RelacionaMensaje(result.Id, 0);
+                cad.ModificarMensaje(result);
+                //cen.BorrarMensaje(art.Id);
+                SessionClose();
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                throw ex;
             }
         }
 
