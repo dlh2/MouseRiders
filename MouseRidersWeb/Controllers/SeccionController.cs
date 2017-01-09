@@ -115,7 +115,8 @@ namespace MouseRidersWeb.Controllers
         public ActionResult Create()
         {
             SeccionEN sec = new SeccionEN();
-            return View(sec);
+            SeccionDTO secd = new SeccionAssembler().Convert(sec);
+            return View(secd);
         }
 
         //
