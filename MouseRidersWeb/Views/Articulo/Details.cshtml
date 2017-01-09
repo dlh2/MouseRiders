@@ -109,6 +109,9 @@
         }
     </div>
 </fieldset>
+
+@Html.ActionLink("Volver", "Index", "Seccion", null, new { @class = "btn btn-default btn-lg btn-block" })
+
 <script>
     $('.votar').click(function (e) {
         e.preventDefault();
@@ -248,4 +251,3 @@
     });
     Star();
 </script>
-@Html.ActionLink("Volver", "Index", "Seccion", null, new { @class = "btn btn-default btn-lg btn-block" })

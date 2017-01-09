@@ -17,9 +17,7 @@ namespace MouseRidersWeb.DTO
         public int Id { get; set; }
 
         //Nuevo atributo
-        /*
-         * ID_Creador
-         */
+        //ID_Creador
         public int ID_Creador { get; set; }
 
         //Atributo creador
