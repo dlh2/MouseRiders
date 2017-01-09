@@ -19,7 +19,7 @@ namespace MouseRidersWeb.Assembler
             {
                 respDTO = new RespuestaDTO();
                 respDTO.Id = resp.Id;
-                respDTO.Respuesta = respDTO.Respuesta;
+                respDTO.Respuesta = resp.Respuesta;
                 respDTO.Tipo = resp.Tipo;
                 respDTO.Contador = resp.Contador;
                 respDTO.Frecuencia = resp.Frecuencia;
