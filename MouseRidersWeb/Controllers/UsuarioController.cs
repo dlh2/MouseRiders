@@ -27,7 +27,7 @@ namespace MouseRidersWeb.Controllers
             BloqueoCAD bCAD = new BloqueoCAD(session);
             BloqueoCEN bloqueo = new BloqueoCEN();
             IList<DenunciaEN> denuncias = result.RecibeD;
-            IList<int> iddenuncia = null;
+            IList<int> iddenuncia = new List<int>();
             foreach (DenunciaEN entry in denuncias)
             {
                 iddenuncia.Add(entry.Id);
@@ -36,7 +36,7 @@ namespace MouseRidersWeb.Controllers
             algoaux.AddDays(7);
             bloqueo.CrearBloqueo(iddenuncia,id,DateTime.Now,algoaux);
             SessionClose();
-            return View(result);
+            return View();
         }
 
         //
