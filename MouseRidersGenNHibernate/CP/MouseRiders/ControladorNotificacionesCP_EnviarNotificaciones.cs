@@ -98,7 +98,7 @@ public bool EnviarNotificaciones (MouseRidersGenNHibernate.EN.MouseRiders.Permis
 
                 IMensajeCAD mensajeCAD = new MensajeCAD ();
                 MensajeCEN mensajeCEN = new MensajeCEN (mensajeCAD);
-                int oid = mensajeCEN.CrearMensaje (asunto, texto, adjunto, T_MensajeEnum.notificacion, -1, listAux1);
+                int oid = mensajeCEN.CrearMensaje (asunto, texto, adjunto, T_MensajeEnum.notificacion, 32772, listAux1);
 
                 if (oid < 0)
                         return false;
