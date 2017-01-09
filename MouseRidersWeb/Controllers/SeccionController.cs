@@ -146,7 +146,8 @@ namespace MouseRidersWeb.Controllers
         public ActionResult Edit(int id)
         {
             SeccionCAD cCAD = new SeccionCAD();
-            SeccionEN result = cCAD.ReadOIDDefault(id);
+            SeccionEN resultEN = cCAD.ReadOIDDefault(id);
+            SeccionDTO result = new SeccionAssembler().Convert(resultEN);
             return View(result);
         }
 
@@ -160,12 +161,11 @@ namespace MouseRidersWeb.Controllers
             {
                 SeccionCEN cen = new SeccionCEN();
                 cen.ModificarSeccion(sec.Seccion, sec.Nombre);
-
                 return RedirectToAction("Details", new { id = sec.Seccion });
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                throw ex; //Si, a la ex.
             }
         }
 
