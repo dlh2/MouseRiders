@@ -32,12 +32,32 @@
                                 <td>@Html.DisplayFor(model => model.Autor)</td>
                             </tr>
                             <tr>
+                                <td>Puntuación</td>
+                                <td>@Html.DisplayFor(model => model.Puntuacion)</td>
+                            </tr>
+                            <tr>
                                 <td>Contenido</td>
                                 <td>@Html.DisplayFor(model => model.Contenido)</td>
                             </tr>
                             <tr>
-                                <td>Valoración</td>
-                                <td>@Html.DisplayFor(model => model.Valoracion)</td>
+                                <td>Contenido Descargable</td>
+                                <td>@Html.DisplayFor(model => model.ContenidoDescargable)</td>
+                            </tr>
+                            <tr>
+                                <td>Contador</td>
+                                <td>@Html.DisplayFor(model => model.Contador)</td>
+                            </tr>
+                            <tr>
+                                <td>Subtítulo</td>
+                                <td>@Html.DisplayFor(model => model.Subtitulo)</td>
+                            </tr>
+                            <tr>
+                                <td>Portada</td>
+                                <td>@Html.DisplayFor(model => model.Portada)</td>
+                            </tr>
+                            <tr>
+                                <td>Descripción</td>
+                                <td>@Html.DisplayFor(model => model.Descripcion)</td>
                             </tr>
                         </tbody>
                     </table>
@@ -53,7 +73,7 @@
         <p>
             <input type="submit" class="btn-lg btn-danger btn-block" value="Eliminar" />
         <p>
-            @Html.ActionLink("Volver", "Index", "Comentario", null, new { @class = "btn btn-default btn-lg btn-block " })
+            @Html.ActionLink("Volver", "Index", "Articulo", null, new { @class = "btn btn-default btn-lg btn-block " })
         </p>
         </p>
     }
@@ -63,106 +83,3 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="display-label">
-    @Html.DisplayNameFor(model => model.Titulo)
-</div>
-<div class="display-field">
-    @Html.DisplayFor(model => model.Titulo)
-</div>
-
-<div class="display-label">
-    @Html.DisplayNameFor(model => model.Fecha)
-</div>
-<div class="display-field">
-    @Html.DisplayFor(model => model.Fecha)
-</div>
-
-<div class="display-label">
-    @Html.DisplayNameFor(model => model.Autor)
-</div>
-<div class="display-field">
-    @Html.DisplayFor(model => model.Autor)
-</div>
-
-<div class="display-label">
-    @Html.DisplayNameFor(model => model.Puntuacion)
-</div>
-<div class="display-field">
-    @Html.DisplayFor(model => model.Puntuacion)
-</div>
-
-<div class="display-label">
-    @Html.DisplayNameFor(model => model.Contenido)
-</div>
-<div class="display-field">
-    @Html.DisplayFor(model => model.Contenido)
-</div>
-
-<div class="display-label">
-    @Html.DisplayNameFor(model => model.ContenidoDescargable)
-</div>
-<div class="display-field">
-    @Html.DisplayFor(model => model.ContenidoDescargable)
-</div>
-
-<div class="display-label">
-    @Html.DisplayNameFor(model => model.Contador)
-</div>
-<div class="display-field">
-    @Html.DisplayFor(model => model.Contador)
-</div>
-
-<div class="display-label">
-    @Html.DisplayNameFor(model => model.Subtitulo)
-</div>
-<div class="display-field">
-    @Html.DisplayFor(model => model.Subtitulo)
-</div>
-
-<div class="display-label">
-    @Html.DisplayNameFor(model => model.Portada)
-</div>
-<div class="display-field">
-    @Html.DisplayFor(model => model.Portada)
-</div>
-
-<div class="display-label">
-    @Html.DisplayNameFor(model => model.Descripcion)
-</div>
-<div class="display-field">
-    @Html.DisplayFor(model => model.Descripcion)
-</div>
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    <p>
-        <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-}
