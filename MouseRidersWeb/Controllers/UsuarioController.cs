@@ -33,9 +33,9 @@ namespace MouseRidersWeb.Controllers
             }
             DateTime algoaux = DateTime.Now;
             algoaux.AddDays(7);
-            bloqueo.CrearBloqueo(iddenuncia,id,DateTime.Now,algoaux);
+            bloqueo.CrearBloqueo(iddenuncia, id, DateTime.Now, algoaux);
             SessionClose();
-            return RedirectToAction("VerDenunciasRecibidas", "Usuario", new { id = id});
+            return RedirectToAction("VerDenunciasRecibidas", "Usuario", new { id = id });
         }
 
         //
@@ -53,7 +53,7 @@ namespace MouseRidersWeb.Controllers
             {
                 if (file.ContentLength > 0)
                 {
-                    
+
                     var fileName = Path.GetFileName(file.FileName);
                     var path = Path.Combine(Server.MapPath("~/Contenido/FotosUsuario"), fileName);
                     file.SaveAs(path);
@@ -77,24 +77,25 @@ namespace MouseRidersWeb.Controllers
                 return RedirectToAction("Uploads");
             }
         }
-        
+
 
         //
         // GET: /Usuario/
 
         public ActionResult Index()
         {
-            if (Session["user_rol"] != null && (Session["user_rol"].ToString() == "2" || Session["user_rol"].ToString() == "4")) { 
-            SessionInitialize();
-            UsuarioCAD cCAD = new UsuarioCAD(session);
-            IList<UsuarioEN> resultEN = cCAD.ReadAllDefault(0,999);
-            IList<UsuarioDTO> result = new List<UsuarioDTO>();
-            for (int i = 0; i < resultEN.Count; i++)
+            if (Session["user_rol"] != null && (Session["user_rol"].ToString() == "2" || Session["user_rol"].ToString() == "4"))
             {
-                result.Add(new UsuarioAssembler().Convert(resultEN[i]));
-            }
-            SessionClose();
-            return View(result);
+                SessionInitialize();
+                UsuarioCAD cCAD = new UsuarioCAD(session);
+                IList<UsuarioEN> resultEN = cCAD.ReadAllDefault(0, 999);
+                IList<UsuarioDTO> result = new List<UsuarioDTO>();
+                for (int i = 0; i < resultEN.Count; i++)
+                {
+                    result.Add(new UsuarioAssembler().Convert(resultEN[i]));
+                }
+                SessionClose();
+                return View(result);
             }
             else
             {
@@ -209,7 +210,7 @@ namespace MouseRidersWeb.Controllers
         {
             SessionInitialize();
             UsuarioCAD cCAD = new UsuarioCAD(session);
-            int user_rol = new UsuarioCEN(cCAD).Autenticar(model.Nombreusuario,model.Contrasenya);
+            int user_rol = new UsuarioCEN(cCAD).Autenticar(model.Nombreusuario, model.Contrasenya);
             SessionClose();
             if (user_rol == -1)
             {
@@ -226,15 +227,15 @@ namespace MouseRidersWeb.Controllers
                 Session["user_email"] = usuario.Email;
                 return RedirectToAction("Index", "Home");
             }
-         
+
         }
 
         public ActionResult Logout()
         {
-            Session["user_rol"] = "";
-            Session["user_id"] = "";
-            Session["user_name"] = "";
-            Session["user_email"] = "";
+            Session["user_rol"] = null;
+            Session["user_id"] = null;
+            Session["user_name"] = null;
+            Session["user_email"] = null;
             return RedirectToAction("Index", "Home");
         }
 
@@ -252,20 +253,23 @@ namespace MouseRidersWeb.Controllers
         // POST: /Usuario/Create
 
         [HttpPost]
-        public ActionResult Create (UsuarioEN usu)
+        public ActionResult Create(UsuarioEN usu)
         {
             try
             {
-                UsuarioCAD cCAD = new UsuarioCAD();
-                UsuarioCEN cen = new UsuarioCEN(cCAD);
+                UsuarioCEN cen = new UsuarioCEN();
                 DateTime p_fecha = DateTime.Now;
-                int id=cen.CrearUsuario(usu.Email, usu.Nombre, usu.Apellidos, usu.Pais, usu.Telefono, 0, p_fecha, usu.Contrasenya, usu.Nombreusuario, usu.Fotoperfil) ;
-
+                usu.Fotoperfil = "default.jpg";
+                int id = cen.CrearUsuario(usu.Email, usu.Nombre, usu.Apellidos, usu.Pais, usu.Telefono, 0, p_fecha, usu.Contrasenya, usu.Nombreusuario, usu.Fotoperfil);
                 return RedirectToAction("Details", new { id = id });
             }
-            catch
+            catch (Exception en)
             {
-                return View();
+                throw en;
+            }
+            finally
+            {
+
             }
         }
 

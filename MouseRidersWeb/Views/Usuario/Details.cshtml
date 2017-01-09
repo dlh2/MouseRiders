@@ -11,93 +11,95 @@
 }
 @if ((Session["user_email"] != null && Session["user_email"].ToString() == Model.Email))
 {
-<h2 class="customh2">Mi perfil</h2>
+    <h2 class="customh2">Mi perfil</h2>
 }
 else
 {
     <h2 class="customh2">Perfil de @Html.DisplayFor(model => model.Nombre)</h2>
 }
 <div class="col-lg-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title ptitle text-uppercase">@Html.DisplayFor(model => model.Nombre)</h3>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-md-3 col-lg-3 " > <img alt="User Pic" src="~/Contenido/FotosUsuario/@Html.DisplayFor(model => model.FotoUsuario)" class="img-circle img-responsive"> </div>
-                <div class=" col-md-9 col-lg-9 "> 
-                  <table class="table table-user-information">
-                      <tbody class="pprofile">
-                          <tr>
-                              <td>@Html.DisplayNameFor(model => model.Email)</td>
-                              <td>@Html.DisplayFor(model => model.Email)</td>
-                          </tr>
-                          <tr>
-                              <td>@Html.DisplayNameFor(model => model.Nombre)</td>
-                              <td>@Html.DisplayFor(model => model.Nombre)</td>
-                          </tr>
-                          <tr>
-                              <td>@Html.DisplayNameFor(model => model.Apellidos)</td>
-                              <td>@Html.DisplayFor(model => model.Apellidos)</td>
-                          </tr>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title ptitle text-uppercase">@Html.DisplayFor(model => model.Nombre)</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-3 col-lg-3 "> <img alt="User Pic" src="~/Contenido/FotosUsuario/@Html.DisplayFor(model => model.FotoUsuario)" class="img-circle img-responsive"> </div>
+                <div class=" col-md-9 col-lg-9 ">
+                    <table class="table table-user-information">
+                        <tbody class="pprofile">
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.Email)</td>
+                                <td>@Html.DisplayFor(model => model.Email)</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.Nombre)</td>
+                                <td>@Html.DisplayFor(model => model.Nombre)</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.Apellidos)</td>
+                                <td>@Html.DisplayFor(model => model.Apellidos)</td>
+                            </tr>
 
-                          <tr>
-                              <td>@Html.DisplayNameFor(model => model.Nombreusuario)</td>
-                              <td>@Html.DisplayFor(model => model.Nombreusuario)</td>
-                          </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.Nombreusuario)</td>
+                                <td>@Html.DisplayFor(model => model.Nombreusuario)</td>
+                            </tr>
 
-                          <tr>
-                              <td>@Html.DisplayNameFor(model => model.Pais)</td>
-                              <td>@Html.DisplayFor(model => model.Pais)</td>
-                          </tr>
-                          <tr>
-                              <td>@Html.DisplayNameFor(model => model.Telefono)</td>
-                              <td>@Html.DisplayFor(model => model.Telefono)</td>
-                          </tr>
-                          <tr>
-                              <td>@Html.DisplayNameFor(model => model.Puntuacion)</td>
-                              <td>@Html.DisplayFor(model => model.Puntuacion)</td>
-                          </tr>
-                          <tr>
-                              <td>@Html.DisplayNameFor(model => model.FechaRegistro)</td>
-                              <td>@Html.DisplayFor(model => model.FechaRegistro)</td>
-                          </tr>
-                    </tbody>
-                  </table>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.Pais)</td>
+                                <td>@Html.DisplayFor(model => model.Pais)</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.Telefono)</td>
+                                <td>@Html.DisplayFor(model => model.Telefono)</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.Puntuacion)</td>
+                                <td>@Html.DisplayFor(model => model.Puntuacion)</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.DisplayNameFor(model => model.FechaRegistro)</td>
+                                <td>@Html.DisplayFor(model => model.FechaRegistro)</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-              </div>
-                <div class="row">
-@if ((Session["user_email"] != null && Session["user_email"].ToString() == Model.Email) || (Session["user_rol"] != null && Session["user_rol"].ToString() == "2"))
+            </div>
+            <div class="row">
+                @if ((Session["user_email"] != null && Session["user_email"].ToString() == Model.Email) || (Session["user_rol"] != null && Session["user_rol"].ToString() == "2"))
 {
                     @Html.ActionLink("Cerrar Sesión", "Logout", null, new { @class = "btn-primary btn-lg", style = "text-decoration:none" })
                     @Html.ActionLink("Editar mi perfil", "Edit", new { id = Model.Id }, new { @class = "btn-secondary2 btn-lg", style = "text-decoration:none" })
                     @Html.ActionLink("Eliminar mi perfil", "Delete", new { id = Model.Id }, new { @class = "btn-lg btn-danger", style = "text-decoration:none" })
 }
-@if ((Session["user_rol"] != null && Session["user_rol"].ToString() == "2"))
+                @if ((Session["user_rol"] != null && Session["user_rol"].ToString() == "2"))
 {
                     @Html.ActionLink("Volver a lista de usuarios", "Index", new { }, new { @class = "btn-info btn-lg", style = "text-decoration:none" })
 }
-                </div>  
-        </div>
-@if ((Session["user_email"] != null && Session["user_email"].ToString() == Model.Email) || (Session["user_rol"] != null && Session["user_rol"].ToString() == "2"))
-{
-        <div>
-            <h3 class="customh3" id="bandejaE">Mensajes</h3>
-            <div class="btn-group-justified" role="group">
-                <a href="" class="btn btn-secondary2" id="enviados">Mensajes Enviados</a>
-                <a href="" class="btn btn-secondary2" id="recibidos">Mensajes Recibidos</a>
-                <a href="" class="btn btn-secondary2" id="nuevo">Nuevo Mensaje</a>
             </div>
         </div>
-    
+        @if ((Session["user_email"] != null && Session["user_email"].ToString() == Model.Email) || (Session["user_rol"] != null && Session["user_rol"].ToString() == "2"))
+        {
+            <div>
+                <h3 class="customh3" id="bandejaE">Mensajes</h3>
+                <div class="btn-group-justified" role="group">
+                    <a href="" class="btn btn-secondary2" id="enviados">Mensajes Enviados</a>
+                    <a href="" class="btn btn-secondary2" id="recibidos">Mensajes Recibidos</a>
+                    <a href="" class="btn btn-secondary2" id="nuevo">Nuevo Mensaje</a>
+                </div>
+            </div>
 
-@Html.HiddenFor(model => model.Id, new { id = "ident", value = Model.Id });
 
-<div>
-    
-    @{Html.RenderAction("VerMensajesRecibidos", "Usuario", new { id = Model.Id });}
+            @Html.HiddenFor(model => model.Id, new { id = "ident", value = Model.Id });
+
+    <div>
+
+        @{Html.RenderAction("VerMensajesRecibidos", "Usuario", new { id = Model.Id });}
+    </div>
+        }
+    </div>
 </div>
-      }
 <script>
     $(function () {
 
