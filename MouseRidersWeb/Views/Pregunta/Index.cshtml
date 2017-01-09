@@ -5,30 +5,31 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2 class="customh2">Gestión de Usuarios</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Pregunta)
-        </th>
-        <th></th>
-    </tr>
+<div class="table-responsive">
+    <table class="table table-condensed table-striped">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Pregunta)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+        <tr>
+            <th>
+                Preguntas
+            </th>
+            <th></th>
+        </tr>
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pregunta)
+                </td>
+                <td>
+                    @Html.ActionLink("Modificar Pregunta", "Edit", new { id = item.id }, new { @class = "btn btn-default btn-xs btn-block " }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.id }, new { @class = "btn btn-info btn-xs btn-block " }) 
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.id }, new { @class = "btn btn-danger btn-xs btn-block " })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
