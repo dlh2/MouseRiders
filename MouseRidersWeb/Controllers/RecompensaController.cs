@@ -1,6 +1,8 @@
 ﻿using MouseRidersGenNHibernate.CAD.MouseRiders;
 using MouseRidersGenNHibernate.CEN.MouseRiders;
 using MouseRidersGenNHibernate.EN.MouseRiders;
+using MouseRidersWeb.Assembler;
+using MouseRidersWeb.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,23 +19,29 @@ namespace MouseRidersWeb.Controllers
         public ActionResult Index()
         {
             SessionInitialize();
-            RecompensaCAD recompensaCAD = new RecompensaCAD(session);
-            IList<RecompensaEN> recompensaEN = recompensaCAD.ReadAllDefault(0,10);
+            RecompensaCAD cCAD = new RecompensaCAD(session);
+            IList<RecompensaEN> result = cCAD.ReadAllDefault(0, 10);
+            IList<RecompensaDTO> resultfinal = new List<RecompensaDTO>();
+            foreach (RecompensaEN entry in result)
+                resultfinal.Add(new RecompensaAssembler().Convert(entry));
             SessionClose();
-            return View(recompensaEN);
+            return View(resultfinal);
         }
 
         //
         // GET: /Recompensa/Details/5
-        /*
+        
         public ActionResult Details(string nombre)
         {
             SessionInitialize();
             RecompensaCAD recompensaCAD = new RecompensaCAD(session);
             IList<RecompensaEN> result = recompensaCAD.ReadFilter(nombre);
+            IList<RecompensaDTO> resultfinal = new List<RecompensaDTO>();
+            foreach (RecompensaEN entry in result)
+                resultfinal.Add(new RecompensaAssembler().Convert(entry));
             SessionClose();
-            return View(result);
-        }*/
+            return View(resultfinal);
+        }
 
         //
         // GET: /Recompensa/Create
@@ -70,8 +78,8 @@ namespace MouseRidersWeb.Controllers
         public ActionResult Edit(int id)
         {
             RecompensaCEN recompensaCEN = new RecompensaCEN();
-            RecompensaEN r=recompensaCEN.ReadOID(id);
-            return View(r);
+            RecompensaDTO resultfinal = new RecompensaAssembler().Convert(result);
+            return View(resultfinal);
         }
 
         //
@@ -101,11 +109,12 @@ namespace MouseRidersWeb.Controllers
             {
                 // TODO: Add delete logic here
                 SessionInitialize();
-                RecompensaCAD recompensaCAD = new RecompensaCAD(session);
-                RecompensaCEN recompensaCEN = new RecompensaCEN(recompensaCAD);
-                recompensaCEN.BorrarRecompensa(id);
+                RecompensaCAD cCAD = new RecompensaCAD(session);
+                RecompensaEN result = cCAD.ReadOIDDefault(id);
+                RecompensaDTO resultfinal = new RecompensaAssembler().Convert(result);
                 SessionClose();
-                return RedirectToAction("Index");
+
+                return View(resultfinal);
             }
             catch
             {
@@ -117,12 +126,11 @@ namespace MouseRidersWeb.Controllers
         // POST: /Recompensa/Delete/5
 
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(RespuestaEN resp)
         {
             try
             {
-                // TODO: Add delete logic here
-
+                new RecompensaCEN().BorrarRecompensa(resp.Id);
                 return RedirectToAction("Index");
             }
             catch

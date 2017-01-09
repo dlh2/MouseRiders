@@ -443,6 +443,11 @@
     <Content Include="Views\Mensaje\Solicitar.cshtml" />
     <Content Include="Views\Usuario\Upload1.cshtml" />
     <Content Include="Views\Encuesta\Realizar.cshtml" />
+    <Content Include="Views\Recompensa\Index.cshtml" />
+    <Content Include="Views\Recompensa\Details.cshtml" />
+    <Content Include="Views\Recompensa\Create.cshtml" />
+    <Content Include="Views\Recompensa\Edit.cshtml" />
+    <Content Include="Views\Recompensa\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
