@@ -31,6 +31,7 @@ namespace MouseRidersWeb.Controllers
 
         public ActionResult MensajePorTipo(MouseRidersGenNHibernate.Enumerated.MouseRiders.T_MensajeEnum tipo)
         {
+            
             SessionInitialize();
             MensajeCAD cCAD = new MensajeCAD(session);
             IList<MensajeEN> resultEN = cCAD.ReadFilter(tipo,null);

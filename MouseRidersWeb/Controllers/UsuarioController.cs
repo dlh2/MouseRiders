@@ -84,6 +84,7 @@ namespace MouseRidersWeb.Controllers
 
         public ActionResult Index()
         {
+            if (Session["user_rol"] != null && (Session["user_rol"].ToString() == "2" || Session["user_rol"].ToString() == "4")) { 
             SessionInitialize();
             UsuarioCAD cCAD = new UsuarioCAD(session);
             IList<UsuarioEN> resultEN = cCAD.ReadAllDefault(0,999);
@@ -94,6 +95,11 @@ namespace MouseRidersWeb.Controllers
             }
             SessionClose();
             return View(result);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         //

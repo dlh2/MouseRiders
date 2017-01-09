@@ -153,10 +153,10 @@
                             <a href=""> Usuarios </a>
                         </li>
                         <li>
-                            <a href=""> Puestos </a>
+                            @Html.ActionLink("Puestos", "MensajePorTipo", "Mensaje", new { tipo = @MouseRidersGenNHibernate.Enumerated.MouseRiders.T_MensajeEnum.solicitud }, null)
                         </li>
                         <li>
-                            <a href=""> Notificaciones </a>
+                            @Html.ActionLink("Notificaciones", "MensajePorTipo", "Mensaje", new { tipo = @MouseRidersGenNHibernate.Enumerated.MouseRiders.T_MensajeEnum.notificacion }, null)
                         </li>
                     </ul>
                 </div>

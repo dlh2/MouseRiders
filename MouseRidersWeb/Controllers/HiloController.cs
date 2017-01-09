@@ -20,7 +20,7 @@ namespace MouseRidersWeb.Controllers
         {
             SessionInitialize();
             HiloCAD cCAD = new HiloCAD(session);
-            IList<HiloEN> result = cCAD.ReadAllDefault(0, 10);
+            IList<HiloEN> result = cCAD.ReadAllDefault(0, 999);
             HiloCEN cen = new HiloCEN();
             IList<HiloDTO> resultfinal = new List<HiloDTO>();
             foreach (HiloEN entry in result)

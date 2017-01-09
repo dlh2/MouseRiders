@@ -6,8 +6,9 @@
 }
 
 <h2 class="customh2">Foro</h2>
-
+@if ((Session["user_email"] != null && Session["user_email"].ToString() != "")) {
 @Html.ActionLink("Crear nuevo hilo", "Create", "Hilo", null, new {@class = "btn btn-default btn-lg btn-block " })
+}
 
 @foreach (var item in Model)
 {
@@ -28,5 +29,4 @@
 </fieldset>
 
 }
-
 
