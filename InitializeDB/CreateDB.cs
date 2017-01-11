@@ -620,7 +620,7 @@ public static void InitializeData ()
                 int oid_p1 = preguntaCEN.CrearPregunta (pregunta1EN.Pregunta, pregunta1EN.Tipo, oid_e);
 
                 PreguntaEN pregunta2EN = new PreguntaEN ();
-                pregunta2EN.Pregunta = "¿Que puntuacion le da la asignatura DSM?";
+                pregunta2EN.Pregunta = "¿Que opina sobre la vida?";
                 pregunta2EN.Tipo = T_PreguntaEnum.numerico;
                 pregunta2EN.Pertenece = encuestaEN;
                 int oid_p2 = preguntaCEN.CrearPregunta (pregunta2EN.Pregunta, pregunta2EN.Tipo, oid_e);
@@ -936,14 +936,14 @@ public static void InitializeData ()
                     
 
                 ComentarioEN comentario2EN = new ComentarioEN ();
-                comentario2EN.Contenido = "eso es mentira";
+                comentario2EN.Contenido = "eso es cierto";
                 comentario2EN.Creador = usuario2EN.Email;
                 comentario2EN.Fecha = DateTime.Now;
                 comentario2EN.Valoracion = 0;
                 int oid_c2 = comentarioCEN.CrearComentario (comentario2EN.Creador, comentario2EN.Fecha, comentario2EN.Contenido, comentario2EN.Valoracion);
 
                 ComentarioEN comentario3EN = new ComentarioEN ();
-                comentario3EN.Contenido = "eso es falso";
+                comentario3EN.Contenido = "eso es verdadero";
                 comentario3EN.Creador = usuario2EN.Email;
                 comentario3EN.Fecha = DateTime.Now;
                 comentario3EN.Valoracion = 0;
@@ -957,7 +957,7 @@ public static void InitializeData ()
                 int oid_c4 = comentarioCEN.CrearComentario (comentario4EN.Creador, comentario4EN.Fecha, comentario4EN.Contenido, comentario4EN.Valoracion);
 
                 ComentarioEN comentario5EN = new ComentarioEN ();
-                comentario5EN.Contenido = "mirate re:zero de una puta vez manu y tu tambien sergio";
+                comentario5EN.Contenido = "mirate re:zero de una vez manu y tu tambien sergio";
                 comentario5EN.Creador = usuario4EN.Email;
                 comentario5EN.Fecha = DateTime.Now;
                 comentario5EN.Valoracion = 0;
@@ -978,7 +978,7 @@ public static void InitializeData ()
                 int oid_c7 = comentarioCEN.CrearComentario (comentario7EN.Creador, comentario7EN.Fecha, comentario7EN.Contenido, comentario7EN.Valoracion);
 
                 ComentarioEN comentario8EN = new ComentarioEN ();
-                comentario8EN.Contenido = "sergio cambia el jodido comentario cabron";
+                comentario8EN.Contenido = "sergio cambia el maldito comentario, cabra";
                 comentario8EN.Creador = usuario3EN.Email;
                 comentario8EN.Fecha = DateTime.Now;
                 comentario8EN.Valoracion = 0;
@@ -1018,7 +1018,7 @@ public static void InitializeData ()
                         comentario11EN.Valoracion);
 
                 ComentarioEN comentario12EN = new ComentarioEN ();
-                comentario12EN.Contenido = "Ya lo e jugado  y es lo que me esperaba , el antiguo Nier con las mecanicas de Platinum para el combate , una gozada  Lo que me sorprende al leer estas impresiones es lo de los angulos de camara , ya que esos angulos los hacia el primer Nier ";
+                comentario12EN.Contenido = "Ya lo he jugado  y es lo que me esperaba , el antiguo Nier con las mecanicas de Platinum para el combate , una gozada  Lo que me sorprende al leer estas impresiones es lo de los angulos de camara , ya que esos angulos los hacia el primer Nier ";
                 comentario12EN.Creador = usuario3EN.Email;
                 comentario12EN.Fecha = DateTime.Now;
                 comentario12EN.Valoracion = 0;
